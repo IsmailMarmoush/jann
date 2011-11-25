@@ -1,0 +1,9 @@
+Jautodoc
+http://jautodoc.sourceforge.net/update/
+
+
+Egit
+http://download.eclipse.org/egit/updates
+
+
+Metrics
