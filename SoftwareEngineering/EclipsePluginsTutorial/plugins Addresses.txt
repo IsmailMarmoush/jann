@@ -5,5 +5,13 @@ http://jautodoc.sourceforge.net/update/
 Egit
 http://download.eclipse.org/egit/updates
 
+Mylyn GIT 
+http://download.eclipse.org/egit/updates
+or
+help> Marketplace > down(yoxos) orange ball
+
+Papyrus UML
+http://www.eclipse.org/modeling/mdt/papyrus/
 
 Metrics
+
