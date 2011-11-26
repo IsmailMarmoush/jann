@@ -7,12 +7,18 @@
     <availablePage>
       <emfPageIdentifier href="PapyrusUmlModel.notation#_ZuAmIBe5EeG8QfIkQs3gUQ"/>
     </availablePage>
+    <availablePage>
+      <emfPageIdentifier href="PapyrusUmlModel.notation#_dJVBABe6EeG8QfIkQs3gUQ"/>
+    </availablePage>
   </pageList>
   <sashModel currentSelection="//@sashModel/@windows.0/@children.0">
     <windows>
       <children xsi:type="di:TabFolder">
         <children>
           <emfPageIdentifier href="PapyrusUmlModel.notation#_ZuAmIBe5EeG8QfIkQs3gUQ"/>
+        </children>
+        <children>
+          <emfPageIdentifier href="PapyrusUmlModel.notation#_dJVBABe6EeG8QfIkQs3gUQ"/>
         </children>
       </children>
     </windows>
