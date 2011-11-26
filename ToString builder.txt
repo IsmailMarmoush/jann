@@ -1,0 +1,6 @@
+ToString builder:
+${object.superToString}
+${member.name()}=${member.value} 
+${otherMembers}
+
+-----------------
