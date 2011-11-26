@@ -31,29 +31,27 @@ import com.marmoush.jann.utils.functors.IWeight;
 /**
  * The Class TestFeedForward.
  */
-public class TestFeedForward
-{
-    
-    /**
-     * The main method.
-     *
-     * @param args the arguments
-     */
-    public static void main(String[] args)
-    {
-	FeedForwardSvNet net =
-	    new FeedForwardSvNet(4, IWeight.DOTPROD, ITransfere.TANSIG,
-		IPerformance.MSE, 3, 5, 2);
-	NetworkUtils.setFillLearnRate(net, 0.1);
-	NetworkUtils.setFillRandomMinMaxFloor(net, -1, 1);
-	TrainSvBPFF train =
-	    new TrainSvBPFF(ITransfere.TANSIGDIFF, 0.01, 1000, 10);
-	TrainResult result =
-	    train.stochasticToLimits(net, DoubleMatrix.ones(4),
-		DoubleMatrix.ones(2));
-	System.out.println(net);
-	System.out.println(result);
-	System.out.println("Last layer performance"
-		+ net.getOutputLayer().getPerformance());
-    }
+public class TestFeedForward {
+
+	/**
+	 * The main method.
+	 * 
+	 * @param args
+	 *            the arguments
+	 */
+	public static void main(String[] args) {
+
+		FeedForwardSvNet net = new FeedForwardSvNet(4, IWeight.DOTPROD,
+				ITransfere.TANSIG, IPerformance.MSE, 3, 5, 2);
+		NetworkUtils.setFillLearnRate(net, 0.1);
+		NetworkUtils.setFillRandomMinMaxFloor(net, -1, 1);
+		TrainSvBPFF train = new TrainSvBPFF(ITransfere.TANSIGDIFF, 0.01, 1000,
+				10);
+		TrainResult result = train.stochasticToLimits(net,
+				DoubleMatrix.ones(4), DoubleMatrix.ones(2));
+		System.out.println(net);
+		System.out.println(result);
+		System.out.println("Last layer performance"
+				+ net.getOutputLayer().getPerformance());
+	}
 }
