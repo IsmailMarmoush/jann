@@ -24,28 +24,26 @@ import com.marmoush.jann.neuralgraph.NeuralDirectedGraph;
 import com.marmoush.jann.sv.SvNeuralNetwork;
 import com.marmoush.jann.utils.NetworkUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TestBp.
  */
-public class TestBp
-{
+public class TestBp {
 
-    /**
-     * The main method.
-     *
-     * @param args the arguments
-     */
-    public static void main(String[] args)
-    {
-	NeuralDirectedGraph ngraph = new NeuralDirectedGraph(3, 4, 2);
-	ngraph.addEdge(0, 1);
-	ngraph.addEdge(1, 2);
-	SvNeuralNetwork net = new SvNeuralNetwork(ngraph);
-	net.get(0).setOutput(DoubleMatrix.ones(3));
-	NetworkUtils.setFillRandom(net);
-	System.out.println(net);
-	// NetworkUtils.simulate(net, ngraph);
-	// System.out.println(net);
-    }
+	/**
+	 * The main method.
+	 * 
+	 * @param args
+	 *            the arguments
+	 */
+	public static void main(String[] args) {
+		NeuralDirectedGraph ngraph = new NeuralDirectedGraph(3, 4, 2);
+		ngraph.addEdge(0, 1);
+		ngraph.addEdge(1, 2);
+		SvNeuralNetwork net = new SvNeuralNetwork(ngraph);
+		net.get(0).setOutput(DoubleMatrix.ones(3));
+		NetworkUtils.setFillRandom(net);
+		System.out.println(net);
+		// NetworkUtils.simulate(net, ngraph);
+		// System.out.println(net);
+	}
 }

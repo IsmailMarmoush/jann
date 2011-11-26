@@ -18,18 +18,16 @@
  */
 package com.marmoush.jann.utils.functors;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface IFunctionable.
  */
-public interface IFunctionable
-{
+public interface IFunctionable {
 
-    /**
-     * To string.
-     *
-     * @return the string
-     */
-    @Override
-    public String toString();
+	/**
+	 * To string.
+	 * 
+	 * @return the string
+	 */
+	@Override
+	public String toString();
 }

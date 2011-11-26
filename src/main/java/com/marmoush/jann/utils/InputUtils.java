@@ -21,7 +21,6 @@ package com.marmoush.jann.utils;
 /**
  * The Class InputUtils.
  */
-public class InputUtils
-{
+public class InputUtils {
 
 }

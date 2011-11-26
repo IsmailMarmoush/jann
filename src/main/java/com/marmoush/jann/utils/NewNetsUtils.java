@@ -22,37 +22,37 @@ import org.jblas.DoubleMatrix;
 
 import com.marmoush.jann.sv.SvLayer;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class NewNetsUtils.
  */
-public class NewNetsUtils
-{
+public class NewNetsUtils {
 
-    /**
-     * Creates the perceptron.
-     *
-     * @param input the input
-     * @param nNeurons the n neurons
-     * @return the sv layer
-     */
-    public static SvLayer createPerceptron(DoubleMatrix input, int nNeurons)
-    {
-	SvLayer p = new SvLayer(input.length, nNeurons);
-	p.setInput(input);
-	return p;
-    }
+	/**
+	 * Creates the perceptron.
+	 * 
+	 * @param input
+	 *            the input
+	 * @param nNeurons
+	 *            the n neurons
+	 * @return the sv layer
+	 */
+	public static SvLayer createPerceptron(DoubleMatrix input, int nNeurons) {
+		SvLayer p = new SvLayer(input.length, nNeurons);
+		p.setInput(input);
+		return p;
+	}
 
-    /**
-     * Creates the perceptron.
-     *
-     * @param nInputs the n inputs
-     * @param nNeurons the n neurons
-     * @return the sv layer
-     */
-    public static SvLayer createPerceptron(int nInputs, int nNeurons)
-    {
-	return new SvLayer(nInputs, nNeurons);
-    }
+	/**
+	 * Creates the perceptron.
+	 * 
+	 * @param nInputs
+	 *            the n inputs
+	 * @param nNeurons
+	 *            the n neurons
+	 * @return the sv layer
+	 */
+	public static SvLayer createPerceptron(int nInputs, int nNeurons) {
+		return new SvLayer(nInputs, nNeurons);
+	}
 
 }

@@ -20,24 +20,24 @@ package com.marmoush.jann.utils;
 
 import org.jblas.DoubleMatrix;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class WeightUtils.
  */
-public abstract class WeightUtils
-{
+public abstract class WeightUtils {
 
-    /**
-     * Dotprod.
-     *
-     * @param input the input
-     * @param bias the bias
-     * @param weight the weight
-     * @return the double matrix
-     */
-    public static DoubleMatrix dotprod(DoubleMatrix input, DoubleMatrix bias,
-	DoubleMatrix weight)
-    {
-	return weight.mmul(input).add(bias);
-    }
+	/**
+	 * Dotprod.
+	 * 
+	 * @param input
+	 *            the input
+	 * @param bias
+	 *            the bias
+	 * @param weight
+	 *            the weight
+	 * @return the double matrix
+	 */
+	public static DoubleMatrix dotprod(DoubleMatrix input, DoubleMatrix bias,
+			DoubleMatrix weight) {
+		return weight.mmul(input).add(bias);
+	}
 }

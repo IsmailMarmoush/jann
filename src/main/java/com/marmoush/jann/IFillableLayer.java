@@ -20,52 +20,60 @@ package com.marmoush.jann;
 
 import org.jblas.DoubleMatrix;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface IFillableLayer.
  */
-public interface IFillableLayer
-{
+public interface IFillableLayer {
 
-    /**
-     * Sets the fill.
-     *
-     * @param value the value
-     * @param matrices the matrices
-     */
-    public abstract void setFill(double value, DoubleMatrix... matrices);
+	/**
+	 * Sets the fill.
+	 * 
+	 * @param value
+	 *            the value
+	 * @param matrices
+	 *            the matrices
+	 */
+	public abstract void setFill(double value, DoubleMatrix... matrices);
 
-    /**
-     * Sets the fill random.
-     *
-     * @param matrices the new fill random
-     */
-    public abstract void setFillRandom(DoubleMatrix... matrices);
+	/**
+	 * Sets the fill random.
+	 * 
+	 * @param matrices
+	 *            the new fill random
+	 */
+	public abstract void setFillRandom(DoubleMatrix... matrices);
 
-    /**
-     * Sets the fill random floor.
-     *
-     * @param matrices the new fill random floor
-     */
-    public abstract void setFillRandomFloor(DoubleMatrix... matrices);
+	/**
+	 * Sets the fill random floor.
+	 * 
+	 * @param matrices
+	 *            the new fill random floor
+	 */
+	public abstract void setFillRandomFloor(DoubleMatrix... matrices);
 
-    /**
-     * Sets the fill random min max.
-     *
-     * @param min the min
-     * @param max the max
-     * @param matrices the matrices
-     */
-    public abstract void setFillRandomMinMax(double min, double max,
-	DoubleMatrix... matrices);
+	/**
+	 * Sets the fill random min max.
+	 * 
+	 * @param min
+	 *            the min
+	 * @param max
+	 *            the max
+	 * @param matrices
+	 *            the matrices
+	 */
+	public abstract void setFillRandomMinMax(double min, double max,
+			DoubleMatrix... matrices);
 
-    /**
-     * Sets the fill random min max floor.
-     *
-     * @param min the min
-     * @param max the max
-     * @param matrices the matrices
-     */
-    public abstract void setFillRandomMinMaxFloor(int min, int max,
-	DoubleMatrix... matrices);
+	/**
+	 * Sets the fill random min max floor.
+	 * 
+	 * @param min
+	 *            the min
+	 * @param max
+	 *            the max
+	 * @param matrices
+	 *            the matrices
+	 */
+	public abstract void setFillRandomMinMaxFloor(int min, int max,
+			DoubleMatrix... matrices);
 }

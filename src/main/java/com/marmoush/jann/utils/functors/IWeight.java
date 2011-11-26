@@ -23,35 +23,31 @@ import org.jblas.DoubleMatrix;
 import com.marmoush.jann.ILayer;
 import com.marmoush.jann.utils.WeightUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface IWeight.
  */
-public interface IWeight extends IFunctionable
-{
+public interface IWeight extends IFunctionable {
 
-    /** The Constant DOTPROD. */
-    public static final IWeight DOTPROD = new IWeight()
-    {
-	@Override
-	public String toString()
-	{
-	    return "DOTPROD";
-	}
+	/** The Constant DOTPROD. */
+	public static final IWeight DOTPROD = new IWeight() {
+		@Override
+		public String toString() {
+			return "DOTPROD";
+		}
 
-	@Override
-	public DoubleMatrix weightFn(ILayer layer)
-	{
-	    return WeightUtils.dotprod(layer.getInput(),
-		layer.getBias(), layer.getWeight());
-	}
-    };
+		@Override
+		public DoubleMatrix weightFn(ILayer layer) {
+			return WeightUtils.dotprod(layer.getInput(), layer.getBias(),
+					layer.getWeight());
+		}
+	};
 
-    /**
-     * Weight fn.
-     *
-     * @param layer the layer
-     * @return the double matrix
-     */
-    public DoubleMatrix weightFn(ILayer layer);
+	/**
+	 * Weight fn.
+	 * 
+	 * @param layer
+	 *            the layer
+	 * @return the double matrix
+	 */
+	public DoubleMatrix weightFn(ILayer layer);
 }

@@ -28,45 +28,43 @@ import com.marmoush.jann.train.TrainSvPerceptron;
 import com.marmoush.jann.train.TrainResult;
 import com.marmoush.jann.utils.MatrixUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TestPerceptron.
  */
-public class TestPerceptron
-{
+public class TestPerceptron {
 
-    /**
-     * The main method.
-     *
-     * @param args the arguments
-     */
-    public static void main(String[] args)
-    {
+	/**
+	 * The main method.
+	 * 
+	 * @param args
+	 *            the arguments
+	 */
+	public static void main(String[] args) {
 
-	// Init input
-	int inLength = 100;
-	DoubleMatrix input = MatrixUtils.randomMatrixFloor(inLength, 1, 0, 1);
-	System.out.println(input);
-	List<DoubleMatrix> inputList = new ArrayList<DoubleMatrix>();
-	inputList.add(input);
-	inputList.add(input);
-	inputList.add(input);
+		// Init input
+		int inLength = 100;
+		DoubleMatrix input = MatrixUtils.randomMatrixFloor(inLength, 1, 0, 1);
+		System.out.println(input);
+		List<DoubleMatrix> inputList = new ArrayList<DoubleMatrix>();
+		inputList.add(input);
+		inputList.add(input);
+		inputList.add(input);
 
-	// Init target
-	int outLength = 100;
-	DoubleMatrix target = MatrixUtils.randomMatrixFloor(outLength, 1, 0, 1);
-	System.out.println(target);
-	List<DoubleMatrix> targetList = new ArrayList<DoubleMatrix>();
-	targetList.add(target);
-	targetList.add(target);
-	targetList.add(target);
+		// Init target
+		int outLength = 100;
+		DoubleMatrix target = MatrixUtils.randomMatrixFloor(outLength, 1, 0, 1);
+		System.out.println(target);
+		List<DoubleMatrix> targetList = new ArrayList<DoubleMatrix>();
+		targetList.add(target);
+		targetList.add(target);
+		targetList.add(target);
 
-	// Init Perceptron
-	Perceptron p = new Perceptron(inLength, outLength);
-	p.setFillRandom(p.getWeight());
-	TrainSvPerceptron dr = new TrainSvPerceptron(0.1, 100, 20);
-	TrainResult tr = dr.stochasticToLimits(p, inputList, targetList);
-	System.out.println(p);
-	System.out.println(tr);
-    }
+		// Init Perceptron
+		Perceptron p = new Perceptron(inLength, outLength);
+		p.setFillRandom(p.getWeight());
+		TrainSvPerceptron dr = new TrainSvPerceptron(0.1, 100, 20);
+		TrainResult tr = dr.stochasticToLimits(p, inputList, targetList);
+		System.out.println(p);
+		System.out.println(tr);
+	}
 }

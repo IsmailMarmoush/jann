@@ -21,117 +21,117 @@ package com.marmoush.jann.utils;
 import org.jblas.DoubleMatrix;
 import org.jblas.MatrixFunctions;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class MatrixUtils.
  */
-public class MatrixUtils
-{
+public class MatrixUtils {
 
-    /**
-     * Random matrix.
-     *
-     * @param rows the rows
-     * @param cols the cols
-     * @param min the min
-     * @param max the max
-     * @return the double matrix
-     */
-    public static DoubleMatrix randomMatrix(int rows, int cols, double min,
-	double max)
-    {
-	return DoubleMatrix.rand(rows, cols).muli((max - min) + 1).addi(min);
-    }
-
-    /**
-     * Random matrix floor.
-     *
-     * @param rows the rows
-     * @param cols the cols
-     * @param min the min
-     * @param max the max
-     * @return the double matrix
-     */
-    public static DoubleMatrix randomMatrixFloor(int rows, int cols, int min,
-	int max)
-    {
-	DoubleMatrix randMtrx = DoubleMatrix.rand(rows, cols);
-	randMtrx.muli((max - min) + 1).addi(min);
-	return MatrixFunctions.floori(randMtrx);
-    }
-
-    /**
-     * Sets the fill random.
-     *
-     * @param matrices the new fill random
-     */
-    public static void setFillRandom(DoubleMatrix... matrices)
-    {
-	for (DoubleMatrix mtrx : matrices)
-	{
-	    if (mtrx != null)
-	    {
-		mtrx.fill(0).addi(DoubleMatrix.rand(mtrx.rows, mtrx.columns));
-	    }
+	/**
+	 * Random matrix.
+	 * 
+	 * @param rows
+	 *            the rows
+	 * @param cols
+	 *            the cols
+	 * @param min
+	 *            the min
+	 * @param max
+	 *            the max
+	 * @return the double matrix
+	 */
+	public static DoubleMatrix randomMatrix(int rows, int cols, double min,
+			double max) {
+		return DoubleMatrix.rand(rows, cols).muli((max - min) + 1).addi(min);
 	}
-    }
 
-    /**
-     * Sets the fill random floor.
-     *
-     * @param matrices the new fill random floor
-     */
-    public static void setFillRandomFloor(DoubleMatrix... matrices)
-    {
-	for (DoubleMatrix mtrx : matrices)
-	{
-	    if (mtrx != null)
-	    {
-		mtrx.fill(0).addi(DoubleMatrix.rand(mtrx.rows, mtrx.columns));
-		MatrixFunctions.floori(mtrx);
-	    }
+	/**
+	 * Random matrix floor.
+	 * 
+	 * @param rows
+	 *            the rows
+	 * @param cols
+	 *            the cols
+	 * @param min
+	 *            the min
+	 * @param max
+	 *            the max
+	 * @return the double matrix
+	 */
+	public static DoubleMatrix randomMatrixFloor(int rows, int cols, int min,
+			int max) {
+		DoubleMatrix randMtrx = DoubleMatrix.rand(rows, cols);
+		randMtrx.muli((max - min) + 1).addi(min);
+		return MatrixFunctions.floori(randMtrx);
 	}
-    }
 
-    /**
-     * Sets the fill random min max.
-     *
-     * @param min the min
-     * @param max the max
-     * @param matrices the matrices
-     */
-    public static void setFillRandomMinMax(double min, double max,
-	DoubleMatrix... matrices)
-    {
-	for (DoubleMatrix mtrx : matrices)
-	{
-	    if (mtrx != null)
-	    {
-		mtrx.fill(0).addi(DoubleMatrix.rand(mtrx.rows, mtrx.columns));
-		mtrx.muli((max - min) + 1);
-		mtrx.addi(min);
-	    }
+	/**
+	 * Sets the fill random.
+	 * 
+	 * @param matrices
+	 *            the new fill random
+	 */
+	public static void setFillRandom(DoubleMatrix... matrices) {
+		for (DoubleMatrix mtrx : matrices) {
+			if (mtrx != null) {
+				mtrx.fill(0).addi(DoubleMatrix.rand(mtrx.rows, mtrx.columns));
+			}
+		}
 	}
-    }
 
-    /**
-     * Sets the fill random min max floor.
-     *
-     * @param min the min
-     * @param max the max
-     * @param matrices the matrices
-     */
-    public static void setFillRandomMinMaxFloor(int min, int max,
-	DoubleMatrix... matrices)
-    {
-	for (DoubleMatrix mtrx : matrices)
-	{
-	    if (mtrx != null)
-	    {
-		mtrx.fill(0).addi(DoubleMatrix.rand(mtrx.rows, mtrx.columns));
-		mtrx.muli((max - min) + 1).addi(min);
-		MatrixFunctions.floori(mtrx);
-	    }
+	/**
+	 * Sets the fill random floor.
+	 * 
+	 * @param matrices
+	 *            the new fill random floor
+	 */
+	public static void setFillRandomFloor(DoubleMatrix... matrices) {
+		for (DoubleMatrix mtrx : matrices) {
+			if (mtrx != null) {
+				mtrx.fill(0).addi(DoubleMatrix.rand(mtrx.rows, mtrx.columns));
+				MatrixFunctions.floori(mtrx);
+			}
+		}
 	}
-    }
+
+	/**
+	 * Sets the fill random min max.
+	 * 
+	 * @param min
+	 *            the min
+	 * @param max
+	 *            the max
+	 * @param matrices
+	 *            the matrices
+	 */
+	public static void setFillRandomMinMax(double min, double max,
+			DoubleMatrix... matrices) {
+		for (DoubleMatrix mtrx : matrices) {
+			if (mtrx != null) {
+				mtrx.fill(0).addi(DoubleMatrix.rand(mtrx.rows, mtrx.columns));
+				mtrx.muli((max - min) + 1);
+				mtrx.addi(min);
+			}
+		}
+	}
+
+	/**
+	 * Sets the fill random min max floor.
+	 * 
+	 * @param min
+	 *            the min
+	 * @param max
+	 *            the max
+	 * @param matrices
+	 *            the matrices
+	 */
+	public static void setFillRandomMinMaxFloor(int min, int max,
+			DoubleMatrix... matrices) {
+		for (DoubleMatrix mtrx : matrices) {
+			if (mtrx != null) {
+				mtrx.fill(0).addi(DoubleMatrix.rand(mtrx.rows, mtrx.columns));
+				mtrx.muli((max - min) + 1).addi(min);
+				MatrixFunctions.floori(mtrx);
+			}
+		}
+	}
 }
