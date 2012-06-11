@@ -32,122 +32,122 @@ import com.marmoush.jann.utils.NetworkUtils;
  */
 public class SvNeuralNetwork extends ArrayList<SvLayer> {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 7960882092463170437L;
+    /** The Constant serialVersionUID. */
+    private static final long serialVersionUID = 7960882092463170437L;
 
-	/** The neural graph. */
-	private NeuralDirectedGraph neuralGraph = null;
+    /** The neural graph. */
+    private NeuralDirectedGraph neuralGraph = null;
 
-	/**
-	 * Instantiates a new sv neural network.
-	 */
-	public SvNeuralNetwork() {
-		super();
+    /**
+     * Instantiates a new sv neural network.
+     */
+    public SvNeuralNetwork() {
+	super();
+    }
+
+    /**
+     * Instantiates a new sv neural network.
+     * 
+     * @param c
+     *            the c
+     */
+    public SvNeuralNetwork(Collection<? extends SvLayer> c) {
+	super(c);
+    }
+
+    /**
+     * Instantiates a new sv neural network.
+     * 
+     * @param initialCapacity
+     *            the initial capacity
+     */
+    public SvNeuralNetwork(int initialCapacity) {
+	super(initialCapacity);
+    }
+
+    /**
+     * Instantiates a new sv neural network.
+     * 
+     * @param neuralGraph
+     *            the neural graph
+     */
+    public SvNeuralNetwork(NeuralDirectedGraph neuralGraph) {
+	init(neuralGraph);
+    }
+
+    /**
+     * Gets the inputs concatenated for layer.
+     * 
+     * @param layerIdx
+     *            the layer idx
+     * @return the inputs concatenated for layer
+     */
+    public DoubleMatrix getInputsConcatenatedForLayer(int layerIdx) {
+	return NetworkUtils.getInputsConcatenatedForLayer(layerIdx, this,
+		this.neuralGraph);
+    }
+
+    /**
+     * Gets the neural graph.
+     * 
+     * @return the neural graph
+     */
+    public NeuralDirectedGraph getNeuralGraph() {
+	return neuralGraph;
+    }
+
+    /**
+     * Inits the.
+     * 
+     * @param neuralGraph
+     *            the neural graph
+     */
+    public void init(NeuralDirectedGraph neuralGraph) {
+	this.neuralGraph = neuralGraph;
+	int lyrIdx = 0;
+	int nNeurons = 0;
+	int nInputs = 0;
+
+	Iterator<Integer> itr = neuralGraph.vertexSet().iterator();
+	while (itr.hasNext()) {
+	    lyrIdx = itr.next();
+	    nInputs = neuralGraph.getInputLength(lyrIdx);
+	    nNeurons = neuralGraph.getLayerNumOfNeurons(lyrIdx);
+	    add(new SvLayer(nInputs, nNeurons));
 	}
+    }
 
-	/**
-	 * Instantiates a new sv neural network.
-	 * 
-	 * @param c
-	 *            the c
-	 */
-	public SvNeuralNetwork(Collection<? extends SvLayer> c) {
-		super(c);
+    /**
+     * Sets the neural graph.
+     * 
+     * @param neuralGraph
+     *            the new neural graph
+     */
+    public void setNeuralGraph(NeuralDirectedGraph neuralGraph) {
+	this.neuralGraph = neuralGraph;
+    }
+
+    /**
+     * Simulate.
+     */
+    public void simulate() {
+	NetworkUtils.simulate(this, this.neuralGraph);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.util.AbstractCollection#toString()
+     */
+    @Override
+    public String toString() {
+	StringBuilder sb = new StringBuilder();
+	for (int i = 0; i < this.size(); i++) {
+	    sb.append("SvLayer:" + i);
+	    sb.append(this.get(i));
+	    sb.append("\n");
 	}
-
-	/**
-	 * Instantiates a new sv neural network.
-	 * 
-	 * @param initialCapacity
-	 *            the initial capacity
-	 */
-	public SvNeuralNetwork(int initialCapacity) {
-		super(initialCapacity);
-	}
-
-	/**
-	 * Instantiates a new sv neural network.
-	 * 
-	 * @param neuralGraph
-	 *            the neural graph
-	 */
-	public SvNeuralNetwork(NeuralDirectedGraph neuralGraph) {
-		init(neuralGraph);
-	}
-
-	/**
-	 * Gets the inputs concatenated for layer.
-	 * 
-	 * @param layerIdx
-	 *            the layer idx
-	 * @return the inputs concatenated for layer
-	 */
-	public DoubleMatrix getInputsConcatenatedForLayer(int layerIdx) {
-		return NetworkUtils.getInputsConcatenatedForLayer(layerIdx, this,
-				this.neuralGraph);
-	}
-
-	/**
-	 * Gets the neural graph.
-	 * 
-	 * @return the neural graph
-	 */
-	public NeuralDirectedGraph getNeuralGraph() {
-		return neuralGraph;
-	}
-
-	/**
-	 * Inits the.
-	 * 
-	 * @param neuralGraph
-	 *            the neural graph
-	 */
-	public void init(NeuralDirectedGraph neuralGraph) {
-		this.neuralGraph = neuralGraph;
-		int lyrIdx = 0;
-		int nNeurons = 0;
-		int nInputs = 0;
-
-		Iterator<Integer> itr = neuralGraph.vertexSet().iterator();
-		while (itr.hasNext()) {
-			lyrIdx = itr.next();
-			nInputs = neuralGraph.getInputLength(lyrIdx);
-			nNeurons = neuralGraph.getLayerNumOfNeurons(lyrIdx);
-			add(new SvLayer(nInputs, nNeurons));
-		}
-	}
-
-	/**
-	 * Sets the neural graph.
-	 * 
-	 * @param neuralGraph
-	 *            the new neural graph
-	 */
-	public void setNeuralGraph(NeuralDirectedGraph neuralGraph) {
-		this.neuralGraph = neuralGraph;
-	}
-
-	/**
-	 * Simulate.
-	 */
-	public void simulate() {
-		NetworkUtils.simulate(this, this.neuralGraph);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.util.AbstractCollection#toString()
-	 */
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < this.size(); i++) {
-			sb.append("SvLayer:" + i);
-			sb.append(this.get(i));
-			sb.append("\n");
-		}
-		return sb.toString();
-	}
+	return sb.toString();
+    }
 
 }

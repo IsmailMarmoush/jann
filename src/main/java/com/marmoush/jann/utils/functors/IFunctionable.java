@@ -23,11 +23,11 @@ package com.marmoush.jann.utils.functors;
  */
 public interface IFunctionable {
 
-	/**
-	 * To string.
-	 * 
-	 * @return the string
-	 */
-	@Override
-	public String toString();
+    /**
+     * To string.
+     * 
+     * @return the string
+     */
+    @Override
+    public String toString();
 }

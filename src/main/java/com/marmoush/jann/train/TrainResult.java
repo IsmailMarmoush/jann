@@ -23,127 +23,127 @@ package com.marmoush.jann.train;
  */
 public class TrainResult {
 
-	/** The Constant EPOCHS_REACHED. */
-	public static final String EPOCHS_REACHED = "EpochsReached";
+    /** The Constant EPOCHS_REACHED. */
+    public static final String EPOCHS_REACHED = "EpochsReached";
 
-	/** The Constant PERFORMANCE_REACHED. */
-	public static final String PERFORMANCE_REACHED = "PerformanceGoalMet";
+    /** The Constant PERFORMANCE_REACHED. */
+    public static final String PERFORMANCE_REACHED = "PerformanceGoalMet";
 
-	/** The Constant TIME_LIM_REACHED. */
-	public static final String TIME_LIM_REACHED = "MaxTimeExceeded";
+    /** The Constant TIME_LIM_REACHED. */
+    public static final String TIME_LIM_REACHED = "MaxTimeExceeded";
 
-	/** The at epoch. */
-	private int atEpoch;
+    /** The at epoch. */
+    private int atEpoch;
 
-	/** The cause. */
-	private String cause;
+    /** The cause. */
+    private String cause;
 
-	/** The end. */
-	private long end;
+    /** The end. */
+    private long end;
 
-	/** The performance average. */
-	private double performanceAverage = 0;
+    /** The performance average. */
+    private double performanceAverage = 0;
 
-	/** The performance average factor. */
-	private int performanceAverageFactor = 0;
+    /** The performance average factor. */
+    private int performanceAverageFactor = 0;
 
-	/** The start. */
-	private long start;
+    /** The start. */
+    private long start;
 
-	/** The time elapsed. */
-	private long timeElapsed;
+    /** The time elapsed. */
+    private long timeElapsed;
 
-	/**
-	 * End.
-	 * 
-	 * @param cause
-	 *            the cause
-	 * @param atEpoch
-	 *            the at epoch
-	 */
-	public void end(String cause, int atEpoch) {
-		this.end = System.currentTimeMillis();
-		this.timeElapsed = end - start;
-		this.cause = cause;
-		this.atEpoch = atEpoch;
-	}
+    /**
+     * End.
+     * 
+     * @param cause
+     *            the cause
+     * @param atEpoch
+     *            the at epoch
+     */
+    public void end(String cause, int atEpoch) {
+	this.end = System.currentTimeMillis();
+	this.timeElapsed = end - start;
+	this.cause = cause;
+	this.atEpoch = atEpoch;
+    }
 
-	/**
-	 * Gets the performance average.
-	 * 
-	 * @return the performance average
-	 */
-	public double getPerformanceAverage() {
-		return performanceAverage;
-	}
+    /**
+     * Gets the performance average.
+     * 
+     * @return the performance average
+     */
+    public double getPerformanceAverage() {
+	return performanceAverage;
+    }
 
-	/**
-	 * Gets the performance average factor.
-	 * 
-	 * @return the performance average factor
-	 */
-	public int getPerformanceAverageFactor() {
-		return performanceAverageFactor;
-	}
+    /**
+     * Gets the performance average factor.
+     * 
+     * @return the performance average factor
+     */
+    public int getPerformanceAverageFactor() {
+	return performanceAverageFactor;
+    }
 
-	/**
-	 * Sets the performance average.
-	 * 
-	 * @param performanceSum
-	 *            the new performance average
-	 */
-	public void setPerformanceAverage(double performanceSum) {
-		this.performanceAverage = performanceSum;
-	}
+    /**
+     * Sets the performance average.
+     * 
+     * @param performanceSum
+     *            the new performance average
+     */
+    public void setPerformanceAverage(double performanceSum) {
+	this.performanceAverage = performanceSum;
+    }
 
-	/**
-	 * Sets the performance average factor.
-	 * 
-	 * @param performanceAverageFactor
-	 *            the new performance average factor
-	 */
-	public void setPerformanceAverageFactor(int performanceAverageFactor) {
-		this.performanceAverageFactor = performanceAverageFactor;
-	}
+    /**
+     * Sets the performance average factor.
+     * 
+     * @param performanceAverageFactor
+     *            the new performance average factor
+     */
+    public void setPerformanceAverageFactor(int performanceAverageFactor) {
+	this.performanceAverageFactor = performanceAverageFactor;
+    }
 
-	/**
-	 * Start.
-	 */
-	public void start() {
-		this.start = System.currentTimeMillis();
-	}
+    /**
+     * Start.
+     */
+    public void start() {
+	this.start = System.currentTimeMillis();
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("\natEpoch=");
-		builder.append(atEpoch);
-		builder.append(" \ncause=");
-		builder.append(cause);
-		builder.append(" \nperformanceAverage=");
-		builder.append(performanceAverage);
-		builder.append(" \ntimeElapsed=");
-		builder.append(timeElapsed);
-		return builder.toString();
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+	StringBuilder builder = new StringBuilder();
+	builder.append("\natEpoch=");
+	builder.append(atEpoch);
+	builder.append(" \ncause=");
+	builder.append(cause);
+	builder.append(" \nperformanceAverage=");
+	builder.append(performanceAverage);
+	builder.append(" \ntimeElapsed=");
+	builder.append(timeElapsed);
+	return builder.toString();
+    }
 
-	/**
-	 * Update performance average.
-	 * 
-	 * @param performance
-	 *            the performance
-	 * @return the double
-	 */
-	public double updatePerformanceAverage(double performance) {
-		this.performanceAverageFactor++;
-		performanceAverage = (performanceAverage + performance)
-				/ performanceAverageFactor;
-		return performanceAverage;
-	}
+    /**
+     * Update performance average.
+     * 
+     * @param performance
+     *            the performance
+     * @return the double
+     */
+    public double updatePerformanceAverage(double performance) {
+	this.performanceAverageFactor++;
+	performanceAverage = (performanceAverage + performance)
+		/ performanceAverageFactor;
+	return performanceAverage;
+    }
 
 }

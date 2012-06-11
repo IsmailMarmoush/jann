@@ -27,21 +27,21 @@ import com.marmoush.jann.utils.functors.IWeight;
  */
 public class Perceptron extends SvLayer {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = -1709637643397682236L;
+    /** The Constant serialVersionUID. */
+    private static final long serialVersionUID = -1709637643397682236L;
 
-	/**
-	 * Instantiates a new perceptron.
-	 * 
-	 * @param nInputs
-	 *            the n inputs
-	 * @param nNeurons
-	 *            the n neurons
-	 */
-	public Perceptron(int nInputs, int nNeurons) {
-		super(nInputs, nNeurons);
-		this.setPerformancefnctr(IPerformance.MSE);
-		this.setWeightFnctr(IWeight.DOTPROD);
-	}
+    /**
+     * Instantiates a new perceptron.
+     * 
+     * @param nInputs
+     *            the n inputs
+     * @param nNeurons
+     *            the n neurons
+     */
+    public Perceptron(int nInputs, int nNeurons) {
+	super(nInputs, nNeurons);
+	this.setPerformancefnctr(IPerformance.MSE);
+	this.setWeightFnctr(IWeight.DOTPROD);
+    }
 
 }

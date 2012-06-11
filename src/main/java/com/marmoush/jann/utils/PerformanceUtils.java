@@ -26,36 +26,36 @@ import org.jblas.MatrixFunctions;
  */
 public class PerformanceUtils {
 
-	/**
-	 * Mae.
-	 * 
-	 * @param error
-	 *            the error
-	 * @return the double
-	 */
-	public static double mae(final DoubleMatrix error) {
-		return MatrixFunctions.abs(error).sum() / error.length;
-	}
+    /**
+     * Mae.
+     * 
+     * @param error
+     *            the error
+     * @return the double
+     */
+    public static double mae(final DoubleMatrix error) {
+	return MatrixFunctions.abs(error).sum() / error.length;
+    }
 
-	/**
-	 * Mse.
-	 * 
-	 * @param error
-	 *            the error
-	 * @return the double
-	 */
-	public static double mse(final DoubleMatrix error) {
-		return MatrixFunctions.pow(error, 2).sum() / error.length;
-	}
+    /**
+     * Mse.
+     * 
+     * @param error
+     *            the error
+     * @return the double
+     */
+    public static double mse(final DoubleMatrix error) {
+	return MatrixFunctions.pow(error, 2).sum() / error.length;
+    }
 
-	/**
-	 * Sse.
-	 * 
-	 * @param error
-	 *            the error
-	 * @return the double
-	 */
-	public static double sse(final DoubleMatrix error) {
-		return MatrixFunctions.pow(error, 2).sum();
-	}
+    /**
+     * Sse.
+     * 
+     * @param error
+     *            the error
+     * @return the double
+     */
+    public static double sse(final DoubleMatrix error) {
+	return MatrixFunctions.pow(error, 2).sum();
+    }
 }

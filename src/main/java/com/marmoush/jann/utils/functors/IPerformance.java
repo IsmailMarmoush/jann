@@ -27,51 +27,51 @@ import com.marmoush.jann.utils.PerformanceUtils;
  */
 public interface IPerformance extends IFunctionable {
 
-	/** The Constant MAE. */
-	public static final IPerformance MAE = new IPerformance() {
-		@Override
-		public double measurePerformance(DoubleMatrix error) {
-			return PerformanceUtils.mae(error);
-		}
+    /** The Constant MAE. */
+    public static final IPerformance MAE = new IPerformance() {
+	@Override
+	public double measurePerformance(DoubleMatrix error) {
+	    return PerformanceUtils.mae(error);
+	}
 
-		@Override
-		public String toString() {
-			return "MAE";
-		}
-	};
+	@Override
+	public String toString() {
+	    return "MAE";
+	}
+    };
 
-	/** The Constant MSE. */
-	public static final IPerformance MSE = new IPerformance() {
-		@Override
-		public double measurePerformance(DoubleMatrix error) {
-			return PerformanceUtils.mse(error);
-		}
+    /** The Constant MSE. */
+    public static final IPerformance MSE = new IPerformance() {
+	@Override
+	public double measurePerformance(DoubleMatrix error) {
+	    return PerformanceUtils.mse(error);
+	}
 
-		@Override
-		public String toString() {
-			return "MSE";
-		}
-	};
+	@Override
+	public String toString() {
+	    return "MSE";
+	}
+    };
 
-	/** The Constant SSE. */
-	public static final IPerformance SSE = new IPerformance() {
-		@Override
-		public double measurePerformance(DoubleMatrix error) {
-			return PerformanceUtils.sse(error);
-		}
+    /** The Constant SSE. */
+    public static final IPerformance SSE = new IPerformance() {
+	@Override
+	public double measurePerformance(DoubleMatrix error) {
+	    return PerformanceUtils.sse(error);
+	}
 
-		@Override
-		public String toString() {
-			return "SSE";
-		}
-	};
+	@Override
+	public String toString() {
+	    return "SSE";
+	}
+    };
 
-	/**
-	 * Measure performance.
-	 * 
-	 * @param error
-	 *            the error
-	 * @return the double
-	 */
-	public double measurePerformance(DoubleMatrix error);
+    /**
+     * Measure performance.
+     * 
+     * @param error
+     *            the error
+     * @return the double
+     */
+    public double measurePerformance(DoubleMatrix error);
 }

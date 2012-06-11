@@ -74,7 +74,6 @@ public class FeedForwardSvNet extends SvNeuralNetwork {
 	return this.get(this.size() - 1);
     }
 
-    
     /**
      * Inits the.
      * 
