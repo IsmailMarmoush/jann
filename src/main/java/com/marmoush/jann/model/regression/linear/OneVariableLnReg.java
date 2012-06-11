@@ -5,8 +5,14 @@ import com.marmoush.jann.sv.SvLayer;
 public class OneVariableLnReg {
     private SvLayer layer;
     public OneVariableLnReg(boolean bias,int nInputs) {
-	layer=new SvLayer(nInputs, 1);
+	setLayer(new SvLayer(nInputs, 1));
 	
+    }
+    public SvLayer getLayer() {
+	return layer;
+    }
+    public void setLayer(SvLayer layer) {
+	this.layer = layer;
     }
     
     
