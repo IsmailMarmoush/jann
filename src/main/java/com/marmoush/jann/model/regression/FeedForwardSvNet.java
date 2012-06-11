@@ -31,98 +31,91 @@ import com.marmoush.jann.utils.functors.IWeight;
  */
 public class FeedForwardSvNet extends SvNeuralNetwork {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 8103514276278385409L;
+    /** The Constant serialVersionUID. */
+    private static final long serialVersionUID = 8103514276278385409L;
 
-	/**
-	 * Instantiates a new feed forward sv net.
-	 * 
-	 * @param inputSize
-	 *            the input size
-	 * @param weightFnctr
-	 *            the weight fnctr
-	 * @param transFnctr
-	 *            the trans fnctr
-	 * @param performanceFnctr
-	 *            the performance fnctr
-	 * @param nNeuronsPerLayer
-	 *            the n neurons per layer
-	 */
-	public FeedForwardSvNet(int inputSize, IWeight weightFnctr,
-			ITransfere transFnctr, IPerformance performanceFnctr,
-			int... nNeuronsPerLayer) {
-		super();
-		this.init(inputSize, weightFnctr, transFnctr, performanceFnctr,
-				nNeuronsPerLayer);
-	}
+    /**
+     * Instantiates a new feed forward sv net.
+     * 
+     * @param inputSize
+     *            the input size
+     * @param weightFnctr
+     *            the weight fnctr
+     * @param transFnctr
+     *            the trans fnctr
+     * @param performanceFnctr
+     *            the performance fnctr
+     * @param nNeuronsPerLayer
+     *            the n neurons per layer
+     */
+    public FeedForwardSvNet(int inputSize, IWeight weightFnctr,
+	    ITransfere transFnctr, IPerformance performanceFnctr,
+	    int... nNeuronsPerLayer) {
+	super();
+	this.init(inputSize, weightFnctr, transFnctr, performanceFnctr,
+		nNeuronsPerLayer);
+    }
 
-	/**
-	 * Gets the input layer.
-	 * 
-	 * @return the input layer
-	 */
-	public SvLayer getInputLayer() {
-		return this.get(0);
-	}
+    /**
+     * Gets the input layer.
+     * 
+     * @return the input layer
+     */
+    public SvLayer getInputLayer() {
+	return this.get(0);
+    }
 
-	/**
-	 * Gets the output layer.
-	 * 
-	 * @return the output layer
-	 */
-	public SvLayer getOutputLayer() {
-		return this.get(this.size() - 1);
-	}
+    /**
+     * Gets the output layer.
+     * 
+     * @return the output layer
+     */
+    public SvLayer getOutputLayer() {
+	return this.get(this.size() - 1);
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.marmoush.jann.sv.SvNeuralNetwork#init(com.marmoush.jann.neuralgraph
-	 * .NeuralDirectedGraph)
-	 */
-	/**
-	 * Inits the.
-	 * 
-	 * @param inputSize
-	 *            the input size
-	 * @param weightFnctr
-	 *            the weight fnctr
-	 * @param transFnctr
-	 *            the trans fnctr
-	 * @param perfFnctr
-	 *            the perf fnctr
-	 * @param nNeuronsPerLayer
-	 *            the n neurons per layer
-	 */
-	public void init(int inputSize, IWeight weightFnctr, ITransfere transFnctr,
-			IPerformance perfFnctr, int... nNeuronsPerLayer) {
-		NeuralDirectedGraph graph = new NeuralDirectedGraph(nNeuronsPerLayer);
-		graph.connectLayersAsFF();
-		super.init(graph);
-		this.getInputLayer().setInput(new DoubleMatrix(inputSize));
-		this.getInputLayer().setWeight(
-				new DoubleMatrix(nNeuronsPerLayer[0], inputSize));
+    
+    /**
+     * Inits the.
+     * 
+     * @param inputSize
+     *            the input size
+     * @param weightFnctr
+     *            the weight fnctr
+     * @param transFnctr
+     *            the trans fnctr
+     * @param perfFnctr
+     *            the perf fnctr
+     * @param nNeuronsPerLayer
+     *            the n neurons per layer
+     */
+    public void init(int inputSize, IWeight weightFnctr, ITransfere transFnctr,
+	    IPerformance perfFnctr, int... nNeuronsPerLayer) {
+	NeuralDirectedGraph graph = new NeuralDirectedGraph(nNeuronsPerLayer);
+	graph.connectLayersAsFF();
+	super.init(graph);
+	this.getInputLayer().setInput(new DoubleMatrix(inputSize));
+	this.getInputLayer().setWeight(
+		new DoubleMatrix(nNeuronsPerLayer[0], inputSize));
+    }
 
-	}
+    /**
+     * Sets the input.
+     * 
+     * @param input
+     *            the new input
+     */
+    public void setInput(DoubleMatrix input) {
+	this.getInputLayer().setInput(input);
+    }
 
-	/**
-	 * Sets the input.
-	 * 
-	 * @param input
-	 *            the new input
-	 */
-	public void setInput(DoubleMatrix input) {
-		this.getInputLayer().setInput(input);
-	}
-
-	/**
-	 * Sets the target.
-	 * 
-	 * @param target
-	 *            the new target
-	 */
-	public void setTarget(DoubleMatrix target) {
-		this.getOutputLayer().setTarget(target);
-	}
+    /**
+     * Sets the target.
+     * 
+     * @param target
+     *            the new target
+     */
+    public void setTarget(DoubleMatrix target) {
+	this.getOutputLayer().setTarget(target);
+    }
 }
