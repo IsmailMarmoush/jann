@@ -25,16 +25,6 @@ import org.jblas.MatrixFunctions;
  * The Class MatrixUtils.
  */
 public class MatrixUtils {
-    public static DoubleMatrix round(DoubleMatrix mtrx, int decPoints) {
-	// (int)Math.floor(a + 0.5f)
-	// Math.round(double*100.0)/100.0
-	double x = Math.pow(10.0,(double)decPoints);
-	mtrx.muli(x).addi(0.5);
-	MatrixFunctions.floori(mtrx);
-	mtrx.divi(x);
-	return mtrx;
-    }
-
     /**
      * Random matrix.
      * 
@@ -71,6 +61,16 @@ public class MatrixUtils {
 	DoubleMatrix randMtrx = DoubleMatrix.rand(rows, cols);
 	randMtrx.muli((max - min) + 1).addi(min);
 	return MatrixFunctions.floori(randMtrx);
+    }
+
+    public static DoubleMatrix round(DoubleMatrix mtrx, int decPoints) {
+	// (int)Math.floor(a + 0.5f)
+	// Math.round(double*100.0)/100.0
+	double x = Math.pow(10.0, (double) decPoints);
+	mtrx.muli(x).addi(0.5);
+	MatrixFunctions.floori(mtrx);
+	mtrx.divi(x);
+	return mtrx;
     }
 
     /**

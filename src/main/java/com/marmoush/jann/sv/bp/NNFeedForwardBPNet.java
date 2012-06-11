@@ -119,42 +119,6 @@ public class NNFeedForwardBPNet extends ArrayList<SvLayer> {
     }
 
     /**
-     * Sim.
-     * 
-     * @param newInput
-     *            the new input
-     * @return the double matrix
-     */
-    public DoubleMatrix sim(DoubleMatrix newInput) {
-	int size = size();
-	DoubleMatrix inAndOut = newInput;
-	SvLayer lyr = null;
-	for (int j = 0; j < size; j++) {
-	    lyr = get(j);
-	    lyr.setInput(inAndOut);
-	    // inAndOut = lyr.sim(inAndOut);
-	    lyr.setOutput(inAndOut);
-	}
-	return inAndOut;
-    }
-
-    /**
-     * Train once.
-     * 
-     * @param newInput
-     *            the new input
-     * @param target
-     *            the target
-     */
-    public void trainOnce(final DoubleMatrix newInput, final DoubleMatrix target) {
-	// DoubleMatrix output = sim(newInput);
-	// DoubleMatrix error = TeachingUtils.calcError(output, target);
-	// get(size() - 1).setError(error);
-	// netBackpropagate(error);
-	// adapt();
-    }
-
-    /**
      * Adapt.
      */
     protected void adapt() {
@@ -189,5 +153,41 @@ public class NNFeedForwardBPNet extends ArrayList<SvLayer> {
 	    preLyr = get(i - 1);
 	    preLyr.setError(backPropagate(lyr.getWeight(), lyr.getError()));
 	}
+    }
+
+    /**
+     * Sim.
+     * 
+     * @param newInput
+     *            the new input
+     * @return the double matrix
+     */
+    public DoubleMatrix sim(DoubleMatrix newInput) {
+	int size = size();
+	DoubleMatrix inAndOut = newInput;
+	SvLayer lyr = null;
+	for (int j = 0; j < size; j++) {
+	    lyr = get(j);
+	    lyr.setInput(inAndOut);
+	    // inAndOut = lyr.sim(inAndOut);
+	    lyr.setOutput(inAndOut);
+	}
+	return inAndOut;
+    }
+
+    /**
+     * Train once.
+     * 
+     * @param newInput
+     *            the new input
+     * @param target
+     *            the target
+     */
+    public void trainOnce(final DoubleMatrix newInput, final DoubleMatrix target) {
+	// DoubleMatrix output = sim(newInput);
+	// DoubleMatrix error = TeachingUtils.calcError(output, target);
+	// get(size() - 1).setError(error);
+	// netBackpropagate(error);
+	// adapt();
     }
 }

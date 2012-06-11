@@ -60,6 +60,20 @@ public class NeuralDirectedGraph extends
     }
 
     /**
+     * Instantiates a new neural directed graph.
+     * 
+     * @param nNeuronsPerLayer
+     *            the n neurons per layer
+     */
+    public NeuralDirectedGraph(List<Integer> nNeuronsPerLayer) {
+	this();
+	this.layersNumOfNeurons = nNeuronsPerLayer;
+	for (int i = 0; i < nNeuronsPerLayer.size(); i++) {
+	    this.addVertex(i);
+	}
+    }
+
+    /**
      * Clear connections.
      */
     public void clearConnections() {
@@ -77,20 +91,6 @@ public class NeuralDirectedGraph extends
     public void connectLayersAsFF() {
 	for (int i = 1; i < getNumOfLayers(); i++) {
 	    addEdge(i - 1, i);
-	}
-    }
-
-    /**
-     * Instantiates a new neural directed graph.
-     * 
-     * @param nNeuronsPerLayer
-     *            the n neurons per layer
-     */
-    public NeuralDirectedGraph(List<Integer> nNeuronsPerLayer) {
-	this();
-	this.layersNumOfNeurons = nNeuronsPerLayer;
-	for (int i = 0; i < nNeuronsPerLayer.size(); i++) {
-	    this.addVertex(i);
 	}
     }
 

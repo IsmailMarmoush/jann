@@ -30,6 +30,13 @@ public interface INeuralDirectedGraphable extends
 	DirectedGraph<Integer, DefaultEdge> {
 
     /**
+     * Gets the all layers num of neurons.
+     * 
+     * @return the all layers num of neurons
+     */
+    public List<Integer> getAllLayersNumOfNeurons();
+
+    /**
      * Gets the input length.
      * 
      * @param layerIndex
@@ -37,13 +44,6 @@ public interface INeuralDirectedGraphable extends
      * @return the input length
      */
     public int getInputLength(final int layerIndex);
-
-    /**
-     * Gets the all layers num of neurons.
-     * 
-     * @return the all layers num of neurons
-     */
-    public List<Integer> getAllLayersNumOfNeurons();
 
     /**
      * Gets the layer num of neurons.

@@ -184,18 +184,18 @@ public class TrainSvBPFF extends TrainSv {
      * 
      * @param net
      *            the net
-     * @param inputList
-     *            the input list
-     * @param targetList
-     *            the target list
+     * @param input
+     *            the input
+     * @param target
+     *            the target
      * @return the train result
      */
     public TrainResult stochasticToLimits(FeedForwardSvNet net,
-	    List<DoubleMatrix> inputList, List<DoubleMatrix> targetList) {
+	    DoubleMatrix input, DoubleMatrix target) {
 	TrainResult result = new TrainResult();
 	result.start();
 	for (int i = 0; i < getEpochs(); i++) {
-	    double performance = stochasticOnce(net, inputList, targetList);
+	    double performance = stochasticOnce(net, input, target);
 	    result.updatePerformanceAverage(performance);
 	    if (result.getPerformanceAverage() < getPerformanceGoal()) {
 		result.end(TrainResult.PERFORMANCE_REACHED, i);
@@ -211,18 +211,18 @@ public class TrainSvBPFF extends TrainSv {
      * 
      * @param net
      *            the net
-     * @param input
-     *            the input
-     * @param target
-     *            the target
+     * @param inputList
+     *            the input list
+     * @param targetList
+     *            the target list
      * @return the train result
      */
     public TrainResult stochasticToLimits(FeedForwardSvNet net,
-	    DoubleMatrix input, DoubleMatrix target) {
+	    List<DoubleMatrix> inputList, List<DoubleMatrix> targetList) {
 	TrainResult result = new TrainResult();
 	result.start();
 	for (int i = 0; i < getEpochs(); i++) {
-	    double performance = stochasticOnce(net, input, target);
+	    double performance = stochasticOnce(net, inputList, targetList);
 	    result.updatePerformanceAverage(performance);
 	    if (result.getPerformanceAverage() < getPerformanceGoal()) {
 		result.end(TrainResult.PERFORMANCE_REACHED, i);

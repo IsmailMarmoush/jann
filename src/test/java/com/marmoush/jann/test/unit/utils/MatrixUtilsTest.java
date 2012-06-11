@@ -23,7 +23,8 @@ public class MatrixUtilsTest {
      */
     @Before
     public void setUp() throws Exception {
-	mtrx = DoubleMatrix.valueOf("1.23456 12.3456 123.45678 1234.5678 12345.678");
+	mtrx = DoubleMatrix
+		.valueOf("1.23456 12.3456 123.45678 1234.5678 12345.678");
     }
 
     /**
@@ -34,7 +35,8 @@ public class MatrixUtilsTest {
     @Test
     public void testRound() {
 	MatrixUtils.round(mtrx, 2);
-	DoubleMatrix testResult=DoubleMatrix.valueOf("1.23 12.35 123.46 1234.57 12345.68");
+	DoubleMatrix testResult = DoubleMatrix
+		.valueOf("1.23 12.35 123.46 1234.57 12345.68");
 	assertTrue(mtrx.toString(), mtrx.equals(testResult));
     }
 
