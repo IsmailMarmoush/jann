@@ -22,5 +22,5 @@ package com.marmoush.jann.utils;
  * The Class InputUtils.
  */
 public class InputUtils {
-
+    //featureScaling mean normalization
 }

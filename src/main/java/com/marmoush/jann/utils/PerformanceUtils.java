@@ -31,7 +31,7 @@ public class PerformanceUtils {
      * 
      * @param error
      *            the error
-     * @return the double
+     * @return MatrixFunctions.abs(error).sum() / error.length;
      */
     public static double mae(final DoubleMatrix error) {
 	return MatrixFunctions.abs(error).sum() / error.length;
@@ -42,7 +42,7 @@ public class PerformanceUtils {
      * 
      * @param error
      *            the error
-     * @return the double
+     * @return MatrixFunctions.pow(error, 2).sum() / error.length;
      */
     public static double mse(final DoubleMatrix error) {
 	return MatrixFunctions.pow(error, 2).sum() / error.length;
@@ -52,8 +52,8 @@ public class PerformanceUtils {
      * Sse.
      * 
      * @param error
-     *            the error
-     * @return the double
+     *            the errorQp
+     * @return MatrixFunctions.pow(error, 2).sum();
      */
     public static double sse(final DoubleMatrix error) {
 	return MatrixFunctions.pow(error, 2).sum();
