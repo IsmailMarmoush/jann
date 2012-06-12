@@ -58,6 +58,9 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
     /** The weight fnctr. */
     private IWeight weightFnctr = IWeight.DOTPROD;
 
+    private boolean inputOnlyLayer = false;
+    private boolean biased = true;
+
     /**
      * Instantiates a new layer.
      */
@@ -226,6 +229,10 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
 	return result;
     }
 
+    public boolean isBiased() {
+	return biased;
+    }
+
     /*
      * (non-Javadoc)
      * 
@@ -233,7 +240,8 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      */
     @Override
     public boolean isInputOnlyLayer() {
-	return (input == null) ? true : false;
+	return this.inputOnlyLayer;
+
     }
 
     /*
@@ -244,6 +252,10 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
     @Override
     public void setBias(DoubleMatrix bias) {
 	this.bias = bias;
+    }
+
+    public void setBiased(boolean biased) {
+	this.biased = biased;
     }
 
     /*
@@ -314,6 +326,10 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
     @Override
     public void setInput(DoubleMatrix input) {
 	this.input = input;
+    }
+
+    public void setInputOnlyLayer(boolean inputOnlyLayer) {
+	this.inputOnlyLayer = inputOnlyLayer;
     }
 
     /*

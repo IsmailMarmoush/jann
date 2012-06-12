@@ -26,7 +26,7 @@ import com.marmoush.jann.utils.PerformanceUtils;
  * The Interface IPerformance.
  */
 public interface IPerformance extends IFunctionable {
-
+    
     /** The Constant MAE. */
     public static final IPerformance MAE = new IPerformance() {
 	@Override

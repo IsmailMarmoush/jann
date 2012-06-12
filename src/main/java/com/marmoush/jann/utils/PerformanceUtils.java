@@ -45,6 +45,8 @@ public class PerformanceUtils {
      * @return MatrixFunctions.pow(error, 2).sum() / error.length;
      */
     public static double mse(final DoubleMatrix error) {
+	// As long as error.length is actually the length of the error matrix
+	// unrolled so even if the matrix was 2*3 the length should be 6
 	return MatrixFunctions.pow(error, 2).sum() / error.length;
     }
 
