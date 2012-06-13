@@ -18,6 +18,9 @@
  */
 package com.marmoush.jann.utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.jblas.DoubleMatrix;
 import org.jblas.MatrixFunctions;
 
@@ -25,6 +28,26 @@ import org.jblas.MatrixFunctions;
  * The Class MatrixUtils.
  */
 public class MatrixUtils {
+    public static double standardDeviation(DoubleMatrix input) {
+	double mean = input.mean();
+	DoubleMatrix dummy = MatrixFunctions.pow(input.sub(mean), 2);
+	double sd = dummy.sum() / input.length;
+	return Math.sqrt(sd);
+    }
+
+    public static DoubleMatrix featureScalingByAvrg(DoubleMatrix input) {
+	double mean = input.mean();
+	double max = input.max();
+	double min = input.min();
+	return input.sub(mean).div(max - min);
+    }
+
+    public static DoubleMatrix featureScalingBySTD(DoubleMatrix input) {
+	double mean = input.mean();
+	double std = standardDeviation(input);
+	return input.sub(mean).div(std);
+    }
+
     /**
      * Random matrix.
      * 
@@ -41,6 +64,29 @@ public class MatrixUtils {
     public static DoubleMatrix randomMatrix(int rows, int cols, double min,
 	    double max) {
 	return DoubleMatrix.rand(rows, cols).muli((max - min) + 1).addi(min);
+    }
+
+    public static DoubleMatrix colVecsList2BatchMtrx(
+	    List<DoubleMatrix> listOfVectors) {
+
+	// assert vectors with same size
+	int rows = listOfVectors.get(0).rows;
+	int cols = listOfVectors.size();
+	DoubleMatrix batch = DoubleMatrix.zeros(rows, cols);
+	for (int i = 0; i < listOfVectors.size(); i++) {
+	    batch.putColumn(i, listOfVectors.get(i));
+	}
+	return batch;
+    }
+
+    public static List<DoubleMatrix> BatchMtrx2colVecsList(DoubleMatrix batch) {
+	// assert vectors with same size
+	int cols = batch.columns;
+	List<DoubleMatrix> colVecList = new ArrayList<DoubleMatrix>(cols);
+	for (int i = 0; i < cols; i++) {
+	    colVecList.set(i, batch.getColumn(i));
+	}
+	return colVecList;
     }
 
     /**

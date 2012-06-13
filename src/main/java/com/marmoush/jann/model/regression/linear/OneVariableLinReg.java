@@ -12,7 +12,7 @@ public class OneVariableLinReg {
 	setLayer(new SvLayer(1, 1));
 	layer.setWeightFnctr(IWeight.DOTPROD);
 	layer.setTransfereFnctr(ITransfere.PURELIN);
-	layer.setPerformancefnctr(IPerformance.MSE);
+	layer.setPerformancefnctr(IPerformance.MSE_NG);
 	
     }
     

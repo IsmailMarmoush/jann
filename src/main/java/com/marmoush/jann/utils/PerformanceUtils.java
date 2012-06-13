@@ -51,6 +51,18 @@ public class PerformanceUtils {
     }
 
     /**
+     * Mse.
+     * 
+     * @param error
+     *            the error
+     * @return MatrixFunctions.pow(error, 2).sum() / error.length;
+     */
+    public static double mseNg(final DoubleMatrix error) {
+	// Andrew Ng
+	return MatrixFunctions.pow(error, 2).sum() / (2 * error.length);
+    }
+
+    /**
      * Sse.
      * 
      * @param error

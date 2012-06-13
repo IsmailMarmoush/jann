@@ -26,7 +26,7 @@ import com.marmoush.jann.utils.PerformanceUtils;
  * The Interface IPerformance.
  */
 public interface IPerformance extends IFunctionable {
-    
+
     /** The Constant MAE. */
     public static final IPerformance MAE = new IPerformance() {
 	@Override
@@ -50,6 +50,19 @@ public interface IPerformance extends IFunctionable {
 	@Override
 	public String toString() {
 	    return "MSE";
+	}
+    };
+
+    /** The Constant MSE_NG. */
+    public static final IPerformance MSE_NG = new IPerformance() {
+	@Override
+	public double measurePerformance(DoubleMatrix error) {
+	    return PerformanceUtils.mseNg(error);
+	}
+
+	@Override
+	public String toString() {
+	    return "MSE_NG";
 	}
     };
 
