@@ -40,7 +40,7 @@ public class TrainUtils {
      *            the target list
      * @return the sv layer
      */
-    public static SvLayer batchLinRgrGd(SvLayer layer,
+    public static double batchLinRgrGd(SvLayer layer,
 	    List<DoubleMatrix> inputList, List<DoubleMatrix> targetList) {
 	// Make sure layer transfer is purelin function
 	layer.setTransfereFnctr(ITransfere.PURELIN);
@@ -51,11 +51,13 @@ public class TrainUtils {
 		layer.getWeight().columns);
 	DoubleMatrix sumDb = DoubleMatrix.zeros(layer.getBias().rows,
 		layer.getBias().columns);
-
+	double sumPerformance = 0;
 	for (int i = 0; i < inputList.size(); i++) {
 	    layer.setInput(inputList.get(i));
 	    layer.setTarget(targetList.get(i));
 	    layer.simulate();
+	    sumPerformance += layer.getPerformance();
+
 	    dw = mseNgDervDW(layer.getLearnRate(), layer.getInput(),
 		    layer.getOutput(), layer.getTarget());
 	    sumDw.subi(dw);
@@ -63,11 +65,17 @@ public class TrainUtils {
 		    layer.getTarget());
 	    sumDb.subi(db);
 	}
+	// no need for the extra simulation cause W & Bias aren't updated untill
+	// the end (batch)
+	sumPerformance += layer.getPerformance();
+	// perfomance sum for all training sets
+	sumPerformance = sumPerformance / inputList.size();
+
 	sumDw.divi(inputList.size());
 	sumDb.divi(inputList.size());
 	layer.getWeight().subi(sumDw);
 	layer.getBias().subi(sumDb);
-	return layer;
+	return sumPerformance;
     }
 
     /**
@@ -105,8 +113,9 @@ public class TrainUtils {
     public static DoubleMatrix mseNgDervDW(double lrnRate, DoubleMatrix input,
 	    DoubleMatrix output, DoubleMatrix target) {
 	DoubleMatrix error = output.sub(target);
-	MatrixUtils.print(error,input);
-	DoubleMatrix dw = error.mmul(input.transpose()).mul(lrnRate / output.length);
+	// MatrixUtils.print(error,input);
+	DoubleMatrix dw = error.mmul(input.transpose()).mul(
+		lrnRate / output.length);
 	return dw;
     }
 

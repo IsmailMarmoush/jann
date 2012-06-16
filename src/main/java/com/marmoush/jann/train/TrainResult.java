@@ -18,6 +18,9 @@
  */
 package com.marmoush.jann.train;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * The Class TrainResult.
  */
@@ -53,6 +56,8 @@ public class TrainResult {
     /** The time elapsed. */
     private long timeElapsed;
 
+    private List<Double> performanceHistory = new ArrayList<Double>();
+
     /**
      * End.
      * 
@@ -66,6 +71,10 @@ public class TrainResult {
 	this.timeElapsed = end - start;
 	this.cause = cause;
 	this.atEpoch = atEpoch;
+    }
+
+    public void addPerformanceHistoryEntry(double performance) {
+	getPerformanceHistory().add(performance);
     }
 
     /**
@@ -84,6 +93,10 @@ public class TrainResult {
      */
     public int getPerformanceAverageFactor() {
 	return performanceAverageFactor;
+    }
+
+    public List<Double> getPerformanceHistory() {
+	return performanceHistory;
     }
 
     /**
@@ -106,6 +119,10 @@ public class TrainResult {
 	this.performanceAverageFactor = performanceAverageFactor;
     }
 
+    public void setPerformanceHistory(List<Double> performanceHistory) {
+	this.performanceHistory = performanceHistory;
+    }
+
     /**
      * Start.
      */
@@ -125,6 +142,8 @@ public class TrainResult {
 	builder.append(atEpoch);
 	builder.append(" \ncause=");
 	builder.append(cause);
+	builder.append("\nPerformance History=");
+	builder.append(performanceHistory.toString());
 	builder.append(" \nperformanceAverage=");
 	builder.append(performanceAverage);
 	builder.append(" \ntimeElapsed=");

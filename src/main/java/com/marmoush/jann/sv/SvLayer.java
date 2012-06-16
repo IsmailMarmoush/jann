@@ -229,7 +229,13 @@ public class SvLayer extends Layer {
 	builder.append(target);
 	return builder.toString();
     }
-
+    
+    @Override
+    public void simulate() {
+        super.simulate();
+        updateError();
+        updatePerformance();
+    }
     /**
      * Update error.
      * 

@@ -1,5 +1,8 @@
 package com.marmoush.jann.test.unit;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.jblas.DoubleMatrix;
 import org.junit.Test;
 
@@ -21,6 +24,8 @@ public class JblasMatrix {
     }
     @Test
     public void dum() {
+	List<Double> dum=Arrays.asList(1.0,2.0,3.0,4.0,5.0);
+	System.out.println(dum);
 	// DoubleMatrix m = DoubleMatrix.valueOf("8 1 6;3 5 7;4 9 2");
 	// DoubleMatrix k = Solve.solve(m, DoubleMatrix.eye(3));
 	// System.out.println(k);

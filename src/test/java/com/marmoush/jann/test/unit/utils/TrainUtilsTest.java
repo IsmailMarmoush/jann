@@ -22,12 +22,14 @@ public class TrainUtilsTest {
     public void setUp() throws Exception {
 	batchInputs = DoubleMatrix.valueOf("8 1 6 ; 3 5 7 ; 4 9 2 ; 3 2 1");
 	batchTargets = DoubleMatrix.valueOf("1;1; 0;0");
-	
+
     }
+
     @After
-    public void tearDown ()throws Exception{
+    public void tearDown() throws Exception {
 	System.out.println("-----------------------------------------------");
     }
+
     @Test
     public void testNormalEqInv() {
 	// DoubleMatrix weight = TrainUtils.normalEqInv(batchInputs,
@@ -53,7 +55,7 @@ public class TrainUtilsTest {
 	System.out.println("Target:" + batchTargets);
 	System.out.println(output.eq(batchTargets));
 	System.out.println(MatrixUtils.equals(output, batchTargets));
-	
+
     }
 
     @Test
@@ -73,16 +75,28 @@ public class TrainUtilsTest {
 
     @Test
     public void testBatchLinRgrGd() {
+	List<DoubleMatrix> inputList = MatrixUtils.mtrx2colVecsList(batchInputs
+		.transpose());
+	List<DoubleMatrix> targetList = MatrixUtils
+		.mtrx2colVecsList(batchTargets.transpose());
+
+	// MatrixUtils.printSize(batchInputs,batchTargets);
+	 TrainUtils.batchLinRgrGd(layer, inputList, targetList);
+	System.out.println(layer);
+    }
+
+    @Test
+    public void testBatchLinRgrGdMulti() {
 	layer = new SvLayer(batchInputs.columns, 2);
 	batchInputs = DoubleMatrix.valueOf("8 1 6 ; 3 5 7 ; 4 9 2 ; 3 2 1");
 	batchTargets = DoubleMatrix.valueOf("1 1; 1 0; 0 0; 0 0");
-	List<DoubleMatrix> inputList = MatrixUtils
-		.mtrx2colVecsList(batchInputs.transpose());
+	List<DoubleMatrix> inputList = MatrixUtils.mtrx2colVecsList(batchInputs
+		.transpose());
 	List<DoubleMatrix> targetList = MatrixUtils
 		.mtrx2colVecsList(batchTargets.transpose());
-	
-//	MatrixUtils.printSize(batchInputs,batchTargets);
-	layer = TrainUtils.batchLinRgrGd(layer, inputList, targetList);
+
+	// MatrixUtils.printSize(batchInputs,batchTargets);
+	TrainUtils.batchLinRgrGd(layer, inputList, targetList);
 	System.out.println(layer);
     }
 }

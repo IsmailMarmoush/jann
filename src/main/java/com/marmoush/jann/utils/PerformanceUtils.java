@@ -59,6 +59,13 @@ public class PerformanceUtils {
      */
     public static double mseNg(final DoubleMatrix error) {
 	// Andrew Ng
+	/*
+	 * The {*error.length} part generalized for multiple neurons. Not that
+	 * in AndrewNG it was 2*m where m=number of training sets there is a
+	 * difference between m and error.length while error.length would be
+	 * equal to m IFF {layer has one neuron and the targets are inserted as
+	 * batch} but this way is limited to one neuron and wasn't implemented
+	 */
 	return MatrixFunctions.pow(error, 2).sum() / (2 * error.length);
     }
 
