@@ -30,7 +30,6 @@ import org.jblas.Solve;
  * The Class MatrixUtils.
  */
 public class MatrixUtils {
-
     /**
      * The difference between 1 and the smallest exactly representable number
      * greater than one. Gives an upper bound on the relative error due to
@@ -38,12 +37,12 @@ public class MatrixUtils {
      */
     public static final double MACHEPS = 2E-16;
 
-    public static List<DoubleMatrix> BatchMtrx2colVecsList(DoubleMatrix batch) {
+    public static List<DoubleMatrix> mtrx2colVecsList(DoubleMatrix batch) {
 	// assert vectors with same size
 	int cols = batch.columns;
 	List<DoubleMatrix> colVecList = new ArrayList<DoubleMatrix>(cols);
 	for (int i = 0; i < cols; i++) {
-	    colVecList.set(i, batch.getColumn(i));
+	    colVecList.add(batch.getColumn(i));
 	}
 	return colVecList;
     }
@@ -121,6 +120,27 @@ public class MatrixUtils {
 			    * u[j][k];
 	return new DoubleMatrix(inverse);
     }
+
+    public static void print(DoubleMatrix... mtrxList) {
+	for (DoubleMatrix mtrx : mtrxList) {
+	    System.out.print(mtrx.rows + " * " + mtrx.columns);
+	    mtrx.print();
+	}
+    }
+
+    public static void print(List<DoubleMatrix> mtrxList) {
+	for (DoubleMatrix mtrx : mtrxList) {
+	    System.out.print(mtrx.rows + " * " + mtrx.columns);
+	    mtrx.print();
+	}
+    }
+
+    public static void printSize(DoubleMatrix... mtrx) {
+	for (DoubleMatrix m : mtrx) {
+	    System.out.println(m.rows + " * " + m.columns);
+	}
+    }
+
     /**
      * Random matrix.
      * 
@@ -264,13 +284,13 @@ public class MatrixUtils {
 	return Math.sqrt(sd);
     }
 
-//    /**
-//     * Updates MACHEPS for the executing machine.
-//     */
-//    public static void updateMacheps() {
-//	MACHEPS = 1;
-//	do
-//	    MACHEPS /= 2;
-//	while (1 + MACHEPS / 2 != 1);
-//    }
+    // /**
+    // * Updates MACHEPS for the executing machine.
+    // */
+    // public static void updateMacheps() {
+    // MACHEPS = 1;
+    // do
+    // MACHEPS /= 2;
+    // while (1 + MACHEPS / 2 != 1);
+    // }
 }
