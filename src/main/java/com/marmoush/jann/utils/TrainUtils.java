@@ -21,7 +21,6 @@ package com.marmoush.jann.utils;
 import java.util.List;
 
 import org.jblas.DoubleMatrix;
-import org.jblas.MatrixFunctions;
 import org.jblas.Solve;
 
 import com.marmoush.jann.sv.SvLayer;
@@ -31,14 +30,16 @@ import com.marmoush.jann.utils.functors.ITransfere;
  * The Class TrainUtils.
  */
 public class TrainUtils {
-    public static DoubleMatrix NormalEq(DoubleMatrix inputs,
-	    DoubleMatrix targets) {
+    public static DoubleMatrix NormalEq(DoubleMatrix x, DoubleMatrix targets) {
+	// normal equations works only for linear regression (one output)
+	// X rows = m trainning examples
+	// X cols = n of features
+	// y is column vector where rows = target value for each training
+	// examples
 	// ((X'*X)^-1) * (X' * y)
-	DoubleMatrix x = inputs.transpose().mmul(inputs);
-	int dim = x.rows; // squared matrix
-	DoubleMatrix xInv = Solve.solve(x, DoubleMatrix.eye(dim));
-	DoubleMatrix xTransposeY = inputs.transpose().mmul(targets);
-	return xInv.mmul(xTransposeY);
+	DoubleMatrix inverse = MatrixUtils.inv(x.transpose().mmul(x));
+	DoubleMatrix xTransposeY = x.transpose().mmul(targets);
+	return inverse.mmul(xTransposeY);
     }
 
     /**
@@ -92,7 +93,7 @@ public class TrainUtils {
      *            the target list
      * @return the sv layer
      */
-    public static SvLayer stochasticLinRegGd(SvLayer layer,
+    public static SvLayer stochasticLinRgrGd(SvLayer layer,
 	    List<DoubleMatrix> inputList, List<DoubleMatrix> targetList) {
 	// Make sure layer transfer is purelin function
 	layer.setTransfereFnctr(ITransfere.PURELIN);
@@ -123,7 +124,7 @@ public class TrainUtils {
      *            the target list
      * @return the sv layer
      */
-    public static SvLayer batchLinRegGd(SvLayer layer,
+    public static SvLayer batchLinRgrGd(SvLayer layer,
 	    List<DoubleMatrix> inputList, List<DoubleMatrix> targetList) {
 	// Make sure layer transfer is purelin function
 	layer.setTransfereFnctr(ITransfere.PURELIN);

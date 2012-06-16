@@ -23,16 +23,54 @@ import java.util.List;
 
 import org.jblas.DoubleMatrix;
 import org.jblas.MatrixFunctions;
+import org.jblas.Singular;
+import org.jblas.Solve;
 
 /**
  * The Class MatrixUtils.
  */
 public class MatrixUtils {
-    public static double standardDeviation(DoubleMatrix input) {
-	double mean = input.mean();
-	DoubleMatrix dummy = MatrixFunctions.pow(input.sub(mean), 2);
-	double sd = dummy.sum() / input.length;
-	return Math.sqrt(sd);
+
+    /**
+     * The difference between 1 and the smallest exactly representable number
+     * greater than one. Gives an upper bound on the relative error due to
+     * rounding of floating point numbers.
+     */
+    public static final double MACHEPS = 2E-16;
+
+    public static List<DoubleMatrix> BatchMtrx2colVecsList(DoubleMatrix batch) {
+	// assert vectors with same size
+	int cols = batch.columns;
+	List<DoubleMatrix> colVecList = new ArrayList<DoubleMatrix>(cols);
+	for (int i = 0; i < cols; i++) {
+	    colVecList.set(i, batch.getColumn(i));
+	}
+	return colVecList;
+    }
+
+    public static DoubleMatrix colVecsList2BatchMtrx(
+	    List<DoubleMatrix> listOfVectors) {
+
+	// assert vectors with same size
+	int rows = listOfVectors.get(0).rows;
+	int cols = listOfVectors.size();
+	DoubleMatrix batch = DoubleMatrix.zeros(rows, cols);
+	for (int i = 0; i < listOfVectors.size(); i++) {
+	    batch.putColumn(i, listOfVectors.get(i));
+	}
+	return batch;
+    }
+
+    public static boolean equals(DoubleMatrix mtrx1, DoubleMatrix mtrx2) {
+	if (mtrx1.equals(mtrx2)) {
+	    return true;
+	} else {
+	    DoubleMatrix bo = mtrx1.eq(mtrx2);
+	    if (bo.min() == 1) {
+		return true;
+	    }
+	}
+	return false;
     }
 
     public static DoubleMatrix featureScalingByAvrg(DoubleMatrix input) {
@@ -48,6 +86,41 @@ public class MatrixUtils {
 	return input.sub(mean).div(std);
     }
 
+    public static DoubleMatrix inv(DoubleMatrix mtrx) {
+	return Solve.solvePositive(mtrx, DoubleMatrix.eye(mtrx.rows));
+    }
+
+    /**
+     * Computes the Moore–Penrose pseudoinverse using the SVD method.
+     * 
+     * Modified version of the original implementation by Kim van der Linde.
+     */
+    public static DoubleMatrix pinv(DoubleMatrix x) {
+	// SingularValueDecomposition svdX = new SingularValueDecomposition(x);
+	DoubleMatrix[] fullSVD = Singular.fullSVD(x);
+	DoubleMatrix singularValuesDM = fullSVD[1];
+	double rank = rankEff(x, singularValuesDM);
+	if (rank < 1)
+	    return null;
+	if (x.columns > x.rows)
+	    return pinv(x.transpose()).transpose();
+	double[] singularValues = singularValuesDM.toArray();
+	double tol = Math.max(x.columns, x.rows) * singularValues[0] * MACHEPS;
+	double[] singularValueReciprocals = new double[singularValues.length];
+	for (int i = 0; i < singularValues.length; i++)
+	    singularValueReciprocals[i] = Math.abs(singularValues[i]) < tol ? 0
+		    : (1.0 / singularValues[i]);
+	double[][] u = fullSVD[0].toArray2();
+	double[][] v = fullSVD[2].toArray2();
+	int min = Math.min(x.columns, u[0].length);
+	double[][] inverse = new double[x.columns][x.rows];
+	for (int i = 0; i < x.columns; i++)
+	    for (int j = 0; j < u.length; j++)
+		for (int k = 0; k < min; k++)
+		    inverse[i][j] += v[i][k] * singularValueReciprocals[k]
+			    * u[j][k];
+	return new DoubleMatrix(inverse);
+    }
     /**
      * Random matrix.
      * 
@@ -64,29 +137,6 @@ public class MatrixUtils {
     public static DoubleMatrix randomMatrix(int rows, int cols, double min,
 	    double max) {
 	return DoubleMatrix.rand(rows, cols).muli((max - min) + 1).addi(min);
-    }
-
-    public static DoubleMatrix colVecsList2BatchMtrx(
-	    List<DoubleMatrix> listOfVectors) {
-
-	// assert vectors with same size
-	int rows = listOfVectors.get(0).rows;
-	int cols = listOfVectors.size();
-	DoubleMatrix batch = DoubleMatrix.zeros(rows, cols);
-	for (int i = 0; i < listOfVectors.size(); i++) {
-	    batch.putColumn(i, listOfVectors.get(i));
-	}
-	return batch;
-    }
-
-    public static List<DoubleMatrix> BatchMtrx2colVecsList(DoubleMatrix batch) {
-	// assert vectors with same size
-	int cols = batch.columns;
-	List<DoubleMatrix> colVecList = new ArrayList<DoubleMatrix>(cols);
-	for (int i = 0; i < cols; i++) {
-	    colVecList.set(i, batch.getColumn(i));
-	}
-	return colVecList;
     }
 
     /**
@@ -107,6 +157,23 @@ public class MatrixUtils {
 	DoubleMatrix randMtrx = DoubleMatrix.rand(rows, cols);
 	randMtrx.muli((max - min) + 1).addi(min);
 	return MatrixFunctions.floori(randMtrx);
+    }
+
+    public static double rank(DoubleMatrix A) {
+	return rankEff(A, Singular.SVDValues(A));
+    }
+
+    public static double rankEff(DoubleMatrix A, DoubleMatrix s) {
+	// Where s = svd(A); ==> DoubleMatrix s = Singular.SVDValues(A);
+
+	// tol = max(size(A))*eps(max(s));
+	double maxSizeA = Math.max(A.rows, A.columns);
+	double eps = Math.pow(2.0, -52.0);
+	double maxS = s.max();
+	double tol = maxSizeA * eps * maxS;
+	// r = sum(s > tol);
+	double r = s.gt(tol).sum();
+	return r;
     }
 
     public static DoubleMatrix round(DoubleMatrix mtrx, int decPoints) {
@@ -189,4 +256,21 @@ public class MatrixUtils {
 	    }
 	}
     }
+
+    public static double standardDeviation(DoubleMatrix input) {
+	double mean = input.mean();
+	DoubleMatrix dummy = MatrixFunctions.pow(input.sub(mean), 2);
+	double sd = dummy.sum() / input.length;
+	return Math.sqrt(sd);
+    }
+
+//    /**
+//     * Updates MACHEPS for the executing machine.
+//     */
+//    public static void updateMacheps() {
+//	MACHEPS = 1;
+//	do
+//	    MACHEPS /= 2;
+//	while (1 + MACHEPS / 2 != 1);
+//    }
 }
