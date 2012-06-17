@@ -18,9 +18,6 @@
  */
 package com.marmoush.jann.utils;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,25 +37,24 @@ public class MatrixUtils {
      */
     public static final double MACHEPS = 2E-16;
 
-    public static DoubleMatrix readFile(String path) throws IOException {
-	DoubleMatrix batch = null;
-	List<DoubleMatrix> mtrxList = new ArrayList<DoubleMatrix>();
-	BufferedReader br = new BufferedReader(new FileReader(path));
-	try {
-	    String line = br.readLine();
-	    while (line != null) { 
-		mtrxList.add(DoubleMatrix.valueOf(line));
-		line = br.readLine();
-	    }    
-	    batch = colVecsList2BatchMtrx(mtrxList);
-	} catch (IOException e) {
-	    e.printStackTrace();
-	} finally {
-	    br.close();
-	}
-	return batch;
+    public static int getNumOfFeatures(int degree) {
+	return (int) ( 1.5 * degree + 0.5 * Math.pow(degree, 2));
     }
 
+    public static DoubleMatrix featureMapping(double x1, double x2, int degree) {
+	// for i = 1:degree
+	// for j = 0:i
+	// out(:, end+1) = (X1.^(i-j)).*(X2.^j);
+	int nFeatures = getNumOfFeatures(degree);
+	List<Double> list = new ArrayList<Double>(nFeatures);
+	for (int i = 1; i <= degree; i++) {
+	    for (int j = 0; j <= i; j++) {
+		list.add(Math.pow(x1, i - j) * Math.pow(x2, j));
+	    }
+	}
+	return new DoubleMatrix(list);
+    }
+    
     public static List<DoubleMatrix> mtrx2colVecsList(DoubleMatrix batch) {
 	// assert vectors with same size
 	int cols = batch.columns;
@@ -71,7 +67,6 @@ public class MatrixUtils {
 
     public static DoubleMatrix colVecsList2BatchMtrx(
 	    List<DoubleMatrix> listOfVectors) {
-
 	// assert vectors with same size
 	int rows = listOfVectors.get(0).rows;
 	int cols = listOfVectors.size();

@@ -1,7 +1,5 @@
 package com.marmoush.jann.test.unit.train;
 
-import java.io.File;
-import java.net.URL;
 import java.util.List;
 
 import org.jblas.DoubleMatrix;
@@ -30,7 +28,6 @@ public class TestTrainLinRgr {
 	// + blnCreated);
 	// String path =
 	// ClassLoader.getSystemResource("ex1data1.txt").toString();
-
 	DoubleMatrix data = DoubleMatrix
 		.loadAsciiFile("src\\test\\java\\ex1data1.txt");
 	data.print();
@@ -38,7 +35,6 @@ public class TestTrainLinRgr {
 	batchTargets = data.getColumn(1);
 	inputList = MatrixUtils.mtrx2colVecsList(batchInputs.transpose());
 	targetList = MatrixUtils.mtrx2colVecsList(batchTargets.transpose());
-
 	layer = new SvLayer(batchInputs.columns, 1);
 	layer.setLearnRate(0.01);
 	train = new TrainLinRgr(0.001, 1000, 1500);
@@ -48,16 +44,18 @@ public class TestTrainLinRgr {
     public void testBatchToLimits() {
 	TrainResult tr = train.batchToLimits(layer, inputList, targetList);
 	System.out.println(tr.toString());
-
-	DoubleMatrix nqWeight = TrainUtils.normalEqPinv(batchInputs,
+	
+	DoubleMatrix bias=DoubleMatrix.ones(batchInputs.rows);
+//	MatrixUtils.printSize(batchInputs,bias);
+	DoubleMatrix batchInputsWithBias = DoubleMatrix.concatHorizontally(
+		DoubleMatrix.ones(batchInputs.rows), batchInputs);
+	DoubleMatrix nqWeight = TrainUtils.normalEqPinv(batchInputsWithBias,
 		batchTargets);
-
 	System.out.println("NormalEq Weight=" + nqWeight);
 	System.out.println("BatchLinRgr Weight=" + layer.getWeight());
 	System.out.println("BatchLinRgr Bias=" + layer.getBias());
 	layer.setInput(DoubleMatrix.valueOf("3.5"));
 	layer.simulate();
-	System.out.println("predict 3.5: "+layer.getOutput());
+	System.out.println("predict 3.5: " + layer.getOutput());
     }
-
 }

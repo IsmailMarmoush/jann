@@ -62,7 +62,14 @@ public class MatrixUtilsTest {
 	System.out.println(MatrixUtils.standardDeviation(m));
 	assertTrue(MatrixUtils.standardDeviation(m) == 2);
     }
-
+    
+    @Test
+    public void testFeatureMapping(){
+	System.out.println(MatrixUtils.getNumOfFeatures(9));
+	MatrixUtils.print(MatrixUtils.featureMapping(2, 2, 9));
+	
+    }
+    
     @Test
     public void testBatchMtrx2colVecsList() {
 	DoubleMatrix batchInputs = DoubleMatrix
