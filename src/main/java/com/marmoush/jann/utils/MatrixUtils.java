@@ -18,6 +18,9 @@
  */
 package com.marmoush.jann.utils;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +39,25 @@ public class MatrixUtils {
      * rounding of floating point numbers.
      */
     public static final double MACHEPS = 2E-16;
+
+    public static DoubleMatrix readFile(String path) throws IOException {
+	DoubleMatrix batch = null;
+	List<DoubleMatrix> mtrxList = new ArrayList<DoubleMatrix>();
+	BufferedReader br = new BufferedReader(new FileReader(path));
+	try {
+	    String line = br.readLine();
+	    while (line != null) { 
+		mtrxList.add(DoubleMatrix.valueOf(line));
+		line = br.readLine();
+	    }    
+	    batch = colVecsList2BatchMtrx(mtrxList);
+	} catch (IOException e) {
+	    e.printStackTrace();
+	} finally {
+	    br.close();
+	}
+	return batch;
+    }
 
     public static List<DoubleMatrix> mtrx2colVecsList(DoubleMatrix batch) {
 	// assert vectors with same size

@@ -23,6 +23,7 @@ import java.util.List;
 import org.jblas.DoubleMatrix;
 
 import com.marmoush.jann.sv.SvLayer;
+import com.marmoush.jann.utils.functors.IPerformance;
 import com.marmoush.jann.utils.functors.ITransfere;
 
 /**
@@ -44,6 +45,7 @@ public class TrainUtils {
 	    List<DoubleMatrix> inputList, List<DoubleMatrix> targetList) {
 	// Make sure layer transfer is purelin function
 	layer.setTransfereFnctr(ITransfere.PURELIN);
+	layer.setPerformancefnctr(IPerformance.MSE_NG);
 	// In batch the weights are updated after examining all examples
 	DoubleMatrix dw = null;
 	DoubleMatrix db = null;
@@ -60,10 +62,10 @@ public class TrainUtils {
 
 	    dw = mseNgDervDW(layer.getLearnRate(), layer.getInput(),
 		    layer.getOutput(), layer.getTarget());
-	    sumDw.subi(dw);
+	    sumDw.addi(dw);
 	    db = mseNgDervDB(layer.getLearnRate(), layer.getOutput(),
 		    layer.getTarget());
-	    sumDb.subi(db);
+	    sumDb.addi(db);
 	}
 	// no need for the extra simulation cause W & Bias aren't updated untill
 	// the end (batch)

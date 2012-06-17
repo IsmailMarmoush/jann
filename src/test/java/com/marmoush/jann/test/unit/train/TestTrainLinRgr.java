@@ -24,22 +24,24 @@ public class TestTrainLinRgr {
 
     @Before
     public void setUp() throws Exception {
-//	File f = new File("\\hello.txt");
-//	boolean blnCreated = f.createNewFile();
-//	System.out.println("Was file " + f.getPath() + " created ? : "
-//		+ blnCreated);
-	String path = ClassLoader.getSystemResource("ex1data1.txt").toString();
-	DoubleMatrix data = DoubleMatrix.loadAsciiFile(path);
+	// File f = new File("\\hello.txt");
+	// boolean blnCreated = f.createNewFile();
+	// System.out.println("Was file " + f.getPath() + " created ? : "
+	// + blnCreated);
+	// String path =
+	// ClassLoader.getSystemResource("ex1data1.txt").toString();
 
+	DoubleMatrix data = DoubleMatrix
+		.loadAsciiFile("src\\test\\java\\ex1data1.txt");
 	data.print();
-	batchInputs = DoubleMatrix.valueOf("1 1 1 ; 1 1 1 ; 0 9 2 ; 3 2 1");
-	batchTargets = DoubleMatrix.valueOf("1;1; 0;0");
+	batchInputs = data.getColumn(0);
+	batchTargets = data.getColumn(1);
 	inputList = MatrixUtils.mtrx2colVecsList(batchInputs.transpose());
 	targetList = MatrixUtils.mtrx2colVecsList(batchTargets.transpose());
 
 	layer = new SvLayer(batchInputs.columns, 1);
-	train = new TrainLinRgr(0.1, 1000, 5);
-
+	layer.setLearnRate(0.01);
+	train = new TrainLinRgr(0.001, 1000, 1500);
     }
 
     @Test
@@ -52,6 +54,10 @@ public class TestTrainLinRgr {
 
 	System.out.println("NormalEq Weight=" + nqWeight);
 	System.out.println("BatchLinRgr Weight=" + layer.getWeight());
+	System.out.println("BatchLinRgr Bias=" + layer.getBias());
+	layer.setInput(DoubleMatrix.valueOf("3.5"));
+	layer.simulate();
+	System.out.println("predict 3.5: "+layer.getOutput());
     }
 
 }
