@@ -27,58 +27,22 @@ import com.marmoush.jann.sv.SvLayer;
 /**
  * The Class TrainUtils.
  */
-public class TrainUtils {
-    /**
-     * Batch lin reg gd.
-     * 
-     * @param layer
-     *            the layer
-     * @param inputList
-     *            the input list
-     * @param targetList
-     *            the target list
-     * @return the sv layer
-     */
-    public static double batchLinRgrGd(SvLayer layer,
-	    List<DoubleMatrix> inputList, List<DoubleMatrix> targetList) {
+public class TrainUtils2 {
+    
+    public static DoubleMatrix batchLinRgrGd( DoubleMatrix batchTrainingEx,DoubleMatrix batchTargets,DoubleMatrix initWeight,double lrnRate) {
 	// In batch the weights are updated after examining all examples
-	/*
-	 * Recommended Setting:
-	 * 
-	 * layer.setTransfereFnctr(ITransfere.PURELIN);
-	 * layer.setPerformancefnctr(IPerformance.MSE_NG);
-	 */
-	DoubleMatrix dw = null;
-	DoubleMatrix db = null;
-	DoubleMatrix sumDw = DoubleMatrix.zeros(layer.getWeight().rows,
-		layer.getWeight().columns);
-	DoubleMatrix sumDb = DoubleMatrix.zeros(layer.getBias().rows,
-		layer.getBias().columns);
-	double sumPerformance = 0;
-	for (int i = 0; i < inputList.size(); i++) {
-	    layer.setInput(inputList.get(i));
-	    layer.setTarget(targetList.get(i));
-	    layer.simulate();
-	    sumPerformance += layer.getPerformance();
-
-	    dw = mseNgDervDW(layer.getLearnRate(), layer.getInput(),
-		    layer.getOutput(), layer.getTarget());
-	    sumDw.addi(dw);
-	    db = mseNgDervDB(layer.getLearnRate(), layer.getOutput(),
-		    layer.getTarget());
-	    sumDb.addi(db);
-	}
-	// no need for the extra simulation cause W & Bias aren't updated untill
-	// the end (batch)
-	// sumPerformance += layer.getPerformance();
-	// perfomance sum for all training sets
-	sumPerformance = sumPerformance / inputList.size();
-
-	sumDw.divi(inputList.size());
-	sumDb.divi(inputList.size());
-	layer.getWeight().subi(sumDw);
-	layer.getBias().subi(sumDb);
-	return sumPerformance;
+	// m = length(y); % number of training examples
+	int m = batchTargets.length;
+	// out=X*theta; %97*2 * 2*1= 97*1
+	
+	DoubleMatrix output=batchTrainingEx.mmul(initWeight);
+	// sm=(out-y)'*X; %(97*1-97*1)' * 97*2 = 1*97 * 97*2 = 1*2
+	DoubleMatrix sm=output.sub(batchTargets).transpose().mmul(batchTrainingEx);
+	// deltaTheta=sm.*(alpha/m); % (1*2) .* number
+	DoubleMatrix deltaWeight=sm.mul(lrnRate/m);
+	// theta=theta-deltaTheta'; % 2*1 - (1*2)' = 2*1 - 2*1
+	initWeight=initWeight.sub(deltaWeight);
+	return initWeight;
     }
 
     /**

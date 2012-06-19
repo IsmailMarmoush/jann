@@ -30,23 +30,38 @@ public class TestTrainLinRgr {
 	// ClassLoader.getSystemResource("ex1data1.txt").toString();
 	DoubleMatrix data = DoubleMatrix
 		.loadAsciiFile("src\\test\\java\\ex1data1.txt");
-	data.print();
+
 	batchInputs = data.getColumn(0);
 	batchTargets = data.getColumn(1);
 	inputList = MatrixUtils.mtrx2colVecsList(batchInputs.transpose());
 	targetList = MatrixUtils.mtrx2colVecsList(batchTargets.transpose());
 	layer = new SvLayer(batchInputs.columns, 1);
 	layer.setLearnRate(0.01);
+	int rows=layer.getWeight().rows;
+	int col=layer.getWeight().columns;
+	layer.setWeight(DoubleMatrix.rand(rows,col));
 	train = new TrainLinRgr(0.001, 1000, 1500);
+	System.out
+		.println("--------------------------------------------------");
+    }
+
+    @Test
+    public void testBatchNg() {
+	
+	DoubleMatrix batchInputsWithBias = DoubleMatrix.concatHorizontally(
+		DoubleMatrix.ones(batchInputs.rows, 1), batchInputs);
+//	MatrixUtils.printSize(batchInputsWithBias);
+	TrainResult tr = train.batchNg(batchInputsWithBias, batchTargets,
+		DoubleMatrix.rand(batchInputsWithBias.columns, 1), 0.01);
+	System.out.println(tr.toString());
     }
 
     @Test
     public void testBatchToLimits() {
+	
 	TrainResult tr = train.batchToLimits(layer, inputList, targetList);
 	System.out.println(tr.toString());
-	
-	DoubleMatrix bias=DoubleMatrix.ones(batchInputs.rows);
-//	MatrixUtils.printSize(batchInputs,bias);
+
 	DoubleMatrix batchInputsWithBias = DoubleMatrix.concatHorizontally(
 		DoubleMatrix.ones(batchInputs.rows), batchInputs);
 	DoubleMatrix nqWeight = TrainUtils.normalEqPinv(batchInputsWithBias,

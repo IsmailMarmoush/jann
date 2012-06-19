@@ -12,6 +12,7 @@ import org.junit.Test;
 import com.marmoush.jann.sv.SvLayer;
 import com.marmoush.jann.utils.MatrixUtils;
 import com.marmoush.jann.utils.TrainUtils;
+import com.marmoush.jann.utils.TrainUtils2;
 
 public class TrainUtilsTest {
     private DoubleMatrix batchInputs = null;
@@ -59,6 +60,11 @@ public class TrainUtilsTest {
     }
 
     @Test
+    public void testTrainUtilsNg() {
+	
+    }
+
+    @Test
     public void testMseNgDervDW() {
 	fail("Not yet implemented");
     }
@@ -81,7 +87,7 @@ public class TrainUtilsTest {
 		.mtrx2colVecsList(batchTargets.transpose());
 
 	// MatrixUtils.printSize(batchInputs,batchTargets);
-	 TrainUtils.batchLinRgrGd(layer, inputList, targetList);
+	TrainUtils.batchLinRgrGd(layer, inputList, targetList);
 	System.out.println(layer);
     }
 
