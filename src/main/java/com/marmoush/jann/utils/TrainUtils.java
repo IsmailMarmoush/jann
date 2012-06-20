@@ -50,19 +50,17 @@ public class TrainUtils {
 	layer.setTarget(batchTargets);
 	layer.simulate();
 	int m = batchTargets.length;
-	layer.getOutput().print();
 	// Note: (out-y)' * X is vector version of SIGMA{(outi-yi)*xi}
 	// sum=(out-y)'*X;
 	DoubleMatrix sum = layer.getError().transpose().mmul(batchTrainingEx);
 	// deltaTheta=sm.*(alpha/m);
 	DoubleMatrix deltaWeight = sum.mul(layer.getLearnRate() / m);
 	// theta=theta-deltaTheta';
-	DoubleMatrix newWeight=layer.getWeight().sub(deltaWeight);
-	layer.setWeight(newWeight);
+	layer.getWeight().subi(deltaWeight);
+
 	// deltaBias= (alpha/m)* SIGMA{outi-yi}
 	double deltaBias = (layer.getLearnRate() / m) * layer.getError().sum();
-	DoubleMatrix newBias=layer.getBias().sub(deltaBias);
-	layer.setBias(newBias);
+	layer.getBias().subi(deltaBias);
     }
 
     public static DoubleMatrix normalEqInv(DoubleMatrix x, DoubleMatrix targets) {

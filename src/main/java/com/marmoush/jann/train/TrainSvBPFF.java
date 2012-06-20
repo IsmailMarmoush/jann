@@ -196,8 +196,7 @@ public class TrainSvBPFF extends TrainSv {
 	result.start();
 	for (int i = 0; i < getEpochs(); i++) {
 	    double performance = stochasticOnce(net, input, target);
-	    result.updatePerformanceAverage(performance);
-	    if (result.getPerformanceAverage() < getPerformanceGoal()) {
+	    if (performance < getPerformanceGoal()) {
 		result.end(TrainResult.PERFORMANCE_REACHED, i);
 		return result;
 	    }
@@ -223,8 +222,7 @@ public class TrainSvBPFF extends TrainSv {
 	result.start();
 	for (int i = 0; i < getEpochs(); i++) {
 	    double performance = stochasticOnce(net, inputList, targetList);
-	    result.updatePerformanceAverage(performance);
-	    if (result.getPerformanceAverage() < getPerformanceGoal()) {
+	    if (performance< getPerformanceGoal()) {
 		result.end(TrainResult.PERFORMANCE_REACHED, i);
 		return result;
 	    }

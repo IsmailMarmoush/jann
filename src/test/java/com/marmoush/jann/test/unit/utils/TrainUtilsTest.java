@@ -5,7 +5,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.marmoush.jann.utils.MatrixUtils;
 import com.marmoush.jann.utils.TrainUtils;
 
 public class TrainUtilsTest {
@@ -16,7 +15,12 @@ public class TrainUtilsTest {
     public void setUp() throws Exception {
 	batchInputs = DoubleMatrix.valueOf("8 1 6 ; 3 5 7 ; 4 9 2 ; 3 2 1");
 	batchTargets = DoubleMatrix.valueOf("1;1; 0;0");
-
+	DoubleMatrix data = DoubleMatrix
+		.loadAsciiFile("src\\test\\java\\ex1data2.txt");
+	batchInputs = data.getColumns(new int[]{0,1});
+	batchInputs = DoubleMatrix.concatHorizontally(
+		DoubleMatrix.ones(batchInputs.rows), batchInputs);
+	batchTargets = data.getColumn(2);
     }
 
     @After
@@ -26,25 +30,17 @@ public class TrainUtilsTest {
 
     @Test
     public void testNormalEqInv() {
-	DoubleMatrix weight = TrainUtils.normalEqInv(batchInputs, batchTargets);
-	DoubleMatrix output = batchInputs.mmul(weight);
-	output = MatrixUtils.round(output, 0);
-	System.out.println("Output:" + output);
-	System.out.println("Target:" + batchTargets);
-	System.out.println(output.eq(batchTargets));
-	System.out.println(MatrixUtils.equals(output, batchTargets));
+	TrainUtils.normalEqInv(batchInputs, batchTargets);
     }
 
     @Test
     public void testNormalEqPinv() {
+	long t = System.currentTimeMillis();
 	DoubleMatrix weight = TrainUtils
 		.normalEqPinv(batchInputs, batchTargets);
-	DoubleMatrix output = batchInputs.mmul(weight);
-	output = MatrixUtils.round(output, 0);
-	System.out.println("Output:" + output);
-	System.out.println("Target:" + batchTargets);
-	System.out.println(output.eq(batchTargets));
-	System.out.println(MatrixUtils.equals(output, batchTargets));
-
+	t = System.currentTimeMillis() - t;
+	System.out.println(t);
+	DoubleMatrix predict2=DoubleMatrix.valueOf("1 1650 3");
+	predict2.mmul(weight).print();
     }
 }

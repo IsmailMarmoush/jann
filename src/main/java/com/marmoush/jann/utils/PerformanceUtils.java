@@ -39,6 +39,14 @@ public class PerformanceUtils {
 	return j.sum();
     }
 
+    public static double linRgrCost(DoubleMatrix batchTrainingEx,
+	    DoubleMatrix batchTargets, DoubleMatrix weight, DoubleMatrix bias) {
+	batchTrainingEx = DoubleMatrix.concatHorizontally(
+		DoubleMatrix.ones(batchTrainingEx.rows), batchTrainingEx);
+	weight = DoubleMatrix.concatVertically(bias, weight);
+	return linRgrCost(batchTrainingEx, batchTargets, weight);
+    }
+
     /**
      * Mae.
      * 

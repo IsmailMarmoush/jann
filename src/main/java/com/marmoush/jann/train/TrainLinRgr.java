@@ -18,20 +18,20 @@ public class TrainLinRgr extends TrainSv {
 	super(performanceGoal, timeLimit, maxEpochs);
     }
 
-    public TrainResult batchLinRgr(DoubleMatrix batchInputs,
+    public TrainResult batchLinRgr(DoubleMatrix batchTrainingEx,
 	    DoubleMatrix batchTargets, DoubleMatrix initWeight, double lrnRate) {
 	TrainResult result = new TrainResult();
 	result.start();
+	DoubleMatrix newWeight = null;
 	for (int i = 0; i < getEpochs(); i++) {
-	    DoubleMatrix newWeight = TrainUtils.batchLinRgrGd(batchInputs,
-		    batchTargets, initWeight, lrnRate);
+	    newWeight = TrainUtils.batchLinRgrGd(batchTrainingEx, batchTargets,
+		    initWeight, lrnRate);
 	    // cost = computeCost(X, y, theta);
-	    double performance = PerformanceUtils.linRgrCost(batchInputs,
-		    batchTargets, newWeight);
 	    initWeight = newWeight;
+	    double performance = PerformanceUtils.linRgrCost(batchTrainingEx,
+		    batchTargets, newWeight);
 	    result.addPerformanceHistoryEntry(performance);
-	    result.updatePerformanceAverage(performance);
-	    if (result.getPerformanceAverage() < getPerformanceGoal()) {
+	    if (performance < getPerformanceGoal()) {
 		result.end(TrainResult.PERFORMANCE_REACHED, i);
 		return result;
 	    }
@@ -42,18 +42,14 @@ public class TrainLinRgr extends TrainSv {
 
     public TrainResult batchLinRgrLayer(SvLayer layer,
 	    DoubleMatrix batchTrainingEx, DoubleMatrix batchTargets) {
+
 	TrainResult result = new TrainResult();
 	result.start();
 	for (int i = 0; i < getEpochs(); i++) {
 	    TrainUtils.batchLinRgrLayer(layer, batchTrainingEx, batchTargets);
-	    double performance=layer.getPerformance();
-	    // TODO compare linRgrCost with layer.getPerformance
-	    // cost = computeCost(X, y, theta);
-	    double cost = PerformanceUtils.linRgrCost(batchTrainingEx,
-		    batchTargets, layer.getWeight());
-	    result.addPerformanceHistoryEntry(cost);
-	    result.updatePerformanceAverage(cost);
-	    if (result.getPerformanceAverage() < getPerformanceGoal()) {
+	    double performance = layer.getPerformance();
+	    result.addPerformanceHistoryEntry(performance);
+	    if (performance < getPerformanceGoal()) {
 		result.end(TrainResult.PERFORMANCE_REACHED, i);
 		return result;
 	    }

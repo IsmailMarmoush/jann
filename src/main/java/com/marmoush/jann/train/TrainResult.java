@@ -44,12 +44,6 @@ public class TrainResult {
     /** The end. */
     private long end;
 
-    /** The performance average. */
-    private double performanceAverage = 0;
-
-    /** The performance average factor. */
-    private int performanceAverageFactor = 0;
-
     /** The start. */
     private long start;
 
@@ -77,46 +71,8 @@ public class TrainResult {
 	this.atEpoch = atEpoch;
     }
 
-    /**
-     * Gets the performance average.
-     * 
-     * @return the performance average
-     */
-    public double getPerformanceAverage() {
-	return performanceAverage;
-    }
-
-    /**
-     * Gets the performance average factor.
-     * 
-     * @return the performance average factor
-     */
-    public int getPerformanceAverageFactor() {
-	return performanceAverageFactor;
-    }
-
     public List<Double> getPerformanceHistory() {
 	return performanceHistory;
-    }
-
-    /**
-     * Sets the performance average.
-     * 
-     * @param performanceSum
-     *            the new performance average
-     */
-    public void setPerformanceAverage(double performanceSum) {
-	this.performanceAverage = performanceSum;
-    }
-
-    /**
-     * Sets the performance average factor.
-     * 
-     * @param performanceAverageFactor
-     *            the new performance average factor
-     */
-    public void setPerformanceAverageFactor(int performanceAverageFactor) {
-	this.performanceAverageFactor = performanceAverageFactor;
     }
 
     public void setPerformanceHistory(List<Double> performanceHistory) {
@@ -144,25 +100,9 @@ public class TrainResult {
 	builder.append(cause);
 	builder.append("\nPerformance History=");
 	builder.append(performanceHistory.toString());
-	builder.append(" \nperformanceAverage=");
-	builder.append(performanceAverage);
 	builder.append(" \ntimeElapsed=");
 	builder.append(timeElapsed);
 	return builder.toString();
-    }
-
-    /**
-     * Update performance average.
-     * 
-     * @param performance
-     *            the performance
-     * @return the double
-     */
-    public double updatePerformanceAverage(double performance) {
-	this.performanceAverageFactor++;
-	performanceAverage = (performanceAverage + performance)
-		/ performanceAverageFactor;
-	return performanceAverage;
     }
 
 }
