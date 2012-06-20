@@ -243,7 +243,7 @@ public class SvLayer extends Layer {
      * @return the double matrix
      */
     public DoubleMatrix updateError() {
-	setError(target.sub(getOutput()));
+	setError(getOutput().sub(getTarget()));
 	return error;
     }
 

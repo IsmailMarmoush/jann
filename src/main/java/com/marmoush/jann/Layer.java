@@ -50,7 +50,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
     private double theta = 0;
 
     /** The transfere fnctr. */
-    private ITransfere transfereFnctr = ITransfere.HARDLIM;
+    private ITransfere transfereFnctr = ITransfere.PURELIN;
 
     /** The weight. */
     private DoubleMatrix weight;

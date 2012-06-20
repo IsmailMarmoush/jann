@@ -41,6 +41,19 @@ public interface IWeight extends IFunctionable {
 		    layer.getWeight());
 	}
     };
+    /** The Constant DOTPROD. */
+    public static final IWeight BATCH_DOTPROD = new IWeight() {
+	@Override
+	public String toString() {
+	    return "BATCH_DOTPROD";
+	}
+
+	@Override
+	public DoubleMatrix weightFn(ILayer layer) {
+	    return WeightUtils.batchDotprod(layer.getInput(), layer.getBias(),
+		    layer.getWeight());
+	}
+    };
 
     /**
      * Weight fn.

@@ -20,6 +20,8 @@ package com.marmoush.jann.utils;
 
 import org.jblas.DoubleMatrix;
 
+import com.marmoush.jann.sv.SvLayer;
+
 /**
  * The Class TrainUtils.
  */
@@ -31,14 +33,36 @@ public class TrainUtils {
 	int m = batchTargets.length;
 	// out=X*theta; %97*2 * 2*1= 97*1
 	DoubleMatrix output = batchTrainingEx.mmul(initWeight);
-	// sm=(out-y)'*X; %(97*1-97*1)' * 97*2 = 1*97 * 97*2 = 1*2
-	DoubleMatrix sm = output.sub(batchTargets).transpose()
+	// Note: (out-y)' * X is vector version of SIGMA{(outi-yi)*xi}
+	// sum=(out-y)'*X; %(97*1-97*1)' * 97*2 = 1*97 * 97*2 = 1*2
+	DoubleMatrix sum = output.sub(batchTargets).transpose()
 		.mmul(batchTrainingEx);
 	// deltaTheta=sm.*(alpha/m); % (1*2) .* number
-	DoubleMatrix deltaWeight = sm.mul(lrnRate / m);
+	DoubleMatrix deltaWeight = sum.mul(lrnRate / m);
 	// theta=theta-deltaTheta'; % 2*1 - (1*2)' = 2*1 - 2*1
 	initWeight = initWeight.sub(deltaWeight);
 	return initWeight;
+    }
+
+    public static void batchLinRgrLayer(SvLayer layer,
+	    DoubleMatrix batchTrainingEx, DoubleMatrix batchTargets) {
+	layer.setInput(batchTrainingEx);
+	layer.setTarget(batchTargets);
+	layer.simulate();
+	int m = batchTargets.length;
+	layer.getOutput().print();
+	// Note: (out-y)' * X is vector version of SIGMA{(outi-yi)*xi}
+	// sum=(out-y)'*X;
+	DoubleMatrix sum = layer.getError().transpose().mmul(batchTrainingEx);
+	// deltaTheta=sm.*(alpha/m);
+	DoubleMatrix deltaWeight = sum.mul(layer.getLearnRate() / m);
+	// theta=theta-deltaTheta';
+	DoubleMatrix newWeight=layer.getWeight().sub(deltaWeight);
+	layer.setWeight(newWeight);
+	// deltaBias= (alpha/m)* SIGMA{outi-yi}
+	double deltaBias = (layer.getLearnRate() / m) * layer.getError().sum();
+	DoubleMatrix newBias=layer.getBias().sub(deltaBias);
+	layer.setBias(newBias);
     }
 
     public static DoubleMatrix normalEqInv(DoubleMatrix x, DoubleMatrix targets) {
