@@ -19,6 +19,7 @@
 package com.marmoush.jann.model.regression;
 
 import org.jblas.DoubleMatrix;
+
 import com.marmoush.jann.neuralgraph.NeuralDirectedGraph;
 import com.marmoush.jann.sv.SvLayer;
 import com.marmoush.jann.sv.SvNeuralNetwork;

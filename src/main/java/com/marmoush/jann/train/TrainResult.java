@@ -58,6 +58,10 @@ public class TrainResult {
 
     private List<Double> performanceHistory = new ArrayList<Double>();
 
+    public void addPerformanceHistoryEntry(double performance) {
+	getPerformanceHistory().add(performance);
+    }
+
     /**
      * End.
      * 
@@ -71,10 +75,6 @@ public class TrainResult {
 	this.timeElapsed = end - start;
 	this.cause = cause;
 	this.atEpoch = atEpoch;
-    }
-
-    public void addPerformanceHistoryEntry(double performance) {
-	getPerformanceHistory().add(performance);
     }
 
     /**

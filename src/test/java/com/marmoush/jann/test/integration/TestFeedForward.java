@@ -19,6 +19,7 @@
 package com.marmoush.jann.test.integration;
 
 import org.jblas.DoubleMatrix;
+
 import com.marmoush.jann.model.regression.FeedForwardSvNet;
 import com.marmoush.jann.train.TrainResult;
 import com.marmoush.jann.train.TrainSvBPFF;

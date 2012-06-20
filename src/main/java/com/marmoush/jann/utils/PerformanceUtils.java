@@ -26,6 +26,19 @@ import org.jblas.MatrixFunctions;
  */
 public class PerformanceUtils {
 
+    public static double linRgrCost(DoubleMatrix batchTrainingEx,
+	    DoubleMatrix batchTargets, DoubleMatrix weight) {
+	int m = batchTargets.length;
+	// J=(X*theta-y)' * (X*theta-y);
+	DoubleMatrix part1 = batchTrainingEx.mmul(weight).sub(batchTargets)
+		.transpose();
+	DoubleMatrix part2 = batchTrainingEx.mmul(weight).sub(batchTargets);
+	DoubleMatrix j = part1.mmul(part2);
+	// J=J / (2*m);
+	j.divi(2 * m);
+	return j.sum();
+    }
+
     /**
      * Mae.
      * 
@@ -50,18 +63,6 @@ public class PerformanceUtils {
 	return MatrixFunctions.pow(error, 2).sum() / error.length;
     }
 
-    public static double linRgrCost(DoubleMatrix batchTrainingEx,
-	    DoubleMatrix batchTargets, DoubleMatrix weight) {
-	int m = batchTargets.length;
-	// J=(X*theta-y)' * (X*theta-y);
-	DoubleMatrix part1=batchTrainingEx.mmul(weight).sub(batchTargets).transpose();
-	DoubleMatrix part2=batchTrainingEx.mmul(weight).sub(batchTargets);
-	DoubleMatrix j=part1.mmul(part2);
-	// J=J / (2*m);
-	j.divi(2*m);
-	return j.sum();
-    }
-
     /**
      * Mse.
      * 
@@ -70,8 +71,9 @@ public class PerformanceUtils {
      * @return MatrixFunctions.pow(error, 2).sum() / error.length;
      */
     public static double mseLinRgr(final DoubleMatrix error) {
-	// From Andrew Ng, the Cost function of linear Regression with one neuron
-	int mTrainingExamples=error.length;
+	// From Andrew Ng, the Cost function of linear Regression with one
+	// neuron
+	int mTrainingExamples = error.length;
 	return MatrixFunctions.pow(error, 2).sum() / (2 * mTrainingExamples);
     }
 

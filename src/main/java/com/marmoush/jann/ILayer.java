@@ -123,6 +123,7 @@ public interface ILayer extends IFillableLayer {
      * @see com.marmoush.jann.IFillableLayer#setFill(double,
      * org.jblas.DoubleMatrix[])
      */
+    @Override
     public abstract void setFill(double value, DoubleMatrix... matrices);
 
     /*
@@ -131,6 +132,7 @@ public interface ILayer extends IFillableLayer {
      * @see
      * com.marmoush.jann.IFillableLayer#setFillRandom(org.jblas.DoubleMatrix[])
      */
+    @Override
     public abstract void setFillRandom(DoubleMatrix... matrices);
 
     /**

@@ -236,7 +236,7 @@ public class MatrixUtils {
     public static DoubleMatrix round(DoubleMatrix mtrx, int decPoints) {
 	// (int)Math.floor(a + 0.5f)
 	// Math.round(double*100.0)/100.0
-	double x = Math.pow(10.0, (double) decPoints);
+	double x = Math.pow(10.0, decPoints);
 	mtrx.muli(x).addi(0.5);
 	MatrixFunctions.floori(mtrx);
 	mtrx.divi(x);

@@ -10,21 +10,8 @@ import com.marmoush.jann.utils.MatrixUtils;
 
 public class JblasMatrix {
     @Test
-    public void rank() {
-	DoubleMatrix r = DoubleMatrix
-		.valueOf("16 2 3 13;5 11 10 8;9 7 6 12;4 14 15 1");
-	System.out.println(MatrixUtils.rank(r));
-    }
-    @Test
-    public void pinv(){
-	DoubleMatrix r = DoubleMatrix
-		.valueOf("16 2 3 13;5 11 10 8;9 7 6 12;4 14 15 1");
-	DoubleMatrix inv=MatrixUtils.pinv(r);
-	System.out.println(inv);
-    }
-    @Test
     public void dum() {
-	List<Double> dum=Arrays.asList(1.0,2.0,3.0,4.0,5.0);
+	List<Double> dum = Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0);
 	System.out.println(dum);
 	// DoubleMatrix m = DoubleMatrix.valueOf("8 1 6;3 5 7;4 9 2");
 	// DoubleMatrix k = Solve.solve(m, DoubleMatrix.eye(3));
@@ -46,6 +33,21 @@ public class JblasMatrix {
 	// DoubleMatrix batch= MatrixUtils.colVecsList2BatchMtrx(vecColList);
 	// System.out.println(batch);
 
+    }
+
+    @Test
+    public void pinv() {
+	DoubleMatrix r = DoubleMatrix
+		.valueOf("16 2 3 13;5 11 10 8;9 7 6 12;4 14 15 1");
+	DoubleMatrix inv = MatrixUtils.pinv(r);
+	System.out.println(inv);
+    }
+
+    @Test
+    public void rank() {
+	DoubleMatrix r = DoubleMatrix
+		.valueOf("16 2 3 13;5 11 10 8;9 7 6 12;4 14 15 1");
+	System.out.println(MatrixUtils.rank(r));
     }
 
 }

@@ -3,7 +3,7 @@
  */
 package com.marmoush.jann.test.unit.utils;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import org.jblas.DoubleMatrix;
 import org.junit.Before;

@@ -3,7 +3,7 @@
  */
 package com.marmoush.jann.test.unit.utils;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -35,6 +35,28 @@ public class MatrixUtilsTest {
 	System.out.println("----------------------------------");
     }
 
+    @Test
+    public void testBatchMtrx2colVecsList() {
+	DoubleMatrix batchInputs = DoubleMatrix
+		.valueOf("8 1 6; 3 5 7 ; 4 9 2; 3 2 2");
+	List<DoubleMatrix> list = MatrixUtils.mtrx2colVecsList(batchInputs);
+	MatrixUtils.print(true, list.toArray(new DoubleMatrix[0]));
+    }
+
+    @Test
+    public void testFeatureMapping() {
+	System.out.println(MatrixUtils.getNumOfFeatures(9));
+	MatrixUtils.featureMapping(2, 2, 9).print();
+
+    }
+
+    @Test
+    public void testFeatureScaling() {
+	DoubleMatrix m = DoubleMatrix.valueOf("2 4 4 4 5 5 7 9");
+	System.out.println(m);
+	System.out.println(MatrixUtils.featureScalingByAvrg(m));
+    }
+
     /**
      * Test method for
      * {@link com.marmoush.jann.utils.MatrixUtils#round(org.jblas.DoubleMatrix, int)}
@@ -49,33 +71,10 @@ public class MatrixUtilsTest {
     }
 
     @Test
-    public void testFeatureScaling() {
-	DoubleMatrix m = DoubleMatrix.valueOf("2 4 4 4 5 5 7 9");
-	System.out.println(m);
-	System.out.println(MatrixUtils.featureScalingByAvrg(m));
-    }
-
-    @Test
     public void testStandardDeviation() {
 	DoubleMatrix m = DoubleMatrix.valueOf("2 4 4 4 5 5 7 9");
 	System.out.println(m);
 	System.out.println(MatrixUtils.standardDeviation(m));
 	assertTrue(MatrixUtils.standardDeviation(m) == 2);
-    }
-    
-    @Test
-    public void testFeatureMapping(){
-	System.out.println(MatrixUtils.getNumOfFeatures(9));
-	MatrixUtils.featureMapping(2, 2, 9).print();
-	
-    }
-    
-    @Test
-    public void testBatchMtrx2colVecsList() {
-	DoubleMatrix batchInputs = DoubleMatrix
-		.valueOf("8 1 6; 3 5 7 ; 4 9 2; 3 2 2");
-	List<DoubleMatrix> list = MatrixUtils
-		.mtrx2colVecsList(batchInputs);
-	MatrixUtils.print(true,list.toArray(new  DoubleMatrix[0]));
     }
 }

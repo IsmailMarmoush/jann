@@ -17,8 +17,6 @@ public class TrainLinRgr extends TrainSv {
 	super(performanceGoal, timeLimit, maxEpochs);
     }
 
-
-
     public TrainResult batchLinRgr(DoubleMatrix batchInputs,
 	    DoubleMatrix batchTargets, DoubleMatrix initWeight, double lrnRate) {
 	TrainResult result = new TrainResult();

@@ -24,6 +24,23 @@ import org.jblas.DoubleMatrix;
  * The Class TrainUtils.
  */
 public class TrainUtils {
+    public static DoubleMatrix batchLinRgrGd(DoubleMatrix batchTrainingEx,
+	    DoubleMatrix batchTargets, DoubleMatrix initWeight, double lrnRate) {
+	// In batch the weights are updated after examining all examples
+	// m = length(y); % number of training examples
+	int m = batchTargets.length;
+	// out=X*theta; %97*2 * 2*1= 97*1
+	DoubleMatrix output = batchTrainingEx.mmul(initWeight);
+	// sm=(out-y)'*X; %(97*1-97*1)' * 97*2 = 1*97 * 97*2 = 1*2
+	DoubleMatrix sm = output.sub(batchTargets).transpose()
+		.mmul(batchTrainingEx);
+	// deltaTheta=sm.*(alpha/m); % (1*2) .* number
+	DoubleMatrix deltaWeight = sm.mul(lrnRate / m);
+	// theta=theta-deltaTheta'; % 2*1 - (1*2)' = 2*1 - 2*1
+	initWeight = initWeight.sub(deltaWeight);
+	return initWeight;
+    }
+
     public static DoubleMatrix normalEqInv(DoubleMatrix x, DoubleMatrix targets) {
 	// normal equations works only for linear regression (one output)
 	// X rows = m trainning examples
@@ -47,21 +64,5 @@ public class TrainUtils {
 	DoubleMatrix xTransposeY = x.transpose().mmul(targets);
 	return inverse.mmul(xTransposeY);
 
-    }
-
-    public static DoubleMatrix batchLinRgrGd( DoubleMatrix batchTrainingEx,DoubleMatrix batchTargets,DoubleMatrix initWeight,double lrnRate) {
-        // In batch the weights are updated after examining all examples
-        // m = length(y); % number of training examples
-        int m = batchTargets.length;
-        // out=X*theta; %97*2 * 2*1= 97*1
-        
-        DoubleMatrix output=batchTrainingEx.mmul(initWeight);
-        // sm=(out-y)'*X; %(97*1-97*1)' * 97*2 = 1*97 * 97*2 = 1*2
-        DoubleMatrix sm=output.sub(batchTargets).transpose().mmul(batchTrainingEx);
-        // deltaTheta=sm.*(alpha/m); % (1*2) .* number
-        DoubleMatrix deltaWeight=sm.mul(lrnRate/m);
-        // theta=theta-deltaTheta'; % 2*1 - (1*2)' = 2*1 - 2*1
-        initWeight=initWeight.sub(deltaWeight);
-        return initWeight;
     }
 }

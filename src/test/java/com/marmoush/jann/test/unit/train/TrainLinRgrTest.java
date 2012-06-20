@@ -10,7 +10,7 @@ import org.junit.Test;
 import com.marmoush.jann.train.TrainLinRgr;
 import com.marmoush.jann.train.TrainResult;
 
-public class TestTrainLinRgr {
+public class TrainLinRgrTest {
     private TrainLinRgr train = null;
     private DoubleMatrix batchInputs = null;
     private DoubleMatrix batchTargets = null;
@@ -19,12 +19,6 @@ public class TestTrainLinRgr {
 
     @Before
     public void setUp() throws Exception {
-	// File f = new File("\\hello.txt");
-	// boolean blnCreated = f.createNewFile();
-	// System.out.println("Was file " + f.getPath() + " created ? : "
-	// + blnCreated);
-	// String path =
-	// ClassLoader.getSystemResource("ex1data1.txt").toString();
 	DoubleMatrix data = DoubleMatrix
 		.loadAsciiFile("src\\test\\java\\ex1data1.txt");
 	batchInputs = data.getColumn(0);
@@ -38,7 +32,7 @@ public class TestTrainLinRgr {
     }
 
     @Test
-    public void testBatchNg() {	
+    public void testBatchNg() {
 	DoubleMatrix batchInputsWithBias = DoubleMatrix.concatHorizontally(
 		DoubleMatrix.ones(batchInputs.rows, 1), batchInputs);
 	TrainResult tr = train.batchLinRgr(batchInputsWithBias, batchTargets,
