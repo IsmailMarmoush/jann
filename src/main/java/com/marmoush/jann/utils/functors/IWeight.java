@@ -37,8 +37,11 @@ public interface IWeight extends IFunctionable {
 
 	@Override
 	public DoubleMatrix weightFn(ILayer layer) {
-	    return WeightUtils.dotprod(layer.getInput(), layer.getBias(),
-		    layer.getWeight());
+	    if (layer.isBiased())
+		return WeightUtils.dotprod(layer.getInput(), layer.getBias(),
+			layer.getWeight());
+	    else
+		return WeightUtils.dotprod(layer.getInput(), layer.getWeight());
 	}
     };
     /** The Constant DOTPROD. */
@@ -50,8 +53,12 @@ public interface IWeight extends IFunctionable {
 
 	@Override
 	public DoubleMatrix weightFn(ILayer layer) {
-	    return WeightUtils.batchDotprod(layer.getInput(), layer.getBias(),
-		    layer.getWeight());
+	    if (layer.isBiased())
+		return WeightUtils.batchDotprod(layer.getInput(),
+			layer.getBias(), layer.getWeight());
+	    else
+		return WeightUtils.batchDotprod(layer.getInput(),
+			layer.getWeight());
 	}
     };
 

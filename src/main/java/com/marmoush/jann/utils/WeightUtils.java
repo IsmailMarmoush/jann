@@ -25,20 +25,10 @@ import org.jblas.DoubleMatrix;
  */
 public abstract class WeightUtils {
 
-    /**
-     * Dotprod.
-     * 
-     * @param input
-     *            the input
-     * @param bias
-     *            the bias
-     * @param weight
-     *            the weight
-     * @return the double matrix
-     */
-    public static DoubleMatrix dotprod(DoubleMatrix input, DoubleMatrix bias,
+    public static DoubleMatrix batchDotprod(DoubleMatrix batchTrainingEx,
 	    DoubleMatrix weight) {
-	return weight.mmul(input).add(bias);
+	DoubleMatrix out = batchTrainingEx.mmul(weight);
+	return out;
     }
 
     public static DoubleMatrix batchDotprod(DoubleMatrix batchTrainingEx,
@@ -55,10 +45,30 @@ public abstract class WeightUtils {
 	 */
 	// Based on the previous:
 	// assert (bias.length==1)
-	DoubleMatrix out= batchTrainingEx.mmul(weight);
+	DoubleMatrix out = batchTrainingEx.mmul(weight);
 	// assert (out.columns==1)
-	// Add bias to each row 
+	// Add bias to each row
 	out.addiRowVector(bias);
 	return out;
+    }
+
+    public static DoubleMatrix dotprod(DoubleMatrix input, DoubleMatrix weight) {
+	return weight.mmul(input);
+    }
+
+    /**
+     * Dotprod.
+     * 
+     * @param input
+     *            the input
+     * @param bias
+     *            the bias
+     * @param weight
+     *            the weight
+     * @return the double matrix
+     */
+    public static DoubleMatrix dotprod(DoubleMatrix input, DoubleMatrix bias,
+	    DoubleMatrix weight) {
+	return weight.mmul(input).add(bias);
     }
 }

@@ -27,7 +27,7 @@ import com.marmoush.jann.utils.NetworkUtils;
 /**
  * The Class TestingDraft2.
  */
-public class TestingDraft2 {
+public class GraphNetworkTest {
 
     /**
      * The main method.

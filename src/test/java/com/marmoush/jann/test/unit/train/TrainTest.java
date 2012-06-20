@@ -37,7 +37,7 @@ public class TrainTest {
     @Test
     public void testLinRgrLayer() {
 	System.out.println(" Trainging as a layer");
-	layer = new SvLayer(batchTrainingEx.columns, 1);
+	layer = new SvLayer(batchTrainingEx.columns, 1,true);
 	layer.setWeightFnctr(IWeight.BATCH_DOTPROD);
 	layer.setPerformancefnctr(IPerformance.MSE_LinRgr);
 	layer.setLearnRate(0.01);

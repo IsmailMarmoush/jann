@@ -58,9 +58,12 @@ public class TrainUtils {
 	// theta=theta-deltaTheta';
 	layer.getWeight().subi(deltaWeight);
 
-	// deltaBias= (alpha/m)* SIGMA{outi-yi}
-	double deltaBias = (layer.getLearnRate() / m) * layer.getError().sum();
-	layer.getBias().subi(deltaBias);
+	if (layer.isBiased()) {
+	    // deltaBias= (alpha/m)* SIGMA{outi-yi}
+	    double deltaBias = (layer.getLearnRate() / m)
+		    * layer.getError().sum();
+	    layer.getBias().subi(deltaBias);
+	}
     }
 
     public static DoubleMatrix normalEqInv(DoubleMatrix x, DoubleMatrix targets) {

@@ -61,8 +61,8 @@ public class SvLayer extends Layer {
      * @param nNeurons
      *            the n neurons
      */
-    public SvLayer(int nInputs, int nNeurons) {
-	super(nInputs, nNeurons);
+    public SvLayer(int nInputs, int nNeurons,boolean biased) {
+	super(nInputs, nNeurons,biased);
 	error = new DoubleMatrix(new double[nNeurons]);
     }
 
