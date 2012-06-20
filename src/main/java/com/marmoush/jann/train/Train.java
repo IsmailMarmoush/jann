@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * The Class TrainResult.
  */
-public class TrainResult {
+public abstract class Train {
 
     /** The Constant EPOCHS_REACHED. */
     public static final String EPOCHS_REACHED = "EpochsReached";
@@ -44,13 +44,47 @@ public class TrainResult {
     /** The end. */
     private long end;
 
+    /** The max epochs. */
+    private int maxEpochs;
+
+    /** The performance goal. */
+    private double performanceGoal;
+
+    private List<Double> performanceHistory = new ArrayList<Double>();
+
     /** The start. */
     private long start;
 
     /** The time elapsed. */
     private long timeElapsed;
 
-    private List<Double> performanceHistory = new ArrayList<Double>();
+    /** The time limit. */
+    private long timeLimit;
+
+    public Train() {
+    }
+
+    public Train(int maxEpochs, double performanceGoal, long timeLimit) {
+	super();
+	this.maxEpochs = maxEpochs;
+	this.performanceGoal = performanceGoal;
+	this.timeLimit = timeLimit;
+    }
+
+    public void run() {
+	start();
+	for (int i = 0; i < getMaxEpochs(); i++) {
+	    double performance = train();
+	    addPerformanceHistoryEntry(performance);
+	    if (performance < getPerformanceGoal()) {
+		end(PERFORMANCE_REACHED, i);
+		return;
+	    }
+	}
+	end(EPOCHS_REACHED, getMaxEpochs());
+    }
+
+    public abstract double train();
 
     public void addPerformanceHistoryEntry(double performance) {
 	getPerformanceHistory().add(performance);
@@ -71,12 +105,36 @@ public class TrainResult {
 	this.atEpoch = atEpoch;
     }
 
+    public int getMaxEpochs() {
+	return maxEpochs;
+    }
+
+    public double getPerformanceGoal() {
+	return performanceGoal;
+    }
+
     public List<Double> getPerformanceHistory() {
 	return performanceHistory;
     }
 
+    public long getTimeLimit() {
+	return timeLimit;
+    }
+
+    public void setMaxEpochs(int maxEpochs) {
+	this.maxEpochs = maxEpochs;
+    }
+
+    public void setPerformanceGoal(double performanceGoal) {
+	this.performanceGoal = performanceGoal;
+    }
+
     public void setPerformanceHistory(List<Double> performanceHistory) {
 	this.performanceHistory = performanceHistory;
+    }
+
+    public void setTimeLimit(long timeLimit) {
+	this.timeLimit = timeLimit;
     }
 
     /**
@@ -86,22 +144,23 @@ public class TrainResult {
 	this.start = System.currentTimeMillis();
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.lang.Object#toString()
-     */
     @Override
     public String toString() {
 	StringBuilder builder = new StringBuilder();
+	builder.append("Train Stopped because=");
+	builder.append(cause);
+	builder.append("\nmaxEpochs=");
+	builder.append(maxEpochs);
+	builder.append("\nperformanceGoal=");
+	builder.append(performanceGoal);
+	builder.append("\ntimeLimit=");
+	builder.append(timeLimit);
 	builder.append("\natEpoch=");
 	builder.append(atEpoch);
-	builder.append(" \ncause=");
-	builder.append(cause);
-	builder.append("\nPerformance History=");
-	builder.append(performanceHistory.toString());
-	builder.append(" \ntimeElapsed=");
+	builder.append("\ntimeElapsed=");
 	builder.append(timeElapsed);
+	builder.append("\nperformanceHistory=");
+	builder.append(performanceHistory);
 	return builder.toString();
     }
 
