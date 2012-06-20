@@ -69,16 +69,10 @@ public class PerformanceUtils {
      *            the error
      * @return MatrixFunctions.pow(error, 2).sum() / error.length;
      */
-    public static double mseNg(final DoubleMatrix error) {
-	// Andrew Ng
-	/*
-	 * The {*error.length} part generalized for multiple neurons. Not that
-	 * in AndrewNG it was 2*m where m=number of training sets there is a
-	 * difference between m and error.length while error.length would be
-	 * equal to m IFF {layer has one neuron and the targets are inserted as
-	 * batch} but this way is limited to one neuron and wasn't implemented
-	 */
-	return MatrixFunctions.pow(error, 2).sum() / (2 * error.length);
+    public static double mseLinRgr(final DoubleMatrix error) {
+	// From Andrew Ng, the Cost function of linear Regression with one neuron
+	int mTrainingExamples=error.length;
+	return MatrixFunctions.pow(error, 2).sum() / (2 * mTrainingExamples);
     }
 
     /**

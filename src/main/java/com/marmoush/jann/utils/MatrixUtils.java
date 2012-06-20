@@ -37,34 +37,6 @@ public class MatrixUtils {
      */
     public static final double MACHEPS = 2E-16;
 
-    public static int getNumOfFeatures(int degree) {
-	return (int) ( 1.5 * degree + 0.5 * Math.pow(degree, 2));
-    }
-
-    public static DoubleMatrix featureMapping(double x1, double x2, int degree) {
-	// for i = 1:degree
-	// for j = 0:i
-	// out(:, end+1) = (X1.^(i-j)).*(X2.^j);
-	int nFeatures = getNumOfFeatures(degree);
-	List<Double> list = new ArrayList<Double>(nFeatures);
-	for (int i = 1; i <= degree; i++) {
-	    for (int j = 0; j <= i; j++) {
-		list.add(Math.pow(x1, i - j) * Math.pow(x2, j));
-	    }
-	}
-	return new DoubleMatrix(list);
-    }
-    
-    public static List<DoubleMatrix> mtrx2colVecsList(DoubleMatrix batch) {
-	// assert vectors with same size
-	int cols = batch.columns;
-	List<DoubleMatrix> colVecList = new ArrayList<DoubleMatrix>(cols);
-	for (int i = 0; i < cols; i++) {
-	    colVecList.add(batch.getColumn(i));
-	}
-	return colVecList;
-    }
-
     public static DoubleMatrix colVecsList2BatchMtrx(
 	    List<DoubleMatrix> listOfVectors) {
 	// assert vectors with same size
@@ -89,6 +61,20 @@ public class MatrixUtils {
 	return false;
     }
 
+    public static DoubleMatrix featureMapping(double x1, double x2, int degree) {
+	// for i = 1:degree
+	// for j = 0:i
+	// out(:, end+1) = (X1.^(i-j)).*(X2.^j);
+	int nFeatures = getNumOfFeatures(degree);
+	List<Double> list = new ArrayList<Double>(nFeatures);
+	for (int i = 1; i <= degree; i++) {
+	    for (int j = 0; j <= i; j++) {
+		list.add(Math.pow(x1, i - j) * Math.pow(x2, j));
+	    }
+	}
+	return new DoubleMatrix(list);
+    }
+
     public static DoubleMatrix featureScalingByAvrg(DoubleMatrix input) {
 	double mean = input.mean();
 	double max = input.max();
@@ -102,8 +88,26 @@ public class MatrixUtils {
 	return input.sub(mean).div(std);
     }
 
+    public static int getNumOfFeatures(int degree) {
+	return (int) (1.5 * degree + 0.5 * Math.pow(degree, 2));
+    }
+
+    public static String getSize(DoubleMatrix mtrx) {
+	return mtrx.rows + "*" + mtrx.columns;
+    }
+
     public static DoubleMatrix inv(DoubleMatrix mtrx) {
 	return Solve.solvePositive(mtrx, DoubleMatrix.eye(mtrx.rows));
+    }
+
+    public static List<DoubleMatrix> mtrx2colVecsList(DoubleMatrix batch) {
+	// assert vectors with same size
+	int cols = batch.columns;
+	List<DoubleMatrix> colVecList = new ArrayList<DoubleMatrix>(cols);
+	for (int i = 0; i < cols; i++) {
+	    colVecList.add(batch.getColumn(i));
+	}
+	return colVecList;
     }
 
     /**
@@ -138,23 +142,39 @@ public class MatrixUtils {
 	return new DoubleMatrix(inverse);
     }
 
-    public static void print(DoubleMatrix... mtrxList) {
+    public static void print(boolean withSize, DoubleMatrix... mtrxList) {
 	for (DoubleMatrix mtrx : mtrxList) {
-	    System.out.print(mtrx.rows + " * " + mtrx.columns);
+	    if (withSize)
+		MatrixUtils.printSize(mtrx);
 	    mtrx.print();
 	}
     }
 
-    public static void print(List<DoubleMatrix> mtrxList) {
+    public static void print(boolean withSize, List<DoubleMatrix> mtrxList) {
 	for (DoubleMatrix mtrx : mtrxList) {
-	    System.out.print(mtrx.rows + " * " + mtrx.columns);
+	    if (withSize)
+		MatrixUtils.printSize(mtrx);
 	    mtrx.print();
 	}
     }
 
-    public static void printSize(DoubleMatrix... mtrx) {
-	for (DoubleMatrix m : mtrx) {
-	    System.out.println(m.rows + " * " + m.columns);
+    public static void print(String[] names, boolean withSize,
+	    DoubleMatrix... mtrxList) {
+	for (int i = 0; i < mtrxList.length; i++) {
+	    System.out.print(names[i] + ": ");
+	    if (withSize)
+		MatrixUtils.printSize(mtrxList[i]);
+	    mtrxList[i].print();
+	}
+    }
+
+    public static void printSize(DoubleMatrix mtrx) {
+	System.out.print(MatrixUtils.getSize(mtrx));
+    }
+
+    public static void printSize(DoubleMatrix... mtrxArray) {
+	for (DoubleMatrix m : mtrxArray) {
+	    MatrixUtils.printSize(m);
 	}
     }
 

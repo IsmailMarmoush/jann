@@ -54,15 +54,15 @@ public interface IPerformance extends IFunctionable {
     };
 
     /** The Constant MSE_NG. */
-    public static final IPerformance MSE_NG = new IPerformance() {
+    public static final IPerformance MSE_LinRgr = new IPerformance() {
 	@Override
 	public double measurePerformance(DoubleMatrix error) {
-	    return PerformanceUtils.mseNg(error);
+	    return PerformanceUtils.mseLinRgr(error);
 	}
 
 	@Override
 	public String toString() {
-	    return "MSE_NG";
+	    return "MSE_LinRgr";
 	}
     };
 

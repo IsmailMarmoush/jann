@@ -66,7 +66,7 @@ public class MatrixUtilsTest {
     @Test
     public void testFeatureMapping(){
 	System.out.println(MatrixUtils.getNumOfFeatures(9));
-	MatrixUtils.print(MatrixUtils.featureMapping(2, 2, 9));
+	MatrixUtils.featureMapping(2, 2, 9).print();
 	
     }
     
@@ -76,6 +76,6 @@ public class MatrixUtilsTest {
 		.valueOf("8 1 6; 3 5 7 ; 4 9 2; 3 2 2");
 	List<DoubleMatrix> list = MatrixUtils
 		.mtrx2colVecsList(batchInputs);
-	MatrixUtils.print(list);
+	MatrixUtils.print(true,list.toArray(new  DoubleMatrix[0]));
     }
 }
