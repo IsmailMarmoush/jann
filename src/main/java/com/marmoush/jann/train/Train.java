@@ -28,7 +28,7 @@ public abstract class Train {
 
     /** The Constant EPOCHS_REACHED. */
     public static final String EPOCHS_REACHED = "EpochsReached";
-
+    
     /** The Constant PERFORMANCE_REACHED. */
     public static final String PERFORMANCE_REACHED = "PerformanceGoalMet";
 

@@ -116,7 +116,7 @@ public class MatrixUtils {
 	return Solve.solvePositive(mtrx, DoubleMatrix.eye(mtrx.rows));
     }
 
-    public static List<DoubleMatrix> mtrx2colVecsList(DoubleMatrix batch) {
+    public static List<DoubleMatrix> batchMtrxToColVecsList(DoubleMatrix batch) {
 	// assert vectors with same size
 	int cols = batch.columns;
 	List<DoubleMatrix> colVecList = new ArrayList<DoubleMatrix>(cols);

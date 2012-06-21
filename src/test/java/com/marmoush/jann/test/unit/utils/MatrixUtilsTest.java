@@ -46,7 +46,7 @@ public class MatrixUtilsTest {
     public void testBatchMtrx2colVecsList() {
 	DoubleMatrix batchInputs = DoubleMatrix
 		.valueOf("8 1 6; 3 5 7 ; 4 9 2; 3 2 2");
-	List<DoubleMatrix> list = MatrixUtils.mtrx2colVecsList(batchInputs);
+	List<DoubleMatrix> list = MatrixUtils.batchMtrxToColVecsList(batchInputs);
 	MatrixUtils.print(true, list.toArray(new DoubleMatrix[0]));
     }
 
