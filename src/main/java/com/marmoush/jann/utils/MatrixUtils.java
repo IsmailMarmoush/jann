@@ -62,10 +62,11 @@ public class MatrixUtils {
     }
 
     public static DoubleMatrix featureMapping(double x1, double x2, int degree) {
+	// Returns row vector
 	// for i = 1:degree
 	// for j = 0:i
 	// out(:, end+1) = (X1.^(i-j)).*(X2.^j);
-	int nFeatures = getNumOfFeatures(degree);
+	int nFeatures = getNumFeaturesMapped(degree);
 	List<Double> list = new ArrayList<Double>(nFeatures);
 	for (int i = 1; i <= degree; i++) {
 	    for (int j = 0; j <= i; j++) {
@@ -73,6 +74,21 @@ public class MatrixUtils {
 	    }
 	}
 	return new DoubleMatrix(list);
+    }
+
+    public static DoubleMatrix featureMapping(DoubleMatrix input, int degree) {
+	// returns a matrix.rows = input.rows, matrix.columns=nFeatures(degree)
+	int nFeatures = MatrixUtils.getNumFeaturesMapped(degree);
+	DoubleMatrix mtrx = DoubleMatrix.zeros(input.rows, nFeatures);
+	DoubleMatrix row = null;
+	// assert(input.columns==2)
+	for (int i = 0; i < input.rows; i++) {
+	    double x1 = input.get(i, 0);
+	    double x2 = input.get(i, 1);
+	    row = MatrixUtils.featureMapping(x1, x2, degree);
+	    mtrx.putRow(i, row);
+	}
+	return mtrx;
     }
 
     public static DoubleMatrix featureScalingByAvrg(DoubleMatrix input) {
@@ -88,7 +104,7 @@ public class MatrixUtils {
 	return input.sub(mean).div(std);
     }
 
-    public static int getNumOfFeatures(int degree) {
+    public static int getNumFeaturesMapped(int degree) {
 	return (int) (1.5 * degree + 0.5 * Math.pow(degree, 2));
     }
 
