@@ -41,7 +41,6 @@ public class TrainTest {
 	System.out.println("Batch Training");
 	final LinearRegression lr = new LinearRegression(batchTrainingEx,
 		batchTargets, true);
-
 	Train t = new Train(1500, 0.001, 1000) {
 	    @Override
 	    public double train() {
