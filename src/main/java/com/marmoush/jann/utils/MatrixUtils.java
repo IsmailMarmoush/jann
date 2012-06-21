@@ -86,15 +86,30 @@ public class MatrixUtils {
 	return new DoubleMatrix(list);
     }
 
-    public static DoubleMatrix featureMapping(DoubleMatrix input, int degree) {
+    public static DoubleMatrix featureMapping(DoubleMatrix input, int degree,
+	    int f1Index, int f2Index) {
+	// assert(input is column vector or row vector)
+	if (input.rows == 1)
+	    return batchFeatureMapping(input, degree, f1Index,
+		    f2Index);
+	else if (input.columns == 1)
+	    return batchFeatureMapping(input.transpose(), degree,
+		    f1Index, f2Index);
+	else
+	    return null;
+    }
+
+    public static DoubleMatrix batchFeatureMapping(
+	    DoubleMatrix batchTrainingEx, int degree, int f1ColIndex,
+	    int f2ColIndex) {
 	// returns a matrix.rows = input.rows, matrix.columns=nFeatures(degree)
 	int nFeatures = MatrixUtils.getNumFeaturesMapped(degree);
-	DoubleMatrix mtrx = DoubleMatrix.zeros(input.rows, nFeatures);
+	DoubleMatrix mtrx = DoubleMatrix.zeros(batchTrainingEx.rows, nFeatures);
 	DoubleMatrix row = null;
-	// assert(input.columns==2)
-	for (int i = 0; i < input.rows; i++) {
-	    double x1 = input.get(i, 0);
-	    double x2 = input.get(i, 1);
+
+	for (int i = 0; i < batchTrainingEx.rows; i++) {
+	    double x1 = batchTrainingEx.get(i, f1ColIndex);
+	    double x2 = batchTrainingEx.get(i, f2ColIndex);
 	    row = MatrixUtils.featureMapping(x1, x2, degree);
 	    mtrx.putRow(i, row);
 	}

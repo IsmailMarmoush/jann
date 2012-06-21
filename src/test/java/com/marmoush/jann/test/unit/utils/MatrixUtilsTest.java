@@ -55,7 +55,7 @@ public class MatrixUtilsTest {
     public void testFeatureMappingInput() {
 	DoubleMatrix input = MatrixUtils.randomMatrixFloor(3, 2, 1, 3);
 	input.print();
-	MatrixUtils.featureMapping(input, 2).print();
+	MatrixUtils.batchFeatureMapping(input, 2, 0, 1).print();
     }
 
     @Test
