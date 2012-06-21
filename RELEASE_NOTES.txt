@@ -1,0 +1,9 @@
+JANN-0.4:
+--------
+Linear regression One/Multiple Variables
+Linear regression Training:
+	Batch GD (single neuron)
+	Stochastic GD (single or nNeurons)   
+Feature Mapping with degrees
+Feature Scaling with (STD, average)
+Normal Equation (single neuron)
