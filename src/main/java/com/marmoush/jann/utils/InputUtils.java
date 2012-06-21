@@ -18,7 +18,6 @@
  */
 package com.marmoush.jann.utils;
 
-
 /**
  * The Class InputUtils.
  */

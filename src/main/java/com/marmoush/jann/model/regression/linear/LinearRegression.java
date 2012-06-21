@@ -15,7 +15,7 @@ public class LinearRegression extends SvLayer {
 
     public LinearRegression(DoubleMatrix batchTrainingEx,
 	    DoubleMatrix batchTargets, boolean biased) {
-	super(batchTrainingEx.columns,1, biased);
+	super(batchTrainingEx.columns, 1, biased);
 	setWeightFnctr(IWeight.BATCH_DOTPROD);
 	setTransfereFnctr(ITransfere.PURELIN);
 	setPerformancefnctr(IPerformance.MSE_LinRgr);

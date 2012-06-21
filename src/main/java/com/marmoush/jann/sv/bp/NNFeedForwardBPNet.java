@@ -62,11 +62,11 @@ public class NNFeedForwardBPNet extends ArrayList<SvLayer> {
 	int nInputs = inputLength;
 	int nNeurons = lyrsNumOfNeurons[0];
 
-	net.add(new SvLayer(inputLength, lyrsNumOfNeurons[1],true));
+	net.add(new SvLayer(inputLength, lyrsNumOfNeurons[1], true));
 	for (int i = 1; i < lyrsNumOfNeurons.length; i++) {
 	    nInputs = lyrsNumOfNeurons[i - 1];
 	    nNeurons = lyrsNumOfNeurons[i];
-	    net.add(new SvLayer(nInputs, nNeurons,true));
+	    net.add(new SvLayer(nInputs, nNeurons, true));
 	}
 	return net;
     }

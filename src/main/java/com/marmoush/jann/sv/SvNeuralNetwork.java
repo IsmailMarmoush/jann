@@ -113,7 +113,7 @@ public class SvNeuralNetwork extends ArrayList<SvLayer> {
 	    lyrIdx = itr.next();
 	    nInputs = neuralGraph.getInputLength(lyrIdx);
 	    nNeurons = neuralGraph.getLayerNumOfNeurons(lyrIdx);
-	    add(new SvLayer(nInputs, nNeurons,true));
+	    add(new SvLayer(nInputs, nNeurons, true));
 	}
     }
 

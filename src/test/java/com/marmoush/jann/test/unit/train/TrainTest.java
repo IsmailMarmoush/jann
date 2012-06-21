@@ -11,12 +11,10 @@ import com.marmoush.jann.model.regression.linear.LinearRegression;
 import com.marmoush.jann.train.Train;
 import com.marmoush.jann.utils.MatrixUtils;
 import com.marmoush.jann.utils.TrainUtils;
-import com.marmoush.jann.utils.functors.IPerformance;
-import com.marmoush.jann.utils.functors.ITransfere;
 
 public class TrainTest {
-    private DoubleMatrix batchTrainingEx = null;
     private DoubleMatrix batchTargets = null;
+    private DoubleMatrix batchTrainingEx = null;
     List<DoubleMatrix> inputList = null;
     List<DoubleMatrix> targetList = null;
 
@@ -39,14 +37,15 @@ public class TrainTest {
     }
 
     @Test
-    public void testStochasticLinRgr() {
-	System.out.println("Stochastic Trainging ");
-	final LinearRegression lr = new LinearRegression(inputList, targetList,
-		true);
+    public void testBatchLinRgr() {
+	System.out.println("Batch Training");
+	final LinearRegression lr = new LinearRegression(batchTrainingEx,
+		batchTargets, true);
+
 	Train t = new Train(1500, 0.001, 1000) {
 	    @Override
 	    public double train() {
-		TrainUtils.stochasticLinRgr(lr, inputList, targetList);
+		TrainUtils.batchLinRgr(lr, batchTrainingEx, batchTargets);
 		return lr.getPerformance();
 	    }
 	};
@@ -55,15 +54,14 @@ public class TrainTest {
     }
 
     @Test
-    public void testBatchLinRgr() {
-	System.out.println("Batch Training");
-	final LinearRegression lr = new LinearRegression(batchTrainingEx,
-		batchTargets, true);
-	
+    public void testStochasticLinRgr() {
+	System.out.println("Stochastic Trainging ");
+	final LinearRegression lr = new LinearRegression(inputList, targetList,
+		true);
 	Train t = new Train(1500, 0.001, 1000) {
 	    @Override
 	    public double train() {
-		TrainUtils.batchLinRgr(lr, batchTrainingEx, batchTargets);
+		TrainUtils.stochasticLinRgr(lr, inputList, targetList);
 		return lr.getPerformance();
 	    }
 	};

@@ -37,6 +37,16 @@ public class MatrixUtils {
      */
     public static final double MACHEPS = 2E-16;
 
+    public static List<DoubleMatrix> batchMtrxToColVecsList(DoubleMatrix batch) {
+	// assert vectors with same size
+	int cols = batch.columns;
+	List<DoubleMatrix> colVecList = new ArrayList<DoubleMatrix>(cols);
+	for (int i = 0; i < cols; i++) {
+	    colVecList.add(batch.getColumn(i));
+	}
+	return colVecList;
+    }
+
     public static DoubleMatrix colVecsList2BatchMtrx(
 	    List<DoubleMatrix> listOfVectors) {
 	// assert vectors with same size
@@ -114,16 +124,6 @@ public class MatrixUtils {
 
     public static DoubleMatrix inv(DoubleMatrix mtrx) {
 	return Solve.solvePositive(mtrx, DoubleMatrix.eye(mtrx.rows));
-    }
-
-    public static List<DoubleMatrix> batchMtrxToColVecsList(DoubleMatrix batch) {
-	// assert vectors with same size
-	int cols = batch.columns;
-	List<DoubleMatrix> colVecList = new ArrayList<DoubleMatrix>(cols);
-	for (int i = 0; i < cols; i++) {
-	    colVecList.add(batch.getColumn(i));
-	}
-	return colVecList;
     }
 
     /**

@@ -98,7 +98,7 @@ public class NeuralNetwork extends ArrayList<Layer> {
 	    lyrIdx = itr.next();
 	    nInputs = neuralGraph.getInputLength(lyrIdx);
 	    nNeurons = neuralGraph.getLayerNumOfNeurons(lyrIdx);
-	    add(new Layer(nInputs, nNeurons,true));
+	    add(new Layer(nInputs, nNeurons, true));
 	}
     }
 

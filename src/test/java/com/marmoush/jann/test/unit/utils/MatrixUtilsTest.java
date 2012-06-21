@@ -36,17 +36,11 @@ public class MatrixUtilsTest {
     }
 
     @Test
-    public void testFeatureMappingInput() {
-	DoubleMatrix input=MatrixUtils.randomMatrixFloor(3, 2, 1, 3);
-	input.print();
-	MatrixUtils.featureMapping(input, 2).print();
-    }
-
-    @Test
     public void testBatchMtrx2colVecsList() {
 	DoubleMatrix batchInputs = DoubleMatrix
 		.valueOf("8 1 6; 3 5 7 ; 4 9 2; 3 2 2");
-	List<DoubleMatrix> list = MatrixUtils.batchMtrxToColVecsList(batchInputs);
+	List<DoubleMatrix> list = MatrixUtils
+		.batchMtrxToColVecsList(batchInputs);
 	MatrixUtils.print(true, list.toArray(new DoubleMatrix[0]));
     }
 
@@ -55,6 +49,13 @@ public class MatrixUtilsTest {
 	System.out.println(MatrixUtils.getNumFeaturesMapped(9));
 	MatrixUtils.featureMapping(2, 2, 9).print();
 
+    }
+
+    @Test
+    public void testFeatureMappingInput() {
+	DoubleMatrix input = MatrixUtils.randomMatrixFloor(3, 2, 1, 3);
+	input.print();
+	MatrixUtils.featureMapping(input, 2).print();
     }
 
     @Test

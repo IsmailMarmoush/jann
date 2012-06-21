@@ -27,7 +27,6 @@ import com.marmoush.jann.utils.functors.IWeight;
  * The Interface ILayer.
  */
 public interface ILayer extends IFillableLayer {
-    public abstract boolean isBiased();
     /**
      * Equals.
      * 
@@ -101,6 +100,8 @@ public interface ILayer extends IFillableLayer {
      */
     @Override
     public abstract int hashCode();
+
+    public abstract boolean isBiased();
 
     /**
      * Checks if is input only layer.

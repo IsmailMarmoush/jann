@@ -29,22 +29,6 @@ import com.marmoush.jann.utils.WeightUtils;
 public interface IWeight extends IFunctionable {
 
     /** The Constant DOTPROD. */
-    public static final IWeight DOTPROD = new IWeight() {
-	@Override
-	public String toString() {
-	    return "DOTPROD";
-	}
-
-	@Override
-	public DoubleMatrix weightFn(ILayer layer) {
-	    if (layer.isBiased())
-		return WeightUtils.dotprod(layer.getInput(), layer.getBias(),
-			layer.getWeight());
-	    else
-		return WeightUtils.dotprod(layer.getInput(), layer.getWeight());
-	}
-    };
-    /** The Constant DOTPROD. */
     public static final IWeight BATCH_DOTPROD = new IWeight() {
 	@Override
 	public String toString() {
@@ -59,6 +43,22 @@ public interface IWeight extends IFunctionable {
 	    else
 		return WeightUtils.batchDotprod(layer.getInput(),
 			layer.getWeight());
+	}
+    };
+    /** The Constant DOTPROD. */
+    public static final IWeight DOTPROD = new IWeight() {
+	@Override
+	public String toString() {
+	    return "DOTPROD";
+	}
+
+	@Override
+	public DoubleMatrix weightFn(ILayer layer) {
+	    if (layer.isBiased())
+		return WeightUtils.dotprod(layer.getInput(), layer.getBias(),
+			layer.getWeight());
+	    else
+		return WeightUtils.dotprod(layer.getInput(), layer.getWeight());
 	}
     };
 

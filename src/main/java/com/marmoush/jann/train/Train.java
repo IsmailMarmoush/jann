@@ -28,7 +28,7 @@ public abstract class Train {
 
     /** The Constant EPOCHS_REACHED. */
     public static final String EPOCHS_REACHED = "EpochsReached";
-    
+
     /** The Constant PERFORMANCE_REACHED. */
     public static final String PERFORMANCE_REACHED = "PerformanceGoalMet";
 
@@ -71,21 +71,6 @@ public abstract class Train {
 	this.timeLimit = timeLimit;
     }
 
-    public void run() {
-	start();
-	for (int i = 0; i < getMaxEpochs(); i++) {
-	    double performance = train();
-	    addPerformanceHistoryEntry(performance);
-	    if (performance < getPerformanceGoal()) {
-		end(PERFORMANCE_REACHED, i);
-		return;
-	    }
-	}
-	end(EPOCHS_REACHED, getMaxEpochs());
-    }
-
-    public abstract double train();
-
     public void addPerformanceHistoryEntry(double performance) {
 	getPerformanceHistory().add(performance);
     }
@@ -119,6 +104,19 @@ public abstract class Train {
 
     public long getTimeLimit() {
 	return timeLimit;
+    }
+
+    public void run() {
+	start();
+	for (int i = 0; i < getMaxEpochs(); i++) {
+	    double performance = train();
+	    addPerformanceHistoryEntry(performance);
+	    if (performance < getPerformanceGoal()) {
+		end(PERFORMANCE_REACHED, i);
+		return;
+	    }
+	}
+	end(EPOCHS_REACHED, getMaxEpochs());
     }
 
     public void setMaxEpochs(int maxEpochs) {
@@ -163,5 +161,7 @@ public abstract class Train {
 	builder.append(performanceHistory);
 	return builder.toString();
     }
+
+    public abstract double train();
 
 }

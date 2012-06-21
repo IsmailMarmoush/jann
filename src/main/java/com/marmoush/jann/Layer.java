@@ -35,16 +35,20 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
     private static final long serialVersionUID = 59396693200260159L;
 
     /** The bias. */
-    private DoubleMatrix bias=null;
+    private DoubleMatrix bias = null;
+
+    private boolean biased = false;
 
     /** The input. */
-    private DoubleMatrix input=null;
+    private DoubleMatrix input = null;
+
+    private boolean inputOnlyLayer = false;
 
     /** The net sum. */
-    private DoubleMatrix netSum=null;
+    private DoubleMatrix netSum = null;
 
     /** The output. */
-    private DoubleMatrix output=null;
+    private DoubleMatrix output = null;
 
     /** The theta. */
     private double theta = 0;
@@ -53,13 +57,9 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
     private ITransfere transfereFnctr = ITransfere.PURELIN;
 
     /** The weight. */
-    private DoubleMatrix weight=null;
-
+    private DoubleMatrix weight = null;
     /** The weight fnctr. */
     private IWeight weightFnctr = IWeight.DOTPROD;
-
-    private boolean inputOnlyLayer = false;
-    private boolean biased = false;
 
     /**
      * Instantiates a new layer.
@@ -76,16 +76,16 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @param nNeurons
      *            the n neurons
      */
-    public Layer(final int nInputs, final int nNeurons,boolean biased) {
+    public Layer(final int nInputs, final int nNeurons, boolean biased) {
 	input = new DoubleMatrix(nInputs);
 	weight = new DoubleMatrix(nNeurons, nInputs);
-	if(biased){
+	if (biased) {
 	    setBiased(true);
 	    bias = new DoubleMatrix(nNeurons);
 	}
 	netSum = new DoubleMatrix(nNeurons);
 	output = new DoubleMatrix(nNeurons);
-	
+
     }
 
     /*
@@ -256,8 +256,8 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      */
     @Override
     public void setBias(DoubleMatrix bias) {
-	if(biased)
-	    this.bias = bias;		
+	if (biased)
+	    this.bias = bias;
     }
 
     public void setBiased(boolean biased) {

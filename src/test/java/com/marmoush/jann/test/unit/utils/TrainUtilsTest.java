@@ -17,7 +17,7 @@ public class TrainUtilsTest {
 	batchTargets = DoubleMatrix.valueOf("1;1; 0;0");
 	DoubleMatrix data = DoubleMatrix
 		.loadAsciiFile("src\\test\\java\\ex1data2.txt");
-	batchInputs = data.getColumns(new int[]{0,1});
+	batchInputs = data.getColumns(new int[] { 0, 1 });
 	batchInputs = DoubleMatrix.concatHorizontally(
 		DoubleMatrix.ones(batchInputs.rows), batchInputs);
 	batchTargets = data.getColumn(2);
@@ -40,7 +40,7 @@ public class TrainUtilsTest {
 		.normalEqPinv(batchInputs, batchTargets);
 	t = System.currentTimeMillis() - t;
 	System.out.println(t);
-	DoubleMatrix predict2=DoubleMatrix.valueOf("1 1650 3");
+	DoubleMatrix predict2 = DoubleMatrix.valueOf("1 1650 3");
 	predict2.mmul(weight).print();
     }
 }
