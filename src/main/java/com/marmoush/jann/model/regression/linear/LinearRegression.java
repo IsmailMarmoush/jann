@@ -18,7 +18,7 @@ public class LinearRegression extends SvLayer {
 	super(batchTrainingEx.columns, 1, biased);
 	setWeightFnctr(IWeight.BATCH_DOTPROD);
 	setTransfereFnctr(ITransfere.PURELIN);
-	setPerformancefnctr(IPerformance.MSE_LinRgr);
+	setPerformancefnctr(IPerformance.MSE);
 	setLearnRate(0.01);
 	setFill(1, getWeight());
 	if (biased)
@@ -30,7 +30,7 @@ public class LinearRegression extends SvLayer {
 	super(trainingEx.get(0).rows, targetList.get(0).length, biased);
 	setWeightFnctr(IWeight.DOTPROD);
 	setTransfereFnctr(ITransfere.PURELIN);
-	setPerformancefnctr(IPerformance.MSE_LinRgr);
+	setPerformancefnctr(IPerformance.MSE);
 	setLearnRate(0.01);
 	setFill(1, getWeight());
 	if (biased)

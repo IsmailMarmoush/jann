@@ -72,20 +72,6 @@ public class PerformanceUtils {
     }
 
     /**
-     * Mse.
-     * 
-     * @param error
-     *            the error
-     * @return MatrixFunctions.pow(error, 2).sum() / error.length;
-     */
-    public static double mseLinRgr(final DoubleMatrix error) {
-	// From Andrew Ng, the Cost function of linear Regression with one
-	// neuron
-	int mTrainingExamples = error.length;
-	return MatrixFunctions.pow(error, 2).sum() / (2 * mTrainingExamples);
-    }
-
-    /**
      * Sse.
      * 
      * @param error

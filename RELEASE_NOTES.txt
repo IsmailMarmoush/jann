@@ -3,7 +3,40 @@ JANN-0.4:
 Linear regression One/Multiple Variables
 Linear regression Training:
 	Batch GD (single neuron)
-	Stochastic GD (single or nNeurons)   
+	Stochastic GD (single or nNeurons)
 Feature Mapping with degrees
 Feature Scaling with (STD, average)
 Normal Equation (single neuron)
+Dynamic Training through com.marmoush.jann.train.Train Class
+Better Tests
+*** Backpropagation will be deleted and replaced with better more clear algorithms  
+
+ 
+JANN-0.3
+--------
+Graphed Network 
+Functors IFunctionable aka Java function pointers {IPerformance, Iweight, ITransfere}
+Feed forward, perceptron, backpropagation trials
+
+JANN-0.2
+---------
+Many network structure trials
+Transfere Functions:
+	COMPET 
+	HARDLIM 
+	HARDLIMS 
+	LOGSIG 
+	LOGSIGDIFF 
+	POSLIN 
+	PURELIN 
+	SATLIN 
+	SATLINS 
+	TANSIG 
+	TANSIGDIFF
+ Performance Functions:
+ 	MSE, MAE, SSE
+ 	
+ JANN-0.1
+ --------
+ Weight dotprod
+ many trials
