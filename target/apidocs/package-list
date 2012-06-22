@@ -1,0 +1,10 @@
+com.marmoush.jann
+com.marmoush.jann.model.regression
+com.marmoush.jann.model.regression.linear
+com.marmoush.jann.neuralgraph
+com.marmoush.jann.plot
+com.marmoush.jann.sv
+com.marmoush.jann.sv.bp
+com.marmoush.jann.train
+com.marmoush.jann.utils
+com.marmoush.jann.utils.functors
