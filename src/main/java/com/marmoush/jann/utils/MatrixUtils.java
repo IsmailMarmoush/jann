@@ -37,6 +37,24 @@ public class MatrixUtils {
      */
     public static final double MACHEPS = 2E-16;
 
+    public static List<Double> range(double start, double incrOrDecrValue,
+	    double end) {
+	List<Double> list = new ArrayList<Double>();
+	if (start < end) {
+	    while (start < end) {
+		list.add(start);
+		start += incrOrDecrValue;
+	    }
+	} else if (start > end) {
+	    incrOrDecrValue = Math.abs(incrOrDecrValue);
+	    while (start > end) {
+		list.add(start);
+		start -= incrOrDecrValue;
+	    }
+	}
+	return list;
+    }
+
     public static List<DoubleMatrix> batchMtrxToColVecsList(DoubleMatrix batch) {
 	// assert vectors with same size
 	int cols = batch.columns;
@@ -90,11 +108,10 @@ public class MatrixUtils {
 	    int f1Index, int f2Index) {
 	// assert(input is column vector or row vector)
 	if (input.rows == 1)
-	    return batchFeatureMapping(input, degree, f1Index,
-		    f2Index);
+	    return batchFeatureMapping(input, degree, f1Index, f2Index);
 	else if (input.columns == 1)
-	    return batchFeatureMapping(input.transpose(), degree,
-		    f1Index, f2Index);
+	    return batchFeatureMapping(input.transpose(), degree, f1Index,
+		    f2Index);
 	else
 	    return null;
     }

@@ -50,6 +50,7 @@ public class TrainTest {
 	};
 	t.run();
 	System.out.println(t);
+	System.out.println(t.getPerformanceHistory().size());
     }
 
     @Test
@@ -64,7 +65,9 @@ public class TrainTest {
 		return lr.getPerformance();
 	    }
 	};
+	
 	t.run();
 	System.out.println(t);
+	System.out.println(t.getPerformanceHistory().size());
     }
 }
