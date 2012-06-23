@@ -2,7 +2,7 @@ Please Visit http://jann.marmoush.com
 Jann depends on several libraries:
 1-JBlas + Javadocs
 2-JGrpah + Javadocs
-3-JFreeChart + javadocs
+
 
 They're all included in Lib folder
 The SoftwareEngineering Folder includes UML, MachineLearning Notes, and links to large resources
