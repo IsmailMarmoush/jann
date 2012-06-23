@@ -7,7 +7,7 @@ import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
 public class ChartUtils {
-    public static XYSeries createXYSeries(String key, double[][] data) {
+    public static XYSeries xySeries(String key, double[][] data) {
 	XYSeries series = new XYSeries(key);
 	for (int row = 0; row < data.length; row++) {
 	    series.add(data[row][0], data[row][1]);
@@ -15,7 +15,7 @@ public class ChartUtils {
 	return series;
     }
 
-    public static XYSeries createXYSeries(String key, List<Double> x,
+    public static XYSeries xySeries(String key, List<Double> x,
 	    List<Double> y) {
 	// assert (x.size()==y.size();
 	XYSeries series = new XYSeries(key);
@@ -25,7 +25,7 @@ public class ChartUtils {
 	return series;
     }
 
-    public static XYSeries createXYSeries(String key, DoubleMatrix xyMtrx,
+    public static XYSeries xySeries(String key, DoubleMatrix xyMtrx,
 	    int xColIdx, int yColdIdx) {
 	XYSeries series = new XYSeries(key);
 	for (int row = 0; row < xyMtrx.rows; row++) {

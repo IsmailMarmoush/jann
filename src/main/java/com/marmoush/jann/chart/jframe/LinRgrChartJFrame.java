@@ -10,11 +10,10 @@ import org.jfree.data.xy.XYSeriesCollection;
 import com.marmoush.jann.chart.ChartUtils;
 import com.marmoush.jann.chart.LinRgrChartUtils;
 
-
 public class LinRgrChartJFrame extends JFrame {
     private static final long serialVersionUID = 1L;
 
-    public LinRgrChartJFrame(JFreeChart chart, String title) {
+    public LinRgrChartJFrame(String title, JFreeChart chart) {
 	super(title);
 	// we put the chart into a panel
 	ChartPanel chartPanel = new ChartPanel(chart);
