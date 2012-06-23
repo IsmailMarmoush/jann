@@ -1,4 +1,4 @@
-package com.marmoush.jann.plot;
+package com.marmoush.jann.chart;
 
 import javax.swing.JFrame;
 
@@ -26,7 +26,6 @@ public class PieChart extends JFrame {
 	chartPanel.setPreferredSize(new java.awt.Dimension(500, 270));
 	// add it to our application
 	setContentPane(chartPanel);
-
     }
 
     /**

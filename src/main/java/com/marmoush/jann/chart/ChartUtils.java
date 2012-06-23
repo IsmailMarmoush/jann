@@ -1,22 +1,12 @@
-package com.marmoush.jann.plot;
+package com.marmoush.jann.chart;
 
 import java.util.List;
 
 import org.jblas.DoubleMatrix;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-public class PlotUtils {
-    public static JFreeChart getLinRgrChart(String applicationTitle,
-	    String chartTitle, XYSeriesCollection xySeriesCollection) {
-	return ChartFactory.createXYLineChart(applicationTitle, "x-axis",
-		"y-axis", xySeriesCollection, PlotOrientation.VERTICAL, true,
-		true, false);
-    }
-    
+public class ChartUtils {
     public static XYSeries createXYSeries(String key, double[][] data) {
 	XYSeries series = new XYSeries(key);
 	for (int row = 0; row < data.length; row++) {
