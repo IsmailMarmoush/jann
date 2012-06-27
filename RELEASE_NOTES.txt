@@ -35,8 +35,3 @@ Transfere Functions:
 	TANSIGDIFF
  Performance Functions:
  	MSE, MAE, SSE
- 	
- JANN-0.1
- --------
- Weight dotprod
- many trials

@@ -369,6 +369,13 @@ public class MatrixUtils {
 	return Math.sqrt(sd);
     }
 
+    public static double standardDeviationMat(DoubleMatrix input) {
+	double mean = input.mean();
+	// TODO m-1 or m
+	DoubleMatrix dummy = MatrixFunctions.pow(input.sub(mean), 2);
+	double sd = dummy.sum() / (input.length - 1);
+	return Math.sqrt(sd);
+    }
     // /**
     // * Updates MACHEPS for the executing machine.
     // */
