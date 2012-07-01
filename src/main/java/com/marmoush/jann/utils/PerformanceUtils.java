@@ -25,13 +25,22 @@ import org.jblas.MatrixFunctions;
  * The Class PerformanceUtils.
  */
 public class PerformanceUtils {
-    public static double LogRgrCost(DoubleMatrix batchOutput,
-	    DoubleMatrix batchTarget) {
-	// J = 1./-m * ( y' * log( sigmoid(X * theta) ) + ( 1 - y' ) * log ( 1 -
+    public static double LogRgr(DoubleMatrix output, DoubleMatrix target) {
+	// J = -1./m * ( y' * log( sigmoid(X * theta) ) + ( 1 - y' ) * log ( 1 -
 	// sigmoid( X * theta)) )
-	
-	// batchTarget.transpose().mmul(batchOutput.)
-	return 0;
+	int m = target.length;
+	// y' * log (sigmoid(X* theta))
+	DoubleMatrix yT = target.transpose();
+	DoubleMatrix outputLog = MatrixFunctions.log(output);
+	DoubleMatrix part1 = yT.mmul(outputLog);
+
+	// ( 1 - y' ) * log ( 1 - sigmoid( X * theta)) )
+	DoubleMatrix logOneMinusOutput = MatrixFunctions.log(output.mul(-1)
+		.add(1));
+	DoubleMatrix oneMinusYT = yT.mul(-1).add(1);
+	DoubleMatrix part2 = oneMinusYT.mmul(logOneMinusOutput);
+
+	return part1.add(part2).sum() * (-1 / m);
     }
 
     /**
@@ -41,9 +50,10 @@ public class PerformanceUtils {
      *            the error
      * @return MatrixFunctions.abs(error).sum() / error.length;
      */
-    public static double mae( DoubleMatrix output,DoubleMatrix target) {
-	DoubleMatrix error=output.sub(target);
-	return MatrixFunctions.abs(error).sum() / error.length;
+    public static double mae(DoubleMatrix output, DoubleMatrix target) {
+	int m = target.length;
+	DoubleMatrix error = output.sub(target);
+	return MatrixFunctions.abs(error).sum() / m;
     }
 
     /**
@@ -53,11 +63,12 @@ public class PerformanceUtils {
      *            the error
      * @return MatrixFunctions.pow(error, 2).sum() / error.length;
      */
-    public static double mse( DoubleMatrix output,DoubleMatrix target) {
+    public static double mse(DoubleMatrix output, DoubleMatrix target) {
 	// As long as error.length is actually the length of the error matrix
 	// unrolled so even if the matrix was 2*3 the length should be 6
-	DoubleMatrix error=output.sub(target);
-	return MatrixFunctions.pow(error, 2).sum() / error.length;
+	int m = target.length;
+	DoubleMatrix error = output.sub(target);
+	return MatrixFunctions.pow(error, 2).sum() / m;
     }
 
     /**
@@ -67,8 +78,8 @@ public class PerformanceUtils {
      *            the errorQp
      * @return MatrixFunctions.pow(error, 2).sum();
      */
-    public static double sse( DoubleMatrix output,DoubleMatrix target) {
-	DoubleMatrix error=output.sub(target);
+    public static double sse(DoubleMatrix output, DoubleMatrix target) {
+	DoubleMatrix error = output.sub(target);
 	return MatrixFunctions.pow(error, 2).sum();
     }
 }

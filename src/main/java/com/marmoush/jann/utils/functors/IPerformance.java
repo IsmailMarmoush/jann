@@ -26,12 +26,26 @@ import com.marmoush.jann.utils.PerformanceUtils;
  * The Interface IPerformance.
  */
 public interface IPerformance extends IFunctionable {
+    /** The Constant MAE. */
+    public static final IPerformance LOGRGR = new IPerformance() {
+	@Override
+	public double measurePerformance(DoubleMatrix output,
+		DoubleMatrix target) {
+	    return PerformanceUtils.LogRgr(output, target);
+	}
+
+	@Override
+	public String toString() {
+	    return "LOGRGR";
+	}
+    };
 
     /** The Constant MAE. */
     public static final IPerformance MAE = new IPerformance() {
 	@Override
-	public double measurePerformance(DoubleMatrix output,DoubleMatrix target) {
-	    return PerformanceUtils.mae(output,target);
+	public double measurePerformance(DoubleMatrix output,
+		DoubleMatrix target) {
+	    return PerformanceUtils.mae(output, target);
 	}
 
 	@Override
@@ -43,8 +57,9 @@ public interface IPerformance extends IFunctionable {
     /** The Constant MSE. */
     public static final IPerformance MSE = new IPerformance() {
 	@Override
-	public double measurePerformance(DoubleMatrix output,DoubleMatrix target) {
-	    return PerformanceUtils.mse(output,target);
+	public double measurePerformance(DoubleMatrix output,
+		DoubleMatrix target) {
+	    return PerformanceUtils.mse(output, target);
 	}
 
 	@Override
@@ -56,8 +71,9 @@ public interface IPerformance extends IFunctionable {
     /** The Constant SSE. */
     public static final IPerformance SSE = new IPerformance() {
 	@Override
-	public double measurePerformance(DoubleMatrix output,DoubleMatrix target) {
-	    return PerformanceUtils.sse(output,target);
+	public double measurePerformance(DoubleMatrix output,
+		DoubleMatrix target) {
+	    return PerformanceUtils.sse(output, target);
 	}
 
 	@Override
@@ -73,5 +89,5 @@ public interface IPerformance extends IFunctionable {
      *            the error
      * @return the double
      */
-    public double measurePerformance(DoubleMatrix output,DoubleMatrix target);
+    public double measurePerformance(DoubleMatrix output, DoubleMatrix target);
 }

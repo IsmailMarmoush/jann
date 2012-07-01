@@ -1,5 +1,7 @@
 package com.marmoush.jann.model.regression.logistic;
 
+import java.util.List;
+
 import org.jblas.DoubleMatrix;
 
 import com.marmoush.jann.sv.SvLayer;
@@ -15,7 +17,19 @@ public class LogisticRegression extends SvLayer {
 	super(batchTrainingEx.columns, 1, biased);
 	setWeightFnctr(IWeight.BATCH_DOTPROD);
 	setTransfereFnctr(ITransfere.LOGSIG);
-	setPerformancefnctr(IPerformance.MSE);
+	setPerformancefnctr(IPerformance.LOGRGR);
+	setLearnRate(0.01);
+	setFill(1, getWeight());
+	if (biased)
+	    setFill(1, getBias());
+    }
+
+    public LogisticRegression(List<DoubleMatrix> trainingEx,
+	    List<DoubleMatrix> targetList, boolean biased) {
+	super(trainingEx.get(0).rows, targetList.get(0).length, biased);
+	setWeightFnctr(IWeight.DOTPROD);
+	setTransfereFnctr(ITransfere.LOGSIG);
+	setPerformancefnctr(IPerformance.LOGRGR);
 	setLearnRate(0.01);
 	setFill(1, getWeight());
 	if (biased)
