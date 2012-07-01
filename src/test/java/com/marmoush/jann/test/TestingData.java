@@ -15,7 +15,7 @@ public class TestingData {
     }
 
     public static String getPath(String folder, String fileName) {
-	return toRelativePath(DATA_FOLDER+".ex1", "ex1data1.txt");
+	return toRelativePath(DATA_FOLDER+"."+folder,fileName);
     }
 
     public static void main(String[] args) {

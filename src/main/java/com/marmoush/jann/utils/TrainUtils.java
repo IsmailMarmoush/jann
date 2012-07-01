@@ -31,6 +31,19 @@ public class TrainUtils {
     public static void batchLogRgr(SvLayer layer, DoubleMatrix batchTrainingEx,
 	    DoubleMatrix batchTargets) {
 	// grad = 1./m * X' * (sigmoid(X * theta) - y)
+	layer.setInput(batchTrainingEx);
+	layer.setTarget(batchTargets);
+	layer.simulate();
+	int m = batchTargets.length;
+	DoubleMatrix error = layer.getOutput().sub(layer.getTarget());
+	DoubleMatrix xT = batchTrainingEx.transpose();
+	DoubleMatrix grad = xT.mmul(error).mul(layer.getLearnRate() / m);
+	layer.getWeight().subi(grad);
+	if (layer.isBiased()) {
+	    // deltaBias= (alpha/m)* SIGMA{outi-yi}
+	    double deltaBias = (layer.getLearnRate() / m) * error.sum();
+	    layer.getBias().subi(deltaBias);
+	}
     }
 
     public static void batchLinRgr(SvLayer layer, DoubleMatrix batchTrainingEx,

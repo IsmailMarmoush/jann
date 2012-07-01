@@ -11,13 +11,13 @@ import org.junit.Test;
 
 import com.marmoush.jann.chart.ChartUtils;
 import com.marmoush.jann.chart.LinRgrChartUtils;
-import com.marmoush.jann.model.regression.linear.LinearRegression;
+import com.marmoush.jann.model.regression.LinearRegression;
 import com.marmoush.jann.test.TestingData;
 import com.marmoush.jann.train.Train;
 import com.marmoush.jann.utils.MatrixUtils;
 import com.marmoush.jann.utils.TrainUtils;
 
-public class TrainTest {
+public class LingRgrTrainTest {
     private DoubleMatrix batchTargets = null;
     private DoubleMatrix batchTrainingEx = null;
     private List<DoubleMatrix> inputList = null;

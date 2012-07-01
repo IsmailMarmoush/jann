@@ -37,7 +37,11 @@ public class PerformanceUtilsTest {
 	double p = PerformanceUtils.mae(output,target);
 	assertTrue("Performance is:" + p, p == 2);
     }
-
+    @Test
+    public void testLogRgr(){
+	double p = PerformanceUtils.LogRgr(output,target);
+	System.out.println(p);
+    }
     /**
      * Test method for
      * {@link com.marmoush.jann.utils.PerformanceUtils#mse(org.jblas.DoubleMatrix)}

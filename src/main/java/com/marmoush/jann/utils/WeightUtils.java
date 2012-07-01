@@ -27,7 +27,7 @@ public abstract class WeightUtils {
 
     public static DoubleMatrix batchDotprod(DoubleMatrix batchTrainingEx,
 	    DoubleMatrix weight) {
-	DoubleMatrix out = batchTrainingEx.mmul(weight);
+	DoubleMatrix out = batchTrainingEx.mmul(weight.transpose());
 	return out;
     }
 
@@ -45,7 +45,7 @@ public abstract class WeightUtils {
 	 */
 	// Based on the previous:
 	// assert (bias.length==1)
-	DoubleMatrix out = batchTrainingEx.mmul(weight);
+	DoubleMatrix out = batchTrainingEx.mmul(weight.transpose());
 	// assert (out.columns==1)
 	// Add bias to each row
 	out.addiRowVector(bias);

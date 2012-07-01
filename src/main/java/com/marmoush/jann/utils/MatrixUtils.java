@@ -223,6 +223,7 @@ public class MatrixUtils {
     public static void printSize(DoubleMatrix... mtrxArray) {
 	for (DoubleMatrix m : mtrxArray) {
 	    MatrixUtils.printSize(m);
+	    System.out.println();
 	}
     }
 
