@@ -16,14 +16,15 @@ import com.marmoush.jann.utils.PerformanceUtils;
  * 
  */
 public class PerformanceUtilsTest {
-    private DoubleMatrix error;
-
+    private DoubleMatrix output;
+    private DoubleMatrix target;    
     /**
      * @throws java.lang.Exception
      */
     @Before
     public void setUp() throws Exception {
-	error = DoubleMatrix.valueOf("-1 -2 -3");
+	output = DoubleMatrix.valueOf("1 2 3");
+	target= DoubleMatrix.valueOf("2 4 6");
     }
 
     /**
@@ -33,7 +34,7 @@ public class PerformanceUtilsTest {
      */
     @Test
     public void testMae() {
-	double p = PerformanceUtils.mae(error);
+	double p = PerformanceUtils.mae(output,target);
 	assertTrue("Performance is:" + p, p == 2);
     }
 
@@ -44,7 +45,7 @@ public class PerformanceUtilsTest {
      */
     @Test
     public void testMse() {
-	double p = PerformanceUtils.mse(error);
+	double p = PerformanceUtils.mse(output,target);
 	p = Math.round(p * 10000.0) / 10000.0;
 	assertTrue("Performance is:" + p, p == 4.6667);
     }
@@ -56,7 +57,7 @@ public class PerformanceUtilsTest {
      */
     @Test
     public void testSse() {
-	double p = PerformanceUtils.sse(error);
+	double p = PerformanceUtils.sse(output,target);
 	assertTrue("Performance is:" + p, p == 14);
     }
 

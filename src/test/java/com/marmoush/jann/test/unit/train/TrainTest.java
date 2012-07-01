@@ -12,6 +12,7 @@ import org.junit.Test;
 import com.marmoush.jann.chart.ChartUtils;
 import com.marmoush.jann.chart.LinRgrChartUtils;
 import com.marmoush.jann.model.regression.linear.LinearRegression;
+import com.marmoush.jann.test.TestingData;
 import com.marmoush.jann.train.Train;
 import com.marmoush.jann.utils.MatrixUtils;
 import com.marmoush.jann.utils.TrainUtils;
@@ -24,14 +25,17 @@ public class TrainTest {
 
     @Before
     public void setUp() throws Exception {
+	String path=TestingData.getPath("ex1", "ex1data1.txt");
 	DoubleMatrix data = DoubleMatrix
-		.loadAsciiFile("src\\test\\java\\ex1data1.txt");
+		.loadAsciiFile(path);
+	
 	batchTrainingEx = data.getColumn(0);
 	batchTargets = data.getColumn(1);
 	inputList = MatrixUtils.batchMtrxToColVecsList(batchTrainingEx
 		.transpose());
 	targetList = MatrixUtils.batchMtrxToColVecsList(batchTargets
 		.transpose());
+
     }
 
     @After

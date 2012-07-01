@@ -31,9 +31,6 @@ public class SvLayer extends Layer {
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 214303268098893298L;
 
-    /** The error. */
-    private DoubleMatrix error = null;
-
     /** The learn rate. */
     private double learnRate = 1;
 
@@ -63,14 +60,24 @@ public class SvLayer extends Layer {
      */
     public SvLayer(int nInputs, int nNeurons, boolean biased) {
 	super(nInputs, nNeurons, biased);
-	error = new DoubleMatrix(new double[nNeurons]);
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.marmoush.jann.Layer#equals(java.lang.Object)
-     */
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = super.hashCode();
+	long temp;
+	temp = Double.doubleToLongBits(learnRate);
+	result = prime * result + (int) (temp ^ (temp >>> 32));
+	temp = Double.doubleToLongBits(performance);
+	result = prime * result + (int) (temp ^ (temp >>> 32));
+	result = prime
+		* result
+		+ ((performancefnctr == null) ? 0 : performancefnctr.hashCode());
+	result = prime * result + ((target == null) ? 0 : target.hashCode());
+	return result;
+    }
+
     @Override
     public boolean equals(Object obj) {
 	if (this == obj)
@@ -80,13 +87,16 @@ public class SvLayer extends Layer {
 	if (getClass() != obj.getClass())
 	    return false;
 	SvLayer other = (SvLayer) obj;
-	if (error == null) {
-	    if (other.error != null)
-		return false;
-	} else if (!error.equals(other.error))
-	    return false;
 	if (Double.doubleToLongBits(learnRate) != Double
 		.doubleToLongBits(other.learnRate))
+	    return false;
+	if (Double.doubleToLongBits(performance) != Double
+		.doubleToLongBits(other.performance))
+	    return false;
+	if (performancefnctr == null) {
+	    if (other.performancefnctr != null)
+		return false;
+	} else if (!performancefnctr.equals(other.performancefnctr))
 	    return false;
 	if (target == null) {
 	    if (other.target != null)
@@ -94,15 +104,6 @@ public class SvLayer extends Layer {
 	} else if (!target.equals(other.target))
 	    return false;
 	return true;
-    }
-
-    /**
-     * Gets the error.
-     * 
-     * @return the error
-     */
-    public DoubleMatrix getError() {
-	return error;
     }
 
     /**
@@ -139,33 +140,6 @@ public class SvLayer extends Layer {
      */
     public DoubleMatrix getTarget() {
 	return target;
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.marmoush.jann.Layer#hashCode()
-     */
-    @Override
-    public int hashCode() {
-	final int prime = 31;
-	int result = super.hashCode();
-	result = prime * result + ((error == null) ? 0 : error.hashCode());
-	long temp;
-	temp = Double.doubleToLongBits(learnRate);
-	result = prime * result + (int) (temp ^ (temp >>> 32));
-	result = prime * result + ((target == null) ? 0 : target.hashCode());
-	return result;
-    }
-
-    /**
-     * Sets the error.
-     * 
-     * @param error
-     *            the new error
-     */
-    public void setError(DoubleMatrix error) {
-	this.error = error;
     }
 
     /**
@@ -211,7 +185,6 @@ public class SvLayer extends Layer {
     @Override
     public void simulate() {
 	super.simulate();
-	updateError();
 	updatePerformance();
     }
 
@@ -224,8 +197,6 @@ public class SvLayer extends Layer {
     public String toString() {
 	StringBuilder builder = new StringBuilder();
 	builder.append(super.toString());
-	builder.append("\nerror=");
-	builder.append(error);
 	builder.append(" \nlearnRate=");
 	builder.append(learnRate);
 	builder.append(" \nperformance=");
@@ -238,22 +209,13 @@ public class SvLayer extends Layer {
     }
 
     /**
-     * Update error.
-     * 
-     * @return the double matrix
-     */
-    public DoubleMatrix updateError() {
-	setError(getOutput().sub(getTarget()));
-	return error;
-    }
-
-    /**
      * Update performance.
      * 
      * @return the double
      */
     public double updatePerformance() {
-	performance = performancefnctr.measurePerformance(error);
+	performance = performancefnctr.measurePerformance(getOutput(),
+		getTarget());
 	return performance;
     }
 

@@ -15,8 +15,7 @@ public class ChartUtils {
 	return series;
     }
 
-    public static XYSeries xySeries(String key, List<Double> x,
-	    List<Double> y) {
+    public static XYSeries xySeries(String key, List<Double> x, List<Double> y) {
 	// assert (x.size()==y.size();
 	XYSeries series = new XYSeries(key);
 	for (int row = 0; row < x.size(); row++) {
@@ -27,6 +26,7 @@ public class ChartUtils {
 
     public static XYSeries xySeries(String key, DoubleMatrix xyMtrx,
 	    int xColIdx, int yColdIdx) {
+
 	XYSeries series = new XYSeries(key);
 	for (int row = 0; row < xyMtrx.rows; row++) {
 	    series.add(xyMtrx.get(row, xColIdx), xyMtrx.get(row, yColdIdx));

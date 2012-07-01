@@ -9,7 +9,7 @@ import com.marmoush.jann.utils.MatrixUtils;
 public class LinRgrFrameTest {
     public static void main(String[] args) {
 	XYSeries xys = ChartUtils.xySeries("Training",
-		MatrixUtils.range(0, 1,1500), MatrixUtils.range(0, 2, 3000));
+		MatrixUtils.range(0, 1, 1500), MatrixUtils.range(0, 2, 3000));
 	new LinRgrChartJFrame("Training", xys);
     }
 }

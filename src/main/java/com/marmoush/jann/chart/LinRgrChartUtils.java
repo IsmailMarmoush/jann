@@ -12,8 +12,9 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 public class LinRgrChartUtils {
 
-    public static void createLinRgrPNG(String path, String title, XYSeries... series) {
-	
+    public static void createLinRgrPNG(String path, String title,
+	    XYSeries... series) {
+
 	XYSeriesCollection xySeriesCollection = ChartUtils
 		.getXYSeriesCollection(series);
 	JFreeChart chart = LinRgrChartUtils.getLinRgrChart(title, title,
@@ -27,9 +28,9 @@ public class LinRgrChartUtils {
     }
 
     public static JFreeChart getLinRgrChart(String applicationTitle,
-            String chartTitle, XYSeriesCollection xySeriesCollection) {
-        return ChartFactory.createXYLineChart(applicationTitle, "x-axis",
-        	"y-axis", xySeriesCollection, PlotOrientation.VERTICAL, true,
-        	true, false);
+	    String chartTitle, XYSeriesCollection xySeriesCollection) {
+	return ChartFactory.createXYLineChart(applicationTitle, "x-axis",
+		"y-axis", xySeriesCollection, PlotOrientation.VERTICAL, true,
+		true, false);
     }
 }
