@@ -6,10 +6,12 @@ package com.marmoush.jann.test.unit.utils;
 import static org.junit.Assert.assertTrue;
 
 import org.jblas.DoubleMatrix;
+import org.jblas.MatrixFunctions;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.marmoush.jann.utils.PerformanceUtils;
+import com.marmoush.jann.utils.TransfereUtils;
 
 /**
  * @author marmoush
@@ -23,8 +25,8 @@ public class PerformanceUtilsTest {
      */
     @Before
     public void setUp() throws Exception {
-	output = DoubleMatrix.valueOf("1 2 3");
-	target= DoubleMatrix.valueOf("2 4 6");
+	output = DoubleMatrix.valueOf("1; 2; 3");
+	target= DoubleMatrix.valueOf("2; 4 ;6");
     }
 
     /**
@@ -39,8 +41,12 @@ public class PerformanceUtilsTest {
     }
     @Test
     public void testLogRgr(){
-	double p = PerformanceUtils.LogRgr(output,target);
+	DoubleMatrix transf=TransfereUtils.logsig(output);
+	double p = PerformanceUtils.LogRgr(transf,target);
 	System.out.println(p);
+	
+	
+	
     }
     /**
      * Test method for

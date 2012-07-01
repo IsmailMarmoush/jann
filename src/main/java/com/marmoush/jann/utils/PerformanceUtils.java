@@ -33,14 +33,14 @@ public class PerformanceUtils {
 	DoubleMatrix yT = target.transpose();
 	DoubleMatrix outputLog = MatrixFunctions.log(output);
 	DoubleMatrix part1 = yT.mmul(outputLog);
-
+	part1.print();
 	// ( 1 - y' ) * log ( 1 - sigmoid( X * theta)) )
 	DoubleMatrix logOneMinusOutput = MatrixFunctions.log(output.mul(-1)
 		.add(1));
 	DoubleMatrix oneMinusYT = yT.mul(-1).add(1);
 	DoubleMatrix part2 = oneMinusYT.mmul(logOneMinusOutput);
-
-	return part1.add(part2).sum() * (-1 / m);
+	part2.print();
+	return part1.add(part2).sum()*(-1.0 / m);
     }
 
     /**
