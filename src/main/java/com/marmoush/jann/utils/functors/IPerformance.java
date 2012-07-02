@@ -18,8 +18,7 @@
  */
 package com.marmoush.jann.utils.functors;
 
-import org.jblas.DoubleMatrix;
-
+import com.marmoush.jann.sv.ISvLayer;
 import com.marmoush.jann.utils.PerformanceUtils;
 
 /**
@@ -27,24 +26,11 @@ import com.marmoush.jann.utils.PerformanceUtils;
  */
 public interface IPerformance extends IFunctionable {
 
-    public static final IPerformance LOGRGR = new IPerformance() {
-	@Override
-	public double measurePerformance(DoubleMatrix output,
-		DoubleMatrix target) {
-	    return PerformanceUtils.logRgr(output, target);
-	}
-
-	@Override
-	public String toString() {
-	    return "LOGRGR";
-	}
-    };
-
     public static final IPerformance LINRGR = new IPerformance() {
 	@Override
-	public double measurePerformance(DoubleMatrix output,
-		DoubleMatrix target) {
-	    return PerformanceUtils.linRgr(output, target);
+	public double measurePerformance(ISvLayer layer) {
+	    return PerformanceUtils
+		    .linRgr(layer.getOutput(), layer.getTarget());
 	}
 
 	@Override
@@ -52,13 +38,49 @@ public interface IPerformance extends IFunctionable {
 	    return "LINRGR";
 	}
     };
+    public static final IPerformance LINRGR_RGU = new IPerformance() {
+	@Override
+	public double measurePerformance(ISvLayer layer) {
+	    return PerformanceUtils.linRgrRgu(layer.getOutput(),
+		    layer.getTarget(), layer.getWeight(), layer.getReguFctr());
+	}
+
+	@Override
+	public String toString() {
+	    return "LINRGR_RGU";
+	}
+    };
+
+    public static final IPerformance LOGRGR = new IPerformance() {
+	@Override
+	public double measurePerformance(ISvLayer layer) {
+	    return PerformanceUtils
+		    .logRgr(layer.getOutput(), layer.getTarget());
+	}
+
+	@Override
+	public String toString() {
+	    return "LOGRGR";
+	}
+    };
+    public static final IPerformance LOGRGR_RGU = new IPerformance() {
+	@Override
+	public double measurePerformance(ISvLayer layer) {
+	    return PerformanceUtils.logRgrRgu(layer.getOutput(),
+		    layer.getTarget(), layer.getWeight(), layer.getReguFctr());
+	}
+
+	@Override
+	public String toString() {
+	    return "LOGRGR_RGU";
+	}
+    };
 
     /** The Constant MAE. */
     public static final IPerformance MAE = new IPerformance() {
 	@Override
-	public double measurePerformance(DoubleMatrix output,
-		DoubleMatrix target) {
-	    return PerformanceUtils.mae(output, target);
+	public double measurePerformance(ISvLayer layer) {
+	    return PerformanceUtils.mae(layer.getOutput(), layer.getTarget());
 	}
 
 	@Override
@@ -70,9 +92,8 @@ public interface IPerformance extends IFunctionable {
     /** The Constant MSE. */
     public static final IPerformance MSE = new IPerformance() {
 	@Override
-	public double measurePerformance(DoubleMatrix output,
-		DoubleMatrix target) {
-	    return PerformanceUtils.mse(output, target);
+	public double measurePerformance(ISvLayer layer) {
+	    return PerformanceUtils.mse(layer.getOutput(), layer.getTarget());
 	}
 
 	@Override
@@ -84,9 +105,8 @@ public interface IPerformance extends IFunctionable {
     /** The Constant SSE. */
     public static final IPerformance SSE = new IPerformance() {
 	@Override
-	public double measurePerformance(DoubleMatrix output,
-		DoubleMatrix target) {
-	    return PerformanceUtils.sse(output, target);
+	public double measurePerformance(ISvLayer layer) {
+	    return PerformanceUtils.sse(layer.getOutput(), layer.getTarget());
 	}
 
 	@Override
@@ -102,5 +122,5 @@ public interface IPerformance extends IFunctionable {
      *            the error
      * @return the double
      */
-    public double measurePerformance(DoubleMatrix output, DoubleMatrix target);
+    public double measurePerformance(ISvLayer layer);
 }

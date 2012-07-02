@@ -26,19 +26,19 @@ import com.marmoush.jann.utils.functors.IPerformance;
 /**
  * The Class SvLayer.
  */
-public class SvLayer extends Layer {
+public class SvLayer extends Layer implements ISvLayer {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 214303268098893298L;
 
     /** The learn rate. */
     private double learnRate = 1;
-
     /** The performance. */
     private double performance;
-
     /** The performancefnctr. */
     private IPerformance performancefnctr = null;
+
+    private double regularizationFctr = 0;
 
     /** The target. */
     private DoubleMatrix target = null;
@@ -90,38 +90,47 @@ public class SvLayer extends Layer {
 	return true;
     }
 
-    /**
-     * Gets the learn rate.
+    /*
+     * (non-Javadoc)
      * 
-     * @return the learn rate
+     * @see com.marmoush.jann.sv.ISvLayer#getLearnRate()
      */
+    @Override
     public double getLearnRate() {
 	return learnRate;
     }
 
-    /**
-     * Gets the performance.
+    /*
+     * (non-Javadoc)
      * 
-     * @return the performance
+     * @see com.marmoush.jann.sv.ISvLayer#getPerformance()
      */
+    @Override
     public double getPerformance() {
 	return performance;
     }
 
-    /**
-     * Gets the performancefnctr.
+    /*
+     * (non-Javadoc)
      * 
-     * @return the performancefnctr
+     * @see com.marmoush.jann.sv.ISvLayer#getPerformancefnctr()
      */
+    @Override
     public IPerformance getPerformancefnctr() {
 	return performancefnctr;
     }
 
-    /**
-     * Gets the target.
+    @Override
+    public double getReguFctr() {
+	return this.regularizationFctr;
+    }
+
+    /*
+     * (non-Javadoc)
      * 
-     * @return the target
+     * @see com.marmoush.jann.sv.ISvLayer#getTarget()
      */
+    @Override
     public DoubleMatrix getTarget() {
 	return target;
     }
@@ -142,42 +151,49 @@ public class SvLayer extends Layer {
 	return result;
     }
 
-    /**
-     * Sets the learn rate.
+    /*
+     * (non-Javadoc)
      * 
-     * @param lrnRate
-     *            the new learn rate
+     * @see com.marmoush.jann.sv.ISvLayer#setLearnRate(double)
      */
+    @Override
     public void setLearnRate(double lrnRate) {
 	this.learnRate = lrnRate;
     }
 
-    /**
-     * Sets the performance.
+    /*
+     * (non-Javadoc)
      * 
-     * @param performance
-     *            the new performance
+     * @see com.marmoush.jann.sv.ISvLayer#setPerformance(double)
      */
+    @Override
     public void setPerformance(double performance) {
 	this.performance = performance;
     }
 
-    /**
-     * Sets the performancefnctr.
+    /*
+     * (non-Javadoc)
      * 
-     * @param performancefnctr
-     *            the new performancefnctr
+     * @see
+     * com.marmoush.jann.sv.ISvLayer#setPerformancefnctr(com.marmoush.jann.utils
+     * .functors.IPerformance)
      */
+    @Override
     public void setPerformancefnctr(IPerformance performancefnctr) {
 	this.performancefnctr = performancefnctr;
     }
 
-    /**
-     * Sets the target.
+    @Override
+    public void setReguFctr(double reg) {
+	this.regularizationFctr = reg;
+    }
+
+    /*
+     * (non-Javadoc)
      * 
-     * @param target
-     *            the new target
+     * @see com.marmoush.jann.sv.ISvLayer#setTarget(org.jblas.DoubleMatrix)
      */
+    @Override
     public void setTarget(DoubleMatrix target) {
 	this.target = target;
     }
@@ -208,14 +224,14 @@ public class SvLayer extends Layer {
 	return builder.toString();
     }
 
-    /**
-     * Update performance.
+    /*
+     * (non-Javadoc)
      * 
-     * @return the double
+     * @see com.marmoush.jann.sv.ISvLayer#updatePerformance()
      */
+    @Override
     public double updatePerformance() {
-	performance = performancefnctr.measurePerformance(getOutput(),
-		getTarget());
+	performance = performancefnctr.measurePerformance(this);
 	return performance;
     }
 
