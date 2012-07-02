@@ -25,7 +25,11 @@ import org.jblas.MatrixFunctions;
  * The Class PerformanceUtils.
  */
 public class PerformanceUtils {
-    public static double LogRgr(DoubleMatrix output, DoubleMatrix target) {
+    public static double linRgr(DoubleMatrix output, DoubleMatrix target) {
+	return mse(output, target) / 2;
+    }
+
+    public static double logRgr(DoubleMatrix output, DoubleMatrix target) {
 	// J = -1./m * ( y' * log( sigmoid(X * theta) ) + ( 1 - y' ) * log ( 1 -
 	// sigmoid( X * theta)) )
 	int m = target.length;
@@ -33,14 +37,12 @@ public class PerformanceUtils {
 	DoubleMatrix yT = target.transpose();
 	DoubleMatrix outputLog = MatrixFunctions.log(output);
 	DoubleMatrix part1 = yT.mmul(outputLog);
-	part1.print();
 	// ( 1 - y' ) * log ( 1 - sigmoid( X * theta)) )
 	DoubleMatrix logOneMinusOutput = MatrixFunctions.log(output.mul(-1)
 		.add(1));
 	DoubleMatrix oneMinusYT = yT.mul(-1).add(1);
 	DoubleMatrix part2 = oneMinusYT.mmul(logOneMinusOutput);
-	part2.print();
-	return part1.add(part2).sum()*(-1.0 / m);
+	return part1.add(part2).sum() * (-1.0 / m);
     }
 
     /**

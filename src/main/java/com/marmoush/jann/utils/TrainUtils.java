@@ -28,43 +28,27 @@ import com.marmoush.jann.sv.SvLayer;
  * The Class TrainUtils.
  */
 public class TrainUtils {
-    public static void batchLogRgr(SvLayer layer, DoubleMatrix batchTrainingEx,
+    public static void batchGD(SvLayer layer, DoubleMatrix batchTrainingEx,
 	    DoubleMatrix batchTargets) {
+	/*
+	 * Batch only works for one neuron and m here is number of training
+	 * examples
+	 */
 	// grad = 1./m * X' * (sigmoid(X * theta) - y)
 	layer.setInput(batchTrainingEx);
 	layer.setTarget(batchTargets);
 	layer.simulate();
-	int m = batchTargets.length;
+	double m = batchTargets.length;
 	DoubleMatrix error = layer.getOutput().sub(layer.getTarget());
 	DoubleMatrix xT = batchTrainingEx.transpose();
-	DoubleMatrix grad = xT.mmul(error).mul(layer.getLearnRate() / m);
-	layer.getWeight().subi(grad);
+	DoubleMatrix grad = xT.mmul(error).divi(m);
+	// W= W - lrnRate .* grad;
+	layer.getWeight().subi(grad.mul(layer.getLearnRate()));
 	if (layer.isBiased()) {
-	    // deltaBias= (alpha/m)* SIGMA{outi-yi}
-	    double deltaBias = (layer.getLearnRate() / m) * error.sum();
-	    layer.getBias().subi(deltaBias);
-	}
-    }
-
-    public static void batchLinRgr(SvLayer layer, DoubleMatrix batchTrainingEx,
-	    DoubleMatrix batchTargets) {
-	layer.setInput(batchTrainingEx);
-	layer.setTarget(batchTargets);
-	layer.simulate();
-	int m = batchTargets.length;
-	// Note: (out-y)' * X is vector version of SIGMA{(outi-yi)*xi}
-	// sum=(out-y)'*X;
-	DoubleMatrix error = layer.getOutput().sub(layer.getTarget());
-	DoubleMatrix sum = error.transpose().mmul(batchTrainingEx);
-	// deltaTheta=sm.*(alpha/m);
-	DoubleMatrix deltaWeight = sum.mul(layer.getLearnRate() / m);
-	// theta=theta-deltaTheta';
-	layer.getWeight().subi(deltaWeight);
-
-	if (layer.isBiased()) {
-	    // deltaBias= (alpha/m)* SIGMA{outi-yi}
-	    double deltaBias = (layer.getLearnRate() / m) * error.sum();
-	    layer.getBias().subi(deltaBias);
+	    // gradBias = 1/m * ones(X_rows,1)' * (sigmoid(X*theta));
+	    double gradBias = error.sum() / m;
+	    // bias=bias - lrnRate* grad;
+	    layer.getBias().subi(layer.getLearnRate() * gradBias);
 	}
     }
 
@@ -93,26 +77,24 @@ public class TrainUtils {
 
     }
 
-    public static void stochasticLinRgr(SvLayer layer,
+    public static void stochasticGD(SvLayer layer,
 	    List<DoubleMatrix> trainingEx, List<DoubleMatrix> targets) {
+	double performanceSum = 0;
 	for (int i = 0; i < trainingEx.size(); i++) {
 	    layer.setInput(trainingEx.get(i));
 	    layer.setTarget(targets.get(i));
 	    layer.simulate();
-	    int m = targets.get(i).length;
-	    // Note: (out-y)' * X is vector version of SIGMA{(outi-yi)*xi}
-	    // sum=(out-y)'*X;
+	    performanceSum += layer.getPerformance();
+	    int m = targets.get(i).length; // m = number of neurons
 	    DoubleMatrix error = layer.getOutput().sub(layer.getTarget());
 	    DoubleMatrix sum = error.transpose().mmul(trainingEx.get(i));
-	    // deltaTheta=sm.*(alpha/m);
 	    DoubleMatrix deltaWeight = sum.mul(layer.getLearnRate() / m);
-	    // theta=theta-deltaTheta';
 	    layer.getWeight().subi(deltaWeight);
 	    if (layer.isBiased()) {
-		// deltaBias= (alpha/m)* SIGMA{outi-yi}
 		double deltaBias = (layer.getLearnRate() / m) * error.sum();
 		layer.getBias().subi(deltaBias);
 	    }
+	    layer.setPerformance(performanceSum / trainingEx.size());
 	}
     }
 }

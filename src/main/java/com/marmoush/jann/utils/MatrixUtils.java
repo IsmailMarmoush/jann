@@ -37,22 +37,21 @@ public class MatrixUtils {
      */
     public static final double MACHEPS = 2E-16;
 
-    public static List<Double> range(double start, double incrOrDecrValue,
-	    double end) {
-	List<Double> list = new ArrayList<Double>();
-	if (start < end) {
-	    while (start < end) {
-		list.add(start);
-		start += incrOrDecrValue;
-	    }
-	} else if (start > end) {
-	    incrOrDecrValue = Math.abs(incrOrDecrValue);
-	    while (start > end) {
-		list.add(start);
-		start -= incrOrDecrValue;
-	    }
+    public static DoubleMatrix batchFeatureMapping(
+	    DoubleMatrix batchTrainingEx, int degree, int f1ColIndex,
+	    int f2ColIndex) {
+	// returns a matrix.rows = input.rows, matrix.columns=nFeatures(degree)
+	int nFeatures = MatrixUtils.getNumFeaturesMapped(degree);
+	DoubleMatrix mtrx = DoubleMatrix.zeros(batchTrainingEx.rows, nFeatures);
+	DoubleMatrix row = null;
+
+	for (int i = 0; i < batchTrainingEx.rows; i++) {
+	    double x1 = batchTrainingEx.get(i, f1ColIndex);
+	    double x2 = batchTrainingEx.get(i, f2ColIndex);
+	    row = MatrixUtils.featureMapping(x1, x2, degree);
+	    mtrx.putRow(i, row);
 	}
-	return list;
+	return mtrx;
     }
 
     public static List<DoubleMatrix> batchMtrxToColVecsList(DoubleMatrix batch) {
@@ -114,23 +113,6 @@ public class MatrixUtils {
 		    f2Index);
 	else
 	    return null;
-    }
-
-    public static DoubleMatrix batchFeatureMapping(
-	    DoubleMatrix batchTrainingEx, int degree, int f1ColIndex,
-	    int f2ColIndex) {
-	// returns a matrix.rows = input.rows, matrix.columns=nFeatures(degree)
-	int nFeatures = MatrixUtils.getNumFeaturesMapped(degree);
-	DoubleMatrix mtrx = DoubleMatrix.zeros(batchTrainingEx.rows, nFeatures);
-	DoubleMatrix row = null;
-
-	for (int i = 0; i < batchTrainingEx.rows; i++) {
-	    double x1 = batchTrainingEx.get(i, f1ColIndex);
-	    double x2 = batchTrainingEx.get(i, f2ColIndex);
-	    row = MatrixUtils.featureMapping(x1, x2, degree);
-	    mtrx.putRow(i, row);
-	}
-	return mtrx;
     }
 
     public static DoubleMatrix featureScalingByAvrg(DoubleMatrix input) {
@@ -263,6 +245,24 @@ public class MatrixUtils {
 	DoubleMatrix randMtrx = DoubleMatrix.rand(rows, cols);
 	randMtrx.muli((max - min) + 1).addi(min);
 	return MatrixFunctions.floori(randMtrx);
+    }
+
+    public static List<Double> range(double start, double incrOrDecrValue,
+	    double end) {
+	List<Double> list = new ArrayList<Double>();
+	if (start < end) {
+	    while (start < end) {
+		list.add(start);
+		start += incrOrDecrValue;
+	    }
+	} else if (start > end) {
+	    incrOrDecrValue = Math.abs(incrOrDecrValue);
+	    while (start > end) {
+		list.add(start);
+		start -= incrOrDecrValue;
+	    }
+	}
+	return list;
     }
 
     public static double rank(DoubleMatrix A) {

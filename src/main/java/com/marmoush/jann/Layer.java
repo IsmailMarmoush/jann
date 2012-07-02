@@ -59,7 +59,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
     /** The weight. */
     private DoubleMatrix weight = null;
     /** The weight fnctr. */
-    private IWeight weightFnctr = IWeight.DOTPROD;
+    private IWeight weightFnctr = null;
 
     /**
      * Instantiates a new layer.

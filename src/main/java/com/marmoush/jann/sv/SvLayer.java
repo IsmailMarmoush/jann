@@ -38,7 +38,7 @@ public class SvLayer extends Layer {
     private double performance;
 
     /** The performancefnctr. */
-    private IPerformance performancefnctr = IPerformance.MSE;
+    private IPerformance performancefnctr = null;
 
     /** The target. */
     private DoubleMatrix target = null;
@@ -60,22 +60,6 @@ public class SvLayer extends Layer {
      */
     public SvLayer(int nInputs, int nNeurons, boolean biased) {
 	super(nInputs, nNeurons, biased);
-    }
-
-    @Override
-    public int hashCode() {
-	final int prime = 31;
-	int result = super.hashCode();
-	long temp;
-	temp = Double.doubleToLongBits(learnRate);
-	result = prime * result + (int) (temp ^ (temp >>> 32));
-	temp = Double.doubleToLongBits(performance);
-	result = prime * result + (int) (temp ^ (temp >>> 32));
-	result = prime
-		* result
-		+ ((performancefnctr == null) ? 0 : performancefnctr.hashCode());
-	result = prime * result + ((target == null) ? 0 : target.hashCode());
-	return result;
     }
 
     @Override
@@ -140,6 +124,22 @@ public class SvLayer extends Layer {
      */
     public DoubleMatrix getTarget() {
 	return target;
+    }
+
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = super.hashCode();
+	long temp;
+	temp = Double.doubleToLongBits(learnRate);
+	result = prime * result + (int) (temp ^ (temp >>> 32));
+	temp = Double.doubleToLongBits(performance);
+	result = prime * result + (int) (temp ^ (temp >>> 32));
+	result = prime
+		* result
+		+ ((performancefnctr == null) ? 0 : performancefnctr.hashCode());
+	result = prime * result + ((target == null) ? 0 : target.hashCode());
+	return result;
     }
 
     /**

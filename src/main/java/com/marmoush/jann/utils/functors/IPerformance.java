@@ -26,17 +26,30 @@ import com.marmoush.jann.utils.PerformanceUtils;
  * The Interface IPerformance.
  */
 public interface IPerformance extends IFunctionable {
-    /** The Constant MAE. */
+
     public static final IPerformance LOGRGR = new IPerformance() {
 	@Override
 	public double measurePerformance(DoubleMatrix output,
 		DoubleMatrix target) {
-	    return PerformanceUtils.LogRgr(output, target);
+	    return PerformanceUtils.logRgr(output, target);
 	}
 
 	@Override
 	public String toString() {
 	    return "LOGRGR";
+	}
+    };
+
+    public static final IPerformance LINRGR = new IPerformance() {
+	@Override
+	public double measurePerformance(DoubleMatrix output,
+		DoubleMatrix target) {
+	    return PerformanceUtils.linRgr(output, target);
+	}
+
+	@Override
+	public String toString() {
+	    return "LINRGR";
 	}
     };
 

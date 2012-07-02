@@ -18,10 +18,6 @@ public class LogisticRegression extends SvLayer {
 	setWeightFnctr(IWeight.BATCH_DOTPROD);
 	setTransfereFnctr(ITransfere.LOGSIG);
 	setPerformancefnctr(IPerformance.LOGRGR);
-	setLearnRate(0.01);
-	setFill(1, getWeight());
-	if (biased)
-	    setFill(1, getBias());
     }
 
     public LogisticRegression(List<DoubleMatrix> trainingEx,
@@ -30,9 +26,5 @@ public class LogisticRegression extends SvLayer {
 	setWeightFnctr(IWeight.DOTPROD);
 	setTransfereFnctr(ITransfere.LOGSIG);
 	setPerformancefnctr(IPerformance.LOGRGR);
-	setLearnRate(0.01);
-	setFill(1, getWeight());
-	if (biased)
-	    setFill(1, getBias());
     }
 }

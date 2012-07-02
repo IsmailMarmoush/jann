@@ -23,12 +23,26 @@ public class LingRgrTrainTest {
     private List<DoubleMatrix> inputList = null;
     private List<DoubleMatrix> targetList = null;
 
+    @Test
+    public void createImage() {
+	List<Double> range = MatrixUtils.range(0, 1, 10);
+	// Batch
+	List<Double> batchErr = trainBatchLinRgr();
+	XYSeries xyBatch = ChartUtils.xySeries("Batch", range, batchErr);
+	// Stochastic
+	List<Double> stochErr = trainStochasticLinRgr();
+	XYSeries xyStoch = ChartUtils.xySeries("Stochastic", range, stochErr);
+	// Create Image
+	String path = "ChartsOutput" + File.separator + "chart.png";
+	LinRgrChartUtils.createLinRgrPNG(path,
+		"Linear Regression Batch Vs Stochastic", xyBatch, xyStoch);
+    }
+
     @Before
     public void setUp() throws Exception {
-	String path=TestingData.getPath("ex1", "ex1data1.txt");
-	DoubleMatrix data = DoubleMatrix
-		.loadAsciiFile(path);
-	
+	String path = TestingData.getPath("ex1", "ex1data1.txt");
+	DoubleMatrix data = DoubleMatrix.loadAsciiFile(path);
+
 	batchTrainingEx = data.getColumn(0);
 	batchTargets = data.getColumn(1);
 	inputList = MatrixUtils.batchMtrxToColVecsList(batchTrainingEx
@@ -44,57 +58,43 @@ public class LingRgrTrainTest {
 	System.out.println("-----------------------------------------------");
     }
 
-    @Test
-    public void createImage() {
-	List<Double> range = MatrixUtils.range(0, 1, 1500);
-	List<Double> stochErr = trainStochasticLinRgr();
-	List<Double> batchErr = trainBatchLinRgr();
-	XYSeries xyStoch = ChartUtils.xySeries("Stochastic", range, stochErr);
-	XYSeries xyBatch = ChartUtils.xySeries("Batch", range, batchErr);
-	String path = "ChartsOutput" + File.separator + "chart.png";
-	LinRgrChartUtils.createLinRgrPNG(path,
-		"Linear Regression Batch Vs Stochastic", xyStoch, xyBatch);
-    }
-
-    @Test
-    public void testBatchLinRgr() {
-	trainBatchLinRgr();
-    }
-
-    @Test
-    public void testStochasticLinRgr() {
-	trainStochasticLinRgr();
-    }
-
     public List<Double> trainBatchLinRgr() {
+	System.out.println();
 	System.out.println("Batch Training");
 	final LinearRegression blr = new LinearRegression(batchTrainingEx,
 		batchTargets, true);
-	Train batchTrain = new Train(1500, 0.001, 1000) {
+	blr.setFill(1, blr.getWeight(), blr.getBias());
+	blr.setLearnRate(0.01);
+	Train training = new Train(1500, 0.001, 1000) {
 	    @Override
 	    public double train() {
-		TrainUtils.batchLinRgr(blr, batchTrainingEx, batchTargets);
+		TrainUtils.batchGD(blr, batchTrainingEx, batchTargets);
 		return blr.getPerformance();
 	    }
 	};
-	batchTrain.run();
-	System.out.println(batchTrain);
-	return batchTrain.getPerformanceHistory();
+	training.run();
+	System.out.println(training);
+	blr.getBias().print();
+	blr.getWeight().print();
+	return training.getPerformanceHistory();
     }
 
     public List<Double> trainStochasticLinRgr() {
+	System.out.println();
 	System.out.println("Stochastic Trainging ");
 	final LinearRegression slr = new LinearRegression(inputList,
 		targetList, true);
-	Train stochasticTraining = new Train(1500, 0.001, 1000) {
+	slr.setFill(1, slr.getWeight(), slr.getBias());
+	slr.setLearnRate(0.01);
+	Train training = new Train(10, 0.001, 1000) {
 	    @Override
 	    public double train() {
-		TrainUtils.stochasticLinRgr(slr, inputList, targetList);
+		TrainUtils.stochasticGD(slr, inputList, targetList);
 		return slr.getPerformance();
 	    }
 	};
-	stochasticTraining.run();
-	System.out.println(stochasticTraining);
-	return stochasticTraining.getPerformanceHistory();
+	training.run();
+	System.out.println(training);
+	return training.getPerformanceHistory();
     }
 }
