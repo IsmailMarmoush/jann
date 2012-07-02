@@ -63,7 +63,7 @@ public class LogRgrTrainTest {
 	Train batchTrain = new Train(1500, 0.001, 1000) {
 	    @Override
 	    public double train() {
-		TrainUtils.batchGD(blr, batchTrainingEx, batchTargets);
+		TrainUtils.batchGd(blr, batchTrainingEx, batchTargets);
 		return blr.getPerformance();
 	    }
 	};
@@ -83,7 +83,7 @@ public class LogRgrTrainTest {
 	Train training = new Train(400, 0.001, 1000) {
 	    @Override
 	    public double train() {
-		TrainUtils.stochasticGD(slr, inputList, targetList);
+		TrainUtils.stochasticGd(slr, inputList, targetList);
 		return slr.getPerformance();
 	    }
 	};

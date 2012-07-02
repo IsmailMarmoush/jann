@@ -28,36 +28,39 @@ import com.marmoush.jann.sv.SvLayer;
  * The Class TrainUtils.
  */
 public class TrainUtils {
-    public static void batchGD(SvLayer layer, DoubleMatrix batchTrainingEx,
-	    DoubleMatrix batchTargets) {
-	/*
-	 * Batch only works for one neuron and m here is number of training
-	 * examples
-	 */
-	// grad = 1./m * X' * (sigmoid(X * theta) - y)
-	layer.setInput(batchTrainingEx);
-	layer.setTarget(batchTargets);
-	layer.simulate();
-	double m = batchTargets.length;
-	DoubleMatrix error = layer.getOutput().sub(layer.getTarget());
-	DoubleMatrix xT = batchTrainingEx.transpose();
-	DoubleMatrix grad = xT.mmul(error).divi(m);
-	// W= W - lrnRate .* grad;
-	layer.getWeight().subi(grad.mul(layer.getLearnRate()));
-	if (layer.isBiased()) {
-	    // gradBias = 1/m * ones(X_rows,1)' * (sigmoid(X*theta));
-	    double gradBias = error.sum() / m;
-	    // bias=bias - lrnRate* grad;
-	    layer.getBias().subi(layer.getLearnRate() * gradBias);
+    public static void batchGd(SvLayer lyr, DoubleMatrix inputs,
+	    DoubleMatrix targets) {
+	lyr.setInput(inputs);
+	lyr.setTarget(targets);
+	lyr.simulate();
+	double m = targets.length;
+	double alpha = lyr.getLearnRate();
+	DoubleMatrix error = lyr.getOutput().sub(targets);
+	DoubleMatrix grad = inputs.transpose().mmul(error).divi(m);
+	lyr.getWeight().subi(grad.mul(alpha));
+	if (lyr.isBiased()) {
+	    lyr.getBias().subi((alpha / m) * error.sum());
+	}
+    }
+
+    public static void batchGdRgu(SvLayer lyr, DoubleMatrix inputs,
+	    DoubleMatrix targets) {
+	lyr.setInput(inputs);
+	lyr.setTarget(targets);
+	lyr.simulate();
+	double m = targets.length;
+	double alpha = lyr.getLearnRate();
+	double lambda = lyr.getReguFctr();
+	DoubleMatrix error = lyr.getOutput().sub(targets);
+	DoubleMatrix grad = inputs.transpose().mmul(error).divi(m);
+	double regu = 1 - ((alpha * lambda) / m);
+	lyr.getWeight().muli(regu).subi(grad.mul(alpha));
+	if (lyr.isBiased()) {
+	    lyr.getBias().subi((alpha / m) * error.sum());
 	}
     }
 
     public static DoubleMatrix normalEqInv(DoubleMatrix x, DoubleMatrix targets) {
-	// normal equations works only for linear regression (one output)
-	// X rows = m trainning examples
-	// X cols = n of features
-	// y is column vector where rows = target value for each training
-	// examples
 	// ((X'*X)^-1) * (X' * y)
 	DoubleMatrix inverse = MatrixUtils.inv(x.transpose().mmul(x));
 	DoubleMatrix xTransposeY = x.transpose().mmul(targets);
@@ -65,36 +68,31 @@ public class TrainUtils {
     }
 
     public static DoubleMatrix normalEqPinv(DoubleMatrix x, DoubleMatrix targets) {
-	// normal equations works only for linear regression (one output)
-	// X rows = m trainning examples
-	// X cols = n of features
-	// y is column vector where rows = target value for each training
-	// examples
-	// ((X'*X)^-1) * (X' * y)
 	DoubleMatrix inverse = MatrixUtils.pinv(x.transpose().mmul(x));
 	DoubleMatrix xTransposeY = x.transpose().mmul(targets);
 	return inverse.mmul(xTransposeY);
 
     }
 
-    public static void stochasticGD(SvLayer layer,
-	    List<DoubleMatrix> trainingEx, List<DoubleMatrix> targets) {
+    public static void stochasticGd(SvLayer lyr, List<DoubleMatrix> inputs,
+	    List<DoubleMatrix> targets) {
+	int m = 0;
+	double alpha = lyr.getLearnRate();
 	double performanceSum = 0;
-	for (int i = 0; i < trainingEx.size(); i++) {
-	    layer.setInput(trainingEx.get(i));
-	    layer.setTarget(targets.get(i));
-	    layer.simulate();
-	    performanceSum += layer.getPerformance();
-	    int m = targets.get(i).length; // m = number of neurons
-	    DoubleMatrix error = layer.getOutput().sub(layer.getTarget());
-	    DoubleMatrix sum = error.transpose().mmul(trainingEx.get(i));
-	    DoubleMatrix deltaWeight = sum.mul(layer.getLearnRate() / m);
-	    layer.getWeight().subi(deltaWeight);
-	    if (layer.isBiased()) {
-		double deltaBias = (layer.getLearnRate() / m) * error.sum();
-		layer.getBias().subi(deltaBias);
+	for (int i = 0; i < inputs.size(); i++) {
+	    m = targets.get(i).length;
+	    lyr.setInput(inputs.get(i));
+	    lyr.setTarget(targets.get(i));
+	    lyr.simulate();
+	    performanceSum += lyr.getPerformance();
+	    DoubleMatrix error = lyr.getOutput().sub(lyr.getTarget());
+	    DoubleMatrix sum = error.transpose().mmul(lyr.getInput());
+	    DoubleMatrix deltaWeight = sum.mul(alpha / m);
+	    lyr.getWeight().subi(deltaWeight);
+	    if (lyr.isBiased()) {
+		lyr.getBias().subi((alpha / m) * error.sum());
 	    }
-	    layer.setPerformance(performanceSum / trainingEx.size());
+	    lyr.setPerformance(performanceSum / inputs.size());
 	}
     }
 }

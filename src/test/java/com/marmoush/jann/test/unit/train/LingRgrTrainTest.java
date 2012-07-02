@@ -68,7 +68,7 @@ public class LingRgrTrainTest {
 	Train training = new Train(1500, 0.001, 1000) {
 	    @Override
 	    public double train() {
-		TrainUtils.batchGD(blr, batchTrainingEx, batchTargets);
+		TrainUtils.batchGd(blr, batchTrainingEx, batchTargets);
 		return blr.getPerformance();
 	    }
 	};
@@ -89,7 +89,7 @@ public class LingRgrTrainTest {
 	Train training = new Train(10, 0.001, 1000) {
 	    @Override
 	    public double train() {
-		TrainUtils.stochasticGD(slr, inputList, targetList);
+		TrainUtils.stochasticGd(slr, inputList, targetList);
 		return slr.getPerformance();
 	    }
 	};
