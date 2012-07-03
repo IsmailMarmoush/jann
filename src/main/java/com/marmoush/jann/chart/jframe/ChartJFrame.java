@@ -62,8 +62,10 @@ public abstract class ChartJFrame extends JFrame {
     }
 
     public void run() {
+	Dimension die = new Dimension(width, height);
+	setPreferredSize(die);
 	ChartPanel chartPanel = new ChartPanel(chart);
-	chartPanel.setPreferredSize(new Dimension(height, width));
+	chartPanel.setPreferredSize(die);
 	setTitle(apptitle);
 	setContentPane(chartPanel);
 	pack();
