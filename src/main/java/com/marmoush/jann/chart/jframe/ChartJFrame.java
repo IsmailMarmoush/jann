@@ -6,18 +6,23 @@ import javax.swing.JFrame;
 
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
 
 public abstract class ChartJFrame extends JFrame {
     private static final long serialVersionUID = -7922555494678114867L;
     private String apptitle = "JANN Chart";
     private JFreeChart chart = null;
     private int height = 600;
+    private boolean legend = false;
+    private PlotOrientation orientation = PlotOrientation.VERTICAL;
+    private boolean tooltips = false;
+    private boolean urls = false;
     private int width = 800;
     private String xAxisTitle = "X-Axis";
     private String yAxisTitle = "Y-Axis";
 
     public String getApptitle() {
-        return apptitle;
+	return apptitle;
     }
 
     public JFreeChart getChart() {
@@ -26,6 +31,10 @@ public abstract class ChartJFrame extends JFrame {
 
     public int getHeight() {
 	return height;
+    }
+
+    public PlotOrientation getOrientation() {
+	return orientation;
     }
 
     public int getWidth() {
@@ -40,6 +49,18 @@ public abstract class ChartJFrame extends JFrame {
 	return yAxisTitle;
     }
 
+    public boolean isLegend() {
+	return legend;
+    }
+
+    public boolean isTooltips() {
+	return tooltips;
+    }
+
+    public boolean isUrls() {
+	return urls;
+    }
+
     public void run() {
 	ChartPanel chartPanel = new ChartPanel(chart);
 	chartPanel.setPreferredSize(new Dimension(height, width));
@@ -50,7 +71,7 @@ public abstract class ChartJFrame extends JFrame {
     }
 
     public void setApptitle(String apptitle) {
-        this.apptitle = apptitle;
+	this.apptitle = apptitle;
     }
 
     public void setChart(JFreeChart chart) {
@@ -59,6 +80,22 @@ public abstract class ChartJFrame extends JFrame {
 
     public void setHeight(int height) {
 	this.height = height;
+    }
+
+    public void setLegend(boolean legend) {
+	this.legend = legend;
+    }
+
+    public void setOrientation(PlotOrientation orientation) {
+	this.orientation = orientation;
+    }
+
+    public void setTooltips(boolean tooltips) {
+	this.tooltips = tooltips;
+    }
+
+    public void setUrls(boolean urls) {
+	this.urls = urls;
     }
 
     public void setWidth(int width) {

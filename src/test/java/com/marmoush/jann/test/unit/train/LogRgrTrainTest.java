@@ -31,9 +31,9 @@ public class LogRgrTrainTest {
 	XYSeries xyStoch = ChartUtils.xySeries("Stochastic", range, stochErr);
 	XYSeries xyBatch = ChartUtils.xySeries("Batch", range, batchErr);
 	String path = "ChartsOutput" + File.separator + "chart2.png";
-	ChartUtils.createLinRgrPNG(path,
-		"Linear Regression Batch Vs Stochastic", "Iterations", "Error",
-		xyBatch, xyStoch);
+//	ChartUtils.createLinRgrPNG(path,
+//		"Linear Regression Batch Vs Stochastic", "Iterations", "Error",
+//		xyBatch, xyStoch);
     }
 
     @Before

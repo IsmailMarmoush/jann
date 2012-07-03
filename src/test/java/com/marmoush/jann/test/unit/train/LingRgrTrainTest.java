@@ -31,8 +31,8 @@ public class LingRgrTrainTest {
 	List<Double> stochErr = trainStochasticLinRgr();
 	XYSeries xyStoch = ChartUtils.xySeries("Stochastic", range, stochErr);
 	String path = "ChartsOutput" + File.separator + "chart.png";
-	ChartUtils.createLinRgrPNG(path,
-		"Linear Regression Batch Vs Stochastic","Iterations","Error", xyBatch, xyStoch);
+//	ChartUtils.createLinRgrPNG(path,
+//		"Linear Regression Batch Vs Stochastic","Iterations","Error", xyBatch, xyStoch);
     }
 
     @Before
