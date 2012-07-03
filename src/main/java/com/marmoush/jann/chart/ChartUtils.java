@@ -31,6 +31,7 @@ public class ChartUtils {
     public static void createLinRgrPNG(String path, String title,
 	    String xTitle, String yTitle, XYSeries... series) {
 
+	
 	XYSeriesCollection xySeriesCollection = getXYSeriesCollection(series);
 	JFreeChart chart = ChartFactory.createXYLineChart(title, xTitle,
 		yTitle, xySeriesCollection, PlotOrientation.VERTICAL, false,
