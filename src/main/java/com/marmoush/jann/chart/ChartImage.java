@@ -20,7 +20,7 @@ public abstract class ChartImage {
     private String xAxisTitle = "X-Axis";
     private String yAxisTitle = "Y-Axis";
 
-    public void createLinRgrPNG() {
+    public void createPNG() {
 	try {
 	    File file = new File(path);
 	    ChartUtilities.saveChartAsPNG(file, chart, width, height);
@@ -29,10 +29,10 @@ public abstract class ChartImage {
 	}
     }
 
-    public void createScatterDataPNG() {
+    public void createJPEG() {
 	try {
 	    File file = new File(path);
-	    ChartUtilities.saveChartAsPNG(file, chart, width, height);
+	    ChartUtilities.saveChartAsJPEG(file, chart, width, height);
 	} catch (IOException e) {
 	    e.printStackTrace();
 	}
@@ -47,11 +47,11 @@ public abstract class ChartImage {
     }
 
     public PlotOrientation getOrientation() {
-        return orientation;
+	return orientation;
     }
 
     public String getPath() {
-        return path;
+	return path;
     }
 
     public String getTitle() {
@@ -71,15 +71,15 @@ public abstract class ChartImage {
     }
 
     public boolean isLegend() {
-        return legend;
+	return legend;
     }
 
     public boolean isTooltips() {
-        return tooltips;
+	return tooltips;
     }
 
     public boolean isUrls() {
-        return urls;
+	return urls;
     }
 
     public void setChart(JFreeChart chart) {
@@ -91,15 +91,15 @@ public abstract class ChartImage {
     }
 
     public void setLegend(boolean legend) {
-        this.legend = legend;
+	this.legend = legend;
     }
 
     public void setOrientation(PlotOrientation orientation) {
-        this.orientation = orientation;
+	this.orientation = orientation;
     }
 
     public void setPath(String path) {
-        this.path = path;
+	this.path = path;
     }
 
     public void setTitle(String title) {
@@ -107,11 +107,11 @@ public abstract class ChartImage {
     }
 
     public void setTooltips(boolean tooltips) {
-        this.tooltips = tooltips;
+	this.tooltips = tooltips;
     }
 
     public void setUrls(boolean urls) {
-        this.urls = urls;
+	this.urls = urls;
     }
 
     public void setWidth(int width) {

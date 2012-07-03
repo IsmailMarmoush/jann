@@ -5,11 +5,11 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-public class LinRgrChartImage extends ChartImage {
-    public LinRgrChartImage(String path,XYSeries... series) {
+public class ScatterDataChartImage extends ChartImage {
+    public ScatterDataChartImage(String path, XYSeries... series) {
 	setPath(path);
 	XYSeriesCollection dataset = ChartUtils.getXYSeriesCollection(series);
-	JFreeChart chart = ChartFactory.createXYLineChart(getTitle(),
+	JFreeChart chart = ChartFactory.createScatterPlot(getTitle(),
 		getxAxisTitle(), getyAxisTitle(), dataset, getOrientation(),
 		isLegend(), isTooltips(), isUrls());
 	setChart(chart);
