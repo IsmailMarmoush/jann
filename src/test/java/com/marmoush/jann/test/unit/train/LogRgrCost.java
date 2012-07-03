@@ -16,19 +16,19 @@ public class LogRgrCost {
     public static void main(String[] args) throws IOException {
 	String path = TestingData.getPath("ex2", "ex2data1Bias.txt");
 	DoubleMatrix data = DoubleMatrix.loadAsciiFile(path);
-	DoubleMatrix batchTrainingEx = data.getColumns(new int[] { 0, 1, 2 });
-	DoubleMatrix batchTargets = data.getColumn(3);
-	DoubleMatrix theta = DoubleMatrix.zeros(batchTrainingEx.columns, 1);
+	DoubleMatrix inputs = data.getColumns(new int[] { 0, 1, 2 });
+	DoubleMatrix targets = data.getColumn(3);
+	DoubleMatrix theta = DoubleMatrix.zeros(inputs.columns, 1);
 	/***********************************/
-	DoubleMatrix netsum = batchTrainingEx.mmul(theta);
+	DoubleMatrix netsum = inputs.mmul(theta);
 	// netsum.print();
 	DoubleMatrix output = TransfereUtils.logsig(netsum);
 	// output.print();
-	System.out.println(PerformanceUtils.logRgr(output, batchTargets));
+	System.out.println(PerformanceUtils.logRgr(output, targets));
 	/***********************************/
-	SvLayer layer = new SvLayer(batchTrainingEx.columns, 1, false);
-	layer.setInput(batchTrainingEx);
-	layer.setTarget(batchTargets);
+	SvLayer layer = new SvLayer(inputs.columns, 1, false);
+	layer.setInput(inputs);
+	layer.setTarget(targets);
 	layer.setWeightFnctr(IWeight.BATCH_DOTPROD);
 	layer.setTransfereFnctr(ITransfere.LOGSIG);
 	layer.setPerformancefnctr(IPerformance.LOGRGR);
@@ -37,9 +37,9 @@ public class LogRgrCost {
 	// layer.getOutput().print();
 	System.out.println(layer.getPerformance());
 	/***********************************/
-	int m = batchTargets.length;
-	DoubleMatrix error = output.sub(batchTargets);
-	DoubleMatrix xT = batchTrainingEx.transpose();
+	int m = targets.length;
+	DoubleMatrix error = output.sub(targets);
+	DoubleMatrix xT = inputs.transpose();
 	DoubleMatrix grad = xT.mmul(error).mul(1.0 / m);
 	grad.print();
 	// grad.neg().print();

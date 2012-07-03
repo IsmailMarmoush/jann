@@ -28,22 +28,8 @@ import com.marmoush.jann.sv.SvLayer;
  * The Class TrainUtils.
  */
 public class TrainUtils {
-    public static void batchGd(SvLayer lyr, DoubleMatrix inputs,
-	    DoubleMatrix targets) {
-	lyr.setInput(inputs);
-	lyr.setTarget(targets);
-	lyr.simulate();
-	double m = targets.length;
-	double alpha = lyr.getLearnRate();
-	DoubleMatrix error = lyr.getOutput().sub(targets);
-	DoubleMatrix grad = inputs.transpose().mmul(error).divi(m);
-	lyr.getWeight().subi(grad.mul(alpha));
-	if (lyr.isBiased()) {
-	    lyr.getBias().subi((alpha / m) * error.sum());
-	}
-    }
 
-    public static void batchGdRgu(SvLayer lyr, DoubleMatrix inputs,
+    public static void batchGd(SvLayer lyr, DoubleMatrix inputs,
 	    DoubleMatrix targets) {
 	lyr.setInput(inputs);
 	lyr.setTarget(targets);
@@ -71,7 +57,17 @@ public class TrainUtils {
 	DoubleMatrix inverse = MatrixUtils.pinv(x.transpose().mmul(x));
 	DoubleMatrix xTransposeY = x.transpose().mmul(targets);
 	return inverse.mmul(xTransposeY);
+    }
 
+    public static DoubleMatrix normalEqPinvRgu(DoubleMatrix x,
+	    DoubleMatrix targets,double rguFctr, boolean biased) {
+	DoubleMatrix inv = x.transpose().mmul(x);
+	DoubleMatrix eye = DoubleMatrix.eye(x.columns).mul(rguFctr);
+	if (biased)
+	    eye.put(0, 0);
+	DoubleMatrix inverse = MatrixUtils.pinv(inv.addi(eye));
+	DoubleMatrix xTransposeY = x.transpose().mmul(targets);
+	return inverse.mmul(xTransposeY);
     }
 
     public static void stochasticGd(SvLayer lyr, List<DoubleMatrix> inputs,

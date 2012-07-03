@@ -10,32 +10,29 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.marmoush.jann.chart.ChartUtils;
-import com.marmoush.jann.chart.LinRgrChartUtils;
 import com.marmoush.jann.model.regression.LinearRegression;
 import com.marmoush.jann.test.TestingData;
 import com.marmoush.jann.train.Train;
 import com.marmoush.jann.utils.MatrixUtils;
 import com.marmoush.jann.utils.TrainUtils;
+import com.marmoush.jann.utils.functors.IPerformance;
 
 public class LingRgrTrainTest {
-    private DoubleMatrix batchTargets = null;
-    private DoubleMatrix batchTrainingEx = null;
+    private DoubleMatrix targets = null;
+    private DoubleMatrix inputs = null;
     private List<DoubleMatrix> inputList = null;
     private List<DoubleMatrix> targetList = null;
 
     @Test
     public void createImage() {
 	List<Double> range = MatrixUtils.range(0, 1, 10);
-	// Batch
 	List<Double> batchErr = trainBatchLinRgr();
 	XYSeries xyBatch = ChartUtils.xySeries("Batch", range, batchErr);
-	// Stochastic
 	List<Double> stochErr = trainStochasticLinRgr();
 	XYSeries xyStoch = ChartUtils.xySeries("Stochastic", range, stochErr);
-	// Create Image
 	String path = "ChartsOutput" + File.separator + "chart.png";
-	LinRgrChartUtils.createLinRgrPNG(path,
-		"Linear Regression Batch Vs Stochastic", xyBatch, xyStoch);
+	ChartUtils.createLinRgrPNG(path,
+		"Linear Regression Batch Vs Stochastic","Iterations","Error", xyBatch, xyStoch);
     }
 
     @Before
@@ -43,13 +40,12 @@ public class LingRgrTrainTest {
 	String path = TestingData.getPath("ex1", "ex1data1.txt");
 	DoubleMatrix data = DoubleMatrix.loadAsciiFile(path);
 
-	batchTrainingEx = data.getColumn(0);
-	batchTargets = data.getColumn(1);
-	inputList = MatrixUtils.batchMtrxToColVecsList(batchTrainingEx
+	inputs = data.getColumn(0);
+	targets = data.getColumn(1);
+	inputList = MatrixUtils.batchMtrxToColVecsList(inputs
 		.transpose());
-	targetList = MatrixUtils.batchMtrxToColVecsList(batchTargets
+	targetList = MatrixUtils.batchMtrxToColVecsList(targets
 		.transpose());
-
     }
 
     @After
@@ -61,14 +57,16 @@ public class LingRgrTrainTest {
     public List<Double> trainBatchLinRgr() {
 	System.out.println();
 	System.out.println("Batch Training");
-	final LinearRegression blr = new LinearRegression(batchTrainingEx,
-		batchTargets, true);
+	final LinearRegression blr = new LinearRegression(inputs,
+		targets, true);
 	blr.setFill(1, blr.getWeight(), blr.getBias());
 	blr.setLearnRate(0.01);
+	blr.setReguFctr(1);
+	blr.setPerformancefnctr(IPerformance.LINRGR_RGU);
 	Train training = new Train(1500, 0.001, 1000) {
 	    @Override
 	    public double train() {
-		TrainUtils.batchGd(blr, batchTrainingEx, batchTargets);
+		TrainUtils.batchGd(blr, inputs, targets);
 		return blr.getPerformance();
 	    }
 	};

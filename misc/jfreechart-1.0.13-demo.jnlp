@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<jnlp spec="1.0+" 
+      codebase="http://www.jfree.org/jfreechart/" 
+      href="jfreechart-1.0.13-demo.jnlp">
+  <information>
+    <title>JFreeChart 1.0.13 Demo</title>
+    <vendor>Object Refinery Ltd</vendor>
+    <homepage href="http://www.object-refinery.com/" />
+    <description>A demo for the JFreeChart class library</description>
+    <description kind="short">An application showing a variety of charts that can be generated with JFreeChart.</description>
+    <description kind="tooltip">JFreeChart 1.0.13 Demo</description>
+    <offline-allowed />
+  </information>
+  <resources>
+    <j2se version="1.4+" initial-heap-size="12m" max-heap-size="256m" />
+    <jar href="jfreechart-1.0.13-demo-all.jar" />
+  </resources>
+  <application-desc main-class="demo.SuperDemo" />
+</jnlp>
+
