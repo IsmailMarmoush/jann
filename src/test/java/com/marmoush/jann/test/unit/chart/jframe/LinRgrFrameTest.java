@@ -11,6 +11,9 @@ public class LinRgrFrameTest {
 	XYSeries xys = ChartUtils.xySeries("Training",
 		MatrixUtils.range(0, 1, 1500), MatrixUtils.range(0, 2, 3000));
 	LinRgrJf frame=new LinRgrJf(xys);
+	frame.setxAxisTitle("x");
+	frame.setyAxisTitle("y");
+	frame.setApptitle("My app");
 	frame.run();
     }
 }

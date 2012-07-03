@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.xy.XYSeriesCollection;
 
 public abstract class ChartJFrame extends JFrame {
     private static final long serialVersionUID = -7922555494678114867L;
@@ -20,6 +21,14 @@ public abstract class ChartJFrame extends JFrame {
     private int width = 800;
     private String xAxisTitle = "X-Axis";
     private String yAxisTitle = "Y-Axis";
+    private XYSeriesCollection xySeriesCollection = null;
+    public XYSeriesCollection getXySeriesCollection() {
+        return xySeriesCollection;
+    }
+
+    public void setXySeriesCollection(XYSeriesCollection xySeriesCollection) {
+        this.xySeriesCollection = xySeriesCollection;
+    }
 
     public String getApptitle() {
 	return apptitle;

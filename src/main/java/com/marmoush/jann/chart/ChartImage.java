@@ -6,6 +6,7 @@ import java.io.IOException;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.xy.XYSeriesCollection;
 
 public abstract class ChartImage {
     private JFreeChart chart = null;
@@ -19,6 +20,15 @@ public abstract class ChartImage {
     private int width = 800;
     private String xAxisTitle = "X-Axis";
     private String yAxisTitle = "Y-Axis";
+    private XYSeriesCollection xySeriesCollec = null;
+    
+    public XYSeriesCollection getXySeriesCollec() {
+        return xySeriesCollec;
+    }
+
+    public void setXySeriesCollec(XYSeriesCollection dataset) {
+        this.xySeriesCollec = dataset;
+    }
 
     public void createPNG() {
 	try {

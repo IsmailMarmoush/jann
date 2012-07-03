@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.marmoush.jann.chart.ChartUtils;
+import com.marmoush.jann.chart.LinRgrImg;
 import com.marmoush.jann.model.regression.LinearRegression;
 import com.marmoush.jann.test.TestingData;
 import com.marmoush.jann.train.Train;
@@ -31,8 +32,10 @@ public class LingRgrTrainTest {
 	List<Double> stochErr = trainStochasticLinRgr();
 	XYSeries xyStoch = ChartUtils.xySeries("Stochastic", range, stochErr);
 	String path = "ChartsOutput" + File.separator + "chart.png";
-//	ChartUtils.createLinRgrPNG(path,
-//		"Linear Regression Batch Vs Stochastic","Iterations","Error", xyBatch, xyStoch);
+	LinRgrImg img=new LinRgrImg(path, xyBatch,xyStoch);
+	img.setxAxisTitle("Iterations");
+	img.setyAxisTitle("Error");
+	img.createPNG();
     }
 
     @Before
