@@ -22,15 +22,17 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.xy.XYSeries;
 
-public class ScatterDataImg extends ChartImage {
-    public ScatterDataImg(String path, XYSeries... series) {
+public class LineImg extends ChartImage {
+
+    public LineImg(String path, XYSeries... series) {
 	setPath(path);
 	setXySeriesCollec(ChartUtils.getXYSeriesCollection(series));
+
     }
 
     @Override
     public void createJPEG() {
-	JFreeChart chart = ChartFactory.createScatterPlot(getTitle(),
+	JFreeChart chart = ChartFactory.createXYLineChart(getTitle(),
 		getxAxisTitle(), getyAxisTitle(), getXySeriesCollec(),
 		getOrientation(), isLegend(), isTooltips(), isUrls());
 	setChart(chart);
@@ -39,7 +41,7 @@ public class ScatterDataImg extends ChartImage {
 
     @Override
     public void createPNG() {
-	JFreeChart chart = ChartFactory.createScatterPlot(getTitle(),
+	JFreeChart chart = ChartFactory.createXYLineChart(getTitle(),
 		getxAxisTitle(), getyAxisTitle(), getXySeriesCollec(),
 		getOrientation(), isLegend(), isTooltips(), isUrls());
 	setChart(chart);

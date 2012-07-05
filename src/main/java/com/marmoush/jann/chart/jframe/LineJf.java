@@ -16,32 +16,32 @@
  * 
  * For More Information Please Visit http://jann.marmoush.com
  */
-package com.marmoush.jann.test.unit.train;
+package com.marmoush.jann.chart.jframe;
 
-import org.jblas.DoubleMatrix;
-import org.junit.Before;
-import org.junit.Test;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.xy.XYSeries;
 
-import com.marmoush.jann.test.TestingData;
-import com.marmoush.jann.utils.TrainUtils;
+import com.marmoush.jann.chart.ChartUtils;
 
-public class NormalEqTest {
-    DoubleMatrix inputs;
-    DoubleMatrix targets;
+public class LineJf extends ChartJFrame {
 
-    @Before
-    public void setUp() throws Exception {
-	String path = TestingData.getPath("ex2", "ex2data1Bias.txt");
-	DoubleMatrix data = DoubleMatrix.loadAsciiFile(path);
-	inputs = data.getColumns(new int[] { 0, 1, 2 });
-	targets = data.getColumn(3);
-	
+    private static final long serialVersionUID = -6259803593823138950L;
+
+    public LineJf() {
     }
 
-    @Test
-    public void normalEqPinvRgu() {
-	TrainUtils.normalEqPinv(inputs, targets).print();
-	TrainUtils.normalEqPinvRgu(inputs, targets, 10, true).print();
-	
+    public LineJf(XYSeries... seriesList) {
+	setXySeriesCollection(ChartUtils.getXYSeriesCollection(seriesList));
+
+    }
+
+    @Override
+    public void run() {
+	JFreeChart chart = ChartFactory.createXYLineChart(getTitle(),
+		getxAxisTitle(), getyAxisTitle(), getXySeriesCollection(),
+		getOrientation(), isLegend(), isTooltips(), isUrls());
+	setChart(chart);
+	super.run();
     }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 Ismail Marmoush
+ * Copyright 2012 Ismail Marmoush
  * 
  * This file is part of JANN.
  * 

@@ -1,3 +1,21 @@
+/*
+ * Copyright 2012 Ismail Marmoush
+ * 
+ * This file is part of JANN.
+ * 
+ * JANN is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License Version 3 as published by the Free
+ * Software Foundation, either version 3 of the License, or any later version.
+ * 
+ * JANN is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with
+ * JANN. If not, see http://www.gnu.org/licenses/.
+ * 
+ * For More Information Please Visit http://jann.marmoush.com
+ */
 package com.marmoush.jann.test.unit.train;
 
 import java.io.File;
@@ -10,7 +28,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.marmoush.jann.chart.ChartUtils;
-import com.marmoush.jann.chart.LinRgrImg;
+import com.marmoush.jann.chart.LineImg;
 import com.marmoush.jann.model.regression.LinearRegression;
 import com.marmoush.jann.test.TestingData;
 import com.marmoush.jann.train.Train;
@@ -32,7 +50,7 @@ public class LingRgrTrainTest {
 	List<Double> stochErr = trainStochasticLinRgr();
 	XYSeries xyStoch = ChartUtils.xySeries("Stochastic", range, stochErr);
 	String path = "ChartsOutput" + File.separator + "chart.png";
-	LinRgrImg img=new LinRgrImg(path, xyBatch,xyStoch);
+	LineImg img=new LineImg(path, xyBatch,xyStoch);
 	img.setxAxisTitle("Iterations");
 	img.setyAxisTitle("Error");
 	img.createPNG();
