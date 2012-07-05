@@ -20,17 +20,33 @@ package com.marmoush.jann.utils;
 
 import org.jblas.DoubleMatrix;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class WeightUtils.
  */
 public abstract class WeightUtils {
 
+    /**
+     * Batch dotprod.
+     *
+     * @param batchTrainingEx the batch training ex
+     * @param weight the weight
+     * @return the double matrix
+     */
     public static DoubleMatrix batchDotprod(DoubleMatrix batchTrainingEx,
 	    DoubleMatrix weight) {
 	DoubleMatrix out = batchTrainingEx.mmul(weight.transpose());
 	return out;
     }
 
+    /**
+     * Batch dotprod.
+     *
+     * @param batchTrainingEx the batch training ex
+     * @param bias the bias
+     * @param weight the weight
+     * @return the double matrix
+     */
     public static DoubleMatrix batchDotprod(DoubleMatrix batchTrainingEx,
 	    DoubleMatrix bias, DoubleMatrix weight) {
 	/*
@@ -52,6 +68,13 @@ public abstract class WeightUtils {
 	return out;
     }
 
+    /**
+     * Dotprod.
+     *
+     * @param input the input
+     * @param weight the weight
+     * @return the double matrix
+     */
     public static DoubleMatrix dotprod(DoubleMatrix input, DoubleMatrix weight) {
 	return weight.mmul(input);
     }

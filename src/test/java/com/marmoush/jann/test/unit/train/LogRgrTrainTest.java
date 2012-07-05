@@ -37,15 +37,30 @@ import com.marmoush.jann.train.Train;
 import com.marmoush.jann.utils.MatrixUtils;
 import com.marmoush.jann.utils.TrainUtils;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LogRgrTrainTest.
+ */
 public class LogRgrTrainTest {
+    
+    /** The data. */
     private DoubleMatrix data = null;
+    
+    /** The input list. */
     private List<DoubleMatrix> inputList = null;
 
+    /** The inputs. */
     private DoubleMatrix inputs = null;
+    
+    /** The target list. */
     private List<DoubleMatrix> targetList = null;
 
+    /** The targets. */
     private DoubleMatrix targets = null;
 
+    /**
+     * Creates the data img.
+     */
     @Test
     public void createDataImg() {
 	String path = "ChartsOutput" + File.separator + "data.png";
@@ -70,6 +85,9 @@ public class LogRgrTrainTest {
 	img.createPNG();
     }
 
+    /**
+     * Creates the error iter image.
+     */
     @Test
     public void createErrorIterImage() {
 	List<Double> range = MatrixUtils.range(0, 1, 400);
@@ -85,6 +103,11 @@ public class LogRgrTrainTest {
 
     }
 
+    /**
+     * Sets the up.
+     *
+     * @throws Exception the exception
+     */
     @Before
     public void setUp() throws Exception {
 	String path = TestingData.getPath("ex2", "ex2data1.txt");
@@ -96,12 +119,22 @@ public class LogRgrTrainTest {
 
     }
 
+    /**
+     * Tear down.
+     *
+     * @throws Exception the exception
+     */
     @After
     public void tearDown() throws Exception {
 
 	System.out.println("-----------------------------------------------");
     }
 
+    /**
+     * Train batch log rgr.
+     *
+     * @return the list
+     */
     public List<Double> trainBatchLogRgr() {
 	System.out.println("Batch Training");
 	final LogisticRegression blr = new LogisticRegression(inputs, targets,
@@ -123,6 +156,11 @@ public class LogRgrTrainTest {
 	return batchTrain.getPerformanceHistory();
     }
 
+    /**
+     * Train stochastic lin rgr.
+     *
+     * @return the list
+     */
     public List<Double> trainStochasticLinRgr() {
 	System.out.println("Stochastic Trainging ");
 	final LogisticRegression slr = new LogisticRegression(inputList,

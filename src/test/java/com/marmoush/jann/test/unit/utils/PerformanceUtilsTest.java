@@ -27,16 +27,24 @@ import org.junit.Test;
 import com.marmoush.jann.utils.PerformanceUtils;
 import com.marmoush.jann.utils.TransfereUtils;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class PerformanceUtilsTest.
+ *
  * @author marmoush
- * 
  */
 public class PerformanceUtilsTest {
+    
+    /** The output. */
     private DoubleMatrix output;
+    
+    /** The target. */
     private DoubleMatrix target;
 
     /**
-     * @throws java.lang.Exception
+     * Sets the up.
+     *
+     * @throws Exception the exception
      */
     @Before
     public void setUp() throws Exception {
@@ -44,6 +52,9 @@ public class PerformanceUtilsTest {
 	target = DoubleMatrix.valueOf("2; 4 ;6");
     }
 
+    /**
+     * Test log rgr.
+     */
     @Test
     public void testLogRgr() {
 	DoubleMatrix transf = TransfereUtils.logsig(output);
@@ -53,7 +64,8 @@ public class PerformanceUtilsTest {
     }
 
     /**
-     * Test method for
+     * Test method for.
+     *
      * {@link com.marmoush.jann.utils.PerformanceUtils#mae(org.jblas.DoubleMatrix)}
      * .
      */
@@ -64,7 +76,8 @@ public class PerformanceUtilsTest {
     }
 
     /**
-     * Test method for
+     * Test method for.
+     *
      * {@link com.marmoush.jann.utils.PerformanceUtils#mse(org.jblas.DoubleMatrix)}
      * .
      */
@@ -76,7 +89,8 @@ public class PerformanceUtilsTest {
     }
 
     /**
-     * Test method for
+     * Test method for.
+     *
      * {@link com.marmoush.jann.utils.PerformanceUtils#sse(org.jblas.DoubleMatrix)}
      * .
      */

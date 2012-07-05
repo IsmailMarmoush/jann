@@ -23,6 +23,7 @@ import org.jblas.DoubleMatrix;
 import com.marmoush.jann.Layer;
 import com.marmoush.jann.utils.functors.IPerformance;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class SvLayer.
  */
@@ -38,6 +39,7 @@ public class SvLayer extends Layer implements ISvLayer {
     /** The performancefnctr. */
     private IPerformance performancefnctr = null;
 
+    /** The regularization fctr. */
     private double regularizationFctr = 0;
 
     /** The target. */
@@ -52,16 +54,18 @@ public class SvLayer extends Layer implements ISvLayer {
 
     /**
      * Instantiates a new sv layer.
-     * 
-     * @param nInputs
-     *            the n inputs
-     * @param nNeurons
-     *            the n neurons
+     *
+     * @param nInputs the n inputs
+     * @param nNeurons the n neurons
+     * @param biased the biased
      */
     public SvLayer(int nInputs, int nNeurons, boolean biased) {
 	super(nInputs, nNeurons, biased);
     }
 
+    /* (non-Javadoc)
+     * @see com.marmoush.jann.Layer#equals(java.lang.Object)
+     */
     @Override
     public boolean equals(Object obj) {
 	if (this == obj)
@@ -120,6 +124,9 @@ public class SvLayer extends Layer implements ISvLayer {
 	return performancefnctr;
     }
 
+    /* (non-Javadoc)
+     * @see com.marmoush.jann.sv.ISvLayer#getReguFctr()
+     */
     @Override
     public double getReguFctr() {
 	return this.regularizationFctr;
@@ -135,6 +142,9 @@ public class SvLayer extends Layer implements ISvLayer {
 	return target;
     }
 
+    /* (non-Javadoc)
+     * @see com.marmoush.jann.Layer#hashCode()
+     */
     @Override
     public int hashCode() {
 	final int prime = 31;
@@ -183,6 +193,9 @@ public class SvLayer extends Layer implements ISvLayer {
 	this.performancefnctr = performancefnctr;
     }
 
+    /* (non-Javadoc)
+     * @see com.marmoush.jann.sv.ISvLayer#setReguFctr(double)
+     */
     @Override
     public void setReguFctr(double reg) {
 	this.regularizationFctr = reg;
@@ -198,6 +211,9 @@ public class SvLayer extends Layer implements ISvLayer {
 	this.target = target;
     }
 
+    /* (non-Javadoc)
+     * @see com.marmoush.jann.Layer#simulate()
+     */
     @Override
     public void simulate() {
 	super.simulate();

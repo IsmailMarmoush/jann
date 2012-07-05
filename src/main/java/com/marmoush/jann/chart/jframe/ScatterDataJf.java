@@ -24,16 +24,33 @@ import org.jfree.data.xy.XYSeries;
 
 import com.marmoush.jann.chart.ChartUtils;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ScatterDataJf.
+ */
 public class ScatterDataJf extends ChartJFrame {
+    
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = -457908141851955661L;
 
+    /**
+     * Instantiates a new scatter data jf.
+     */
     public ScatterDataJf() {
     }
 
+    /**
+     * Instantiates a new scatter data jf.
+     *
+     * @param seriesList the series list
+     */
     public ScatterDataJf(XYSeries... seriesList) {
 	setXySeriesCollection(ChartUtils.getXYSeriesCollection(seriesList));
     }
 
+    /* (non-Javadoc)
+     * @see com.marmoush.jann.chart.jframe.ChartJFrame#run()
+     */
     @Override
     public void run() {
 	JFreeChart chart = ChartFactory.createScatterPlot(getTitle(),

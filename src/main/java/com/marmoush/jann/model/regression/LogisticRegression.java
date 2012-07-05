@@ -27,9 +27,22 @@ import com.marmoush.jann.utils.functors.IPerformance;
 import com.marmoush.jann.utils.functors.ITransfere;
 import com.marmoush.jann.utils.functors.IWeight;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LogisticRegression.
+ */
 public class LogisticRegression extends SvLayer {
+    
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 6248944247719115094L;
 
+    /**
+     * Instantiates a new logistic regression.
+     *
+     * @param batchTrainingEx the batch training ex
+     * @param batchTargets the batch targets
+     * @param biased the biased
+     */
     public LogisticRegression(DoubleMatrix batchTrainingEx,
 	    DoubleMatrix batchTargets, boolean biased) {
 	super(batchTrainingEx.columns, 1, biased);
@@ -38,6 +51,13 @@ public class LogisticRegression extends SvLayer {
 	setPerformancefnctr(IPerformance.LOGRGR);
     }
 
+    /**
+     * Instantiates a new logistic regression.
+     *
+     * @param trainingEx the training ex
+     * @param targetList the target list
+     * @param biased the biased
+     */
     public LogisticRegression(List<DoubleMatrix> trainingEx,
 	    List<DoubleMatrix> targetList, boolean biased) {
 	super(trainingEx.get(0).rows, targetList.get(0).length, biased);

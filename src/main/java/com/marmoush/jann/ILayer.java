@@ -23,6 +23,7 @@ import org.jblas.DoubleMatrix;
 import com.marmoush.jann.utils.functors.ITransfere;
 import com.marmoush.jann.utils.functors.IWeight;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Interface ILayer.
  */
@@ -101,6 +102,11 @@ public interface ILayer extends IFillableLayer {
     @Override
     public abstract int hashCode();
 
+    /**
+     * Checks if is biased.
+     *
+     * @return true, if is biased
+     */
     public abstract boolean isBiased();
 
     /**

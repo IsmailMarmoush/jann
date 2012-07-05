@@ -24,6 +24,7 @@ import com.marmoush.jann.NeuralNetwork;
 import com.marmoush.jann.neuralgraph.NeuralDirectedGraph;
 import com.marmoush.jann.utils.NetworkUtils;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class TestingDraft2.
  */

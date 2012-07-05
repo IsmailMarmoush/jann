@@ -22,14 +22,27 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.xy.XYSeries;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LineImg.
+ */
 public class LineImg extends ChartImage {
 
+    /**
+     * Instantiates a new line img.
+     *
+     * @param path the path
+     * @param series the series
+     */
     public LineImg(String path, XYSeries... series) {
 	setPath(path);
 	setXySeriesCollec(ChartUtils.getXYSeriesCollection(series));
 
     }
 
+    /* (non-Javadoc)
+     * @see com.marmoush.jann.chart.ChartImage#createJPEG()
+     */
     @Override
     public void createJPEG() {
 	JFreeChart chart = ChartFactory.createXYLineChart(getTitle(),
@@ -39,6 +52,9 @@ public class LineImg extends ChartImage {
 	super.createJPEG();
     }
 
+    /* (non-Javadoc)
+     * @see com.marmoush.jann.chart.ChartImage#createPNG()
+     */
     @Override
     public void createPNG() {
 	JFreeChart chart = ChartFactory.createXYLineChart(getTitle(),

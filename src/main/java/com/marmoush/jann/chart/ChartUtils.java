@@ -24,8 +24,18 @@ import org.jblas.DoubleMatrix;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ChartUtils.
+ */
 public class ChartUtils {
 
+    /**
+     * Gets the xY series collection.
+     *
+     * @param seriesList the series list
+     * @return the xY series collection
+     */
     public static XYSeriesCollection getXYSeriesCollection(
 	    XYSeries... seriesList) {
 	XYSeriesCollection dataset = new XYSeriesCollection();
@@ -35,6 +45,13 @@ public class ChartUtils {
 	return dataset;
     }
 
+    /**
+     * Xy series.
+     *
+     * @param key the key
+     * @param data the data
+     * @return the xY series
+     */
     public static XYSeries xySeries(String key, double[][] data) {
 	XYSeries series = new XYSeries(key);
 	for (int row = 0; row < data.length; row++) {
@@ -43,6 +60,14 @@ public class ChartUtils {
 	return series;
     }
 
+    /**
+     * Xy series.
+     *
+     * @param key the key
+     * @param x the x
+     * @param y the y
+     * @return the xY series
+     */
     public static XYSeries xySeries(String key, DoubleMatrix x, DoubleMatrix y) {
 	XYSeries series = new XYSeries(key);
 	for (int idx = 0; idx < x.length; idx++) {
@@ -51,6 +76,15 @@ public class ChartUtils {
 	return series;
     }
 
+    /**
+     * Xy series.
+     *
+     * @param key the key
+     * @param xyMtrx the xy mtrx
+     * @param xColIdx the x col idx
+     * @param yColdIdx the y cold idx
+     * @return the xY series
+     */
     public static XYSeries xySeries(String key, DoubleMatrix xyMtrx,
 	    int xColIdx, int yColdIdx) {
 
@@ -61,6 +95,14 @@ public class ChartUtils {
 	return series;
     }
 
+    /**
+     * Xy series.
+     *
+     * @param key the key
+     * @param x the x
+     * @param y the y
+     * @return the xY series
+     */
     public static XYSeries xySeries(String key, List<Double> x, List<Double> y) {
 	// assert (x.size()==y.size();
 	XYSeries series = new XYSeries(key);

@@ -29,15 +29,21 @@ import org.junit.Test;
 
 import com.marmoush.jann.utils.MatrixUtils;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class MatrixUtilsTest.
+ *
  * @author marmoush
- * 
  */
 public class MatrixUtilsTest {
+    
+    /** The mtrx. */
     private DoubleMatrix mtrx;
 
     /**
-     * @throws java.lang.Exception
+     * Sets the up.
+     *
+     * @throws Exception the exception
      */
     @Before
     public void setUp() throws Exception {
@@ -45,11 +51,19 @@ public class MatrixUtilsTest {
 		.valueOf("1.23456 12.3456 123.45678 1234.5678 12345.678");
     }
 
+    /**
+     * Tear down.
+     *
+     * @throws Exception the exception
+     */
     @After
     public void tearDown() throws Exception {
 	System.out.println("----------------------------------");
     }
 
+    /**
+     * Test batch mtrx2col vecs list.
+     */
     @Test
     public void testBatchMtrx2colVecsList() {
 	DoubleMatrix batchInputs = DoubleMatrix
@@ -59,6 +73,9 @@ public class MatrixUtilsTest {
 	MatrixUtils.print(true, list.toArray(new DoubleMatrix[0]));
     }
 
+    /**
+     * Test feature mapping.
+     */
     @Test
     public void testFeatureMapping() {
 	System.out.println(MatrixUtils.getNumFeaturesMapped(9));
@@ -66,6 +83,9 @@ public class MatrixUtilsTest {
 
     }
 
+    /**
+     * Test feature mapping input.
+     */
     @Test
     public void testFeatureMappingInput() {
 	DoubleMatrix input = MatrixUtils.randomMatrixFloor(3, 2, 1, 3);
@@ -73,6 +93,9 @@ public class MatrixUtilsTest {
 	MatrixUtils.batchFeatureMapping(input, 2, 0, 1).print();
     }
 
+    /**
+     * Test feature scaling.
+     */
     @Test
     public void testFeatureScaling() {
 	DoubleMatrix m = DoubleMatrix.valueOf("2 4 4 4 5 5 7 9");
@@ -81,7 +104,8 @@ public class MatrixUtilsTest {
     }
 
     /**
-     * Test method for
+     * Test method for.
+     *
      * {@link com.marmoush.jann.utils.MatrixUtils#round(org.jblas.DoubleMatrix, int)}
      * .
      */
@@ -93,6 +117,9 @@ public class MatrixUtilsTest {
 	assertTrue(mtrx.toString(), mtrx.equals(testResult));
     }
 
+    /**
+     * Test standard deviation.
+     */
     @Test
     public void testStandardDeviation() {
 	DoubleMatrix m = DoubleMatrix.valueOf("3 4 5");

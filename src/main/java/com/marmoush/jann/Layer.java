@@ -26,6 +26,7 @@ import com.marmoush.jann.utils.MatrixUtils;
 import com.marmoush.jann.utils.functors.ITransfere;
 import com.marmoush.jann.utils.functors.IWeight;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class Layer.
  */
@@ -37,11 +38,13 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
     /** The bias. */
     private DoubleMatrix bias = null;
 
+    /** The biased. */
     private boolean biased = false;
 
     /** The input. */
     private DoubleMatrix input = null;
 
+    /** The input only layer. */
     private boolean inputOnlyLayer = false;
 
     /** The net sum. */
@@ -70,11 +73,10 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
 
     /**
      * Instantiates a new layer.
-     * 
-     * @param nInputs
-     *            the n inputs
-     * @param nNeurons
-     *            the n neurons
+     *
+     * @param nInputs the n inputs
+     * @param nNeurons the n neurons
+     * @param biased the biased
      */
     public Layer(final int nInputs, final int nNeurons, boolean biased) {
 	input = new DoubleMatrix(nInputs);
@@ -233,6 +235,9 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
 	return result;
     }
 
+    /* (non-Javadoc)
+     * @see com.marmoush.jann.ILayer#isBiased()
+     */
     @Override
     public boolean isBiased() {
 	return biased;
@@ -260,6 +265,11 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
 	    this.bias = bias;
     }
 
+    /**
+     * Sets the biased.
+     *
+     * @param biased the new biased
+     */
     public void setBiased(boolean biased) {
 	this.biased = biased;
     }
@@ -334,6 +344,11 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
 	this.input = input;
     }
 
+    /**
+     * Sets the input only layer.
+     *
+     * @param inputOnlyLayer the new input only layer
+     */
     public void setInputOnlyLayer(boolean inputOnlyLayer) {
 	this.inputOnlyLayer = inputOnlyLayer;
     }

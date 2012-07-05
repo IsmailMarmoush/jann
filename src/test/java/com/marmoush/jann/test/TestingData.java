@@ -20,18 +20,43 @@ package com.marmoush.jann.test;
 
 import java.io.File;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TestingData.
+ */
 public class TestingData {
+    
+    /** The Constant DATA_FOLDER. */
     public static final String DATA_FOLDER = "src.test.java.data";
 
+    /**
+     * Gets the path.
+     *
+     * @param folder the folder
+     * @param fileName the file name
+     * @return the path
+     */
     public static String getPath(String folder, String fileName) {
 	return toRelativePath(DATA_FOLDER + "." + folder, fileName);
     }
 
+    /**
+     * The main method.
+     *
+     * @param args the arguments
+     */
     public static void main(String[] args) {
 	String path = toRelativePath(DATA_FOLDER + ".ex1", "ex1data1.txt");
 	System.out.println(path);
     }
 
+    /**
+     * To relative path.
+     *
+     * @param classPath the class path
+     * @param fileName the file name
+     * @return the string
+     */
     public static String toRelativePath(String classPath, String fileName) {
 	String[] bits = classPath.split("\\.");
 	String path = "";

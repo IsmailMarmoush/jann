@@ -21,6 +21,7 @@ package com.marmoush.jann.train;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class TrainResult.
  */
@@ -50,6 +51,7 @@ public abstract class Train {
     /** The performance goal. */
     private double performanceGoal;
 
+    /** The performance history. */
     private List<Double> performanceHistory = new ArrayList<Double>();
 
     /** The start. */
@@ -61,9 +63,19 @@ public abstract class Train {
     /** The time limit. */
     private long timeLimit;
 
+    /**
+     * Instantiates a new train.
+     */
     public Train() {
     }
 
+    /**
+     * Instantiates a new train.
+     *
+     * @param maxEpochs the max epochs
+     * @param performanceGoal the performance goal
+     * @param timeLimit the time limit
+     */
     public Train(int maxEpochs, double performanceGoal, long timeLimit) {
 	super();
 	this.maxEpochs = maxEpochs;
@@ -71,6 +83,11 @@ public abstract class Train {
 	this.timeLimit = timeLimit;
     }
 
+    /**
+     * Adds the performance history entry.
+     *
+     * @param performance the performance
+     */
     public void addPerformanceHistoryEntry(double performance) {
 	getPerformanceHistory().add(performance);
     }
@@ -90,22 +107,45 @@ public abstract class Train {
 	this.atEpoch = atEpoch;
     }
 
+    /**
+     * Gets the max epochs.
+     *
+     * @return the max epochs
+     */
     public int getMaxEpochs() {
 	return maxEpochs;
     }
 
+    /**
+     * Gets the performance goal.
+     *
+     * @return the performance goal
+     */
     public double getPerformanceGoal() {
 	return performanceGoal;
     }
 
+    /**
+     * Gets the performance history.
+     *
+     * @return the performance history
+     */
     public List<Double> getPerformanceHistory() {
 	return performanceHistory;
     }
 
+    /**
+     * Gets the time limit.
+     *
+     * @return the time limit
+     */
     public long getTimeLimit() {
 	return timeLimit;
     }
 
+    /**
+     * Run.
+     */
     public void run() {
 	start();
 	for (int i = 0; i < getMaxEpochs(); i++) {
@@ -119,18 +159,38 @@ public abstract class Train {
 	end(EPOCHS_REACHED, getMaxEpochs());
     }
 
+    /**
+     * Sets the max epochs.
+     *
+     * @param maxEpochs the new max epochs
+     */
     public void setMaxEpochs(int maxEpochs) {
 	this.maxEpochs = maxEpochs;
     }
 
+    /**
+     * Sets the performance goal.
+     *
+     * @param performanceGoal the new performance goal
+     */
     public void setPerformanceGoal(double performanceGoal) {
 	this.performanceGoal = performanceGoal;
     }
 
+    /**
+     * Sets the performance history.
+     *
+     * @param performanceHistory the new performance history
+     */
     public void setPerformanceHistory(List<Double> performanceHistory) {
 	this.performanceHistory = performanceHistory;
     }
 
+    /**
+     * Sets the time limit.
+     *
+     * @param timeLimit the new time limit
+     */
     public void setTimeLimit(long timeLimit) {
 	this.timeLimit = timeLimit;
     }
@@ -142,6 +202,9 @@ public abstract class Train {
 	this.start = System.currentTimeMillis();
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
 	StringBuilder builder = new StringBuilder();
@@ -162,6 +225,11 @@ public abstract class Train {
 	return builder.toString();
     }
 
+    /**
+     * Train.
+     *
+     * @return the double
+     */
     public abstract double train();
 
 }

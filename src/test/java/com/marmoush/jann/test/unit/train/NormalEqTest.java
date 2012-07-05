@@ -25,10 +25,23 @@ import org.junit.Test;
 import com.marmoush.jann.test.TestingData;
 import com.marmoush.jann.utils.TrainUtils;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class NormalEqTest.
+ */
 public class NormalEqTest {
+    
+    /** The inputs. */
     DoubleMatrix inputs;
+    
+    /** The targets. */
     DoubleMatrix targets;
 
+    /**
+     * Sets the up.
+     *
+     * @throws Exception the exception
+     */
     @Before
     public void setUp() throws Exception {
 	String path = TestingData.getPath("ex2", "ex2data1Bias.txt");
@@ -38,6 +51,9 @@ public class NormalEqTest {
 	
     }
 
+    /**
+     * Normal eq pinv rgu.
+     */
     @Test
     public void normalEqPinvRgu() {
 	TrainUtils.normalEqPinv(inputs, targets).print();

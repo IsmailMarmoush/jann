@@ -24,11 +24,19 @@ import org.jblas.DoubleMatrix;
 
 import com.marmoush.jann.sv.SvLayer;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class TrainUtils.
  */
 public class TrainUtils {
 
+    /**
+     * Batch gd.
+     *
+     * @param lyr the lyr
+     * @param inputs the inputs
+     * @param targets the targets
+     */
     public static void batchGd(SvLayer lyr, DoubleMatrix inputs,
 	    DoubleMatrix targets) {
 	lyr.setInput(inputs);
@@ -46,6 +54,13 @@ public class TrainUtils {
 	}
     }
 
+    /**
+     * Normal eq inv.
+     *
+     * @param x the x
+     * @param targets the targets
+     * @return the double matrix
+     */
     public static DoubleMatrix normalEqInv(DoubleMatrix x, DoubleMatrix targets) {
 	// ((X'*X)^-1) * (X' * y)
 	DoubleMatrix inverse = MatrixUtils.inv(x.transpose().mmul(x));
@@ -53,12 +68,28 @@ public class TrainUtils {
 	return inverse.mmul(xTransposeY);
     }
 
+    /**
+     * Normal eq pinv.
+     *
+     * @param x the x
+     * @param targets the targets
+     * @return the double matrix
+     */
     public static DoubleMatrix normalEqPinv(DoubleMatrix x, DoubleMatrix targets) {
 	DoubleMatrix inverse = MatrixUtils.pinv(x.transpose().mmul(x));
 	DoubleMatrix xTransposeY = x.transpose().mmul(targets);
 	return inverse.mmul(xTransposeY);
     }
 
+    /**
+     * Normal eq pinv rgu.
+     *
+     * @param x the x
+     * @param targets the targets
+     * @param rguFctr the rgu fctr
+     * @param biased the biased
+     * @return the double matrix
+     */
     public static DoubleMatrix normalEqPinvRgu(DoubleMatrix x,
 	    DoubleMatrix targets,double rguFctr, boolean biased) {
 	DoubleMatrix inv = x.transpose().mmul(x);
@@ -70,6 +101,13 @@ public class TrainUtils {
 	return inverse.mmul(xTransposeY);
     }
 
+    /**
+     * Stochastic gd.
+     *
+     * @param lyr the lyr
+     * @param inputs the inputs
+     * @param targets the targets
+     */
     public static void stochasticGd(SvLayer lyr, List<DoubleMatrix> inputs,
 	    List<DoubleMatrix> targets) {
 	int m = 0;

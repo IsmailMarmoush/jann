@@ -23,6 +23,10 @@ import org.jblas.DoubleMatrix;
 import com.marmoush.jann.ILayer;
 import com.marmoush.jann.utils.functors.IPerformance;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Interface ISvLayer.
+ */
 public interface ISvLayer extends ILayer {
     /**
      * Gets the learn rate.
@@ -43,6 +47,11 @@ public interface ISvLayer extends ILayer {
      */
     public abstract IPerformance getPerformancefnctr();
 
+    /**
+     * Gets the regu fctr.
+     *
+     * @return the regu fctr
+     */
     public abstract double getReguFctr();
 
     /**
@@ -76,6 +85,11 @@ public interface ISvLayer extends ILayer {
      */
     public abstract void setPerformancefnctr(IPerformance performancefnctr);
 
+    /**
+     * Sets the regu fctr.
+     *
+     * @param reg the new regu fctr
+     */
     public abstract void setReguFctr(double reg);
 
     /**

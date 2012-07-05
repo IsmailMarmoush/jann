@@ -26,6 +26,7 @@ import org.jblas.MatrixFunctions;
 import org.jblas.Singular;
 import org.jblas.Solve;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class MatrixUtils.
  */
@@ -37,6 +38,15 @@ public class MatrixUtils {
      */
     public static final double MACHEPS = 2E-16;
 
+    /**
+     * Batch feature mapping.
+     *
+     * @param batchTrainingEx the batch training ex
+     * @param degree the degree
+     * @param f1ColIndex the f1 col index
+     * @param f2ColIndex the f2 col index
+     * @return the double matrix
+     */
     public static DoubleMatrix batchFeatureMapping(
 	    DoubleMatrix batchTrainingEx, int degree, int f1ColIndex,
 	    int f2ColIndex) {
@@ -54,6 +64,12 @@ public class MatrixUtils {
 	return mtrx;
     }
 
+    /**
+     * Batch mtrx to col vecs list.
+     *
+     * @param batch the batch
+     * @return the list
+     */
     public static List<DoubleMatrix> batchMtrxToColVecsList(DoubleMatrix batch) {
 	// assert vectors with same size
 	int cols = batch.columns;
@@ -64,6 +80,12 @@ public class MatrixUtils {
 	return colVecList;
     }
 
+    /**
+     * Col vecs list2 batch mtrx.
+     *
+     * @param listOfVectors the list of vectors
+     * @return the double matrix
+     */
     public static DoubleMatrix colVecsList2BatchMtrx(
 	    List<DoubleMatrix> listOfVectors) {
 	// assert vectors with same size
@@ -76,6 +98,13 @@ public class MatrixUtils {
 	return batch;
     }
 
+    /**
+     * Equals.
+     *
+     * @param mtrx1 the mtrx1
+     * @param mtrx2 the mtrx2
+     * @return true, if successful
+     */
     public static boolean equals(DoubleMatrix mtrx1, DoubleMatrix mtrx2) {
 	if (mtrx1.equals(mtrx2)) {
 	    return true;
@@ -88,6 +117,14 @@ public class MatrixUtils {
 	return false;
     }
 
+    /**
+     * Feature mapping.
+     *
+     * @param x1 the x1
+     * @param x2 the x2
+     * @param degree the degree
+     * @return the double matrix
+     */
     public static DoubleMatrix featureMapping(double x1, double x2, int degree) {
 	// Returns row vector
 	// for i = 1:degree
@@ -103,6 +140,15 @@ public class MatrixUtils {
 	return new DoubleMatrix(list);
     }
 
+    /**
+     * Feature mapping.
+     *
+     * @param input the input
+     * @param degree the degree
+     * @param f1Index the f1 index
+     * @param f2Index the f2 index
+     * @return the double matrix
+     */
     public static DoubleMatrix featureMapping(DoubleMatrix input, int degree,
 	    int f1Index, int f2Index) {
 	// assert(input is column vector or row vector)
@@ -115,6 +161,12 @@ public class MatrixUtils {
 	    return null;
     }
 
+    /**
+     * Feature scaling by avrg.
+     *
+     * @param input the input
+     * @return the double matrix
+     */
     public static DoubleMatrix featureScalingByAvrg(DoubleMatrix input) {
 	double mean = input.mean();
 	double max = input.max();
@@ -122,20 +174,44 @@ public class MatrixUtils {
 	return input.sub(mean).div(max - min);
     }
 
+    /**
+     * Feature scaling by std.
+     *
+     * @param input the input
+     * @return the double matrix
+     */
     public static DoubleMatrix featureScalingBySTD(DoubleMatrix input) {
 	double mean = input.mean();
 	double std = standardDeviation(input);
 	return input.sub(mean).div(std);
     }
 
+    /**
+     * Gets the num features mapped.
+     *
+     * @param degree the degree
+     * @return the num features mapped
+     */
     public static int getNumFeaturesMapped(int degree) {
 	return (int) (1.5 * degree + 0.5 * Math.pow(degree, 2));
     }
 
+    /**
+     * Gets the size.
+     *
+     * @param mtrx the mtrx
+     * @return the size
+     */
     public static String getSize(DoubleMatrix mtrx) {
 	return mtrx.rows + "*" + mtrx.columns;
     }
 
+    /**
+     * Inv.
+     *
+     * @param mtrx the mtrx
+     * @return the double matrix
+     */
     public static DoubleMatrix inv(DoubleMatrix mtrx) {
 	return Solve.solvePositive(mtrx, DoubleMatrix.eye(mtrx.rows));
     }
@@ -144,6 +220,9 @@ public class MatrixUtils {
      * Computes the Moore–Penrose pseudoinverse using the SVD method.
      * 
      * Modified version of the original implementation by Kim van der Linde.
+     *
+     * @param x the x
+     * @return the double matrix
      */
     public static DoubleMatrix pinv(DoubleMatrix x) {
 	// SingularValueDecomposition svdX = new SingularValueDecomposition(x);
@@ -172,6 +251,12 @@ public class MatrixUtils {
 	return new DoubleMatrix(inverse);
     }
 
+    /**
+     * Prints the.
+     *
+     * @param withSize the with size
+     * @param mtrxList the mtrx list
+     */
     public static void print(boolean withSize, DoubleMatrix... mtrxList) {
 	for (DoubleMatrix mtrx : mtrxList) {
 	    if (withSize)
@@ -180,6 +265,12 @@ public class MatrixUtils {
 	}
     }
 
+    /**
+     * Prints the.
+     *
+     * @param withSize the with size
+     * @param mtrxList the mtrx list
+     */
     public static void print(boolean withSize, List<DoubleMatrix> mtrxList) {
 	for (DoubleMatrix mtrx : mtrxList) {
 	    if (withSize)
@@ -188,6 +279,13 @@ public class MatrixUtils {
 	}
     }
 
+    /**
+     * Prints the.
+     *
+     * @param names the names
+     * @param withSize the with size
+     * @param mtrxList the mtrx list
+     */
     public static void print(String[] names, boolean withSize,
 	    DoubleMatrix... mtrxList) {
 	for (int i = 0; i < mtrxList.length; i++) {
@@ -198,10 +296,20 @@ public class MatrixUtils {
 	}
     }
 
+    /**
+     * Prints the size.
+     *
+     * @param mtrx the mtrx
+     */
     public static void printSize(DoubleMatrix mtrx) {
 	System.out.print(MatrixUtils.getSize(mtrx));
     }
 
+    /**
+     * Prints the size.
+     *
+     * @param mtrxArray the mtrx array
+     */
     public static void printSize(DoubleMatrix... mtrxArray) {
 	for (DoubleMatrix m : mtrxArray) {
 	    MatrixUtils.printSize(m);
@@ -247,6 +355,14 @@ public class MatrixUtils {
 	return MatrixFunctions.floori(randMtrx);
     }
 
+    /**
+     * Range.
+     *
+     * @param start the start
+     * @param incrOrDecrValue the incr or decr value
+     * @param end the end
+     * @return the list
+     */
     public static List<Double> range(double start, double incrOrDecrValue,
 	    double end) {
 	List<Double> list = new ArrayList<Double>();
@@ -265,10 +381,23 @@ public class MatrixUtils {
 	return list;
     }
 
+    /**
+     * Rank.
+     *
+     * @param A the a
+     * @return the double
+     */
     public static double rank(DoubleMatrix A) {
 	return rankEff(A, Singular.SVDValues(A));
     }
 
+    /**
+     * Rank eff.
+     *
+     * @param A the a
+     * @param s the s
+     * @return the double
+     */
     public static double rankEff(DoubleMatrix A, DoubleMatrix s) {
 	// Where s = svd(A); ==> DoubleMatrix s = Singular.SVDValues(A);
 
@@ -282,6 +411,13 @@ public class MatrixUtils {
 	return r;
     }
 
+    /**
+     * Round.
+     *
+     * @param mtrx the mtrx
+     * @param decPoints the dec points
+     * @return the double matrix
+     */
     public static DoubleMatrix round(DoubleMatrix mtrx, int decPoints) {
 	// (int)Math.floor(a + 0.5f)
 	// Math.round(double*100.0)/100.0
@@ -363,6 +499,12 @@ public class MatrixUtils {
 	}
     }
 
+    /**
+     * Standard deviation.
+     *
+     * @param input the input
+     * @return the double
+     */
     public static double standardDeviation(DoubleMatrix input) {
 	double mean = input.mean();
 	DoubleMatrix dummy = MatrixFunctions.pow(input.sub(mean), 2);
@@ -370,6 +512,12 @@ public class MatrixUtils {
 	return Math.sqrt(sd);
     }
 
+    /**
+     * Standard deviation mat.
+     *
+     * @param input the input
+     * @return the double
+     */
     public static double standardDeviationMat(DoubleMatrix input) {
 	double mean = input.mean();
 	// TODO m-1 or m

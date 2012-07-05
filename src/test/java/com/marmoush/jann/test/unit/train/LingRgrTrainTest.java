@@ -36,12 +36,27 @@ import com.marmoush.jann.utils.MatrixUtils;
 import com.marmoush.jann.utils.TrainUtils;
 import com.marmoush.jann.utils.functors.IPerformance;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LingRgrTrainTest.
+ */
 public class LingRgrTrainTest {
+    
+    /** The targets. */
     private DoubleMatrix targets = null;
+    
+    /** The inputs. */
     private DoubleMatrix inputs = null;
+    
+    /** The input list. */
     private List<DoubleMatrix> inputList = null;
+    
+    /** The target list. */
     private List<DoubleMatrix> targetList = null;
 
+    /**
+     * Creates the image.
+     */
     @Test
     public void createImage() {
 	List<Double> range = MatrixUtils.range(0, 1, 10);
@@ -56,6 +71,11 @@ public class LingRgrTrainTest {
 	img.createPNG();
     }
 
+    /**
+     * Sets the up.
+     *
+     * @throws Exception the exception
+     */
     @Before
     public void setUp() throws Exception {
 	String path = TestingData.getPath("ex1", "ex1data1.txt");
@@ -69,12 +89,22 @@ public class LingRgrTrainTest {
 		.transpose());
     }
 
+    /**
+     * Tear down.
+     *
+     * @throws Exception the exception
+     */
     @After
     public void tearDown() throws Exception {
 
 	System.out.println("-----------------------------------------------");
     }
 
+    /**
+     * Train batch lin rgr.
+     *
+     * @return the list
+     */
     public List<Double> trainBatchLinRgr() {
 	System.out.println();
 	System.out.println("Batch Training");
@@ -98,6 +128,11 @@ public class LingRgrTrainTest {
 	return training.getPerformanceHistory();
     }
 
+    /**
+     * Train stochastic lin rgr.
+     *
+     * @return the list
+     */
     public List<Double> trainStochasticLinRgr() {
 	System.out.println();
 	System.out.println("Stochastic Trainging ");

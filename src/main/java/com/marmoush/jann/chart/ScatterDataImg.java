@@ -22,12 +22,26 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.xy.XYSeries;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ScatterDataImg.
+ */
 public class ScatterDataImg extends ChartImage {
+    
+    /**
+     * Instantiates a new scatter data img.
+     *
+     * @param path the path
+     * @param series the series
+     */
     public ScatterDataImg(String path, XYSeries... series) {
 	setPath(path);
 	setXySeriesCollec(ChartUtils.getXYSeriesCollection(series));
     }
 
+    /* (non-Javadoc)
+     * @see com.marmoush.jann.chart.ChartImage#createJPEG()
+     */
     @Override
     public void createJPEG() {
 	JFreeChart chart = ChartFactory.createScatterPlot(getTitle(),
@@ -37,6 +51,9 @@ public class ScatterDataImg extends ChartImage {
 	super.createJPEG();
     }
 
+    /* (non-Javadoc)
+     * @see com.marmoush.jann.chart.ChartImage#createPNG()
+     */
     @Override
     public void createPNG() {
 	JFreeChart chart = ChartFactory.createScatterPlot(getTitle(),

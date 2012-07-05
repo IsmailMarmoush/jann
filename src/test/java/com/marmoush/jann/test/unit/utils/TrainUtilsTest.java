@@ -25,10 +25,23 @@ import org.junit.Test;
 
 import com.marmoush.jann.utils.TrainUtils;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TrainUtilsTest.
+ */
 public class TrainUtilsTest {
+    
+    /** The batch inputs. */
     private DoubleMatrix batchInputs = null;
+    
+    /** The batch targets. */
     private DoubleMatrix batchTargets = null;
 
+    /**
+     * Sets the up.
+     *
+     * @throws Exception the exception
+     */
     @Before
     public void setUp() throws Exception {
 	batchInputs = DoubleMatrix.valueOf("8 1 6 ; 3 5 7 ; 4 9 2 ; 3 2 1");
@@ -41,16 +54,27 @@ public class TrainUtilsTest {
 	batchTargets = data.getColumn(2);
     }
 
+    /**
+     * Tear down.
+     *
+     * @throws Exception the exception
+     */
     @After
     public void tearDown() throws Exception {
 	System.out.println("-----------------------------------------------");
     }
 
+    /**
+     * Test normal eq inv.
+     */
     @Test
     public void testNormalEqInv() {
 	TrainUtils.normalEqInv(batchInputs, batchTargets);
     }
 
+    /**
+     * Test normal eq pinv.
+     */
     @Test
     public void testNormalEqPinv() {
 	long t = System.currentTimeMillis();
