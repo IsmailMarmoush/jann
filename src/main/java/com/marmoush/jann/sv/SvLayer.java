@@ -25,45 +25,61 @@ import com.marmoush.jann.utils.functors.IPerformance;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class SvLayer.
+ * 
  */
 public class SvLayer extends Layer implements ISvLayer {
 
-    /** The Constant serialVersionUID. */
+    /**
+     * 
+     */
     private static final long serialVersionUID = 214303268098893298L;
 
-    /** The learn rate. */
+    /**
+     * 
+     */
     private double learnRate = 1;
-    /** The performance. */
+
+    /**
+     * 
+     */
     private double performance;
-    /** The performancefnctr. */
+
+    /**
+     * 
+     */
     private IPerformance performancefnctr = null;
 
-    /** The regularization fctr. */
+    /**
+     * 
+     */
     private double regularizationFctr = 0;
 
-    /** The target. */
+    /**
+     * 
+     */
     private DoubleMatrix target = null;
 
     /**
-     * Instantiates a new sv layer.
+     * 
      */
     public SvLayer() {
 	super();
     }
 
     /**
-     * Instantiates a new sv layer.
-     *
-     * @param nInputs the n inputs
-     * @param nNeurons the n neurons
-     * @param biased the biased
+     * 
+     * 
+     * @param nInputs
+     * @param nNeurons
+     * @param biased
      */
     public SvLayer(int nInputs, int nNeurons, boolean biased) {
 	super(nInputs, nNeurons, biased);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.marmoush.jann.Layer#equals(java.lang.Object)
      */
     @Override
@@ -124,7 +140,9 @@ public class SvLayer extends Layer implements ISvLayer {
 	return performancefnctr;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.marmoush.jann.sv.ISvLayer#getReguFctr()
      */
     @Override
@@ -142,7 +160,9 @@ public class SvLayer extends Layer implements ISvLayer {
 	return target;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.marmoush.jann.Layer#hashCode()
      */
     @Override
@@ -193,7 +213,9 @@ public class SvLayer extends Layer implements ISvLayer {
 	this.performancefnctr = performancefnctr;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.marmoush.jann.sv.ISvLayer#setReguFctr(double)
      */
     @Override
@@ -211,7 +233,9 @@ public class SvLayer extends Layer implements ISvLayer {
 	this.target = target;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.marmoush.jann.Layer#simulate()
      */
     @Override

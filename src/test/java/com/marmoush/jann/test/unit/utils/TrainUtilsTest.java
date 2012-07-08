@@ -27,20 +27,24 @@ import com.marmoush.jann.utils.TrainUtils;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class TrainUtilsTest.
+ * 
  */
 public class TrainUtilsTest {
-    
-    /** The batch inputs. */
+
+    /**
+     * 
+     */
     private DoubleMatrix batchInputs = null;
-    
-    /** The batch targets. */
+
+    /**
+     * 
+     */
     private DoubleMatrix batchTargets = null;
 
     /**
-     * Sets the up.
-     *
-     * @throws Exception the exception
+     * 
+     * 
+     * @throws Exception
      */
     @Before
     public void setUp() throws Exception {
@@ -55,9 +59,9 @@ public class TrainUtilsTest {
     }
 
     /**
-     * Tear down.
-     *
-     * @throws Exception the exception
+     * 
+     * 
+     * @throws Exception
      */
     @After
     public void tearDown() throws Exception {
@@ -65,7 +69,7 @@ public class TrainUtilsTest {
     }
 
     /**
-     * Test normal eq inv.
+     * 
      */
     @Test
     public void testNormalEqInv() {
@@ -73,7 +77,7 @@ public class TrainUtilsTest {
     }
 
     /**
-     * Test normal eq pinv.
+     * 
      */
     @Test
     public void testNormalEqPinv() {

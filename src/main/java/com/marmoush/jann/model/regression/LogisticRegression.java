@@ -29,19 +29,21 @@ import com.marmoush.jann.utils.functors.IWeight;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class LogisticRegression.
+ * 
  */
 public class LogisticRegression extends SvLayer {
-    
-    /** The Constant serialVersionUID. */
+
+    /**
+     * 
+     */
     private static final long serialVersionUID = 6248944247719115094L;
 
     /**
-     * Instantiates a new logistic regression.
-     *
-     * @param batchTrainingEx the batch training ex
-     * @param batchTargets the batch targets
-     * @param biased the biased
+     * 
+     * 
+     * @param batchTrainingEx
+     * @param batchTargets
+     * @param biased
      */
     public LogisticRegression(DoubleMatrix batchTrainingEx,
 	    DoubleMatrix batchTargets, boolean biased) {
@@ -52,11 +54,11 @@ public class LogisticRegression extends SvLayer {
     }
 
     /**
-     * Instantiates a new logistic regression.
-     *
-     * @param trainingEx the training ex
-     * @param targetList the target list
-     * @param biased the biased
+     * 
+     * 
+     * @param trainingEx
+     * @param targetList
+     * @param biased
      */
     public LogisticRegression(List<DoubleMatrix> trainingEx,
 	    List<DoubleMatrix> targetList, boolean biased) {

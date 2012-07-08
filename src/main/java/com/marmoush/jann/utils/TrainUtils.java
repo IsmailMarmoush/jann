@@ -26,16 +26,16 @@ import com.marmoush.jann.sv.SvLayer;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class TrainUtils.
+ * 
  */
 public class TrainUtils {
 
     /**
-     * Batch gd.
-     *
-     * @param lyr the lyr
-     * @param inputs the inputs
-     * @param targets the targets
+     * 
+     * 
+     * @param lyr
+     * @param inputs
+     * @param targets
      */
     public static void batchGd(SvLayer lyr, DoubleMatrix inputs,
 	    DoubleMatrix targets) {
@@ -55,11 +55,11 @@ public class TrainUtils {
     }
 
     /**
-     * Normal eq inv.
-     *
-     * @param x the x
-     * @param targets the targets
-     * @return the double matrix
+     * 
+     * 
+     * @param x
+     * @param targets
+     * @return
      */
     public static DoubleMatrix normalEqInv(DoubleMatrix x, DoubleMatrix targets) {
 	// ((X'*X)^-1) * (X' * y)
@@ -69,11 +69,11 @@ public class TrainUtils {
     }
 
     /**
-     * Normal eq pinv.
-     *
-     * @param x the x
-     * @param targets the targets
-     * @return the double matrix
+     * 
+     * 
+     * @param x
+     * @param targets
+     * @return
      */
     public static DoubleMatrix normalEqPinv(DoubleMatrix x, DoubleMatrix targets) {
 	DoubleMatrix inverse = MatrixUtils.pinv(x.transpose().mmul(x));
@@ -82,16 +82,16 @@ public class TrainUtils {
     }
 
     /**
-     * Normal eq pinv rgu.
-     *
-     * @param x the x
-     * @param targets the targets
-     * @param rguFctr the rgu fctr
-     * @param biased the biased
-     * @return the double matrix
+     * 
+     * 
+     * @param x
+     * @param targets
+     * @param rguFctr
+     * @param biased
+     * @return
      */
     public static DoubleMatrix normalEqPinvRgu(DoubleMatrix x,
-	    DoubleMatrix targets,double rguFctr, boolean biased) {
+	    DoubleMatrix targets, double rguFctr, boolean biased) {
 	DoubleMatrix inv = x.transpose().mmul(x);
 	DoubleMatrix eye = DoubleMatrix.eye(x.columns).mul(rguFctr);
 	if (biased)
@@ -102,11 +102,11 @@ public class TrainUtils {
     }
 
     /**
-     * Stochastic gd.
-     *
-     * @param lyr the lyr
-     * @param inputs the inputs
-     * @param targets the targets
+     * 
+     * 
+     * @param lyr
+     * @param inputs
+     * @param targets
      */
     public static void stochasticGd(SvLayer lyr, List<DoubleMatrix> inputs,
 	    List<DoubleMatrix> targets) {

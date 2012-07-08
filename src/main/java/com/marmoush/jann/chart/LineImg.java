@@ -24,15 +24,15 @@ import org.jfree.data.xy.XYSeries;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class LineImg.
+ * 
  */
 public class LineImg extends ChartImage {
 
     /**
-     * Instantiates a new line img.
-     *
-     * @param path the path
-     * @param series the series
+     * 
+     * 
+     * @param path
+     * @param series
      */
     public LineImg(String path, XYSeries... series) {
 	setPath(path);
@@ -40,7 +40,9 @@ public class LineImg extends ChartImage {
 
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.marmoush.jann.chart.ChartImage#createJPEG()
      */
     @Override
@@ -52,7 +54,9 @@ public class LineImg extends ChartImage {
 	super.createJPEG();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.marmoush.jann.chart.ChartImage#createPNG()
      */
     @Override

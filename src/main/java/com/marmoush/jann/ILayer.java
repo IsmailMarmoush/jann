@@ -25,102 +25,101 @@ import com.marmoush.jann.utils.functors.IWeight;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Interface ILayer.
+ * 
  */
 public interface ILayer extends IFillableLayer {
+
     /**
-     * Equals.
+     * 
      * 
      * @param obj
-     *            the obj
-     * @return true, if successful
+     * @return
      */
     @Override
     public abstract boolean equals(Object obj);
 
     /**
-     * Gets the bias.
      * 
-     * @return the bias
+     * 
+     * @return
      */
     public abstract DoubleMatrix getBias();
 
     /**
-     * Gets the input.
      * 
-     * @return the input
+     * 
+     * @return
      */
     public abstract DoubleMatrix getInput();
 
     /**
-     * Gets the net sum.
      * 
-     * @return the net sum
+     * 
+     * @return
      */
     public abstract DoubleMatrix getNetSum();
 
     /**
-     * Gets the output.
      * 
-     * @return the output
+     * 
+     * @return
      */
     public abstract DoubleMatrix getOutput();
 
     /**
-     * Gets the theta.
      * 
-     * @return the theta
+     * 
+     * @return
      */
     public abstract double getTheta();
 
     /**
-     * Gets the transfere fnctr.
      * 
-     * @return the transfere fnctr
+     * 
+     * @return
      */
     public abstract ITransfere getTransfereFnctr();
 
     /**
-     * Gets the weight.
      * 
-     * @return the weight
+     * 
+     * @return
      */
     public abstract DoubleMatrix getWeight();
 
     /**
-     * Gets the weight fnctr.
      * 
-     * @return the weight fnctr
+     * 
+     * @return
      */
     public abstract IWeight getWeightFnctr();
 
     /**
-     * Hash code.
      * 
-     * @return the int
+     * 
+     * @return
      */
     @Override
     public abstract int hashCode();
 
     /**
-     * Checks if is biased.
-     *
-     * @return true, if is biased
+     * 
+     * 
+     * @return
      */
     public abstract boolean isBiased();
 
     /**
-     * Checks if is input only layer.
      * 
-     * @return true, if is input only layer
+     * 
+     * @return
      */
     public abstract boolean isInputOnlyLayer();
 
     /**
-     * Sets the bias.
+     * 
      * 
      * @param bias
-     *            the new bias
      */
     public abstract void setBias(DoubleMatrix bias);
 
@@ -143,85 +142,78 @@ public interface ILayer extends IFillableLayer {
     public abstract void setFillRandom(DoubleMatrix... matrices);
 
     /**
-     * Sets the input.
+     * 
      * 
      * @param input
-     *            the new input
      */
     public abstract void setInput(DoubleMatrix input);
 
     /**
-     * Sets the net sum.
+     * 
      * 
      * @param netsum
-     *            the new net sum
      */
     public abstract void setNetSum(DoubleMatrix netsum);
 
     /**
-     * Sets the output.
+     * 
      * 
      * @param output
-     *            the new output
      */
     public abstract void setOutput(DoubleMatrix output);
 
     /**
-     * Sets the theta.
+     * 
      * 
      * @param theta
-     *            the new theta
      */
     public abstract void setTheta(double theta);
 
     /**
-     * Sets the transfere fnctr.
+     * 
      * 
      * @param transfereFnctr
-     *            the new transfere fnctr
      */
     public abstract void setTransfereFnctr(ITransfere transfereFnctr);
 
     /**
-     * Sets the weight.
+     * 
      * 
      * @param weight
-     *            the new weight
      */
     public abstract void setWeight(DoubleMatrix weight);
 
     /**
-     * Sets the weight fnctr.
+     * 
      * 
      * @param weightFnctr
-     *            the new weight fnctr
      */
     public abstract void setWeightFnctr(IWeight weightFnctr);
 
     /**
-     * Simulate.
+     * 
      */
     public abstract void simulate();
 
     /**
-     * To string.
      * 
-     * @return the string
+     * 
+     * @return
      */
     @Override
     public abstract String toString();
 
     /**
-     * Update net sum.
      * 
-     * @return the double matrix
+     * 
+     * @return
      */
     public abstract DoubleMatrix updateNetSum();
 
     /**
-     * Update output.
      * 
-     * @return the double matrix
+     * 
+     * @return
      */
     public abstract DoubleMatrix updateOutput();
 

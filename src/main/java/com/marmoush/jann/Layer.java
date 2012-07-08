@@ -28,55 +28,78 @@ import com.marmoush.jann.utils.functors.IWeight;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Layer.
+ * 
  */
 public class Layer implements Serializable, ILayer, IFillableLayer {
 
-    /** The Constant serialVersionUID. */
+    /**
+     * 
+     */
     private static final long serialVersionUID = 59396693200260159L;
 
-    /** The bias. */
+    /**
+     * 
+     */
     private DoubleMatrix bias = null;
 
-    /** The biased. */
+    /**
+     * 
+     */
     private boolean biased = false;
 
-    /** The input. */
+    /**
+     * 
+     */
     private DoubleMatrix input = null;
 
-    /** The input only layer. */
+    /**
+     * 
+     */
     private boolean inputOnlyLayer = false;
 
-    /** The net sum. */
+    /**
+     * 
+     */
     private DoubleMatrix netSum = null;
 
-    /** The output. */
+    /**
+     * 
+     */
     private DoubleMatrix output = null;
 
-    /** The theta. */
+    /**
+     * 
+     */
     private double theta = 0;
 
-    /** The transfere fnctr. */
+    /**
+     * 
+     */
     private ITransfere transfereFnctr = ITransfere.PURELIN;
 
-    /** The weight. */
+    /**
+     * 
+     */
     private DoubleMatrix weight = null;
-    /** The weight fnctr. */
+
+    /**
+     * 
+     */
     private IWeight weightFnctr = null;
 
     /**
-     * Instantiates a new layer.
+     * 
      */
     public Layer() {
 	super();
     }
 
     /**
-     * Instantiates a new layer.
-     *
-     * @param nInputs the n inputs
-     * @param nNeurons the n neurons
-     * @param biased the biased
+     * 
+     * 
+     * @param nInputs
+     * @param nNeurons
+     * @param biased
      */
     public Layer(final int nInputs, final int nNeurons, boolean biased) {
 	input = new DoubleMatrix(nInputs);
@@ -235,7 +258,9 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
 	return result;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.marmoush.jann.ILayer#isBiased()
      */
     @Override
@@ -266,9 +291,9 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
     }
 
     /**
-     * Sets the biased.
-     *
-     * @param biased the new biased
+     * 
+     * 
+     * @param biased
      */
     public void setBiased(boolean biased) {
 	this.biased = biased;
@@ -345,9 +370,9 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
     }
 
     /**
-     * Sets the input only layer.
-     *
-     * @param inputOnlyLayer the new input only layer
+     * 
+     * 
+     * @param inputOnlyLayer
      */
     public void setInputOnlyLayer(boolean inputOnlyLayer) {
 	this.inputOnlyLayer = inputOnlyLayer;

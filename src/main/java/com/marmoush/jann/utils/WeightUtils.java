@@ -22,16 +22,16 @@ import org.jblas.DoubleMatrix;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class WeightUtils.
+ * 
  */
 public abstract class WeightUtils {
 
     /**
-     * Batch dotprod.
-     *
-     * @param batchTrainingEx the batch training ex
-     * @param weight the weight
-     * @return the double matrix
+     * 
+     * 
+     * @param batchTrainingEx
+     * @param weight
+     * @return
      */
     public static DoubleMatrix batchDotprod(DoubleMatrix batchTrainingEx,
 	    DoubleMatrix weight) {
@@ -40,12 +40,12 @@ public abstract class WeightUtils {
     }
 
     /**
-     * Batch dotprod.
-     *
-     * @param batchTrainingEx the batch training ex
-     * @param bias the bias
-     * @param weight the weight
-     * @return the double matrix
+     * 
+     * 
+     * @param batchTrainingEx
+     * @param bias
+     * @param weight
+     * @return
      */
     public static DoubleMatrix batchDotprod(DoubleMatrix batchTrainingEx,
 	    DoubleMatrix bias, DoubleMatrix weight) {
@@ -69,26 +69,23 @@ public abstract class WeightUtils {
     }
 
     /**
-     * Dotprod.
-     *
-     * @param input the input
-     * @param weight the weight
-     * @return the double matrix
+     * 
+     * 
+     * @param input
+     * @param weight
+     * @return
      */
     public static DoubleMatrix dotprod(DoubleMatrix input, DoubleMatrix weight) {
 	return weight.mmul(input);
     }
 
     /**
-     * Dotprod.
+     * 
      * 
      * @param input
-     *            the input
      * @param bias
-     *            the bias
      * @param weight
-     *            the weight
-     * @return the double matrix
+     * @return
      */
     public static DoubleMatrix dotprod(DoubleMatrix input, DoubleMatrix bias,
 	    DoubleMatrix weight) {

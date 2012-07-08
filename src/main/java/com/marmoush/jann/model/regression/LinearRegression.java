@@ -29,19 +29,21 @@ import com.marmoush.jann.utils.functors.IWeight;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class LinearRegression.
+ * 
  */
 public class LinearRegression extends SvLayer {
 
-    /** The Constant serialVersionUID. */
+    /**
+     * 
+     */
     private static final long serialVersionUID = -8858564328695652268L;
 
     /**
-     * Instantiates a new linear regression.
-     *
-     * @param batchTrainingEx the batch training ex
-     * @param batchTargets the batch targets
-     * @param biased the biased
+     * 
+     * 
+     * @param batchTrainingEx
+     * @param batchTargets
+     * @param biased
      */
     public LinearRegression(DoubleMatrix batchTrainingEx,
 	    DoubleMatrix batchTargets, boolean biased) {
@@ -52,11 +54,11 @@ public class LinearRegression extends SvLayer {
     }
 
     /**
-     * Instantiates a new linear regression.
-     *
-     * @param trainingEx the training ex
-     * @param targetList the target list
-     * @param biased the biased
+     * 
+     * 
+     * @param trainingEx
+     * @param targetList
+     * @param biased
      */
     public LinearRegression(List<DoubleMatrix> trainingEx,
 	    List<DoubleMatrix> targetList, boolean biased) {

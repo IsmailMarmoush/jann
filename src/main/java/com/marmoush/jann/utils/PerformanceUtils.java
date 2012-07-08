@@ -23,16 +23,16 @@ import org.jblas.MatrixFunctions;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class PerformanceUtils.
+ * 
  */
 public class PerformanceUtils {
-    
+
     /**
-     * Lin rgr.
-     *
-     * @param output the output
-     * @param target the target
-     * @return the double
+     * 
+     * 
+     * @param output
+     * @param target
+     * @return
      */
     public static double linRgr(DoubleMatrix output, DoubleMatrix target) {
 	double m = target.length;
@@ -41,13 +41,13 @@ public class PerformanceUtils {
     }
 
     /**
-     * Lin rgr rgu.
-     *
-     * @param output the output
-     * @param target the target
-     * @param weight the weight
-     * @param reguFctr the regu fctr
-     * @return the double
+     * 
+     * 
+     * @param output
+     * @param target
+     * @param weight
+     * @param reguFctr
+     * @return
      */
     public static double linRgrRgu(DoubleMatrix output, DoubleMatrix target,
 	    DoubleMatrix weight, double reguFctr) {
@@ -58,11 +58,11 @@ public class PerformanceUtils {
     }
 
     /**
-     * Log rgr.
-     *
-     * @param output the output
-     * @param target the target
-     * @return the double
+     * 
+     * 
+     * @param output
+     * @param target
+     * @return
      */
     public static double logRgr(DoubleMatrix output, DoubleMatrix target) {
 	// J = -1./m * ( y' * log( sigmoid(X * theta) ) + ( 1 - y' ) * log ( 1 -
@@ -81,13 +81,13 @@ public class PerformanceUtils {
     }
 
     /**
-     * Log rgr rgu.
-     *
-     * @param output the output
-     * @param target the target
-     * @param weight the weight
-     * @param reguFctr the regu fctr
-     * @return the double
+     * 
+     * 
+     * @param output
+     * @param target
+     * @param weight
+     * @param reguFctr
+     * @return
      */
     public static double logRgrRgu(DoubleMatrix output, DoubleMatrix target,
 	    DoubleMatrix weight, double reguFctr) {
@@ -98,11 +98,11 @@ public class PerformanceUtils {
     }
 
     /**
-     * Mae.
-     *
-     * @param output the output
-     * @param target the target
-     * @return MatrixFunctions.abs(error).sum() / error.length;
+     * 
+     * 
+     * @param output
+     * @param target
+     * @return
      */
     public static double mae(DoubleMatrix output, DoubleMatrix target) {
 	int m = target.length;
@@ -111,11 +111,11 @@ public class PerformanceUtils {
     }
 
     /**
-     * Mse.
-     *
-     * @param output the output
-     * @param target the target
-     * @return MatrixFunctions.pow(error, 2).sum() / error.length;
+     * 
+     * 
+     * @param output
+     * @param target
+     * @return
      */
     public static double mse(DoubleMatrix output, DoubleMatrix target) {
 	// As long as error.length is actually the length of the error matrix
@@ -126,11 +126,11 @@ public class PerformanceUtils {
     }
 
     /**
-     * Sse.
-     *
-     * @param output the output
-     * @param target the target
-     * @return MatrixFunctions.pow(error, 2).sum();
+     * 
+     * 
+     * @param output
+     * @param target
+     * @return
      */
     public static double sse(DoubleMatrix output, DoubleMatrix target) {
 	DoubleMatrix error = output.sub(target);

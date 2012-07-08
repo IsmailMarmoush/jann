@@ -26,30 +26,34 @@ import com.marmoush.jann.chart.ChartUtils;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class LineJf.
+ * 
  */
 public class LineJf extends ChartJFrame {
 
-    /** The Constant serialVersionUID. */
+    /**
+     * 
+     */
     private static final long serialVersionUID = -6259803593823138950L;
 
     /**
-     * Instantiates a new line jf.
+     * 
      */
     public LineJf() {
     }
 
     /**
-     * Instantiates a new line jf.
-     *
-     * @param seriesList the series list
+     * 
+     * 
+     * @param seriesList
      */
     public LineJf(XYSeries... seriesList) {
 	setXySeriesCollection(ChartUtils.getXYSeriesCollection(seriesList));
 
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.marmoush.jann.chart.jframe.ChartJFrame#run()
      */
     @Override

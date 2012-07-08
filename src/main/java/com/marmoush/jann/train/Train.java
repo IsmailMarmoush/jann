@@ -23,58 +23,82 @@ import java.util.List;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class TrainResult.
+ * 
  */
 public abstract class Train {
 
-    /** The Constant EPOCHS_REACHED. */
+    /**
+     * 
+     */
     public static final String EPOCHS_REACHED = "EpochsReached";
 
-    /** The Constant PERFORMANCE_REACHED. */
+    /**
+     * 
+     */
     public static final String PERFORMANCE_REACHED = "PerformanceGoalMet";
 
-    /** The Constant TIME_LIM_REACHED. */
+    /**
+     * 
+     */
     public static final String TIME_LIM_REACHED = "MaxTimeExceeded";
 
-    /** The at epoch. */
+    /**
+     * 
+     */
     private int atEpoch;
 
-    /** The cause. */
+    /**
+     * 
+     */
     private String cause;
 
-    /** The end. */
+    /**
+     * 
+     */
     private long end;
 
-    /** The max epochs. */
+    /**
+     * 
+     */
     private int maxEpochs;
 
-    /** The performance goal. */
+    /**
+     * 
+     */
     private double performanceGoal;
 
-    /** The performance history. */
+    /**
+     * 
+     */
     private List<Double> performanceHistory = new ArrayList<Double>();
 
-    /** The start. */
+    /**
+     * 
+     */
     private long start;
 
-    /** The time elapsed. */
+    /**
+     * 
+     */
     private long timeElapsed;
 
-    /** The time limit. */
+    /**
+     * 
+     */
     private long timeLimit;
 
     /**
-     * Instantiates a new train.
+     * 
      */
     public Train() {
     }
 
     /**
-     * Instantiates a new train.
-     *
-     * @param maxEpochs the max epochs
-     * @param performanceGoal the performance goal
-     * @param timeLimit the time limit
+     * 
+     * 
+     * @param maxEpochs
+     * @param performanceGoal
+     * @param timeLimit
      */
     public Train(int maxEpochs, double performanceGoal, long timeLimit) {
 	super();
@@ -84,21 +108,19 @@ public abstract class Train {
     }
 
     /**
-     * Adds the performance history entry.
-     *
-     * @param performance the performance
+     * 
+     * 
+     * @param performance
      */
     public void addPerformanceHistoryEntry(double performance) {
 	getPerformanceHistory().add(performance);
     }
 
     /**
-     * End.
+     * 
      * 
      * @param cause
-     *            the cause
      * @param atEpoch
-     *            the at epoch
      */
     public void end(String cause, int atEpoch) {
 	this.end = System.currentTimeMillis();
@@ -108,43 +130,43 @@ public abstract class Train {
     }
 
     /**
-     * Gets the max epochs.
-     *
-     * @return the max epochs
+     * 
+     * 
+     * @return
      */
     public int getMaxEpochs() {
 	return maxEpochs;
     }
 
     /**
-     * Gets the performance goal.
-     *
-     * @return the performance goal
+     * 
+     * 
+     * @return
      */
     public double getPerformanceGoal() {
 	return performanceGoal;
     }
 
     /**
-     * Gets the performance history.
-     *
-     * @return the performance history
+     * 
+     * 
+     * @return
      */
     public List<Double> getPerformanceHistory() {
 	return performanceHistory;
     }
 
     /**
-     * Gets the time limit.
-     *
-     * @return the time limit
+     * 
+     * 
+     * @return
      */
     public long getTimeLimit() {
 	return timeLimit;
     }
 
     /**
-     * Run.
+     * 
      */
     public void run() {
 	start();
@@ -160,49 +182,51 @@ public abstract class Train {
     }
 
     /**
-     * Sets the max epochs.
-     *
-     * @param maxEpochs the new max epochs
+     * 
+     * 
+     * @param maxEpochs
      */
     public void setMaxEpochs(int maxEpochs) {
 	this.maxEpochs = maxEpochs;
     }
 
     /**
-     * Sets the performance goal.
-     *
-     * @param performanceGoal the new performance goal
+     * 
+     * 
+     * @param performanceGoal
      */
     public void setPerformanceGoal(double performanceGoal) {
 	this.performanceGoal = performanceGoal;
     }
 
     /**
-     * Sets the performance history.
-     *
-     * @param performanceHistory the new performance history
+     * 
+     * 
+     * @param performanceHistory
      */
     public void setPerformanceHistory(List<Double> performanceHistory) {
 	this.performanceHistory = performanceHistory;
     }
 
     /**
-     * Sets the time limit.
-     *
-     * @param timeLimit the new time limit
+     * 
+     * 
+     * @param timeLimit
      */
     public void setTimeLimit(long timeLimit) {
 	this.timeLimit = timeLimit;
     }
 
     /**
-     * Start.
+     * 
      */
     public void start() {
 	this.start = System.currentTimeMillis();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override
@@ -226,9 +250,9 @@ public abstract class Train {
     }
 
     /**
-     * Train.
-     *
-     * @return the double
+     * 
+     * 
+     * @return
      */
     public abstract double train();
 

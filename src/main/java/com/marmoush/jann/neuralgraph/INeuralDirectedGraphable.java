@@ -25,59 +25,54 @@ import org.jgrapht.graph.DefaultEdge;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Interface INeuralDirectedGraphable.
+ * 
  */
 public interface INeuralDirectedGraphable extends
 	DirectedGraph<Integer, DefaultEdge> {
 
     /**
-     * Gets the all layers num of neurons.
      * 
-     * @return the all layers num of neurons
+     * 
+     * @return
      */
     public List<Integer> getAllLayersNumOfNeurons();
 
     /**
-     * Gets the input length.
+     * 
      * 
      * @param layerIndex
-     *            the layer index
-     * @return the input length
+     * @return
      */
     public int getInputLength(final int layerIndex);
 
     /**
-     * Gets the layer num of neurons.
+     * 
      * 
      * @param layerIndex
-     *            the layer index
-     * @return the layer num of neurons
+     * @return
      */
     public int getLayerNumOfNeurons(final int layerIndex);
 
     /**
-     * Gets the predecessors of.
+     * 
      * 
      * @param layerIndex
-     *            the layer index
-     * @return the predecessors of
+     * @return
      */
     public List<Integer> getPredecessorsOf(final int layerIndex);
 
     /**
-     * Gets the successors of.
+     * 
      * 
      * @param layerIndex
-     *            the layer index
-     * @return the successors of
+     * @return
      */
     public List<Integer> getSuccessorsOf(final int layerIndex);
 
     /**
-     * Sets the all layers num of neurons.
+     * 
      * 
      * @param nNeuronsPerLayer
-     *            the new all layers num of neurons
      */
     public void setAllLayersNumOfNeurons(List<Integer> nNeuronsPerLayer);
 

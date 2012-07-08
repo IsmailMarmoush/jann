@@ -24,22 +24,24 @@ import org.jfree.data.xy.XYSeries;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class ScatterDataImg.
+ * 
  */
 public class ScatterDataImg extends ChartImage {
-    
+
     /**
-     * Instantiates a new scatter data img.
-     *
-     * @param path the path
-     * @param series the series
+     * 
+     * 
+     * @param path
+     * @param series
      */
     public ScatterDataImg(String path, XYSeries... series) {
 	setPath(path);
 	setXySeriesCollec(ChartUtils.getXYSeriesCollection(series));
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.marmoush.jann.chart.ChartImage#createJPEG()
      */
     @Override
@@ -51,7 +53,9 @@ public class ScatterDataImg extends ChartImage {
 	super.createJPEG();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.marmoush.jann.chart.ChartImage#createPNG()
      */
     @Override

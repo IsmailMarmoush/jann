@@ -26,15 +26,15 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class ChartUtils.
+ * 
  */
 public class ChartUtils {
 
     /**
-     * Gets the xY series collection.
-     *
-     * @param seriesList the series list
-     * @return the xY series collection
+     * 
+     * 
+     * @param seriesList
+     * @return
      */
     public static XYSeriesCollection getXYSeriesCollection(
 	    XYSeries... seriesList) {
@@ -46,11 +46,11 @@ public class ChartUtils {
     }
 
     /**
-     * Xy series.
-     *
-     * @param key the key
-     * @param data the data
-     * @return the xY series
+     * 
+     * 
+     * @param key
+     * @param data
+     * @return
      */
     public static XYSeries xySeries(String key, double[][] data) {
 	XYSeries series = new XYSeries(key);
@@ -61,12 +61,12 @@ public class ChartUtils {
     }
 
     /**
-     * Xy series.
-     *
-     * @param key the key
-     * @param x the x
-     * @param y the y
-     * @return the xY series
+     * 
+     * 
+     * @param key
+     * @param x
+     * @param y
+     * @return
      */
     public static XYSeries xySeries(String key, DoubleMatrix x, DoubleMatrix y) {
 	XYSeries series = new XYSeries(key);
@@ -77,13 +77,13 @@ public class ChartUtils {
     }
 
     /**
-     * Xy series.
-     *
-     * @param key the key
-     * @param xyMtrx the xy mtrx
-     * @param xColIdx the x col idx
-     * @param yColdIdx the y cold idx
-     * @return the xY series
+     * 
+     * 
+     * @param key
+     * @param xyMtrx
+     * @param xColIdx
+     * @param yColdIdx
+     * @return
      */
     public static XYSeries xySeries(String key, DoubleMatrix xyMtrx,
 	    int xColIdx, int yColdIdx) {
@@ -96,12 +96,12 @@ public class ChartUtils {
     }
 
     /**
-     * Xy series.
-     *
-     * @param key the key
-     * @param x the x
-     * @param y the y
-     * @return the xY series
+     * 
+     * 
+     * @param key
+     * @param x
+     * @param y
+     * @return
      */
     public static XYSeries xySeries(String key, List<Double> x, List<Double> y) {
 	// assert (x.size()==y.size();

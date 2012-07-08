@@ -23,11 +23,13 @@ import com.marmoush.jann.utils.PerformanceUtils;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Interface IPerformance.
+ * 
  */
 public interface IPerformance extends IFunctionable {
 
-    /** The Constant LINRGR. */
+    /**
+     * 
+     */
     public static final IPerformance LINRGR = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -40,8 +42,10 @@ public interface IPerformance extends IFunctionable {
 	    return "LINRGR";
 	}
     };
-    
-    /** The Constant LINRGR_RGU. */
+
+    /**
+     * 
+     */
     public static final IPerformance LINRGR_RGU = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -55,7 +59,9 @@ public interface IPerformance extends IFunctionable {
 	}
     };
 
-    /** The Constant LOGRGR. */
+    /**
+     * 
+     */
     public static final IPerformance LOGRGR = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -68,8 +74,10 @@ public interface IPerformance extends IFunctionable {
 	    return "LOGRGR";
 	}
     };
-    
-    /** The Constant LOGRGR_RGU. */
+
+    /**
+     * 
+     */
     public static final IPerformance LOGRGR_RGU = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -83,7 +91,9 @@ public interface IPerformance extends IFunctionable {
 	}
     };
 
-    /** The Constant MAE. */
+    /**
+     * 
+     */
     public static final IPerformance MAE = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -96,7 +106,9 @@ public interface IPerformance extends IFunctionable {
 	}
     };
 
-    /** The Constant MSE. */
+    /**
+     * 
+     */
     public static final IPerformance MSE = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -109,7 +121,9 @@ public interface IPerformance extends IFunctionable {
 	}
     };
 
-    /** The Constant SSE. */
+    /**
+     * 
+     */
     public static final IPerformance SSE = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -123,10 +137,10 @@ public interface IPerformance extends IFunctionable {
     };
 
     /**
-     * Measure performance.
-     *
-     * @param layer the layer
-     * @return the double
+     * 
+     * 
+     * @param layer
+     * @return
      */
     public double measurePerformance(ISvLayer layer);
 }

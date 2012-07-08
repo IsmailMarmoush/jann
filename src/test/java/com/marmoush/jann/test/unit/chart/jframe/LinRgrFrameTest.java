@@ -26,19 +26,19 @@ import com.marmoush.jann.utils.MatrixUtils;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class LinRgrFrameTest.
+ * 
  */
 public class LinRgrFrameTest {
-    
+
     /**
-     * The main method.
-     *
-     * @param args the arguments
+     * 
+     * 
+     * @param args
      */
     public static void main(String[] args) {
 	XYSeries xys = ChartUtils.xySeries("Training",
 		MatrixUtils.range(0, 1, 1500), MatrixUtils.range(0, 2, 3000));
-	LineJf frame=new LineJf(xys);
+	LineJf frame = new LineJf(xys);
 	frame.setxAxisTitle("x");
 	frame.setyAxisTitle("y");
 	frame.setApptitle("My app");

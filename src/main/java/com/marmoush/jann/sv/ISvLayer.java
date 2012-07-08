@@ -25,85 +25,84 @@ import com.marmoush.jann.utils.functors.IPerformance;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Interface ISvLayer.
+ * 
  */
 public interface ISvLayer extends ILayer {
+
     /**
-     * Gets the learn rate.
      * 
-     * @return the learn rate
+     * 
+     * @return
      */
     public abstract double getLearnRate();
+
     /**
-     * Gets the performance.
      * 
-     * @return the performance
+     * 
+     * @return
      */
     public abstract double getPerformance();
+
     /**
-     * Gets the performancefnctr.
      * 
-     * @return the performancefnctr
+     * 
+     * @return
      */
     public abstract IPerformance getPerformancefnctr();
 
     /**
-     * Gets the regu fctr.
-     *
-     * @return the regu fctr
+     * 
+     * 
+     * @return
      */
     public abstract double getReguFctr();
 
     /**
-     * Gets the target.
      * 
-     * @return the target
+     * 
+     * @return
      */
     public abstract DoubleMatrix getTarget();
 
     /**
-     * Sets the learn rate.
+     * 
      * 
      * @param lrnRate
-     *            the new learn rate
      */
     public abstract void setLearnRate(double lrnRate);
 
     /**
-     * Sets the performance.
+     * 
      * 
      * @param performance
-     *            the new performance
      */
     public abstract void setPerformance(double performance);
 
     /**
-     * Sets the performancefnctr.
+     * 
      * 
      * @param performancefnctr
-     *            the new performancefnctr
      */
     public abstract void setPerformancefnctr(IPerformance performancefnctr);
 
     /**
-     * Sets the regu fctr.
-     *
-     * @param reg the new regu fctr
+     * 
+     * 
+     * @param reg
      */
     public abstract void setReguFctr(double reg);
 
     /**
-     * Sets the target.
+     * 
      * 
      * @param target
-     *            the new target
      */
     public abstract void setTarget(DoubleMatrix target);
 
     /**
-     * Update performance.
      * 
-     * @return the double
+     * 
+     * @return
      */
     public abstract double updatePerformance();
 

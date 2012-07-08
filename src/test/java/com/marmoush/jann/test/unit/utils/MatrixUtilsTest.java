@@ -31,19 +31,19 @@ import com.marmoush.jann.utils.MatrixUtils;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class MatrixUtilsTest.
- *
- * @author marmoush
+ * 
  */
 public class MatrixUtilsTest {
-    
-    /** The mtrx. */
+
+    /**
+     * 
+     */
     private DoubleMatrix mtrx;
 
     /**
-     * Sets the up.
-     *
-     * @throws Exception the exception
+     * 
+     * 
+     * @throws Exception
      */
     @Before
     public void setUp() throws Exception {
@@ -52,9 +52,9 @@ public class MatrixUtilsTest {
     }
 
     /**
-     * Tear down.
-     *
-     * @throws Exception the exception
+     * 
+     * 
+     * @throws Exception
      */
     @After
     public void tearDown() throws Exception {
@@ -62,7 +62,7 @@ public class MatrixUtilsTest {
     }
 
     /**
-     * Test batch mtrx2col vecs list.
+     * 
      */
     @Test
     public void testBatchMtrx2colVecsList() {
@@ -74,7 +74,7 @@ public class MatrixUtilsTest {
     }
 
     /**
-     * Test feature mapping.
+     * 
      */
     @Test
     public void testFeatureMapping() {
@@ -84,7 +84,7 @@ public class MatrixUtilsTest {
     }
 
     /**
-     * Test feature mapping input.
+     * 
      */
     @Test
     public void testFeatureMappingInput() {
@@ -94,7 +94,7 @@ public class MatrixUtilsTest {
     }
 
     /**
-     * Test feature scaling.
+     * 
      */
     @Test
     public void testFeatureScaling() {
@@ -104,10 +104,7 @@ public class MatrixUtilsTest {
     }
 
     /**
-     * Test method for.
-     *
-     * {@link com.marmoush.jann.utils.MatrixUtils#round(org.jblas.DoubleMatrix, int)}
-     * .
+     * 
      */
     @Test
     public void testRound() {
@@ -118,7 +115,7 @@ public class MatrixUtilsTest {
     }
 
     /**
-     * Test standard deviation.
+     * 
      */
     @Test
     public void testStandardDeviation() {

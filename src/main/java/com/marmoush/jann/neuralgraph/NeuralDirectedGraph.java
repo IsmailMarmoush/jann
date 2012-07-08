@@ -27,30 +27,33 @@ import org.jgrapht.graph.DefaultEdge;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class NeuralDirectedGraph.
+ * 
  */
 public class NeuralDirectedGraph extends
 	DefaultDirectedGraph<Integer, DefaultEdge> implements
 	INeuralDirectedGraphable {
 
-    /** The Constant serialVersionUID. */
+    /**
+     * 
+     */
     private static final long serialVersionUID = 8695054227504317702L;
 
-    /** The layers num of neurons. */
+    /**
+     * 
+     */
     private List<Integer> layersNumOfNeurons = new ArrayList<Integer>();
 
     /**
-     * Instantiates a new neural directed graph.
+     * 
      */
     public NeuralDirectedGraph() {
 	super(DefaultEdge.class);
     }
 
     /**
-     * Instantiates a new neural directed graph.
+     * 
      * 
      * @param nNeuronsPerLayer
-     *            the n neurons per layer
      */
     public NeuralDirectedGraph(int... nNeuronsPerLayer) {
 	this();
@@ -61,10 +64,9 @@ public class NeuralDirectedGraph extends
     }
 
     /**
-     * Instantiates a new neural directed graph.
+     * 
      * 
      * @param nNeuronsPerLayer
-     *            the n neurons per layer
      */
     public NeuralDirectedGraph(List<Integer> nNeuronsPerLayer) {
 	this();
@@ -75,7 +77,7 @@ public class NeuralDirectedGraph extends
     }
 
     /**
-     * Clear connections.
+     * 
      */
     public void clearConnections() {
 	for (int i = 1; i < this.getNumOfLayers(); i++) {
@@ -87,7 +89,7 @@ public class NeuralDirectedGraph extends
     }
 
     /**
-     * Connect layers as ff.
+     * 
      */
     public void connectLayersAsFF() {
 	for (int i = 1; i < getNumOfLayers(); i++) {
@@ -136,9 +138,9 @@ public class NeuralDirectedGraph extends
     }
 
     /**
-     * Gets the num of layers.
      * 
-     * @return the num of layers
+     * 
+     * @return
      */
     public int getNumOfLayers() {
 	return this.layersNumOfNeurons.size();

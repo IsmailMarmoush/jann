@@ -29,22 +29,24 @@ import com.marmoush.jann.utils.TransfereUtils;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class PerformanceUtilsTest.
- *
- * @author marmoush
+ * 
  */
 public class PerformanceUtilsTest {
-    
-    /** The output. */
+
+    /**
+     * 
+     */
     private DoubleMatrix output;
-    
-    /** The target. */
+
+    /**
+     * 
+     */
     private DoubleMatrix target;
 
     /**
-     * Sets the up.
-     *
-     * @throws Exception the exception
+     * 
+     * 
+     * @throws Exception
      */
     @Before
     public void setUp() throws Exception {
@@ -53,7 +55,7 @@ public class PerformanceUtilsTest {
     }
 
     /**
-     * Test log rgr.
+     * 
      */
     @Test
     public void testLogRgr() {
@@ -64,10 +66,7 @@ public class PerformanceUtilsTest {
     }
 
     /**
-     * Test method for.
-     *
-     * {@link com.marmoush.jann.utils.PerformanceUtils#mae(org.jblas.DoubleMatrix)}
-     * .
+     * 
      */
     @Test
     public void testMae() {
@@ -76,10 +75,7 @@ public class PerformanceUtilsTest {
     }
 
     /**
-     * Test method for.
-     *
-     * {@link com.marmoush.jann.utils.PerformanceUtils#mse(org.jblas.DoubleMatrix)}
-     * .
+     * 
      */
     @Test
     public void testMse() {
@@ -89,10 +85,7 @@ public class PerformanceUtilsTest {
     }
 
     /**
-     * Test method for.
-     *
-     * {@link com.marmoush.jann.utils.PerformanceUtils#sse(org.jblas.DoubleMatrix)}
-     * .
+     * 
      */
     @Test
     public void testSse() {

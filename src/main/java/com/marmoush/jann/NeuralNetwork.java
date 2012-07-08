@@ -28,67 +28,67 @@ import com.marmoush.jann.utils.NetworkUtils;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class NeuralNetwork.
+ * 
  */
 public class NeuralNetwork extends ArrayList<Layer> {
 
-    /** The Constant serialVersionUID. */
+    /**
+     * 
+     */
     private static final long serialVersionUID = -3802547694705634188L;
 
-    /** The neural graph. */
+    /**
+     * 
+     */
     private NeuralDirectedGraph neuralGraph = null;
 
     /**
-     * Instantiates a new neural network.
+     * 
      */
     public NeuralNetwork() {
 	super();
     }
 
     /**
-     * Instantiates a new neural network.
+     * 
      * 
      * @param c
-     *            the c
      */
     public NeuralNetwork(Collection<? extends Layer> c) {
 	super(c);
     }
 
     /**
-     * Instantiates a new neural network.
+     * 
      * 
      * @param neuralGraph
-     *            the neural graph
      */
     public NeuralNetwork(INeuralDirectedGraphable neuralGraph) {
 	init(neuralGraph);
     }
 
     /**
-     * Instantiates a new neural network.
+     * 
      * 
      * @param initialCapacity
-     *            the initial capacity
      */
     public NeuralNetwork(int initialCapacity) {
 	super(initialCapacity);
     }
 
     /**
-     * Gets the neural graph.
      * 
-     * @return the neural graph
+     * 
+     * @return
      */
     public NeuralDirectedGraph getNeuralGraph() {
 	return neuralGraph;
     }
 
     /**
-     * Inits the.
+     * 
      * 
      * @param neuralGraph
-     *            the neural graph
      */
     public void init(INeuralDirectedGraphable neuralGraph) {
 	int lyrIdx = 0;
@@ -104,17 +104,16 @@ public class NeuralNetwork extends ArrayList<Layer> {
     }
 
     /**
-     * Sets the neural graph.
+     * 
      * 
      * @param neuralGraph
-     *            the new neural graph
      */
     public void setNeuralGraph(NeuralDirectedGraph neuralGraph) {
 	this.neuralGraph = neuralGraph;
     }
 
     /**
-     * Simulate.
+     * 
      */
     public void simulate() {
 	NetworkUtils.simulate(this, this.neuralGraph);

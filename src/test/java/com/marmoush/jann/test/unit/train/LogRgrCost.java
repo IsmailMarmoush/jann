@@ -32,15 +32,15 @@ import com.marmoush.jann.utils.functors.IWeight;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class LogRgrCost.
+ * 
  */
 public class LogRgrCost {
-    
+
     /**
-     * The main method.
-     *
-     * @param args the arguments
-     * @throws IOException Signals that an I/O exception has occurred.
+     * 
+     * 
+     * @param args
+     * @throws IOException
      */
     public static void main(String[] args) throws IOException {
 	String path = TestingData.getPath("ex2", "ex2data1Bias.txt");

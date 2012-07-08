@@ -25,11 +25,13 @@ import com.marmoush.jann.utils.TransfereUtils;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Interface ITransfere.
+ * 
  */
 public interface ITransfere extends IFunctionable {
 
-    /** The Constant COMPET. */
+    /**
+     * 
+     */
     public static final ITransfere COMPET = new ITransfere() {
 	@Override
 	public String toString() {
@@ -42,7 +44,9 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /** The Constant HARDLIM. */
+    /**
+     * 
+     */
     public static final ITransfere HARDLIM = new ITransfere() {
 	@Override
 	public String toString() {
@@ -55,7 +59,9 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /** The Constant HARDLIMS. */
+    /**
+     * 
+     */
     public static final ITransfere HARDLIMS = new ITransfere() {
 	@Override
 	public String toString() {
@@ -68,7 +74,9 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /** The Constant LOGSIG. */
+    /**
+     * 
+     */
     public static final ITransfere LOGSIG = new ITransfere() {
 	@Override
 	public String toString() {
@@ -81,7 +89,9 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /** The Constant LOGSIGDIFF. */
+    /**
+     * 
+     */
     public static final ITransfere LOGSIGDIFF = new ITransfere() {
 	@Override
 	public String toString() {
@@ -94,7 +104,9 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /** The Constant POSLIN. */
+    /**
+     * 
+     */
     public static final ITransfere POSLIN = new ITransfere() {
 	@Override
 	public String toString() {
@@ -107,7 +119,9 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /** The Constant PURELIN. */
+    /**
+     * 
+     */
     public static final ITransfere PURELIN = new ITransfere() {
 	@Override
 	public String toString() {
@@ -120,7 +134,9 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /** The Constant SATLIN. */
+    /**
+     * 
+     */
     public static final ITransfere SATLIN = new ITransfere() {
 	@Override
 	public String toString() {
@@ -133,7 +149,9 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /** The Constant SATLINS. */
+    /**
+     * 
+     */
     public static final ITransfere SATLINS = new ITransfere() {
 	@Override
 	public String toString() {
@@ -146,7 +164,9 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /** The Constant TANSIG. */
+    /**
+     * 
+     */
     public static final ITransfere TANSIG = new ITransfere() {
 	@Override
 	public String toString() {
@@ -159,7 +179,9 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /** The Constant TANSIGDIFF. */
+    /**
+     * 
+     */
     public static final ITransfere TANSIGDIFF = new ITransfere() {
 	@Override
 	public String toString() {
@@ -173,11 +195,10 @@ public interface ITransfere extends IFunctionable {
     };
 
     /**
-     * Transfere.
+     * 
      * 
      * @param layer
-     *            the layer
-     * @return the double matrix
+     * @return
      */
     public DoubleMatrix transfere(ILayer layer);
 }

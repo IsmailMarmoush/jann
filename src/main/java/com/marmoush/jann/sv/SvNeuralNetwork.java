@@ -28,72 +28,77 @@ import com.marmoush.jann.neuralgraph.NeuralDirectedGraph;
 import com.marmoush.jann.utils.NetworkUtils;
 
 /**
- * The Class SvNeuralNetwork.
+ * 
  */
 public class SvNeuralNetwork extends ArrayList<SvLayer> {
 
-    /** The Constant serialVersionUID. */
+    /**
+     * 
+     */
     private static final long serialVersionUID = 7960882092463170437L;
 
-    /** The neural graph. */
+    /**
+     * 
+     */
     private NeuralDirectedGraph neuralGraph = null;
 
     /**
-     * Instantiates a new sv neural network.
+     * 
      */
     public SvNeuralNetwork() {
 	super();
     }
 
+    /**
+     * 
+     * 
+     * @param c
+     */
     public SvNeuralNetwork(Collection<? extends SvLayer> c) {
 	super(c);
     }
 
     /**
-     * Instantiates a new sv neural network.
+     * 
      * 
      * @param initialCapacity
-     *            the initial capacity
      */
     public SvNeuralNetwork(int initialCapacity) {
 	super(initialCapacity);
     }
 
     /**
-     * Instantiates a new sv neural network.
+     * 
      * 
      * @param neuralGraph
-     *            the neural graph
      */
     public SvNeuralNetwork(NeuralDirectedGraph neuralGraph) {
 	init(neuralGraph);
     }
 
     /**
-     * Gets the inputs concatenated for layer.
+     * 
      * 
      * @param layerIdx
-     *            the layer idx
-     * @return the inputs concatenated for layer
+     * @return
      */
     public DoubleMatrix getInputsConcat(int layerIdx) {
 	return NetworkUtils.getInputsConcat(layerIdx, this, this.neuralGraph);
     }
 
     /**
-     * Gets the neural graph.
      * 
-     * @return the neural graph
+     * 
+     * @return
      */
     public NeuralDirectedGraph getNeuralGraph() {
 	return neuralGraph;
     }
 
     /**
-     * Inits the.
+     * 
      * 
      * @param neuralGraph
-     *            the neural graph
      */
     public void init(NeuralDirectedGraph neuralGraph) {
 	this.neuralGraph = neuralGraph;
@@ -111,17 +116,16 @@ public class SvNeuralNetwork extends ArrayList<SvLayer> {
     }
 
     /**
-     * Sets the neural graph.
+     * 
      * 
      * @param neuralGraph
-     *            the new neural graph
      */
     public void setNeuralGraph(NeuralDirectedGraph neuralGraph) {
 	this.neuralGraph = neuralGraph;
     }
 
     /**
-     * Simulate.
+     * 
      */
     public void simulate() {
 	NetworkUtils.simulate(this, this.neuralGraph);

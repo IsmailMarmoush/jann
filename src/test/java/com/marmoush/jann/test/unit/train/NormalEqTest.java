@@ -27,20 +27,34 @@ import com.marmoush.jann.utils.TrainUtils;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class NormalEqTest.
+ * 
  */
 public class NormalEqTest {
-    
-    /** The inputs. */
+
+    /**
+     * 
+     */
     DoubleMatrix inputs;
-    
-    /** The targets. */
+
+    /**
+     * 
+     */
     DoubleMatrix targets;
 
     /**
-     * Sets the up.
-     *
-     * @throws Exception the exception
+     * 
+     */
+    @Test
+    public void normalEqPinvRgu() {
+	TrainUtils.normalEqPinv(inputs, targets).print();
+	TrainUtils.normalEqPinvRgu(inputs, targets, 10, true).print();
+
+    }
+
+    /**
+     * 
+     * 
+     * @throws Exception
      */
     @Before
     public void setUp() throws Exception {
@@ -48,16 +62,6 @@ public class NormalEqTest {
 	DoubleMatrix data = DoubleMatrix.loadAsciiFile(path);
 	inputs = data.getColumns(new int[] { 0, 1, 2 });
 	targets = data.getColumn(3);
-	
-    }
 
-    /**
-     * Normal eq pinv rgu.
-     */
-    @Test
-    public void normalEqPinvRgu() {
-	TrainUtils.normalEqPinv(inputs, targets).print();
-	TrainUtils.normalEqPinvRgu(inputs, targets, 10, true).print();
-	
     }
 }

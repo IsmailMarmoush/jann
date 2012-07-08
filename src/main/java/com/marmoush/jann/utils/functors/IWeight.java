@@ -25,11 +25,13 @@ import com.marmoush.jann.utils.WeightUtils;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Interface IWeight.
+ * 
  */
 public interface IWeight extends IFunctionable {
 
-    /** The Constant DOTPROD. */
+    /**
+     * 
+     */
     public static final IWeight BATCH_DOTPROD = new IWeight() {
 	@Override
 	public String toString() {
@@ -46,7 +48,10 @@ public interface IWeight extends IFunctionable {
 			layer.getWeight());
 	}
     };
-    /** The Constant DOTPROD. */
+
+    /**
+     * 
+     */
     public static final IWeight DOTPROD = new IWeight() {
 	@Override
 	public String toString() {
@@ -64,11 +69,10 @@ public interface IWeight extends IFunctionable {
     };
 
     /**
-     * Weight fn.
+     * 
      * 
      * @param layer
-     *            the layer
-     * @return the double matrix
+     * @return
      */
     public DoubleMatrix weightFn(ILayer layer);
 }

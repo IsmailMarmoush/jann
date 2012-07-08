@@ -38,24 +38,32 @@ import com.marmoush.jann.utils.functors.IPerformance;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class LingRgrTrainTest.
+ * 
  */
 public class LingRgrTrainTest {
-    
-    /** The targets. */
-    private DoubleMatrix targets = null;
-    
-    /** The inputs. */
-    private DoubleMatrix inputs = null;
-    
-    /** The input list. */
+
+    /**
+     * 
+     */
     private List<DoubleMatrix> inputList = null;
-    
-    /** The target list. */
+
+    /**
+     * 
+     */
+    private DoubleMatrix inputs = null;
+
+    /**
+     * 
+     */
     private List<DoubleMatrix> targetList = null;
 
     /**
-     * Creates the image.
+     * 
+     */
+    private DoubleMatrix targets = null;
+
+    /**
+     * 
      */
     @Test
     public void createImage() {
@@ -65,16 +73,16 @@ public class LingRgrTrainTest {
 	List<Double> stochErr = trainStochasticLinRgr();
 	XYSeries xyStoch = ChartUtils.xySeries("Stochastic", range, stochErr);
 	String path = "ChartsOutput" + File.separator + "chart.png";
-	LineImg img=new LineImg(path, xyBatch,xyStoch);
+	LineImg img = new LineImg(path, xyBatch, xyStoch);
 	img.setxAxisTitle("Iterations");
 	img.setyAxisTitle("Error");
 	img.createPNG();
     }
 
     /**
-     * Sets the up.
-     *
-     * @throws Exception the exception
+     * 
+     * 
+     * @throws Exception
      */
     @Before
     public void setUp() throws Exception {
@@ -83,16 +91,14 @@ public class LingRgrTrainTest {
 
 	inputs = data.getColumn(0);
 	targets = data.getColumn(1);
-	inputList = MatrixUtils.batchMtrxToColVecsList(inputs
-		.transpose());
-	targetList = MatrixUtils.batchMtrxToColVecsList(targets
-		.transpose());
+	inputList = MatrixUtils.batchMtrxToColVecsList(inputs.transpose());
+	targetList = MatrixUtils.batchMtrxToColVecsList(targets.transpose());
     }
 
     /**
-     * Tear down.
-     *
-     * @throws Exception the exception
+     * 
+     * 
+     * @throws Exception
      */
     @After
     public void tearDown() throws Exception {
@@ -101,15 +107,14 @@ public class LingRgrTrainTest {
     }
 
     /**
-     * Train batch lin rgr.
-     *
-     * @return the list
+     * 
+     * 
+     * @return
      */
     public List<Double> trainBatchLinRgr() {
 	System.out.println();
 	System.out.println("Batch Training");
-	final LinearRegression blr = new LinearRegression(inputs,
-		targets, true);
+	final LinearRegression blr = new LinearRegression(inputs, targets, true);
 	blr.setFill(1, blr.getWeight(), blr.getBias());
 	blr.setLearnRate(0.01);
 	blr.setReguFctr(1);
@@ -129,9 +134,9 @@ public class LingRgrTrainTest {
     }
 
     /**
-     * Train stochastic lin rgr.
-     *
-     * @return the list
+     * 
+     * 
+     * @return
      */
     public List<Double> trainStochasticLinRgr() {
 	System.out.println();

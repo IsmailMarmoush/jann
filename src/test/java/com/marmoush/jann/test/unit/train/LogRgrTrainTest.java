@@ -22,7 +22,6 @@ import java.io.File;
 import java.util.List;
 
 import org.jblas.DoubleMatrix;
-import org.jblas.MatrixFunctions;
 import org.jfree.data.xy.XYSeries;
 import org.junit.After;
 import org.junit.Before;
@@ -39,27 +38,37 @@ import com.marmoush.jann.utils.TrainUtils;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class LogRgrTrainTest.
+ * 
  */
 public class LogRgrTrainTest {
-    
-    /** The data. */
+
+    /**
+     * 
+     */
     private DoubleMatrix data = null;
-    
-    /** The input list. */
+
+    /**
+     * 
+     */
     private List<DoubleMatrix> inputList = null;
 
-    /** The inputs. */
+    /**
+     * 
+     */
     private DoubleMatrix inputs = null;
-    
-    /** The target list. */
+
+    /**
+     * 
+     */
     private List<DoubleMatrix> targetList = null;
 
-    /** The targets. */
+    /**
+     * 
+     */
     private DoubleMatrix targets = null;
 
     /**
-     * Creates the data img.
+     * 
      */
     @Test
     public void createDataImg() {
@@ -86,7 +95,7 @@ public class LogRgrTrainTest {
     }
 
     /**
-     * Creates the error iter image.
+     * 
      */
     @Test
     public void createErrorIterImage() {
@@ -104,9 +113,9 @@ public class LogRgrTrainTest {
     }
 
     /**
-     * Sets the up.
-     *
-     * @throws Exception the exception
+     * 
+     * 
+     * @throws Exception
      */
     @Before
     public void setUp() throws Exception {
@@ -120,9 +129,9 @@ public class LogRgrTrainTest {
     }
 
     /**
-     * Tear down.
-     *
-     * @throws Exception the exception
+     * 
+     * 
+     * @throws Exception
      */
     @After
     public void tearDown() throws Exception {
@@ -131,9 +140,9 @@ public class LogRgrTrainTest {
     }
 
     /**
-     * Train batch log rgr.
-     *
-     * @return the list
+     * 
+     * 
+     * @return
      */
     public List<Double> trainBatchLogRgr() {
 	System.out.println("Batch Training");
@@ -157,9 +166,9 @@ public class LogRgrTrainTest {
     }
 
     /**
-     * Train stochastic lin rgr.
-     *
-     * @return the list
+     * 
+     * 
+     * @return
      */
     public List<Double> trainStochasticLinRgr() {
 	System.out.println("Stochastic Trainging ");

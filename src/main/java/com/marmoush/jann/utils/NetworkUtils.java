@@ -29,17 +29,15 @@ import com.marmoush.jann.sv.ISvLayer;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class NetworkUtils.
+ * 
  */
 public class NetworkUtils {
 
     /**
-     * Bpff.
+     * 
      * 
      * @param net
-     *            the net
      * @param ngraph
-     *            the ngraph
      */
     public static void bpff(List<? extends ILayer> net,
 	    NeuralDirectedGraph ngraph) {
@@ -47,22 +45,27 @@ public class NetworkUtils {
     }
 
     /**
-     * Gets the inputs concatenated for layer.
+     * 
      * 
      * @param layerIdx
-     *            the layer idx
      * @param net
-     *            the net
-     * @param ngraph
-     *            the ngraph
-     * @return the inputs concatenated for layer
+     * @param graph
+     * @return
      */
     public static DoubleMatrix getInputsConcat(int layerIdx,
 	    List<? extends ILayer> net, INeuralDirectedGraphable graph) {
-	
+
 	return null;
     }
 
+    /**
+     * 
+     * 
+     * @param idx
+     * @param net
+     * @param graph
+     * @return
+     */
     public static ILayer[] getPredecessors(int idx, List<? extends ILayer> net,
 	    INeuralDirectedGraphable graph) {
 	List<Integer> predIndices = graph.getPredecessorsOf(idx);
@@ -75,12 +78,10 @@ public class NetworkUtils {
     }
 
     /**
-     * Sets the fill.
+     * 
      * 
      * @param net
-     *            the net
      * @param value
-     *            the value
      */
     public static void setFill(List<? extends ILayer> net, double value) {
 	for (ILayer layer : net) {
@@ -92,12 +93,10 @@ public class NetworkUtils {
     }
 
     /**
-     * Sets the fill learn rate.
+     * 
      * 
      * @param net
-     *            the net
      * @param lrnRate
-     *            the lrn rate
      */
     public static void setFillLearnRate(List<? extends ISvLayer> net,
 	    double lrnRate) {
@@ -107,10 +106,9 @@ public class NetworkUtils {
     }
 
     /**
-     * Sets the fill random.
+     * 
      * 
      * @param net
-     *            the new fill random
      */
     public static void setFillRandom(List<? extends ILayer> net) {
 	for (ILayer layer : net) {
@@ -120,10 +118,9 @@ public class NetworkUtils {
     }
 
     /**
-     * Sets the fill random floor.
+     * 
      * 
      * @param net
-     *            the new fill random floor
      */
     public static void setFillRandomFloor(List<? extends ILayer> net) {
 	for (ILayer layer : net) {
@@ -133,14 +130,11 @@ public class NetworkUtils {
     }
 
     /**
-     * Sets the fill random min max.
+     * 
      * 
      * @param net
-     *            the net
      * @param min
-     *            the min
      * @param max
-     *            the max
      */
     public static void setFillRandomMinMax(List<? extends ILayer> net,
 	    double min, double max) {
@@ -151,14 +145,11 @@ public class NetworkUtils {
     }
 
     /**
-     * Sets the fill random min max floor.
+     * 
      * 
      * @param net
-     *            the net
      * @param min
-     *            the min
      * @param max
-     *            the max
      */
     public static void setFillRandomMinMaxFloor(List<? extends ILayer> net,
 	    int min, int max) {
@@ -169,12 +160,10 @@ public class NetworkUtils {
     }
 
     /**
-     * Simulate.
+     * 
      * 
      * @param net
-     *            the net
      * @param ngraph
-     *            the ngraph
      */
     public static void simulate(List<? extends ILayer> net,
 	    NeuralDirectedGraph ngraph) {
@@ -189,12 +178,10 @@ public class NetworkUtils {
     }
 
     /**
-     * Update network input.
+     * 
      * 
      * @param net
-     *            the net
      * @param ngraph
-     *            the ngraph
      */
     public static void updateNetworkInput(List<? extends ILayer> net,
 	    NeuralDirectedGraph ngraph) {
@@ -209,10 +196,9 @@ public class NetworkUtils {
     }
 
     /**
-     * Update network netsum.
+     * 
      * 
      * @param net
-     *            the net
      */
     public static void updateNetworkNetsum(List<? extends ILayer> net) {
 	for (ILayer lyr : net) {
@@ -221,10 +207,9 @@ public class NetworkUtils {
     }
 
     /**
-     * Update network output.
+     * 
      * 
      * @param net
-     *            the net
      */
     public static void updateNetworkOutput(List<? extends ILayer> net) {
 	for (ILayer layer : net) {

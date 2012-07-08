@@ -26,15 +26,14 @@ import com.marmoush.jann.utils.NetworkUtils;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class TestingDraft2.
+ * 
  */
 public class GraphNetworkTest {
 
     /**
-     * The main method.
+     * 
      * 
      * @param args
-     *            the arguments
      */
     public static void main(String[] args) {
 	NeuralDirectedGraph ngraph = new NeuralDirectedGraph(3, 4, 2);

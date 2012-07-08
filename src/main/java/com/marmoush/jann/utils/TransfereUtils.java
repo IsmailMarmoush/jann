@@ -23,16 +23,15 @@ import org.jblas.MatrixFunctions;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class TransfereUtils.
+ * 
  */
 public abstract class TransfereUtils {
 
     /**
-     * Compet.
+     * 
      * 
      * @param netSum
-     *            the net sum
-     * @return the double matrix
+     * @return
      */
     public static DoubleMatrix compet(final DoubleMatrix netSum) {
 	int maxIndex = netSum.argmax();
@@ -42,13 +41,11 @@ public abstract class TransfereUtils {
     }
 
     /**
-     * Hardlim.
+     * 
      * 
      * @param netSum
-     *            the net sum
      * @param theta
-     *            the theta
-     * @return the double matrix
+     * @return
      */
     public static DoubleMatrix hardlim(final DoubleMatrix netSum,
 	    final double theta) {
@@ -56,13 +53,11 @@ public abstract class TransfereUtils {
     }
 
     /**
-     * Hardlims.
+     * 
      * 
      * @param netSum
-     *            the net sum
      * @param theta
-     *            the theta
-     * @return the double matrix
+     * @return
      */
     public static DoubleMatrix hardlims(final DoubleMatrix netSum,
 	    final double theta) {
@@ -74,11 +69,10 @@ public abstract class TransfereUtils {
     }
 
     /**
-     * Logsig.
+     * 
      * 
      * @param netSum
-     *            the net sum
-     * @return the double matrix
+     * @return
      */
     public static DoubleMatrix logsig(final DoubleMatrix netSum) {
 	return MatrixFunctions.pow((MatrixFunctions.exp(netSum.neg()).add(1)),
@@ -86,11 +80,10 @@ public abstract class TransfereUtils {
     }
 
     /**
-     * Logsig diff.
+     * 
      * 
      * @param netSum
-     *            the net sum
-     * @return the double matrix
+     * @return
      */
     public static DoubleMatrix logsigDiff(final DoubleMatrix netSum) {
 	// =g(z)(1-g(z))
@@ -101,13 +94,11 @@ public abstract class TransfereUtils {
     }
 
     /**
-     * Poslin.
+     * 
      * 
      * @param netSum
-     *            the net sum
      * @param theta
-     *            the theta
-     * @return the double matrix
+     * @return
      */
     public static DoubleMatrix poslin(final DoubleMatrix netSum,
 	    final double theta) {
@@ -120,22 +111,20 @@ public abstract class TransfereUtils {
     }
 
     /**
-     * Purelin.
+     * 
      * 
      * @param netSum
-     *            the net sum
-     * @return the double matrix
+     * @return
      */
     public static DoubleMatrix purelin(final DoubleMatrix netSum) {
 	return netSum;
     }
 
     /**
-     * Satlin.
+     * 
      * 
      * @param netSum
-     *            the net sum
-     * @return the double matrix
+     * @return
      */
     public static DoubleMatrix satlin(final DoubleMatrix netSum) {
 	DoubleMatrix result = new DoubleMatrix(netSum.length);
@@ -149,11 +138,10 @@ public abstract class TransfereUtils {
     }
 
     /**
-     * Satlins.
+     * 
      * 
      * @param netSum
-     *            the net sum
-     * @return the double matrix
+     * @return
      */
     public static DoubleMatrix satlins(final DoubleMatrix netSum) {
 	DoubleMatrix result = new DoubleMatrix(netSum.length);
@@ -167,22 +155,20 @@ public abstract class TransfereUtils {
     }
 
     /**
-     * Tansig.
+     * 
      * 
      * @param netSum
-     *            the net sum
-     * @return the double matrix
+     * @return
      */
     public static DoubleMatrix tansig(final DoubleMatrix netSum) {
 	return MatrixFunctions.tanh(netSum);
     }
 
     /**
-     * Tansig diff.
+     * 
      * 
      * @param netSum
-     *            the net sum
-     * @return the double matrix
+     * @return
      */
     public static DoubleMatrix tansigDiff(final DoubleMatrix netSum) {
 	// (1-(f(netSum)^2))
