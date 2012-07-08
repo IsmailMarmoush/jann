@@ -16,14 +16,12 @@ import org.jblas.DoubleMatrix;
 
 public abstract class WeightUtils {
 
-    
     public static DoubleMatrix batchDotprod(DoubleMatrix batchTrainingEx,
 	    DoubleMatrix weight) {
 	DoubleMatrix out = batchTrainingEx.mmul(weight.transpose());
 	return out;
     }
 
-    
     public static DoubleMatrix batchDotprod(DoubleMatrix batchTrainingEx,
 	    DoubleMatrix bias, DoubleMatrix weight) {
 	/*
@@ -44,12 +42,10 @@ public abstract class WeightUtils {
 	return out;
     }
 
-    
     public static DoubleMatrix dotprod(DoubleMatrix input, DoubleMatrix weight) {
 	return weight.mmul(input);
     }
 
-    
     public static DoubleMatrix dotprod(DoubleMatrix input, DoubleMatrix bias,
 	    DoubleMatrix weight) {
 	return weight.mmul(input).add(bias);

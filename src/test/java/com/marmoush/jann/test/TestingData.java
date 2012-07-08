@@ -18,7 +18,6 @@ public class TestingData {
 
     public static final String DATA_FOLDER = "src.test.java.data";
 
-    
     public static String getPath(String folder, String fileName) {
 	return toRelativePath(DATA_FOLDER + "." + folder, fileName);
     }
@@ -28,7 +27,6 @@ public class TestingData {
 	System.out.println(path);
     }
 
-    
     public static String toRelativePath(String classPath, String fileName) {
 	String[] bits = classPath.split("\\.");
 	String path = "";

@@ -24,13 +24,11 @@ public abstract class TransfereUtils {
 	return result;
     }
 
-    
     public static DoubleMatrix hardlim(final DoubleMatrix netSum,
 	    final double theta) {
 	return netSum.gt(theta);
     }
 
-    
     public static DoubleMatrix hardlims(final DoubleMatrix netSum,
 	    final double theta) {
 	DoubleMatrix result = new DoubleMatrix(netSum.length);
@@ -53,7 +51,6 @@ public abstract class TransfereUtils {
 	return netSumLogSig.sub(MatrixFunctions.pow(netSumLogSig, 2));
     }
 
-    
     public static DoubleMatrix poslin(final DoubleMatrix netSum,
 	    final double theta) {
 	DoubleMatrix result = new DoubleMatrix(netSum.length);

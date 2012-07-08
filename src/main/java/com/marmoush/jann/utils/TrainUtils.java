@@ -20,7 +20,6 @@ import com.marmoush.jann.sv.SvLayer;
 
 public class TrainUtils {
 
-    
     public static void batchGd(SvLayer lyr, DoubleMatrix inputs,
 	    DoubleMatrix targets) {
 	lyr.setInput(inputs);
@@ -38,7 +37,6 @@ public class TrainUtils {
 	}
     }
 
-    
     public static DoubleMatrix normalEqInv(DoubleMatrix x, DoubleMatrix targets) {
 	// ((X'*X)^-1) * (X' * y)
 	DoubleMatrix inverse = MatrixUtils.inv(x.transpose().mmul(x));
@@ -46,14 +44,12 @@ public class TrainUtils {
 	return inverse.mmul(xTransposeY);
     }
 
-    
     public static DoubleMatrix normalEqPinv(DoubleMatrix x, DoubleMatrix targets) {
 	DoubleMatrix inverse = MatrixUtils.pinv(x.transpose().mmul(x));
 	DoubleMatrix xTransposeY = x.transpose().mmul(targets);
 	return inverse.mmul(xTransposeY);
     }
 
-    
     public static DoubleMatrix normalEqPinvRgu(DoubleMatrix x,
 	    DoubleMatrix targets, double rguFctr, boolean biased) {
 	DoubleMatrix inv = x.transpose().mmul(x);
@@ -65,7 +61,6 @@ public class TrainUtils {
 	return inverse.mmul(xTransposeY);
     }
 
-    
     public static void stochasticGd(SvLayer lyr, List<DoubleMatrix> inputs,
 	    List<DoubleMatrix> targets) {
 	int m = 0;

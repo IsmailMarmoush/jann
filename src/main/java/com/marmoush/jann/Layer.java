@@ -48,7 +48,6 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
 	super();
     }
 
-    
     public Layer(final int nInputs, final int nNeurons, boolean biased) {
 	input = new DoubleMatrix(nInputs);
 	weight = new DoubleMatrix(nNeurons, nInputs);
@@ -218,7 +217,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.IFillableLayer#setFillRandom(int, int,
      * org.jblas.DoubleMatrix)
      */
-    
+
     @Override
     public void setFillRandomMinMax(double min, double max,
 	    DoubleMatrix... matrices) {
@@ -230,7 +229,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.IFillableLayer#setFillRandomMinMaxFloor(int, int,
      * org.jblas.DoubleMatrix[])
      */
-    
+
     @Override
     public void setFillRandomMinMaxFloor(int min, int max,
 	    DoubleMatrix... matrices) {

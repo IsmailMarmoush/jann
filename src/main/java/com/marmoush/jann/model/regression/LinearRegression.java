@@ -25,7 +25,6 @@ public class LinearRegression extends SvLayer {
 
     private static final long serialVersionUID = -8858564328695652268L;
 
-    
     public LinearRegression(DoubleMatrix batchTrainingEx,
 	    DoubleMatrix batchTargets, boolean biased) {
 	super(batchTrainingEx.columns, 1, biased);
@@ -34,7 +33,6 @@ public class LinearRegression extends SvLayer {
 	setPerformancefnctr(IPerformance.LINRGR);
     }
 
-    
     public LinearRegression(List<DoubleMatrix> trainingEx,
 	    List<DoubleMatrix> targetList, boolean biased) {
 	super(trainingEx.get(0).rows, targetList.get(0).length, biased);

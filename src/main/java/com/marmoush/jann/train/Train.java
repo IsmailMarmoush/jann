@@ -44,7 +44,6 @@ public abstract class Train {
     public Train() {
     }
 
-    
     public Train(int maxEpochs, double performanceGoal, long timeLimit) {
 	super();
 	this.maxEpochs = maxEpochs;
