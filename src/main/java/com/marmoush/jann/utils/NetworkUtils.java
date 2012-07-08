@@ -21,7 +21,7 @@ import com.marmoush.jann.neuralgraph.INeuralDirectedGraphable;
 import com.marmoush.jann.neuralgraph.NeuralDirectedGraph;
 import com.marmoush.jann.sv.ISvLayer;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * 
  */

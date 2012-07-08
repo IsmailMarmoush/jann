@@ -15,7 +15,7 @@ package com.marmoush.jann.utils;
 import org.jblas.DoubleMatrix;
 import org.jblas.MatrixFunctions;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * 
  */

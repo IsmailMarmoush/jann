@@ -12,7 +12,7 @@
  */
 package com.marmoush.jann.utils.functors;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * 
  */

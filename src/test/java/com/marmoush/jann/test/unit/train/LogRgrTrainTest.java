@@ -30,7 +30,7 @@ import com.marmoush.jann.train.Train;
 import com.marmoush.jann.utils.MatrixUtils;
 import com.marmoush.jann.utils.TrainUtils;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * 
  */

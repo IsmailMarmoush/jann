@@ -18,7 +18,7 @@ import com.marmoush.jann.chart.ChartUtils;
 import com.marmoush.jann.chart.jframe.LineJf;
 import com.marmoush.jann.utils.MatrixUtils;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * 
  */

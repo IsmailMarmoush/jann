@@ -20,7 +20,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeriesCollection;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * 
  */

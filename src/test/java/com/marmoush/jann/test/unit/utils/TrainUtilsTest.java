@@ -19,7 +19,7 @@ import org.junit.Test;
 
 import com.marmoush.jann.utils.TrainUtils;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * 
  */

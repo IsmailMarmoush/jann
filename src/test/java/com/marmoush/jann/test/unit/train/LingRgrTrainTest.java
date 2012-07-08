@@ -30,7 +30,7 @@ import com.marmoush.jann.utils.MatrixUtils;
 import com.marmoush.jann.utils.TrainUtils;
 import com.marmoush.jann.utils.functors.IPerformance;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * 
  */

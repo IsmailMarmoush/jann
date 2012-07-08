@@ -17,7 +17,7 @@ import org.jblas.DoubleMatrix;
 import com.marmoush.jann.utils.functors.ITransfere;
 import com.marmoush.jann.utils.functors.IWeight;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * 
  */

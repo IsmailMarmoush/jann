@@ -17,7 +17,7 @@ import org.jblas.DoubleMatrix;
 import com.marmoush.jann.ILayer;
 import com.marmoush.jann.utils.functors.IPerformance;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * 
  */

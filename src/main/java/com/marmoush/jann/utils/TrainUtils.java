@@ -18,7 +18,7 @@ import org.jblas.DoubleMatrix;
 
 import com.marmoush.jann.sv.SvLayer;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * 
  */
