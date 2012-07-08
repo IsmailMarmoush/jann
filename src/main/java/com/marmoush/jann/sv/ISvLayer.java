@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -17,65 +17,33 @@ import org.jblas.DoubleMatrix;
 import com.marmoush.jann.ILayer;
 import com.marmoush.jann.utils.functors.IPerformance;
 
-
-/**
- * 
- */
 public interface ISvLayer extends ILayer {
 
-    /**
-     * @return
-     */
     public abstract double getLearnRate();
 
-    /**
-     * @return
-     */
     public abstract double getPerformance();
 
-    /**
-     * @return
-     */
     public abstract IPerformance getPerformancefnctr();
 
-    /**
-     * @return
-     */
     public abstract double getReguFctr();
 
-    /**
-     * @return
-     */
     public abstract DoubleMatrix getTarget();
 
-    /**
-     * @param lrnRate
-     */
+    
     public abstract void setLearnRate(double lrnRate);
 
-    /**
-     * @param performance
-     */
+    
     public abstract void setPerformance(double performance);
 
-    /**
-     * @param performancefnctr
-     */
+    
     public abstract void setPerformancefnctr(IPerformance performancefnctr);
 
-    /**
-     * @param reg
-     */
+    
     public abstract void setReguFctr(double reg);
 
-    /**
-     * @param target
-     */
+    
     public abstract void setTarget(DoubleMatrix target);
 
-    /**
-     * @return
-     */
     public abstract double updatePerformance();
 
 }

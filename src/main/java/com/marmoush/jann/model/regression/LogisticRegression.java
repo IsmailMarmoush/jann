@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -21,13 +21,8 @@ import com.marmoush.jann.utils.functors.IPerformance;
 import com.marmoush.jann.utils.functors.ITransfere;
 import com.marmoush.jann.utils.functors.IWeight;
 
-
-/**
- * 
- */
 public class LogisticRegression extends SvLayer {
 
-    
     private static final long serialVersionUID = 6248944247719115094L;
 
     /**

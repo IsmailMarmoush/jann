@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -18,15 +18,9 @@ import com.marmoush.jann.chart.ChartUtils;
 import com.marmoush.jann.chart.jframe.LineJf;
 import com.marmoush.jann.utils.MatrixUtils;
 
-
-/**
- * 
- */
 public class LinRgrFrameTest {
 
-    /**
-     * @param args
-     */
+    
     public static void main(String[] args) {
 	XYSeries xys = ChartUtils.xySeries("Training",
 		MatrixUtils.range(0, 1, 1500), MatrixUtils.range(0, 2, 3000));

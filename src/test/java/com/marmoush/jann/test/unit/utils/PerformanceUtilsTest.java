@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -21,16 +21,10 @@ import org.junit.Test;
 import com.marmoush.jann.utils.PerformanceUtils;
 import com.marmoush.jann.utils.TransfereUtils;
 
-
-/**
- * 
- */
 public class PerformanceUtilsTest {
 
-    /**  */
     private DoubleMatrix output;
 
-    /**  */
     private DoubleMatrix target;
 
     /**
@@ -42,9 +36,6 @@ public class PerformanceUtilsTest {
 	target = DoubleMatrix.valueOf("2; 4 ;6");
     }
 
-    /**
-     * 
-     */
     @Test
     public void testLogRgr() {
 	DoubleMatrix transf = TransfereUtils.logsig(output);
@@ -53,18 +44,12 @@ public class PerformanceUtilsTest {
 
     }
 
-    /**
-     * 
-     */
     @Test
     public void testMae() {
 	double p = PerformanceUtils.mae(output, target);
 	assertTrue("Performance is:" + p, p == 2);
     }
 
-    /**
-     * 
-     */
     @Test
     public void testMse() {
 	double p = PerformanceUtils.mse(output, target);
@@ -72,9 +57,6 @@ public class PerformanceUtilsTest {
 	assertTrue("Performance is:" + p, p == 4.6667);
     }
 
-    /**
-     * 
-     */
     @Test
     public void testSse() {
 	double p = PerformanceUtils.sse(output, target);

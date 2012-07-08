@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -21,41 +21,27 @@ import org.jblas.DoubleMatrix;
 import com.marmoush.jann.neuralgraph.NeuralDirectedGraph;
 import com.marmoush.jann.utils.NetworkUtils;
 
-/**
- * 
- */
 public class SvNeuralNetwork extends ArrayList<SvLayer> {
 
-    
     private static final long serialVersionUID = 7960882092463170437L;
 
-    
     private NeuralDirectedGraph neuralGraph = null;
 
-    /**
-     * 
-     */
     public SvNeuralNetwork() {
 	super();
     }
 
-    /**
-     * @param c
-     */
+    
     public SvNeuralNetwork(Collection<? extends SvLayer> c) {
 	super(c);
     }
 
-    /**
-     * @param initialCapacity
-     */
+    
     public SvNeuralNetwork(int initialCapacity) {
 	super(initialCapacity);
     }
 
-    /**
-     * @param neuralGraph
-     */
+    
     public SvNeuralNetwork(NeuralDirectedGraph neuralGraph) {
 	init(neuralGraph);
     }
@@ -68,16 +54,11 @@ public class SvNeuralNetwork extends ArrayList<SvLayer> {
 	return NetworkUtils.getInputsConcat(layerIdx, this, this.neuralGraph);
     }
 
-    /**
-     * @return
-     */
     public NeuralDirectedGraph getNeuralGraph() {
 	return neuralGraph;
     }
 
-    /**
-     * @param neuralGraph
-     */
+    
     public void init(NeuralDirectedGraph neuralGraph) {
 	this.neuralGraph = neuralGraph;
 	int lyrIdx = 0;
@@ -93,27 +74,17 @@ public class SvNeuralNetwork extends ArrayList<SvLayer> {
 	}
     }
 
-    /**
-     * @param neuralGraph
-     */
+    
     public void setNeuralGraph(NeuralDirectedGraph neuralGraph) {
 	this.neuralGraph = neuralGraph;
     }
 
-    /**
-     * 
-     */
     public void simulate() {
 	NetworkUtils.simulate(this, this.neuralGraph);
     }
 
-    /*
-     * (non-Javadoc)
-     * @see java.util.AbstractCollection#toString()
-     */
-    /**
-     * @return
-     */
+    
+
     @Override
     public String toString() {
 	StringBuilder sb = new StringBuilder();

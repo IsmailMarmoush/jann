@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -14,10 +14,6 @@ package com.marmoush.jann;
 
 import org.jblas.DoubleMatrix;
 
-
-/**
- * 
- */
 public interface IFillableLayer {
 
     /**
@@ -26,14 +22,10 @@ public interface IFillableLayer {
      */
     public abstract void setFill(double value, DoubleMatrix... matrices);
 
-    /**
-     * @param matrices
-     */
+    
     public abstract void setFillRandom(DoubleMatrix... matrices);
 
-    /**
-     * @param matrices
-     */
+    
     public abstract void setFillRandomFloor(DoubleMatrix... matrices);
 
     /**

@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -15,50 +15,32 @@ package com.marmoush.jann.train;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 
- */
 public abstract class Train {
 
-    
     public static final String EPOCHS_REACHED = "EpochsReached";
 
-    
     public static final String PERFORMANCE_REACHED = "PerformanceGoalMet";
 
-    
     public static final String TIME_LIM_REACHED = "MaxTimeExceeded";
 
-    
     private int atEpoch;
 
-    
     private String cause;
 
-    
     private long end;
 
-    
     private int maxEpochs;
 
-    
     private double performanceGoal;
 
-    
     private List<Double> performanceHistory = new ArrayList<Double>();
 
-    
     private long start;
 
-    
     private long timeElapsed;
 
-    
     private long timeLimit;
 
-    /**
-     * 
-     */
     public Train() {
     }
 
@@ -74,9 +56,7 @@ public abstract class Train {
 	this.timeLimit = timeLimit;
     }
 
-    /**
-     * @param performance
-     */
+    
     public void addPerformanceHistoryEntry(double performance) {
 	getPerformanceHistory().add(performance);
     }
@@ -92,37 +72,22 @@ public abstract class Train {
 	this.atEpoch = atEpoch;
     }
 
-    /**
-     * @return
-     */
     public int getMaxEpochs() {
 	return maxEpochs;
     }
 
-    /**
-     * @return
-     */
     public double getPerformanceGoal() {
 	return performanceGoal;
     }
 
-    /**
-     * @return
-     */
     public List<Double> getPerformanceHistory() {
 	return performanceHistory;
     }
 
-    /**
-     * @return
-     */
     public long getTimeLimit() {
 	return timeLimit;
     }
 
-    /**
-     * 
-     */
     public void run() {
 	start();
 	for (int i = 0; i < getMaxEpochs(); i++) {
@@ -136,48 +101,32 @@ public abstract class Train {
 	end(EPOCHS_REACHED, getMaxEpochs());
     }
 
-    /**
-     * @param maxEpochs
-     */
+    
     public void setMaxEpochs(int maxEpochs) {
 	this.maxEpochs = maxEpochs;
     }
 
-    /**
-     * @param performanceGoal
-     */
+    
     public void setPerformanceGoal(double performanceGoal) {
 	this.performanceGoal = performanceGoal;
     }
 
-    /**
-     * @param performanceHistory
-     */
+    
     public void setPerformanceHistory(List<Double> performanceHistory) {
 	this.performanceHistory = performanceHistory;
     }
 
-    /**
-     * @param timeLimit
-     */
+    
     public void setTimeLimit(long timeLimit) {
 	this.timeLimit = timeLimit;
     }
 
-    /**
-     * 
-     */
     public void start() {
 	this.start = System.currentTimeMillis();
     }
 
-    /*
-     * (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    /**
-     * @return
-     */
+    
+
     @Override
     public String toString() {
 	StringBuilder builder = new StringBuilder();
@@ -198,9 +147,6 @@ public abstract class Train {
 	return builder.toString();
     }
 
-    /**
-     * @return
-     */
     public abstract double train();
 
 }

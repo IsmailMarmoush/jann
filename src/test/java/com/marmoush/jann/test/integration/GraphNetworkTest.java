@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -18,15 +18,9 @@ import com.marmoush.jann.NeuralNetwork;
 import com.marmoush.jann.neuralgraph.NeuralDirectedGraph;
 import com.marmoush.jann.utils.NetworkUtils;
 
-
-/**
- * 
- */
 public class GraphNetworkTest {
 
-    /**
-     * @param args
-     */
+    
     public static void main(String[] args) {
 	NeuralDirectedGraph ngraph = new NeuralDirectedGraph(3, 4, 2);
 	ngraph.addEdge(0, 1);

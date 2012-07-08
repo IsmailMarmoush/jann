@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -20,56 +20,36 @@ import com.marmoush.jann.neuralgraph.INeuralDirectedGraphable;
 import com.marmoush.jann.neuralgraph.NeuralDirectedGraph;
 import com.marmoush.jann.utils.NetworkUtils;
 
-
-/**
- * 
- */
 public class NeuralNetwork extends ArrayList<Layer> {
 
-    
     private static final long serialVersionUID = -3802547694705634188L;
 
-    
     private NeuralDirectedGraph neuralGraph = null;
 
-    /**
-     * 
-     */
     public NeuralNetwork() {
 	super();
     }
 
-    /**
-     * @param c
-     */
+    
     public NeuralNetwork(Collection<? extends Layer> c) {
 	super(c);
     }
 
-    /**
-     * @param neuralGraph
-     */
+    
     public NeuralNetwork(INeuralDirectedGraphable neuralGraph) {
 	init(neuralGraph);
     }
 
-    /**
-     * @param initialCapacity
-     */
+    
     public NeuralNetwork(int initialCapacity) {
 	super(initialCapacity);
     }
 
-    /**
-     * @return
-     */
     public NeuralDirectedGraph getNeuralGraph() {
 	return neuralGraph;
     }
 
-    /**
-     * @param neuralGraph
-     */
+    
     public void init(INeuralDirectedGraphable neuralGraph) {
 	int lyrIdx = 0;
 	int nNeurons = 0;
@@ -83,27 +63,17 @@ public class NeuralNetwork extends ArrayList<Layer> {
 	}
     }
 
-    /**
-     * @param neuralGraph
-     */
+    
     public void setNeuralGraph(NeuralDirectedGraph neuralGraph) {
 	this.neuralGraph = neuralGraph;
     }
 
-    /**
-     * 
-     */
     public void simulate() {
 	NetworkUtils.simulate(this, this.neuralGraph);
     }
 
-    /*
-     * (non-Javadoc)
-     * @see java.util.AbstractCollection#toString()
-     */
-    /**
-     * @return
-     */
+    
+
     @Override
     public String toString() {
 	StringBuilder sb = new StringBuilder();

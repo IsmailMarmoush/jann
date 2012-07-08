@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -21,12 +21,8 @@ import com.marmoush.jann.utils.functors.IPerformance;
 import com.marmoush.jann.utils.functors.ITransfere;
 import com.marmoush.jann.utils.functors.IWeight;
 
-/**
- * 
- */
 public class FeedForwardSvNet extends SvNeuralNetwork {
 
-    
     private static final long serialVersionUID = 8103514276278385409L;
 
     /**
@@ -44,16 +40,10 @@ public class FeedForwardSvNet extends SvNeuralNetwork {
 		nNeuronsPerLayer);
     }
 
-    /**
-     * @return
-     */
     public SvLayer getInputLayer() {
 	return this.get(0);
     }
 
-    /**
-     * @return
-     */
     public SvLayer getOutputLayer() {
 	return this.get(this.size() - 1);
     }
@@ -75,16 +65,12 @@ public class FeedForwardSvNet extends SvNeuralNetwork {
 		new DoubleMatrix(nNeuronsPerLayer[0], inputSize));
     }
 
-    /**
-     * @param input
-     */
+    
     public void setInput(DoubleMatrix input) {
 	this.getInputLayer().setInput(input);
     }
 
-    /**
-     * @param target
-     */
+    
     public void setTarget(DoubleMatrix target) {
 	this.getOutputLayer().setTarget(target);
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -17,16 +17,9 @@ import java.util.List;
 import org.jgrapht.DirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 
-
-/**
- * 
- */
 public interface INeuralDirectedGraphable extends
 	DirectedGraph<Integer, DefaultEdge> {
 
-    /**
-     * @return
-     */
     public List<Integer> getAllLayersNumOfNeurons();
 
     /**
@@ -53,9 +46,7 @@ public interface INeuralDirectedGraphable extends
      */
     public List<Integer> getSuccessorsOf(final int layerIndex);
 
-    /**
-     * @param nNeuronsPerLayer
-     */
+    
     public void setAllLayersNumOfNeurons(List<Integer> nNeuronsPerLayer);
 
 }

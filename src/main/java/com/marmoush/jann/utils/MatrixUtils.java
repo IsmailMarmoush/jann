@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -20,13 +20,8 @@ import org.jblas.MatrixFunctions;
 import org.jblas.Singular;
 import org.jblas.Solve;
 
-
-/**
- * 
- */
 public class MatrixUtils {
 
-    
     public static final double MACHEPS = 2E-16;
 
     /**
@@ -279,16 +274,12 @@ public class MatrixUtils {
 	}
     }
 
-    /**
-     * @param mtrx
-     */
+    
     public static void printSize(DoubleMatrix mtrx) {
 	System.out.print(MatrixUtils.getSize(mtrx));
     }
 
-    /**
-     * @param mtrxArray
-     */
+    
     public static void printSize(DoubleMatrix... mtrxArray) {
 	for (DoubleMatrix m : mtrxArray) {
 	    MatrixUtils.printSize(m);
@@ -387,9 +378,7 @@ public class MatrixUtils {
 	return mtrx;
     }
 
-    /**
-     * @param matrices
-     */
+    
     public static void setFillRandom(DoubleMatrix... matrices) {
 	for (DoubleMatrix mtrx : matrices) {
 	    if (mtrx != null) {
@@ -398,9 +387,7 @@ public class MatrixUtils {
 	}
     }
 
-    /**
-     * @param matrices
-     */
+    
     public static void setFillRandomFloor(DoubleMatrix... matrices) {
 	for (DoubleMatrix mtrx : matrices) {
 	    if (mtrx != null) {
@@ -464,8 +451,7 @@ public class MatrixUtils {
 	double sd = dummy.sum() / (input.length - 1);
 	return Math.sqrt(sd);
     }
-    // /**
-    // * Updates MACHEPS for the executing machine.
+    // / * Updates MACHEPS for the executing machine.
     // */
     // public static void updateMacheps() {
     // MACHEPS = 1;

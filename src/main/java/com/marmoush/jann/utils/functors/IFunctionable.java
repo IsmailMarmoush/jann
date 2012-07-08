@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -12,15 +12,8 @@
  */
 package com.marmoush.jann.utils.functors;
 
-
-/**
- * 
- */
 public interface IFunctionable {
 
-    /**
-     * @return
-     */
     @Override
     public String toString();
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -19,30 +19,19 @@ import org.jgrapht.Graphs;
 import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 
-
-/**
- * 
- */
 public class NeuralDirectedGraph extends
 	DefaultDirectedGraph<Integer, DefaultEdge> implements
 	INeuralDirectedGraphable {
 
-    
     private static final long serialVersionUID = 8695054227504317702L;
 
-    
     private List<Integer> layersNumOfNeurons = new ArrayList<Integer>();
 
-    /**
-     * 
-     */
     public NeuralDirectedGraph() {
 	super(DefaultEdge.class);
     }
 
-    /**
-     * @param nNeuronsPerLayer
-     */
+    
     public NeuralDirectedGraph(int... nNeuronsPerLayer) {
 	this();
 	for (int i = 0; i < nNeuronsPerLayer.length; i++) {
@@ -51,9 +40,7 @@ public class NeuralDirectedGraph extends
 	}
     }
 
-    /**
-     * @param nNeuronsPerLayer
-     */
+    
     public NeuralDirectedGraph(List<Integer> nNeuronsPerLayer) {
 	this();
 	this.layersNumOfNeurons = nNeuronsPerLayer;
@@ -62,9 +49,6 @@ public class NeuralDirectedGraph extends
 	}
     }
 
-    /**
-     * 
-     */
     public void clearConnections() {
 	for (int i = 1; i < this.getNumOfLayers(); i++) {
 	    this.removeAllEdges(i, i);
@@ -74,9 +58,6 @@ public class NeuralDirectedGraph extends
 
     }
 
-    /**
-     * 
-     */
     public void connectLayersAsFF() {
 	for (int i = 1; i < getNumOfLayers(); i++) {
 	    addEdge(i - 1, i);
@@ -89,9 +70,7 @@ public class NeuralDirectedGraph extends
      * com.marmoush.jann.neuralgraph.INeuralDirectedGraphable#getLayersNumOfNeurons
      * ()
      */
-    /**
-     * @return
-     */
+
     @Override
     public List<Integer> getAllLayersNumOfNeurons() {
 	return layersNumOfNeurons;
@@ -131,9 +110,6 @@ public class NeuralDirectedGraph extends
 	return layersNumOfNeurons.get(lyrIdx);
     }
 
-    /**
-     * @return
-     */
     public int getNumOfLayers() {
 	return this.layersNumOfNeurons.size();
     }
@@ -174,9 +150,7 @@ public class NeuralDirectedGraph extends
      * com.marmoush.jann.NeuralGraph.NeuralDirectedGraphable#setNumOfNeuronsInLayer
      * (java.util.List)
      */
-    /**
-     * @param nNeuronsPerLayer
-     */
+    
     @Override
     public void setAllLayersNumOfNeurons(List<Integer> nNeuronsPerLayer) {
 	this.layersNumOfNeurons = nNeuronsPerLayer;

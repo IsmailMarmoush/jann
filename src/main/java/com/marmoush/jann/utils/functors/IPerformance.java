@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -15,13 +15,8 @@ package com.marmoush.jann.utils.functors;
 import com.marmoush.jann.sv.ISvLayer;
 import com.marmoush.jann.utils.PerformanceUtils;
 
-
-/**
- * 
- */
 public interface IPerformance extends IFunctionable {
 
-    
     public static final IPerformance LINRGR = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -35,7 +30,6 @@ public interface IPerformance extends IFunctionable {
 	}
     };
 
-    
     public static final IPerformance LINRGR_RGU = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -49,7 +43,6 @@ public interface IPerformance extends IFunctionable {
 	}
     };
 
-    
     public static final IPerformance LOGRGR = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -63,7 +56,6 @@ public interface IPerformance extends IFunctionable {
 	}
     };
 
-    
     public static final IPerformance LOGRGR_RGU = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -77,7 +69,6 @@ public interface IPerformance extends IFunctionable {
 	}
     };
 
-    
     public static final IPerformance MAE = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -90,7 +81,6 @@ public interface IPerformance extends IFunctionable {
 	}
     };
 
-    
     public static final IPerformance MSE = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -103,7 +93,6 @@ public interface IPerformance extends IFunctionable {
 	}
     };
 
-    
     public static final IPerformance SSE = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {

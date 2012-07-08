@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -17,13 +17,8 @@ import org.jblas.DoubleMatrix;
 import com.marmoush.jann.ILayer;
 import com.marmoush.jann.utils.TransfereUtils;
 
-
-/**
- * 
- */
 public interface ITransfere extends IFunctionable {
 
-    
     public static final ITransfere COMPET = new ITransfere() {
 	@Override
 	public String toString() {
@@ -36,7 +31,6 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    
     public static final ITransfere HARDLIM = new ITransfere() {
 	@Override
 	public String toString() {
@@ -49,7 +43,6 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    
     public static final ITransfere HARDLIMS = new ITransfere() {
 	@Override
 	public String toString() {
@@ -62,7 +55,6 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    
     public static final ITransfere LOGSIG = new ITransfere() {
 	@Override
 	public String toString() {
@@ -75,7 +67,6 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    
     public static final ITransfere LOGSIGDIFF = new ITransfere() {
 	@Override
 	public String toString() {
@@ -88,7 +79,6 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    
     public static final ITransfere POSLIN = new ITransfere() {
 	@Override
 	public String toString() {
@@ -101,7 +91,6 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    
     public static final ITransfere PURELIN = new ITransfere() {
 	@Override
 	public String toString() {
@@ -114,7 +103,6 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    
     public static final ITransfere SATLIN = new ITransfere() {
 	@Override
 	public String toString() {
@@ -127,7 +115,6 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    
     public static final ITransfere SATLINS = new ITransfere() {
 	@Override
 	public String toString() {
@@ -140,7 +127,6 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    
     public static final ITransfere TANSIG = new ITransfere() {
 	@Override
 	public String toString() {
@@ -153,7 +139,6 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    
     public static final ITransfere TANSIGDIFF = new ITransfere() {
 	@Override
 	public String toString() {

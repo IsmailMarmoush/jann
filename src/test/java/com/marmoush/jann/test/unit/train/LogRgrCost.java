@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -24,10 +24,6 @@ import com.marmoush.jann.utils.functors.IPerformance;
 import com.marmoush.jann.utils.functors.ITransfere;
 import com.marmoush.jann.utils.functors.IWeight;
 
-
-/**
- * 
- */
 public class LogRgrCost {
 
     /**
@@ -40,13 +36,13 @@ public class LogRgrCost {
 	DoubleMatrix inputs = data.getColumns(new int[] { 0, 1, 2 });
 	DoubleMatrix targets = data.getColumn(3);
 	DoubleMatrix theta = DoubleMatrix.zeros(inputs.columns, 1);
-	/***********************************/
+
 	DoubleMatrix netsum = inputs.mmul(theta);
 	// netsum.print();
 	DoubleMatrix output = TransfereUtils.logsig(netsum);
 	// output.print();
 	System.out.println(PerformanceUtils.logRgr(output, targets));
-	/***********************************/
+
 	SvLayer layer = new SvLayer(inputs.columns, 1, false);
 	layer.setInput(inputs);
 	layer.setTarget(targets);
@@ -57,13 +53,13 @@ public class LogRgrCost {
 	// layer.getNetSum().print();
 	// layer.getOutput().print();
 	System.out.println(layer.getPerformance());
-	/***********************************/
+
 	int m = targets.length;
 	DoubleMatrix error = output.sub(targets);
 	DoubleMatrix xT = inputs.transpose();
 	DoubleMatrix grad = xT.mmul(error).mul(1.0 / m);
 	grad.print();
 	// grad.neg().print();
-	/*************************************/
+
     }
 }

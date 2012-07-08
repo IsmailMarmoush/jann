@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -18,35 +18,20 @@ import org.jfree.data.xy.XYSeries;
 
 import com.marmoush.jann.chart.ChartUtils;
 
-
-/**
- * 
- */
 public class ScatterDataJf extends ChartJFrame {
 
-    
     private static final long serialVersionUID = -457908141851955661L;
 
-    /**
-     * 
-     */
     public ScatterDataJf() {
     }
 
-    /**
-     * @param seriesList
-     */
+    
     public ScatterDataJf(XYSeries... seriesList) {
 	setXySeriesCollection(ChartUtils.getXYSeriesCollection(seriesList));
     }
 
-    /*
-     * (non-Javadoc)
-     * @see com.marmoush.jann.chart.jframe.ChartJFrame#run()
-     */
-    /**
-     * 
-     */
+    
+
     @Override
     public void run() {
 	JFreeChart chart = ChartFactory.createScatterPlot(getTitle(),

@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -21,10 +21,6 @@ import com.marmoush.jann.neuralgraph.INeuralDirectedGraphable;
 import com.marmoush.jann.neuralgraph.NeuralDirectedGraph;
 import com.marmoush.jann.sv.ISvLayer;
 
-
-/**
- * 
- */
 public class NetworkUtils {
 
     /**
@@ -89,9 +85,7 @@ public class NetworkUtils {
 	}
     }
 
-    /**
-     * @param net
-     */
+    
     public static void setFillRandom(List<? extends ILayer> net) {
 	for (ILayer layer : net) {
 	    layer.setFillRandom(layer.getInput(), layer.getBias(),
@@ -99,9 +93,7 @@ public class NetworkUtils {
 	}
     }
 
-    /**
-     * @param net
-     */
+    
     public static void setFillRandomFloor(List<? extends ILayer> net) {
 	for (ILayer layer : net) {
 	    layer.setFillRandomFloor(layer.getInput(), layer.getBias(),
@@ -167,18 +159,14 @@ public class NetworkUtils {
 	}
     }
 
-    /**
-     * @param net
-     */
+    
     public static void updateNetworkNetsum(List<? extends ILayer> net) {
 	for (ILayer lyr : net) {
 	    lyr.updateNetSum();
 	}
     }
 
-    /**
-     * @param net
-     */
+    
     public static void updateNetworkOutput(List<? extends ILayer> net) {
 	for (ILayer layer : net) {
 	    layer.updateOutput();

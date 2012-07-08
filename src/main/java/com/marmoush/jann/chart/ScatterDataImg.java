@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -16,10 +16,6 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.xy.XYSeries;
 
-
-/**
- * 
- */
 public class ScatterDataImg extends ChartImage {
 
     /**
@@ -31,13 +27,8 @@ public class ScatterDataImg extends ChartImage {
 	setXySeriesCollec(ChartUtils.getXYSeriesCollection(series));
     }
 
-    /*
-     * (non-Javadoc)
-     * @see com.marmoush.jann.chart.ChartImage#createJPEG()
-     */
-    /**
-     * 
-     */
+    
+
     @Override
     public void createJPEG() {
 	JFreeChart chart = ChartFactory.createScatterPlot(getTitle(),
@@ -47,13 +38,8 @@ public class ScatterDataImg extends ChartImage {
 	super.createJPEG();
     }
 
-    /*
-     * (non-Javadoc)
-     * @see com.marmoush.jann.chart.ChartImage#createPNG()
-     */
-    /**
-     * 
-     */
+    
+
     @Override
     public void createPNG() {
 	JFreeChart chart = ChartFactory.createScatterPlot(getTitle(),

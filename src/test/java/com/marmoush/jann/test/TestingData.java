@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -14,13 +14,8 @@ package com.marmoush.jann.test;
 
 import java.io.File;
 
-
-/**
- * 
- */
 public class TestingData {
 
-    /**  */
     public static final String DATA_FOLDER = "src.test.java.data";
 
     /**
@@ -32,9 +27,7 @@ public class TestingData {
 	return toRelativePath(DATA_FOLDER + "." + folder, fileName);
     }
 
-    /**
-     * @param args
-     */
+    
     public static void main(String[] args) {
 	String path = toRelativePath(DATA_FOLDER + ".ex1", "ex1data1.txt");
 	System.out.println(path);

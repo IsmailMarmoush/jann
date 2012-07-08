@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -23,13 +23,8 @@ import org.junit.Test;
 
 import com.marmoush.jann.utils.MatrixUtils;
 
-
-/**
- * 
- */
 public class MatrixUtilsTest {
 
-    /**  */
     private DoubleMatrix mtrx;
 
     /**
@@ -49,9 +44,6 @@ public class MatrixUtilsTest {
 	System.out.println("----------------------------------");
     }
 
-    /**
-     * 
-     */
     @Test
     public void testBatchMtrx2colVecsList() {
 	DoubleMatrix batchInputs = DoubleMatrix
@@ -61,9 +53,6 @@ public class MatrixUtilsTest {
 	MatrixUtils.print(true, list.toArray(new DoubleMatrix[0]));
     }
 
-    /**
-     * 
-     */
     @Test
     public void testFeatureMapping() {
 	System.out.println(MatrixUtils.getNumFeaturesMapped(9));
@@ -71,9 +60,6 @@ public class MatrixUtilsTest {
 
     }
 
-    /**
-     * 
-     */
     @Test
     public void testFeatureMappingInput() {
 	DoubleMatrix input = MatrixUtils.randomMatrixFloor(3, 2, 1, 3);
@@ -81,9 +67,6 @@ public class MatrixUtilsTest {
 	MatrixUtils.batchFeatureMapping(input, 2, 0, 1).print();
     }
 
-    /**
-     * 
-     */
     @Test
     public void testFeatureScaling() {
 	DoubleMatrix m = DoubleMatrix.valueOf("2 4 4 4 5 5 7 9");
@@ -91,9 +74,6 @@ public class MatrixUtilsTest {
 	System.out.println(MatrixUtils.featureScalingByAvrg(m));
     }
 
-    /**
-     * 
-     */
     @Test
     public void testRound() {
 	MatrixUtils.round(mtrx, 2);
@@ -102,9 +82,6 @@ public class MatrixUtilsTest {
 	assertTrue(mtrx.toString(), mtrx.equals(testResult));
     }
 
-    /**
-     * 
-     */
     @Test
     public void testStandardDeviation() {
 	DoubleMatrix m = DoubleMatrix.valueOf("3 4 5");

@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -17,13 +17,8 @@ import org.jblas.DoubleMatrix;
 import com.marmoush.jann.ILayer;
 import com.marmoush.jann.utils.WeightUtils;
 
-
-/**
- * 
- */
 public interface IWeight extends IFunctionable {
 
-    
     public static final IWeight BATCH_DOTPROD = new IWeight() {
 	@Override
 	public String toString() {
@@ -41,7 +36,6 @@ public interface IWeight extends IFunctionable {
 	}
     };
 
-    
     public static final IWeight DOTPROD = new IWeight() {
 	@Override
 	public String toString() {

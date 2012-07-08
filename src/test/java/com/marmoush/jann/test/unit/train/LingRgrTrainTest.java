@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -30,27 +30,16 @@ import com.marmoush.jann.utils.MatrixUtils;
 import com.marmoush.jann.utils.TrainUtils;
 import com.marmoush.jann.utils.functors.IPerformance;
 
-
-/**
- * 
- */
 public class LingRgrTrainTest {
 
-    /**  */
     private List<DoubleMatrix> inputList = null;
 
-    /**  */
     private DoubleMatrix inputs = null;
 
-    /**  */
     private List<DoubleMatrix> targetList = null;
 
-    /**  */
     private DoubleMatrix targets = null;
 
-    /**
-     * 
-     */
     @Test
     public void createImage() {
 	List<Double> range = MatrixUtils.range(0, 1, 10);
@@ -88,9 +77,6 @@ public class LingRgrTrainTest {
 	System.out.println("-----------------------------------------------");
     }
 
-    /**
-     * @return
-     */
     public List<Double> trainBatchLinRgr() {
 	System.out.println();
 	System.out.println("Batch Training");
@@ -113,9 +99,6 @@ public class LingRgrTrainTest {
 	return training.getPerformanceHistory();
     }
 
-    /**
-     * @return
-     */
     public List<Double> trainStochasticLinRgr() {
 	System.out.println();
 	System.out.println("Stochastic Trainging ");

@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
  * software: you can redistribute it and/or modify it under the terms of the GNU
  * General Public License Version 3 as published by the Free Software
  * Foundation, either version 3 of the License, or any later version. JANN is
@@ -19,21 +19,12 @@ import org.junit.Test;
 import com.marmoush.jann.test.TestingData;
 import com.marmoush.jann.utils.TrainUtils;
 
-
-/**
- * 
- */
 public class NormalEqTest {
 
-    /**  */
     DoubleMatrix inputs;
 
-    /**  */
     DoubleMatrix targets;
 
-    /**
-     * 
-     */
     @Test
     public void normalEqPinvRgu() {
 	TrainUtils.normalEqPinv(inputs, targets).print();
