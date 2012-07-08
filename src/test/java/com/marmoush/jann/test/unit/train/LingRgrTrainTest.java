@@ -30,7 +30,7 @@ import com.marmoush.jann.utils.MatrixUtils;
 import com.marmoush.jann.utils.TrainUtils;
 import com.marmoush.jann.utils.functors.IPerformance;
 
-//
+// TODO: Auto-generated Javadoc
 /**
  * 
  */
@@ -74,7 +74,9 @@ public class LingRgrTrainTest {
     }
 
     /**
-     * @throws Exception
+     * 
+     *
+     * @throws Exception 
      */
     @Before
     public void setUp() throws Exception {
@@ -88,7 +90,9 @@ public class LingRgrTrainTest {
     }
 
     /**
-     * @throws Exception
+     * 
+     *
+     * @throws Exception 
      */
     @After
     public void tearDown() throws Exception {
@@ -97,7 +101,9 @@ public class LingRgrTrainTest {
     }
 
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     public List<Double> trainBatchLinRgr() {
 	System.out.println();
@@ -122,7 +128,9 @@ public class LingRgrTrainTest {
     }
 
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     public List<Double> trainStochasticLinRgr() {
 	System.out.println();

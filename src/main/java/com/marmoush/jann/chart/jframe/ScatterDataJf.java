@@ -18,7 +18,7 @@ import org.jfree.data.xy.XYSeries;
 
 import com.marmoush.jann.chart.ChartUtils;
 
-//
+// TODO: Auto-generated Javadoc
 /**
  * 
  */
@@ -36,7 +36,9 @@ public class ScatterDataJf extends ChartJFrame {
     }
 
     /**
-     * @param seriesList
+     * 
+     *
+     * @param seriesList 
      */
     public ScatterDataJf(XYSeries... seriesList) {
 	setXySeriesCollection(ChartUtils.getXYSeriesCollection(seriesList));

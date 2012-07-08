@@ -19,7 +19,7 @@ import org.junit.Test;
 
 import com.marmoush.jann.utils.TrainUtils;
 
-//
+// TODO: Auto-generated Javadoc
 /**
  * 
  */
@@ -36,7 +36,9 @@ public class TrainUtilsTest {
     private DoubleMatrix batchTargets = null;
 
     /**
-     * @throws Exception
+     * 
+     *
+     * @throws Exception 
      */
     @Before
     public void setUp() throws Exception {
@@ -51,7 +53,9 @@ public class TrainUtilsTest {
     }
 
     /**
-     * @throws Exception
+     * 
+     *
+     * @throws Exception 
      */
     @After
     public void tearDown() throws Exception {

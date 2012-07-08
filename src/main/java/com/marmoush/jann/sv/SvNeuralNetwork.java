@@ -44,43 +44,55 @@ public class SvNeuralNetwork extends ArrayList<SvLayer> {
     }
 
     /**
-     * @param c
+     * 
+     *
+     * @param c 
      */
     public SvNeuralNetwork(Collection<? extends SvLayer> c) {
 	super(c);
     }
 
     /**
-     * @param initialCapacity
+     * 
+     *
+     * @param initialCapacity 
      */
     public SvNeuralNetwork(int initialCapacity) {
 	super(initialCapacity);
     }
 
     /**
-     * @param neuralGraph
+     * 
+     *
+     * @param neuralGraph 
      */
     public SvNeuralNetwork(NeuralDirectedGraph neuralGraph) {
 	init(neuralGraph);
     }
 
     /**
-     * @param layerIdx
-     * @return
+     * 
+     *
+     * @param layerIdx 
+     * @return 
      */
     public DoubleMatrix getInputsConcat(int layerIdx) {
 	return NetworkUtils.getInputsConcat(layerIdx, this, this.neuralGraph);
     }
 
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     public NeuralDirectedGraph getNeuralGraph() {
 	return neuralGraph;
     }
 
     /**
-     * @param neuralGraph
+     * 
+     *
+     * @param neuralGraph 
      */
     public void init(NeuralDirectedGraph neuralGraph) {
 	this.neuralGraph = neuralGraph;
@@ -98,7 +110,9 @@ public class SvNeuralNetwork extends ArrayList<SvLayer> {
     }
 
     /**
-     * @param neuralGraph
+     * 
+     *
+     * @param neuralGraph 
      */
     public void setNeuralGraph(NeuralDirectedGraph neuralGraph) {
 	this.neuralGraph = neuralGraph;
@@ -116,7 +130,9 @@ public class SvNeuralNetwork extends ArrayList<SvLayer> {
      * @see java.util.AbstractCollection#toString()
      */
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     @Override
     public String toString() {

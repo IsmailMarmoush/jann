@@ -17,7 +17,7 @@ import org.jblas.DoubleMatrix;
 import com.marmoush.jann.Layer;
 import com.marmoush.jann.utils.functors.IPerformance;
 
-//
+// TODO: Auto-generated Javadoc
 /**
  * 
  */
@@ -61,9 +61,11 @@ public class SvLayer extends Layer implements ISvLayer {
     }
 
     /**
-     * @param nInputs
-     * @param nNeurons
-     * @param biased
+     * 
+     *
+     * @param nInputs 
+     * @param nNeurons 
+     * @param biased 
      */
     public SvLayer(int nInputs, int nNeurons, boolean biased) {
 	super(nInputs, nNeurons, biased);
@@ -74,8 +76,10 @@ public class SvLayer extends Layer implements ISvLayer {
      * @see com.marmoush.jann.Layer#equals(java.lang.Object)
      */
     /**
-     * @param obj
-     * @return
+     * 
+     *
+     * @param obj 
+     * @return 
      */
     @Override
     public boolean equals(Object obj) {
@@ -110,7 +114,9 @@ public class SvLayer extends Layer implements ISvLayer {
      * @see com.marmoush.jann.sv.ISvLayer#getLearnRate()
      */
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     @Override
     public double getLearnRate() {
@@ -122,7 +128,9 @@ public class SvLayer extends Layer implements ISvLayer {
      * @see com.marmoush.jann.sv.ISvLayer#getPerformance()
      */
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     @Override
     public double getPerformance() {
@@ -134,7 +142,9 @@ public class SvLayer extends Layer implements ISvLayer {
      * @see com.marmoush.jann.sv.ISvLayer#getPerformancefnctr()
      */
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     @Override
     public IPerformance getPerformancefnctr() {
@@ -146,7 +156,9 @@ public class SvLayer extends Layer implements ISvLayer {
      * @see com.marmoush.jann.sv.ISvLayer#getReguFctr()
      */
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     @Override
     public double getReguFctr() {
@@ -158,7 +170,9 @@ public class SvLayer extends Layer implements ISvLayer {
      * @see com.marmoush.jann.sv.ISvLayer#getTarget()
      */
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     @Override
     public DoubleMatrix getTarget() {
@@ -170,7 +184,9 @@ public class SvLayer extends Layer implements ISvLayer {
      * @see com.marmoush.jann.Layer#hashCode()
      */
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     @Override
     public int hashCode() {
@@ -193,7 +209,9 @@ public class SvLayer extends Layer implements ISvLayer {
      * @see com.marmoush.jann.sv.ISvLayer#setLearnRate(double)
      */
     /**
-     * @param lrnRate
+     * 
+     *
+     * @param lrnRate 
      */
     @Override
     public void setLearnRate(double lrnRate) {
@@ -205,7 +223,9 @@ public class SvLayer extends Layer implements ISvLayer {
      * @see com.marmoush.jann.sv.ISvLayer#setPerformance(double)
      */
     /**
-     * @param performance
+     * 
+     *
+     * @param performance 
      */
     @Override
     public void setPerformance(double performance) {
@@ -219,7 +239,9 @@ public class SvLayer extends Layer implements ISvLayer {
      * .functors.IPerformance)
      */
     /**
-     * @param performancefnctr
+     * 
+     *
+     * @param performancefnctr 
      */
     @Override
     public void setPerformancefnctr(IPerformance performancefnctr) {
@@ -231,7 +253,9 @@ public class SvLayer extends Layer implements ISvLayer {
      * @see com.marmoush.jann.sv.ISvLayer#setReguFctr(double)
      */
     /**
-     * @param reg
+     * 
+     *
+     * @param reg 
      */
     @Override
     public void setReguFctr(double reg) {
@@ -243,7 +267,9 @@ public class SvLayer extends Layer implements ISvLayer {
      * @see com.marmoush.jann.sv.ISvLayer#setTarget(org.jblas.DoubleMatrix)
      */
     /**
-     * @param target
+     * 
+     *
+     * @param target 
      */
     @Override
     public void setTarget(DoubleMatrix target) {
@@ -268,7 +294,9 @@ public class SvLayer extends Layer implements ISvLayer {
      * @see com.marmoush.jann.Layer#toString()
      */
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     @Override
     public String toString() {
@@ -290,7 +318,9 @@ public class SvLayer extends Layer implements ISvLayer {
      * @see com.marmoush.jann.sv.ISvLayer#updatePerformance()
      */
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     @Override
     public double updatePerformance() {

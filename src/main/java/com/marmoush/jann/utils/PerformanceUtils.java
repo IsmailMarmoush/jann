@@ -15,16 +15,18 @@ package com.marmoush.jann.utils;
 import org.jblas.DoubleMatrix;
 import org.jblas.MatrixFunctions;
 
-//
+// TODO: Auto-generated Javadoc
 /**
  * 
  */
 public class PerformanceUtils {
 
     /**
-     * @param output
-     * @param target
-     * @return
+     * 
+     *
+     * @param output 
+     * @param target 
+     * @return 
      */
     public static double linRgr(DoubleMatrix output, DoubleMatrix target) {
 	double m = target.length;
@@ -33,11 +35,13 @@ public class PerformanceUtils {
     }
 
     /**
-     * @param output
-     * @param target
-     * @param weight
-     * @param reguFctr
-     * @return
+     * 
+     *
+     * @param output 
+     * @param target 
+     * @param weight 
+     * @param reguFctr 
+     * @return 
      */
     public static double linRgrRgu(DoubleMatrix output, DoubleMatrix target,
 	    DoubleMatrix weight, double reguFctr) {
@@ -48,9 +52,11 @@ public class PerformanceUtils {
     }
 
     /**
-     * @param output
-     * @param target
-     * @return
+     * 
+     *
+     * @param output 
+     * @param target 
+     * @return 
      */
     public static double logRgr(DoubleMatrix output, DoubleMatrix target) {
 	// J = -1./m * ( y' * log( sigmoid(X * theta) ) + ( 1 - y' ) * log ( 1 -
@@ -69,11 +75,13 @@ public class PerformanceUtils {
     }
 
     /**
-     * @param output
-     * @param target
-     * @param weight
-     * @param reguFctr
-     * @return
+     * 
+     *
+     * @param output 
+     * @param target 
+     * @param weight 
+     * @param reguFctr 
+     * @return 
      */
     public static double logRgrRgu(DoubleMatrix output, DoubleMatrix target,
 	    DoubleMatrix weight, double reguFctr) {
@@ -84,9 +92,11 @@ public class PerformanceUtils {
     }
 
     /**
-     * @param output
-     * @param target
-     * @return
+     * 
+     *
+     * @param output 
+     * @param target 
+     * @return 
      */
     public static double mae(DoubleMatrix output, DoubleMatrix target) {
 	int m = target.length;
@@ -95,9 +105,11 @@ public class PerformanceUtils {
     }
 
     /**
-     * @param output
-     * @param target
-     * @return
+     * 
+     *
+     * @param output 
+     * @param target 
+     * @return 
      */
     public static double mse(DoubleMatrix output, DoubleMatrix target) {
 	// As long as error.length is actually the length of the error matrix
@@ -108,9 +120,11 @@ public class PerformanceUtils {
     }
 
     /**
-     * @param output
-     * @param target
-     * @return
+     * 
+     *
+     * @param output 
+     * @param target 
+     * @return 
      */
     public static double sse(DoubleMatrix output, DoubleMatrix target) {
 	DoubleMatrix error = output.sub(target);

@@ -16,15 +16,17 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.xy.XYSeries;
 
-//
+// TODO: Auto-generated Javadoc
 /**
  * 
  */
 public class LineImg extends ChartImage {
 
     /**
-     * @param path
-     * @param series
+     * 
+     *
+     * @param path 
+     * @param series 
      */
     public LineImg(String path, XYSeries... series) {
 	setPath(path);

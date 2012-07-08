@@ -15,15 +15,17 @@ package com.marmoush.jann.utils;
 import org.jblas.DoubleMatrix;
 import org.jblas.MatrixFunctions;
 
-//
+// TODO: Auto-generated Javadoc
 /**
  * 
  */
 public abstract class TransfereUtils {
 
     /**
-     * @param netSum
-     * @return
+     * 
+     *
+     * @param netSum 
+     * @return 
      */
     public static DoubleMatrix compet(final DoubleMatrix netSum) {
 	int maxIndex = netSum.argmax();
@@ -33,9 +35,11 @@ public abstract class TransfereUtils {
     }
 
     /**
-     * @param netSum
-     * @param theta
-     * @return
+     * 
+     *
+     * @param netSum 
+     * @param theta 
+     * @return 
      */
     public static DoubleMatrix hardlim(final DoubleMatrix netSum,
 	    final double theta) {
@@ -43,9 +47,11 @@ public abstract class TransfereUtils {
     }
 
     /**
-     * @param netSum
-     * @param theta
-     * @return
+     * 
+     *
+     * @param netSum 
+     * @param theta 
+     * @return 
      */
     public static DoubleMatrix hardlims(final DoubleMatrix netSum,
 	    final double theta) {
@@ -57,8 +63,10 @@ public abstract class TransfereUtils {
     }
 
     /**
-     * @param netSum
-     * @return
+     * 
+     *
+     * @param netSum 
+     * @return 
      */
     public static DoubleMatrix logsig(final DoubleMatrix netSum) {
 	return MatrixFunctions.pow((MatrixFunctions.exp(netSum.neg()).add(1)),
@@ -66,8 +74,10 @@ public abstract class TransfereUtils {
     }
 
     /**
-     * @param netSum
-     * @return
+     * 
+     *
+     * @param netSum 
+     * @return 
      */
     public static DoubleMatrix logsigDiff(final DoubleMatrix netSum) {
 	// =g(z)(1-g(z))
@@ -78,9 +88,11 @@ public abstract class TransfereUtils {
     }
 
     /**
-     * @param netSum
-     * @param theta
-     * @return
+     * 
+     *
+     * @param netSum 
+     * @param theta 
+     * @return 
      */
     public static DoubleMatrix poslin(final DoubleMatrix netSum,
 	    final double theta) {
@@ -93,16 +105,20 @@ public abstract class TransfereUtils {
     }
 
     /**
-     * @param netSum
-     * @return
+     * 
+     *
+     * @param netSum 
+     * @return 
      */
     public static DoubleMatrix purelin(final DoubleMatrix netSum) {
 	return netSum;
     }
 
     /**
-     * @param netSum
-     * @return
+     * 
+     *
+     * @param netSum 
+     * @return 
      */
     public static DoubleMatrix satlin(final DoubleMatrix netSum) {
 	DoubleMatrix result = new DoubleMatrix(netSum.length);
@@ -116,8 +132,10 @@ public abstract class TransfereUtils {
     }
 
     /**
-     * @param netSum
-     * @return
+     * 
+     *
+     * @param netSum 
+     * @return 
      */
     public static DoubleMatrix satlins(final DoubleMatrix netSum) {
 	DoubleMatrix result = new DoubleMatrix(netSum.length);
@@ -131,16 +149,20 @@ public abstract class TransfereUtils {
     }
 
     /**
-     * @param netSum
-     * @return
+     * 
+     *
+     * @param netSum 
+     * @return 
      */
     public static DoubleMatrix tansig(final DoubleMatrix netSum) {
 	return MatrixFunctions.tanh(netSum);
     }
 
     /**
-     * @param netSum
-     * @return
+     * 
+     *
+     * @param netSum 
+     * @return 
      */
     public static DoubleMatrix tansigDiff(final DoubleMatrix netSum) {
 	// (1-(f(netSum)^2))

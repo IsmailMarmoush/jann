@@ -17,7 +17,7 @@ import org.jblas.DoubleMatrix;
 import com.marmoush.jann.ILayer;
 import com.marmoush.jann.utils.TransfereUtils;
 
-//
+// TODO: Auto-generated Javadoc
 /**
  * 
  */
@@ -189,8 +189,10 @@ public interface ITransfere extends IFunctionable {
     };
 
     /**
-     * @param layer
-     * @return
+     * 
+     *
+     * @param layer 
+     * @return 
      */
     public DoubleMatrix transfere(ILayer layer);
 }

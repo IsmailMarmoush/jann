@@ -21,7 +21,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeriesCollection;
 
-//
+// TODO: Auto-generated Javadoc
 /**
  * 
  */
@@ -88,14 +88,18 @@ public abstract class ChartJFrame extends JFrame {
     private String yAxisTitle = "Y-Axis";
 
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     public String getApptitle() {
 	return apptitle;
     }
 
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     public JFreeChart getChart() {
 	return chart;
@@ -106,7 +110,9 @@ public abstract class ChartJFrame extends JFrame {
      * @see java.awt.Component#getHeight()
      */
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     @Override
     public int getHeight() {
@@ -114,7 +120,9 @@ public abstract class ChartJFrame extends JFrame {
     }
 
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     public PlotOrientation getOrientation() {
 	return orientation;
@@ -125,7 +133,9 @@ public abstract class ChartJFrame extends JFrame {
      * @see java.awt.Component#getWidth()
      */
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     @Override
     public int getWidth() {
@@ -133,42 +143,54 @@ public abstract class ChartJFrame extends JFrame {
     }
 
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     public String getxAxisTitle() {
 	return xAxisTitle;
     }
 
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     public XYSeriesCollection getXySeriesCollection() {
 	return xySeriesCollection;
     }
 
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     public String getyAxisTitle() {
 	return yAxisTitle;
     }
 
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     public boolean isLegend() {
 	return legend;
     }
 
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     public boolean isTooltips() {
 	return tooltips;
     }
 
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     public boolean isUrls() {
 	return urls;
@@ -189,77 +211,99 @@ public abstract class ChartJFrame extends JFrame {
     }
 
     /**
-     * @param apptitle
+     * 
+     *
+     * @param apptitle 
      */
     public void setApptitle(String apptitle) {
 	this.apptitle = apptitle;
     }
 
     /**
-     * @param chart
+     * 
+     *
+     * @param chart 
      */
     public void setChart(JFreeChart chart) {
 	this.chart = chart;
     }
 
     /**
-     * @param height
+     * 
+     *
+     * @param height 
      */
     public void setHeight(int height) {
 	this.height = height;
     }
 
     /**
-     * @param legend
+     * 
+     *
+     * @param legend 
      */
     public void setLegend(boolean legend) {
 	this.legend = legend;
     }
 
     /**
-     * @param orientation
+     * 
+     *
+     * @param orientation 
      */
     public void setOrientation(PlotOrientation orientation) {
 	this.orientation = orientation;
     }
 
     /**
-     * @param tooltips
+     * 
+     *
+     * @param tooltips 
      */
     public void setTooltips(boolean tooltips) {
 	this.tooltips = tooltips;
     }
 
     /**
-     * @param urls
+     * 
+     *
+     * @param urls 
      */
     public void setUrls(boolean urls) {
 	this.urls = urls;
     }
 
     /**
-     * @param width
+     * 
+     *
+     * @param width 
      */
     public void setWidth(int width) {
 	this.width = width;
     }
 
     /**
-     * @param xTitle
+     * 
+     *
+     * @param xTitle 
      */
     public void setxAxisTitle(String xTitle) {
 	this.xAxisTitle = xTitle;
     }
 
     /**
-     * @param xySeriesCollection
+     * 
+     *
+     * @param xySeriesCollection 
      */
     public void setXySeriesCollection(XYSeriesCollection xySeriesCollection) {
 	this.xySeriesCollection = xySeriesCollection;
     }
 
     /**
-     * @param yTitle
+     * 
+     *
+     * @param yTitle 
      */
     public void setyAxisTitle(String yTitle) {
 	this.yAxisTitle = yTitle;

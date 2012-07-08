@@ -12,14 +12,16 @@
  */
 package com.marmoush.jann.utils.functors;
 
-//
+// TODO: Auto-generated Javadoc
 /**
  * 
  */
 public interface IFunctionable {
 
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     @Override
     public String toString();

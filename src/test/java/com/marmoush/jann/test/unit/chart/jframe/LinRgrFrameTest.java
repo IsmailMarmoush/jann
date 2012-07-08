@@ -18,14 +18,16 @@ import com.marmoush.jann.chart.ChartUtils;
 import com.marmoush.jann.chart.jframe.LineJf;
 import com.marmoush.jann.utils.MatrixUtils;
 
-//
+// TODO: Auto-generated Javadoc
 /**
  * 
  */
 public class LinRgrFrameTest {
 
     /**
-     * @param args
+     * 
+     *
+     * @param args 
      */
     public static void main(String[] args) {
 	XYSeries xys = ChartUtils.xySeries("Training",

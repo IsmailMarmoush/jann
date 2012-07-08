@@ -19,7 +19,7 @@ import org.jgrapht.Graphs;
 import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 
-//
+// TODO: Auto-generated Javadoc
 /**
  * 
  */
@@ -45,7 +45,9 @@ public class NeuralDirectedGraph extends
     }
 
     /**
-     * @param nNeuronsPerLayer
+     * 
+     *
+     * @param nNeuronsPerLayer 
      */
     public NeuralDirectedGraph(int... nNeuronsPerLayer) {
 	this();
@@ -56,7 +58,9 @@ public class NeuralDirectedGraph extends
     }
 
     /**
-     * @param nNeuronsPerLayer
+     * 
+     *
+     * @param nNeuronsPerLayer 
      */
     public NeuralDirectedGraph(List<Integer> nNeuronsPerLayer) {
 	this();
@@ -94,7 +98,9 @@ public class NeuralDirectedGraph extends
      * ()
      */
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     @Override
     public List<Integer> getAllLayersNumOfNeurons() {
@@ -107,8 +113,10 @@ public class NeuralDirectedGraph extends
      * com.marmoush.jann.NeuralGraph.NeuralDirectedGraphable#getInputLength(int)
      */
     /**
-     * @param lyrIdx
-     * @return
+     * 
+     *
+     * @param lyrIdx 
+     * @return 
      */
     @Override
     public int getInputLength(final int lyrIdx) {
@@ -127,8 +135,10 @@ public class NeuralDirectedGraph extends
      * (int)
      */
     /**
-     * @param lyrIdx
-     * @return
+     * 
+     *
+     * @param lyrIdx 
+     * @return 
      */
     @Override
     public int getLayerNumOfNeurons(final int lyrIdx) {
@@ -136,7 +146,9 @@ public class NeuralDirectedGraph extends
     }
 
     /**
-     * @return
+     * 
+     *
+     * @return 
      */
     public int getNumOfLayers() {
 	return this.layersNumOfNeurons.size();
@@ -149,8 +161,10 @@ public class NeuralDirectedGraph extends
      * (int)
      */
     /**
-     * @param lyrIdx
-     * @return
+     * 
+     *
+     * @param lyrIdx 
+     * @return 
      */
     @Override
     public List<Integer> getPredecessorsOf(final int lyrIdx) {
@@ -164,8 +178,10 @@ public class NeuralDirectedGraph extends
      * (int)
      */
     /**
-     * @param lyrIdx
-     * @return
+     * 
+     *
+     * @param lyrIdx 
+     * @return 
      */
     @Override
     public List<Integer> getSuccessorsOf(int lyrIdx) {
@@ -179,7 +195,9 @@ public class NeuralDirectedGraph extends
      * (java.util.List)
      */
     /**
-     * @param nNeuronsPerLayer
+     * 
+     *
+     * @param nNeuronsPerLayer 
      */
     @Override
     public void setAllLayersNumOfNeurons(List<Integer> nNeuronsPerLayer) {
