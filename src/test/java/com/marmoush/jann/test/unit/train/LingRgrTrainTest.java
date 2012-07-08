@@ -36,24 +36,16 @@ import com.marmoush.jann.utils.functors.IPerformance;
  */
 public class LingRgrTrainTest {
 
-    /**
-     * 
-     */
+    /**  */
     private List<DoubleMatrix> inputList = null;
 
-    /**
-     * 
-     */
+    /**  */
     private DoubleMatrix inputs = null;
 
-    /**
-     * 
-     */
+    /**  */
     private List<DoubleMatrix> targetList = null;
 
-    /**
-     * 
-     */
+    /**  */
     private DoubleMatrix targets = null;
 
     /**
@@ -74,9 +66,7 @@ public class LingRgrTrainTest {
     }
 
     /**
-     * 
-     *
-     * @throws Exception 
+     * @throws Exception
      */
     @Before
     public void setUp() throws Exception {
@@ -90,9 +80,7 @@ public class LingRgrTrainTest {
     }
 
     /**
-     * 
-     *
-     * @throws Exception 
+     * @throws Exception
      */
     @After
     public void tearDown() throws Exception {
@@ -101,9 +89,7 @@ public class LingRgrTrainTest {
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public List<Double> trainBatchLinRgr() {
 	System.out.println();
@@ -128,9 +114,7 @@ public class LingRgrTrainTest {
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public List<Double> trainStochasticLinRgr() {
 	System.out.println();

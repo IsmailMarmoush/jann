@@ -19,9 +19,7 @@ package com.marmoush.jann.utils.functors;
 public interface IFunctionable {
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     @Override
     public String toString();

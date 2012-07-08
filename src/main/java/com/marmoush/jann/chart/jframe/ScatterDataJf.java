@@ -24,9 +24,7 @@ import com.marmoush.jann.chart.ChartUtils;
  */
 public class ScatterDataJf extends ChartJFrame {
 
-    /**
-     * 
-     */
+    
     private static final long serialVersionUID = -457908141851955661L;
 
     /**
@@ -36,9 +34,7 @@ public class ScatterDataJf extends ChartJFrame {
     }
 
     /**
-     * 
-     *
-     * @param seriesList 
+     * @param seriesList
      */
     public ScatterDataJf(XYSeries... seriesList) {
 	setXySeriesCollection(ChartUtils.getXYSeriesCollection(seriesList));

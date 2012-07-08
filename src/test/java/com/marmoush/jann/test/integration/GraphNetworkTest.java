@@ -25,9 +25,7 @@ import com.marmoush.jann.utils.NetworkUtils;
 public class GraphNetworkTest {
 
     /**
-     * 
-     *
-     * @param args 
+     * @param args
      */
     public static void main(String[] args) {
 	NeuralDirectedGraph ngraph = new NeuralDirectedGraph(3, 4, 2);

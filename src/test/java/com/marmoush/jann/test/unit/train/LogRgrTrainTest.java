@@ -36,29 +36,19 @@ import com.marmoush.jann.utils.TrainUtils;
  */
 public class LogRgrTrainTest {
 
-    /**
-     * 
-     */
+    /**  */
     private DoubleMatrix data = null;
 
-    /**
-     * 
-     */
+    /**  */
     private List<DoubleMatrix> inputList = null;
 
-    /**
-     * 
-     */
+    /**  */
     private DoubleMatrix inputs = null;
 
-    /**
-     * 
-     */
+    /**  */
     private List<DoubleMatrix> targetList = null;
 
-    /**
-     * 
-     */
+    /**  */
     private DoubleMatrix targets = null;
 
     /**
@@ -107,9 +97,7 @@ public class LogRgrTrainTest {
     }
 
     /**
-     * 
-     *
-     * @throws Exception 
+     * @throws Exception
      */
     @Before
     public void setUp() throws Exception {
@@ -123,9 +111,7 @@ public class LogRgrTrainTest {
     }
 
     /**
-     * 
-     *
-     * @throws Exception 
+     * @throws Exception
      */
     @After
     public void tearDown() throws Exception {
@@ -134,9 +120,7 @@ public class LogRgrTrainTest {
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public List<Double> trainBatchLogRgr() {
 	System.out.println("Batch Training");
@@ -160,9 +144,7 @@ public class LogRgrTrainTest {
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public List<Double> trainStochasticLinRgr() {
 	System.out.println("Stochastic Trainging ");

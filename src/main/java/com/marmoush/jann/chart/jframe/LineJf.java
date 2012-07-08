@@ -24,9 +24,7 @@ import com.marmoush.jann.chart.ChartUtils;
  */
 public class LineJf extends ChartJFrame {
 
-    /**
-     * 
-     */
+    
     private static final long serialVersionUID = -6259803593823138950L;
 
     /**
@@ -36,9 +34,7 @@ public class LineJf extends ChartJFrame {
     }
 
     /**
-     * 
-     *
-     * @param seriesList 
+     * @param seriesList
      */
     public LineJf(XYSeries... seriesList) {
 	setXySeriesCollection(ChartUtils.getXYSeriesCollection(seriesList));

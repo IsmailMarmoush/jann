@@ -21,43 +21,33 @@ import org.jblas.DoubleMatrix;
 public interface IFillableLayer {
 
     /**
-     * 
-     *
-     * @param value 
-     * @param matrices 
+     * @param value
+     * @param matrices
      */
     public abstract void setFill(double value, DoubleMatrix... matrices);
 
     /**
-     * 
-     *
-     * @param matrices 
+     * @param matrices
      */
     public abstract void setFillRandom(DoubleMatrix... matrices);
 
     /**
-     * 
-     *
-     * @param matrices 
+     * @param matrices
      */
     public abstract void setFillRandomFloor(DoubleMatrix... matrices);
 
     /**
-     * 
-     *
-     * @param min 
-     * @param max 
-     * @param matrices 
+     * @param min
+     * @param max
+     * @param matrices
      */
     public abstract void setFillRandomMinMax(double min, double max,
 	    DoubleMatrix... matrices);
 
     /**
-     * 
-     *
-     * @param min 
-     * @param max 
-     * @param matrices 
+     * @param min
+     * @param max
+     * @param matrices
      */
     public abstract void setFillRandomMinMaxFloor(int min, int max,
 	    DoubleMatrix... matrices);

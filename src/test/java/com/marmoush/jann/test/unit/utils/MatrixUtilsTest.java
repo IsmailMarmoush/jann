@@ -29,15 +29,11 @@ import com.marmoush.jann.utils.MatrixUtils;
  */
 public class MatrixUtilsTest {
 
-    /**
-     * 
-     */
+    /**  */
     private DoubleMatrix mtrx;
 
     /**
-     * 
-     *
-     * @throws Exception 
+     * @throws Exception
      */
     @Before
     public void setUp() throws Exception {
@@ -46,9 +42,7 @@ public class MatrixUtilsTest {
     }
 
     /**
-     * 
-     *
-     * @throws Exception 
+     * @throws Exception
      */
     @After
     public void tearDown() throws Exception {

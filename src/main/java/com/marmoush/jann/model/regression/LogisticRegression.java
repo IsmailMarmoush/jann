@@ -27,17 +27,13 @@ import com.marmoush.jann.utils.functors.IWeight;
  */
 public class LogisticRegression extends SvLayer {
 
-    /**
-     * 
-     */
+    
     private static final long serialVersionUID = 6248944247719115094L;
 
     /**
-     * 
-     *
-     * @param batchTrainingEx 
-     * @param batchTargets 
-     * @param biased 
+     * @param batchTrainingEx
+     * @param batchTargets
+     * @param biased
      */
     public LogisticRegression(DoubleMatrix batchTrainingEx,
 	    DoubleMatrix batchTargets, boolean biased) {
@@ -48,11 +44,9 @@ public class LogisticRegression extends SvLayer {
     }
 
     /**
-     * 
-     *
-     * @param trainingEx 
-     * @param targetList 
-     * @param biased 
+     * @param trainingEx
+     * @param targetList
+     * @param biased
      */
     public LogisticRegression(List<DoubleMatrix> trainingEx,
 	    List<DoubleMatrix> targetList, boolean biased) {

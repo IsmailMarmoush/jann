@@ -25,14 +25,10 @@ import com.marmoush.jann.utils.TrainUtils;
  */
 public class NormalEqTest {
 
-    /**
-     * 
-     */
+    /**  */
     DoubleMatrix inputs;
 
-    /**
-     * 
-     */
+    /**  */
     DoubleMatrix targets;
 
     /**
@@ -46,9 +42,7 @@ public class NormalEqTest {
     }
 
     /**
-     * 
-     *
-     * @throws Exception 
+     * @throws Exception
      */
     @Before
     public void setUp() throws Exception {

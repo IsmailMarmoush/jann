@@ -20,26 +20,20 @@ import java.io.File;
  */
 public class TestingData {
 
-    /**
-     * 
-     */
+    /**  */
     public static final String DATA_FOLDER = "src.test.java.data";
 
     /**
-     * 
-     *
-     * @param folder 
-     * @param fileName 
-     * @return 
+     * @param folder
+     * @param fileName
+     * @return
      */
     public static String getPath(String folder, String fileName) {
 	return toRelativePath(DATA_FOLDER + "." + folder, fileName);
     }
 
     /**
-     * 
-     *
-     * @param args 
+     * @param args
      */
     public static void main(String[] args) {
 	String path = toRelativePath(DATA_FOLDER + ".ex1", "ex1data1.txt");
@@ -47,11 +41,9 @@ public class TestingData {
     }
 
     /**
-     * 
-     *
-     * @param classPath 
-     * @param fileName 
-     * @return 
+     * @param classPath
+     * @param fileName
+     * @return
      */
     public static String toRelativePath(String classPath, String fileName) {
 	String[] bits = classPath.split("\\.");

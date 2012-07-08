@@ -23,9 +23,7 @@ import com.marmoush.jann.utils.TransfereUtils;
  */
 public interface ITransfere extends IFunctionable {
 
-    /**
-     * 
-     */
+    
     public static final ITransfere COMPET = new ITransfere() {
 	@Override
 	public String toString() {
@@ -38,9 +36,7 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /**
-     * 
-     */
+    
     public static final ITransfere HARDLIM = new ITransfere() {
 	@Override
 	public String toString() {
@@ -53,9 +49,7 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /**
-     * 
-     */
+    
     public static final ITransfere HARDLIMS = new ITransfere() {
 	@Override
 	public String toString() {
@@ -68,9 +62,7 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /**
-     * 
-     */
+    
     public static final ITransfere LOGSIG = new ITransfere() {
 	@Override
 	public String toString() {
@@ -83,9 +75,7 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /**
-     * 
-     */
+    
     public static final ITransfere LOGSIGDIFF = new ITransfere() {
 	@Override
 	public String toString() {
@@ -98,9 +88,7 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /**
-     * 
-     */
+    
     public static final ITransfere POSLIN = new ITransfere() {
 	@Override
 	public String toString() {
@@ -113,9 +101,7 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /**
-     * 
-     */
+    
     public static final ITransfere PURELIN = new ITransfere() {
 	@Override
 	public String toString() {
@@ -128,9 +114,7 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /**
-     * 
-     */
+    
     public static final ITransfere SATLIN = new ITransfere() {
 	@Override
 	public String toString() {
@@ -143,9 +127,7 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /**
-     * 
-     */
+    
     public static final ITransfere SATLINS = new ITransfere() {
 	@Override
 	public String toString() {
@@ -158,9 +140,7 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /**
-     * 
-     */
+    
     public static final ITransfere TANSIG = new ITransfere() {
 	@Override
 	public String toString() {
@@ -173,9 +153,7 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /**
-     * 
-     */
+    
     public static final ITransfere TANSIGDIFF = new ITransfere() {
 	@Override
 	public String toString() {
@@ -189,10 +167,8 @@ public interface ITransfere extends IFunctionable {
     };
 
     /**
-     * 
-     *
-     * @param layer 
-     * @return 
+     * @param layer
+     * @return
      */
     public DoubleMatrix transfere(ILayer layer);
 }

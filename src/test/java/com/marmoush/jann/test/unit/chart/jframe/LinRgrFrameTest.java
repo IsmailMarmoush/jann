@@ -25,9 +25,7 @@ import com.marmoush.jann.utils.MatrixUtils;
 public class LinRgrFrameTest {
 
     /**
-     * 
-     *
-     * @param args 
+     * @param args
      */
     public static void main(String[] args) {
 	XYSeries xys = ChartUtils.xySeries("Training",

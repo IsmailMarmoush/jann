@@ -21,9 +21,7 @@ import com.marmoush.jann.utils.PerformanceUtils;
  */
 public interface IPerformance extends IFunctionable {
 
-    /**
-     * 
-     */
+    
     public static final IPerformance LINRGR = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -37,9 +35,7 @@ public interface IPerformance extends IFunctionable {
 	}
     };
 
-    /**
-     * 
-     */
+    
     public static final IPerformance LINRGR_RGU = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -53,9 +49,7 @@ public interface IPerformance extends IFunctionable {
 	}
     };
 
-    /**
-     * 
-     */
+    
     public static final IPerformance LOGRGR = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -69,9 +63,7 @@ public interface IPerformance extends IFunctionable {
 	}
     };
 
-    /**
-     * 
-     */
+    
     public static final IPerformance LOGRGR_RGU = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -85,9 +77,7 @@ public interface IPerformance extends IFunctionable {
 	}
     };
 
-    /**
-     * 
-     */
+    
     public static final IPerformance MAE = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -100,9 +90,7 @@ public interface IPerformance extends IFunctionable {
 	}
     };
 
-    /**
-     * 
-     */
+    
     public static final IPerformance MSE = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -115,9 +103,7 @@ public interface IPerformance extends IFunctionable {
 	}
     };
 
-    /**
-     * 
-     */
+    
     public static final IPerformance SSE = new IPerformance() {
 	@Override
 	public double measurePerformance(ISvLayer layer) {
@@ -131,10 +117,8 @@ public interface IPerformance extends IFunctionable {
     };
 
     /**
-     * 
-     *
-     * @param layer 
-     * @return 
+     * @param layer
+     * @return
      */
     public double measurePerformance(ISvLayer layer);
 }

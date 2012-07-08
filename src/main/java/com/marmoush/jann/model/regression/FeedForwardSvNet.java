@@ -26,19 +26,15 @@ import com.marmoush.jann.utils.functors.IWeight;
  */
 public class FeedForwardSvNet extends SvNeuralNetwork {
 
-    /**
-     * 
-     */
+    
     private static final long serialVersionUID = 8103514276278385409L;
 
     /**
-     * 
-     *
-     * @param inputSize 
-     * @param weightFnctr 
-     * @param transFnctr 
-     * @param performanceFnctr 
-     * @param nNeuronsPerLayer 
+     * @param inputSize
+     * @param weightFnctr
+     * @param transFnctr
+     * @param performanceFnctr
+     * @param nNeuronsPerLayer
      */
     public FeedForwardSvNet(int inputSize, IWeight weightFnctr,
 	    ITransfere transFnctr, IPerformance performanceFnctr,
@@ -49,31 +45,25 @@ public class FeedForwardSvNet extends SvNeuralNetwork {
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public SvLayer getInputLayer() {
 	return this.get(0);
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public SvLayer getOutputLayer() {
 	return this.get(this.size() - 1);
     }
 
     /**
-     * 
-     *
-     * @param inputSize 
-     * @param weightFnctr 
-     * @param transFnctr 
-     * @param perfFnctr 
-     * @param nNeuronsPerLayer 
+     * @param inputSize
+     * @param weightFnctr
+     * @param transFnctr
+     * @param perfFnctr
+     * @param nNeuronsPerLayer
      */
     public void init(int inputSize, IWeight weightFnctr, ITransfere transFnctr,
 	    IPerformance perfFnctr, int... nNeuronsPerLayer) {
@@ -86,18 +76,14 @@ public class FeedForwardSvNet extends SvNeuralNetwork {
     }
 
     /**
-     * 
-     *
-     * @param input 
+     * @param input
      */
     public void setInput(DoubleMatrix input) {
 	this.getInputLayer().setInput(input);
     }
 
     /**
-     * 
-     *
-     * @param target 
+     * @param target
      */
     public void setTarget(DoubleMatrix target) {
 	this.getOutputLayer().setTarget(target);

@@ -23,9 +23,7 @@ import com.marmoush.jann.utils.WeightUtils;
  */
 public interface IWeight extends IFunctionable {
 
-    /**
-     * 
-     */
+    
     public static final IWeight BATCH_DOTPROD = new IWeight() {
 	@Override
 	public String toString() {
@@ -43,9 +41,7 @@ public interface IWeight extends IFunctionable {
 	}
     };
 
-    /**
-     * 
-     */
+    
     public static final IWeight DOTPROD = new IWeight() {
 	@Override
 	public String toString() {
@@ -63,10 +59,8 @@ public interface IWeight extends IFunctionable {
     };
 
     /**
-     * 
-     *
-     * @param layer 
-     * @return 
+     * @param layer
+     * @return
      */
     public DoubleMatrix weightFn(ILayer layer);
 }

@@ -26,59 +26,37 @@ import com.marmoush.jann.utils.functors.IWeight;
  */
 public class Layer implements Serializable, ILayer, IFillableLayer {
 
-    /**
-     * 
-     */
+    
     private static final long serialVersionUID = 59396693200260159L;
 
-    /**
-     * 
-     */
+    
     private DoubleMatrix bias = null;
 
-    /**
-     * 
-     */
+    
     private boolean biased = false;
 
-    /**
-     * 
-     */
+    
     private DoubleMatrix input = null;
 
-    /**
-     * 
-     */
+    
     private boolean inputOnlyLayer = false;
 
-    /**
-     * 
-     */
+    
     private DoubleMatrix netSum = null;
 
-    /**
-     * 
-     */
+    
     private DoubleMatrix output = null;
 
-    /**
-     * 
-     */
+    
     private double theta = 0;
 
-    /**
-     * 
-     */
+    
     private ITransfere transfereFnctr = ITransfere.PURELIN;
 
-    /**
-     * 
-     */
+    
     private DoubleMatrix weight = null;
 
-    /**
-     * 
-     */
+    
     private IWeight weightFnctr = null;
 
     /**
@@ -89,11 +67,9 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
     }
 
     /**
-     * 
-     *
-     * @param nInputs 
-     * @param nNeurons 
-     * @param biased 
+     * @param nInputs
+     * @param nNeurons
+     * @param biased
      */
     public Layer(final int nInputs, final int nNeurons, boolean biased) {
 	input = new DoubleMatrix(nInputs);
@@ -112,10 +88,8 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see java.lang.Object#equals(java.lang.Object)
      */
     /**
-     * 
-     *
-     * @param obj 
-     * @return 
+     * @param obj
+     * @return
      */
     @Override
     public boolean equals(Object obj) {
@@ -162,9 +136,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.ILayer#getBias()
      */
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     @Override
     public DoubleMatrix getBias() {
@@ -176,9 +148,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.ILayer#getInput()
      */
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     @Override
     public DoubleMatrix getInput() {
@@ -190,9 +160,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.ILayer#getNetSum()
      */
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     @Override
     public DoubleMatrix getNetSum() {
@@ -204,9 +172,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.ILayer#getOutput()
      */
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     @Override
     public DoubleMatrix getOutput() {
@@ -218,9 +184,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.ILayer#getTheta()
      */
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     @Override
     public double getTheta() {
@@ -232,9 +196,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.ILayer#getTransfereFnctr()
      */
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     @Override
     public ITransfere getTransfereFnctr() {
@@ -246,9 +208,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.ILayer#getWeight()
      */
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     @Override
     public DoubleMatrix getWeight() {
@@ -260,9 +220,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.ILayer#getWeightFnctr()
      */
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     @Override
     public IWeight getWeightFnctr() {
@@ -274,9 +232,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see java.lang.Object#hashCode()
      */
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     @Override
     public int hashCode() {
@@ -298,9 +254,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.ILayer#isBiased()
      */
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     @Override
     public boolean isBiased() {
@@ -312,9 +266,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.ILayer#isInputOnlyLayer()
      */
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     @Override
     public boolean isInputOnlyLayer() {
@@ -327,9 +279,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.ILayer#setBias(org.jblas.DoubleMatrix)
      */
     /**
-     * 
-     *
-     * @param bias 
+     * @param bias
      */
     @Override
     public void setBias(DoubleMatrix bias) {
@@ -338,9 +288,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
     }
 
     /**
-     * 
-     *
-     * @param biased 
+     * @param biased
      */
     public void setBiased(boolean biased) {
 	this.biased = biased;
@@ -352,10 +300,8 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * org.jblas.DoubleMatrix)
      */
     /**
-     * 
-     *
-     * @param value 
-     * @param matrices 
+     * @param value
+     * @param matrices
      */
     @Override
     public void setFill(double value, DoubleMatrix... matrices) {
@@ -370,9 +316,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * com.marmoush.jann.IFillableLayer#setFillRandom(org.jblas.DoubleMatrix)
      */
     /**
-     * 
-     *
-     * @param matrices 
+     * @param matrices
      */
     @Override
     public void setFillRandom(DoubleMatrix... matrices) {
@@ -386,9 +330,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * [])
      */
     /**
-     * 
-     *
-     * @param matrices 
+     * @param matrices
      */
     @Override
     public void setFillRandomFloor(DoubleMatrix... matrices) {
@@ -401,11 +343,9 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * org.jblas.DoubleMatrix)
      */
     /**
-     * 
-     *
-     * @param min 
-     * @param max 
-     * @param matrices 
+     * @param min
+     * @param max
+     * @param matrices
      */
     @Override
     public void setFillRandomMinMax(double min, double max,
@@ -419,11 +359,9 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * org.jblas.DoubleMatrix[])
      */
     /**
-     * 
-     *
-     * @param min 
-     * @param max 
-     * @param matrices 
+     * @param min
+     * @param max
+     * @param matrices
      */
     @Override
     public void setFillRandomMinMaxFloor(int min, int max,
@@ -436,9 +374,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.ILayer#setInput(org.jblas.DoubleMatrix)
      */
     /**
-     * 
-     *
-     * @param input 
+     * @param input
      */
     @Override
     public void setInput(DoubleMatrix input) {
@@ -446,9 +382,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
     }
 
     /**
-     * 
-     *
-     * @param inputOnlyLayer 
+     * @param inputOnlyLayer
      */
     public void setInputOnlyLayer(boolean inputOnlyLayer) {
 	this.inputOnlyLayer = inputOnlyLayer;
@@ -459,9 +393,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.ILayer#setNetSum(org.jblas.DoubleMatrix)
      */
     /**
-     * 
-     *
-     * @param netsum 
+     * @param netsum
      */
     @Override
     public void setNetSum(DoubleMatrix netsum) {
@@ -473,9 +405,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.ILayer#setOutput(org.jblas.DoubleMatrix)
      */
     /**
-     * 
-     *
-     * @param output 
+     * @param output
      */
     @Override
     public void setOutput(DoubleMatrix output) {
@@ -487,9 +417,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.ILayer#setTheta(double)
      */
     /**
-     * 
-     *
-     * @param theta 
+     * @param theta
      */
     @Override
     public void setTheta(double theta) {
@@ -503,9 +431,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * .ITransfere)
      */
     /**
-     * 
-     *
-     * @param transfereFnctr 
+     * @param transfereFnctr
      */
     @Override
     public void setTransfereFnctr(ITransfere transfereFnctr) {
@@ -517,9 +443,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.ILayer#setWeight(org.jblas.DoubleMatrix)
      */
     /**
-     * 
-     *
-     * @param weight 
+     * @param weight
      */
     @Override
     public void setWeight(DoubleMatrix weight) {
@@ -533,9 +457,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * .IWeight)
      */
     /**
-     * 
-     *
-     * @param weightFnctr 
+     * @param weightFnctr
      */
     @Override
     public void setWeightFnctr(IWeight weightFnctr) {
@@ -560,9 +482,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see java.lang.Object#toString()
      */
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     @Override
     public String toString() {
@@ -591,9 +511,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.ILayer#updateNetSum()
      */
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     @Override
     public DoubleMatrix updateNetSum() {
@@ -607,9 +525,7 @@ public class Layer implements Serializable, ILayer, IFillableLayer {
      * @see com.marmoush.jann.ILayer#updateOutput()
      */
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     @Override
     public DoubleMatrix updateOutput() {

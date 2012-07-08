@@ -23,10 +23,8 @@ import org.jfree.data.xy.XYSeries;
 public class LineImg extends ChartImage {
 
     /**
-     * 
-     *
-     * @param path 
-     * @param series 
+     * @param path
+     * @param series
      */
     public LineImg(String path, XYSeries... series) {
 	setPath(path);

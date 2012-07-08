@@ -26,64 +26,40 @@ import org.jfree.data.xy.XYSeriesCollection;
  */
 public abstract class ChartImage {
 
-    /**
-     * 
-     */
+    
     private JFreeChart chart = null;
 
-    /**
-     * 
-     */
+    
     private int height = 600;
 
-    /**
-     * 
-     */
+    
     private boolean legend = false;
 
-    /**
-     * 
-     */
+    
     private PlotOrientation orientation = PlotOrientation.VERTICAL;
 
-    /**
-     * 
-     */
+    
     private String path = null;
 
-    /**
-     * 
-     */
+    
     private String title = "JANN Chart";
 
-    /**
-     * 
-     */
+    
     private boolean tooltips = false;
 
-    /**
-     * 
-     */
+    
     private boolean urls = false;
 
-    /**
-     * 
-     */
+    
     private int width = 800;
 
-    /**
-     * 
-     */
+    
     private String xAxisTitle = "X-Axis";
 
-    /**
-     * 
-     */
+    
     private XYSeriesCollection xySeriesCollec = null;
 
-    /**
-     * 
-     */
+    
     private String yAxisTitle = "Y-Axis";
 
     /**
@@ -112,216 +88,168 @@ public abstract class ChartImage {
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public JFreeChart getChart() {
 	return chart;
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public int getHeight() {
 	return height;
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public PlotOrientation getOrientation() {
 	return orientation;
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public String getPath() {
 	return path;
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public String getTitle() {
 	return title;
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public int getWidth() {
 	return width;
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public String getxAxisTitle() {
 	return xAxisTitle;
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public XYSeriesCollection getXySeriesCollec() {
 	return xySeriesCollec;
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public String getyAxisTitle() {
 	return yAxisTitle;
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public boolean isLegend() {
 	return legend;
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public boolean isTooltips() {
 	return tooltips;
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public boolean isUrls() {
 	return urls;
     }
 
     /**
-     * 
-     *
-     * @param chart 
+     * @param chart
      */
     public void setChart(JFreeChart chart) {
 	this.chart = chart;
     }
 
     /**
-     * 
-     *
-     * @param height 
+     * @param height
      */
     public void setHeight(int height) {
 	this.height = height;
     }
 
     /**
-     * 
-     *
-     * @param legend 
+     * @param legend
      */
     public void setLegend(boolean legend) {
 	this.legend = legend;
     }
 
     /**
-     * 
-     *
-     * @param orientation 
+     * @param orientation
      */
     public void setOrientation(PlotOrientation orientation) {
 	this.orientation = orientation;
     }
 
     /**
-     * 
-     *
-     * @param path 
+     * @param path
      */
     public void setPath(String path) {
 	this.path = path;
     }
 
     /**
-     * 
-     *
-     * @param title 
+     * @param title
      */
     public void setTitle(String title) {
 	this.title = title;
     }
 
     /**
-     * 
-     *
-     * @param tooltips 
+     * @param tooltips
      */
     public void setTooltips(boolean tooltips) {
 	this.tooltips = tooltips;
     }
 
     /**
-     * 
-     *
-     * @param urls 
+     * @param urls
      */
     public void setUrls(boolean urls) {
 	this.urls = urls;
     }
 
     /**
-     * 
-     *
-     * @param width 
+     * @param width
      */
     public void setWidth(int width) {
 	this.width = width;
     }
 
     /**
-     * 
-     *
-     * @param xTitle 
+     * @param xTitle
      */
     public void setxAxisTitle(String xTitle) {
 	this.xAxisTitle = xTitle;
     }
 
     /**
-     * 
-     *
-     * @param dataset 
+     * @param dataset
      */
     public void setXySeriesCollec(XYSeriesCollection dataset) {
 	this.xySeriesCollec = dataset;
     }
 
     /**
-     * 
-     *
-     * @param yTitle 
+     * @param yTitle
      */
     public void setyAxisTitle(String yTitle) {
 	this.yAxisTitle = yTitle;

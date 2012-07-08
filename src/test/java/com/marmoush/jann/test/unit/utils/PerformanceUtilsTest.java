@@ -27,20 +27,14 @@ import com.marmoush.jann.utils.TransfereUtils;
  */
 public class PerformanceUtilsTest {
 
-    /**
-     * 
-     */
+    /**  */
     private DoubleMatrix output;
 
-    /**
-     * 
-     */
+    /**  */
     private DoubleMatrix target;
 
     /**
-     * 
-     *
-     * @throws Exception 
+     * @throws Exception
      */
     @Before
     public void setUp() throws Exception {

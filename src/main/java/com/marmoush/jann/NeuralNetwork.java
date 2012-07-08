@@ -26,14 +26,10 @@ import com.marmoush.jann.utils.NetworkUtils;
  */
 public class NeuralNetwork extends ArrayList<Layer> {
 
-    /**
-     * 
-     */
+    
     private static final long serialVersionUID = -3802547694705634188L;
 
-    /**
-     * 
-     */
+    
     private NeuralDirectedGraph neuralGraph = null;
 
     /**
@@ -44,45 +40,35 @@ public class NeuralNetwork extends ArrayList<Layer> {
     }
 
     /**
-     * 
-     *
-     * @param c 
+     * @param c
      */
     public NeuralNetwork(Collection<? extends Layer> c) {
 	super(c);
     }
 
     /**
-     * 
-     *
-     * @param neuralGraph 
+     * @param neuralGraph
      */
     public NeuralNetwork(INeuralDirectedGraphable neuralGraph) {
 	init(neuralGraph);
     }
 
     /**
-     * 
-     *
-     * @param initialCapacity 
+     * @param initialCapacity
      */
     public NeuralNetwork(int initialCapacity) {
 	super(initialCapacity);
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public NeuralDirectedGraph getNeuralGraph() {
 	return neuralGraph;
     }
 
     /**
-     * 
-     *
-     * @param neuralGraph 
+     * @param neuralGraph
      */
     public void init(INeuralDirectedGraphable neuralGraph) {
 	int lyrIdx = 0;
@@ -98,9 +84,7 @@ public class NeuralNetwork extends ArrayList<Layer> {
     }
 
     /**
-     * 
-     *
-     * @param neuralGraph 
+     * @param neuralGraph
      */
     public void setNeuralGraph(NeuralDirectedGraph neuralGraph) {
 	this.neuralGraph = neuralGraph;
@@ -118,9 +102,7 @@ public class NeuralNetwork extends ArrayList<Layer> {
      * @see java.util.AbstractCollection#toString()
      */
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     @Override
     public String toString() {
