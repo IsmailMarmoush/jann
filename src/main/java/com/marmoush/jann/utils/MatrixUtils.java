@@ -24,13 +24,7 @@ public class MatrixUtils {
 
     public static final double MACHEPS = 2E-16;
 
-    /**
-     * @param batchTrainingEx
-     * @param degree
-     * @param f1ColIndex
-     * @param f2ColIndex
-     * @return
-     */
+    
     public static DoubleMatrix batchFeatureMapping(
 	    DoubleMatrix batchTrainingEx, int degree, int f1ColIndex,
 	    int f2ColIndex) {
@@ -86,11 +80,7 @@ public class MatrixUtils {
 	return all;
     }
 
-    /**
-     * @param mtrx1
-     * @param mtrx2
-     * @return
-     */
+    
     public static boolean equals(DoubleMatrix mtrx1, DoubleMatrix mtrx2) {
 	if (mtrx1.equals(mtrx2)) {
 	    return true;
@@ -103,12 +93,7 @@ public class MatrixUtils {
 	return false;
     }
 
-    /**
-     * @param x1
-     * @param x2
-     * @param degree
-     * @return
-     */
+    
     public static DoubleMatrix featureMapping(double x1, double x2, int degree) {
 	// Returns row vector
 	// for i = 1:degree
@@ -124,13 +109,7 @@ public class MatrixUtils {
 	return new DoubleMatrix(list);
     }
 
-    /**
-     * @param input
-     * @param degree
-     * @param f1Index
-     * @param f2Index
-     * @return
-     */
+    
     public static DoubleMatrix featureMapping(DoubleMatrix input, int degree,
 	    int f1Index, int f2Index) {
 	// assert(input is column vector or row vector)
@@ -211,11 +190,7 @@ public class MatrixUtils {
 	}
     }
 
-    /**
-     * @param names
-     * @param withSize
-     * @param mtrxList
-     */
+    
     public static void print(String[] names, boolean withSize,
 	    DoubleMatrix... mtrxList) {
 	for (int i = 0; i < mtrxList.length; i++) {
@@ -237,25 +212,13 @@ public class MatrixUtils {
 	}
     }
 
-    /**
-     * @param rows
-     * @param cols
-     * @param min
-     * @param max
-     * @return
-     */
+    
     public static DoubleMatrix randomMatrix(int rows, int cols, double min,
 	    double max) {
 	return DoubleMatrix.rand(rows, cols).muli((max - min) + 1).addi(min);
     }
 
-    /**
-     * @param rows
-     * @param cols
-     * @param min
-     * @param max
-     * @return
-     */
+    
     public static DoubleMatrix randomMatrixFloor(int rows, int cols, int min,
 	    int max) {
 	DoubleMatrix randMtrx = DoubleMatrix.rand(rows, cols);
@@ -263,12 +226,7 @@ public class MatrixUtils {
 	return MatrixFunctions.floori(randMtrx);
     }
 
-    /**
-     * @param start
-     * @param incrOrDecrValue
-     * @param end
-     * @return
-     */
+    
     public static List<Double> range(double start, double incrOrDecrValue,
 	    double end) {
 	List<Double> list = new ArrayList<Double>();
@@ -291,11 +249,7 @@ public class MatrixUtils {
 	return rank(A, Singular.SVDValues(A));
     }
 
-    /**
-     * @param A
-     * @param svdOfA
-     * @return
-     */
+    
     public static double rank(DoubleMatrix A, DoubleMatrix svdOfA) {
 	// Where s = svd(A); ==> DoubleMatrix s = Singular.SVDValues(A);
 
@@ -309,11 +263,7 @@ public class MatrixUtils {
 	return r;
     }
 
-    /**
-     * @param mtrx
-     * @param decPoints
-     * @return
-     */
+    
     public static DoubleMatrix round(DoubleMatrix mtrx, int decPoints) {
 	// (int)Math.floor(a + 0.5f)
 	// Math.round(double*100.0)/100.0
@@ -341,11 +291,7 @@ public class MatrixUtils {
 	}
     }
 
-    /**
-     * @param min
-     * @param max
-     * @param matrices
-     */
+    
     public static void setFillRandomMinMax(double min, double max,
 	    DoubleMatrix... matrices) {
 	for (DoubleMatrix mtrx : matrices) {
@@ -357,11 +303,7 @@ public class MatrixUtils {
 	}
     }
 
-    /**
-     * @param min
-     * @param max
-     * @param matrices
-     */
+    
     public static void setFillRandomMinMaxFloor(int min, int max,
 	    DoubleMatrix... matrices) {
 	for (DoubleMatrix mtrx : matrices) {

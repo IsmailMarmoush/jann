@@ -25,13 +25,7 @@ public class FeedForwardSvNet extends SvNeuralNetwork {
 
     private static final long serialVersionUID = 8103514276278385409L;
 
-    /**
-     * @param inputSize
-     * @param weightFnctr
-     * @param transFnctr
-     * @param performanceFnctr
-     * @param nNeuronsPerLayer
-     */
+    
     public FeedForwardSvNet(int inputSize, IWeight weightFnctr,
 	    ITransfere transFnctr, IPerformance performanceFnctr,
 	    int... nNeuronsPerLayer) {
@@ -48,13 +42,7 @@ public class FeedForwardSvNet extends SvNeuralNetwork {
 	return this.get(this.size() - 1);
     }
 
-    /**
-     * @param inputSize
-     * @param weightFnctr
-     * @param transFnctr
-     * @param perfFnctr
-     * @param nNeuronsPerLayer
-     */
+    
     public void init(int inputSize, IWeight weightFnctr, ITransfere transFnctr,
 	    IPerformance perfFnctr, int... nNeuronsPerLayer) {
 	NeuralDirectedGraph graph = new NeuralDirectedGraph(nNeuronsPerLayer);

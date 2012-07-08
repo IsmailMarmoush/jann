@@ -22,19 +22,11 @@ public interface IFillableLayer {
 
     public abstract void setFillRandomFloor(DoubleMatrix... matrices);
 
-    /**
-     * @param min
-     * @param max
-     * @param matrices
-     */
+    
     public abstract void setFillRandomMinMax(double min, double max,
 	    DoubleMatrix... matrices);
 
-    /**
-     * @param min
-     * @param max
-     * @param matrices
-     */
+    
     public abstract void setFillRandomMinMaxFloor(int min, int max,
 	    DoubleMatrix... matrices);
 }

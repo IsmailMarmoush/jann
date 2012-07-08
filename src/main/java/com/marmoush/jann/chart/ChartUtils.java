@@ -29,11 +29,7 @@ public class ChartUtils {
 	return dataset;
     }
 
-    /**
-     * @param key
-     * @param data
-     * @return
-     */
+    
     public static XYSeries xySeries(String key, double[][] data) {
 	XYSeries series = new XYSeries(key);
 	for (int row = 0; row < data.length; row++) {
@@ -42,12 +38,7 @@ public class ChartUtils {
 	return series;
     }
 
-    /**
-     * @param key
-     * @param x
-     * @param y
-     * @return
-     */
+    
     public static XYSeries xySeries(String key, DoubleMatrix x, DoubleMatrix y) {
 	XYSeries series = new XYSeries(key);
 	for (int idx = 0; idx < x.length; idx++) {
@@ -56,13 +47,7 @@ public class ChartUtils {
 	return series;
     }
 
-    /**
-     * @param key
-     * @param xyMtrx
-     * @param xColIdx
-     * @param yColdIdx
-     * @return
-     */
+    
     public static XYSeries xySeries(String key, DoubleMatrix xyMtrx,
 	    int xColIdx, int yColdIdx) {
 
@@ -73,12 +58,7 @@ public class ChartUtils {
 	return series;
     }
 
-    /**
-     * @param key
-     * @param x
-     * @param y
-     * @return
-     */
+    
     public static XYSeries xySeries(String key, List<Double> x, List<Double> y) {
 	// assert (x.size()==y.size();
 	XYSeries series = new XYSeries(key);

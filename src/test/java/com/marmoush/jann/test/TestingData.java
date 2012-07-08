@@ -18,11 +18,7 @@ public class TestingData {
 
     public static final String DATA_FOLDER = "src.test.java.data";
 
-    /**
-     * @param folder
-     * @param fileName
-     * @return
-     */
+    
     public static String getPath(String folder, String fileName) {
 	return toRelativePath(DATA_FOLDER + "." + folder, fileName);
     }
@@ -32,11 +28,7 @@ public class TestingData {
 	System.out.println(path);
     }
 
-    /**
-     * @param classPath
-     * @param fileName
-     * @return
-     */
+    
     public static String toRelativePath(String classPath, String fileName) {
 	String[] bits = classPath.split("\\.");
 	String path = "";

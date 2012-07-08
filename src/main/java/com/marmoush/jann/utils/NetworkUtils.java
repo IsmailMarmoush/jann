@@ -28,24 +28,14 @@ public class NetworkUtils {
 
     }
 
-    /**
-     * @param layerIdx
-     * @param net
-     * @param graph
-     * @return
-     */
+    
     public static DoubleMatrix getInputsConcat(int layerIdx,
 	    List<? extends ILayer> net, INeuralDirectedGraphable graph) {
 
 	return null;
     }
 
-    /**
-     * @param idx
-     * @param net
-     * @param graph
-     * @return
-     */
+    
     public static ILayer[] getPredecessors(int idx, List<? extends ILayer> net,
 	    INeuralDirectedGraphable graph) {
 	List<Integer> predIndices = graph.getPredecessorsOf(idx);
@@ -87,11 +77,7 @@ public class NetworkUtils {
 	}
     }
 
-    /**
-     * @param net
-     * @param min
-     * @param max
-     */
+    
     public static void setFillRandomMinMax(List<? extends ILayer> net,
 	    double min, double max) {
 	for (ILayer layer : net) {
@@ -100,11 +86,7 @@ public class NetworkUtils {
 	}
     }
 
-    /**
-     * @param net
-     * @param min
-     * @param max
-     */
+    
     public static void setFillRandomMinMaxFloor(List<? extends ILayer> net,
 	    int min, int max) {
 	for (ILayer layer : net) {

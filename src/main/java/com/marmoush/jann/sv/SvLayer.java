@@ -35,11 +35,7 @@ public class SvLayer extends Layer implements ISvLayer {
 	super();
     }
 
-    /**
-     * @param nInputs
-     * @param nNeurons
-     * @param biased
-     */
+    
     public SvLayer(int nInputs, int nNeurons, boolean biased) {
 	super(nInputs, nNeurons, biased);
     }

@@ -17,24 +17,14 @@ import org.jblas.MatrixFunctions;
 
 public class PerformanceUtils {
 
-    /**
-     * @param output
-     * @param target
-     * @return
-     */
+    
     public static double linRgr(DoubleMatrix output, DoubleMatrix target) {
 	double m = target.length;
 	DoubleMatrix error = output.sub(target);
 	return MatrixFunctions.pow(error, 2).sum() / (2.0 * m);
     }
 
-    /**
-     * @param output
-     * @param target
-     * @param weight
-     * @param reguFctr
-     * @return
-     */
+    
     public static double linRgrRgu(DoubleMatrix output, DoubleMatrix target,
 	    DoubleMatrix weight, double reguFctr) {
 	int m = target.length;
@@ -43,11 +33,7 @@ public class PerformanceUtils {
 	return linRgr(output, target) + reg;
     }
 
-    /**
-     * @param output
-     * @param target
-     * @return
-     */
+    
     public static double logRgr(DoubleMatrix output, DoubleMatrix target) {
 	// J = -1./m * ( y' * log( sigmoid(X * theta) ) + ( 1 - y' ) * log ( 1 -
 	// sigmoid( X * theta)) )
@@ -64,13 +50,7 @@ public class PerformanceUtils {
 	return part1.add(part2).sum() * (-1.0 / m);
     }
 
-    /**
-     * @param output
-     * @param target
-     * @param weight
-     * @param reguFctr
-     * @return
-     */
+    
     public static double logRgrRgu(DoubleMatrix output, DoubleMatrix target,
 	    DoubleMatrix weight, double reguFctr) {
 	int m = target.length;
@@ -79,22 +59,14 @@ public class PerformanceUtils {
 	return logRgr(output, target) + reg;
     }
 
-    /**
-     * @param output
-     * @param target
-     * @return
-     */
+    
     public static double mae(DoubleMatrix output, DoubleMatrix target) {
 	int m = target.length;
 	DoubleMatrix error = output.sub(target);
 	return MatrixFunctions.abs(error).sum() / m;
     }
 
-    /**
-     * @param output
-     * @param target
-     * @return
-     */
+    
     public static double mse(DoubleMatrix output, DoubleMatrix target) {
 	// As long as error.length is actually the length of the error matrix
 	// unrolled so even if the matrix was 2*3 the length should be 6
@@ -103,11 +75,7 @@ public class PerformanceUtils {
 	return MatrixFunctions.pow(error, 2).sum() / m;
     }
 
-    /**
-     * @param output
-     * @param target
-     * @return
-     */
+    
     public static double sse(DoubleMatrix output, DoubleMatrix target) {
 	DoubleMatrix error = output.sub(target);
 	return MatrixFunctions.pow(error, 2).sum();

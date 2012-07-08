@@ -7,4 +7,7 @@ Empty block Comment
 Non java doc
 /\*[\*\s]+[^*]+\(non-Javadoc\)[\*\s]+[^*]+[\s\*]/
 
+param or return
+/\*([\*\s]+@param.*|[\*\s]+@return.*)+[\s\*]+/ 
 /\*[\*\s]+[^*]+@param[\*\s]+[^*]+[\s\*]/
+
