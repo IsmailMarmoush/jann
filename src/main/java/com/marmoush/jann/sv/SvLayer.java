@@ -1,20 +1,14 @@
 /*
- * Copyright 2012 Ismail Marmoush
- * 
- * This file is part of JANN.
- * 
- * JANN is free software: you can redistribute it and/or modify it under the
- * terms of the GNU General Public License Version 3 as published by the Free
- * Software Foundation, either version 3 of the License, or any later version.
- * 
- * JANN is distributed in the hope that it will be useful, but WITHOUT ANY
- * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
- * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License along with
- * JANN. If not, see http://www.gnu.org/licenses/.
- * 
- * For More Information Please Visit http://jann.marmoush.com
+ * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * software: you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License Version 3 as published by the Free Software
+ * Foundation, either version 3 of the License, or any later version. JANN is
+ * distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU General Public License for more details. You
+ * should have received a copy of the GNU General Public License along with
+ * JANN. If not, see http://www.gnu.org/licenses/. For More Information Please
+ * Visit http://jann.marmoush.com
  */
 package com.marmoush.jann.sv;
 
@@ -68,10 +62,10 @@ public class SvLayer extends Layer implements ISvLayer {
 
     /**
      * 
-     * 
-     * @param nInputs
-     * @param nNeurons
-     * @param biased
+     *
+     * @param nInputs 
+     * @param nNeurons 
+     * @param biased 
      */
     public SvLayer(int nInputs, int nNeurons, boolean biased) {
 	super(nInputs, nNeurons, biased);
@@ -79,8 +73,13 @@ public class SvLayer extends Layer implements ISvLayer {
 
     /*
      * (non-Javadoc)
-     * 
      * @see com.marmoush.jann.Layer#equals(java.lang.Object)
+     */
+    /**
+     * 
+     *
+     * @param obj 
+     * @return 
      */
     @Override
     public boolean equals(Object obj) {
@@ -112,8 +111,12 @@ public class SvLayer extends Layer implements ISvLayer {
 
     /*
      * (non-Javadoc)
-     * 
      * @see com.marmoush.jann.sv.ISvLayer#getLearnRate()
+     */
+    /**
+     * 
+     *
+     * @return 
      */
     @Override
     public double getLearnRate() {
@@ -122,8 +125,12 @@ public class SvLayer extends Layer implements ISvLayer {
 
     /*
      * (non-Javadoc)
-     * 
      * @see com.marmoush.jann.sv.ISvLayer#getPerformance()
+     */
+    /**
+     * 
+     *
+     * @return 
      */
     @Override
     public double getPerformance() {
@@ -132,8 +139,12 @@ public class SvLayer extends Layer implements ISvLayer {
 
     /*
      * (non-Javadoc)
-     * 
      * @see com.marmoush.jann.sv.ISvLayer#getPerformancefnctr()
+     */
+    /**
+     * 
+     *
+     * @return 
      */
     @Override
     public IPerformance getPerformancefnctr() {
@@ -142,8 +153,12 @@ public class SvLayer extends Layer implements ISvLayer {
 
     /*
      * (non-Javadoc)
-     * 
      * @see com.marmoush.jann.sv.ISvLayer#getReguFctr()
+     */
+    /**
+     * 
+     *
+     * @return 
      */
     @Override
     public double getReguFctr() {
@@ -152,8 +167,12 @@ public class SvLayer extends Layer implements ISvLayer {
 
     /*
      * (non-Javadoc)
-     * 
      * @see com.marmoush.jann.sv.ISvLayer#getTarget()
+     */
+    /**
+     * 
+     *
+     * @return 
      */
     @Override
     public DoubleMatrix getTarget() {
@@ -162,8 +181,12 @@ public class SvLayer extends Layer implements ISvLayer {
 
     /*
      * (non-Javadoc)
-     * 
      * @see com.marmoush.jann.Layer#hashCode()
+     */
+    /**
+     * 
+     *
+     * @return 
      */
     @Override
     public int hashCode() {
@@ -183,8 +206,12 @@ public class SvLayer extends Layer implements ISvLayer {
 
     /*
      * (non-Javadoc)
-     * 
      * @see com.marmoush.jann.sv.ISvLayer#setLearnRate(double)
+     */
+    /**
+     * 
+     *
+     * @param lrnRate 
      */
     @Override
     public void setLearnRate(double lrnRate) {
@@ -193,8 +220,12 @@ public class SvLayer extends Layer implements ISvLayer {
 
     /*
      * (non-Javadoc)
-     * 
      * @see com.marmoush.jann.sv.ISvLayer#setPerformance(double)
+     */
+    /**
+     * 
+     *
+     * @param performance 
      */
     @Override
     public void setPerformance(double performance) {
@@ -203,10 +234,14 @@ public class SvLayer extends Layer implements ISvLayer {
 
     /*
      * (non-Javadoc)
-     * 
      * @see
      * com.marmoush.jann.sv.ISvLayer#setPerformancefnctr(com.marmoush.jann.utils
      * .functors.IPerformance)
+     */
+    /**
+     * 
+     *
+     * @param performancefnctr 
      */
     @Override
     public void setPerformancefnctr(IPerformance performancefnctr) {
@@ -215,8 +250,12 @@ public class SvLayer extends Layer implements ISvLayer {
 
     /*
      * (non-Javadoc)
-     * 
      * @see com.marmoush.jann.sv.ISvLayer#setReguFctr(double)
+     */
+    /**
+     * 
+     *
+     * @param reg 
      */
     @Override
     public void setReguFctr(double reg) {
@@ -225,8 +264,12 @@ public class SvLayer extends Layer implements ISvLayer {
 
     /*
      * (non-Javadoc)
-     * 
      * @see com.marmoush.jann.sv.ISvLayer#setTarget(org.jblas.DoubleMatrix)
+     */
+    /**
+     * 
+     *
+     * @param target 
      */
     @Override
     public void setTarget(DoubleMatrix target) {
@@ -235,8 +278,10 @@ public class SvLayer extends Layer implements ISvLayer {
 
     /*
      * (non-Javadoc)
-     * 
      * @see com.marmoush.jann.Layer#simulate()
+     */
+    /**
+     * 
      */
     @Override
     public void simulate() {
@@ -246,8 +291,12 @@ public class SvLayer extends Layer implements ISvLayer {
 
     /*
      * (non-Javadoc)
-     * 
      * @see com.marmoush.jann.Layer#toString()
+     */
+    /**
+     * 
+     *
+     * @return 
      */
     @Override
     public String toString() {
@@ -266,8 +315,12 @@ public class SvLayer extends Layer implements ISvLayer {
 
     /*
      * (non-Javadoc)
-     * 
      * @see com.marmoush.jann.sv.ISvLayer#updatePerformance()
+     */
+    /**
+     * 
+     *
+     * @return 
      */
     @Override
     public double updatePerformance() {

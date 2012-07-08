@@ -1,27 +1,20 @@
 /*
- * Copyright 2012 Ismail Marmoush
- * 
- * This file is part of JANN.
- * 
- * JANN is free software: you can redistribute it and/or modify it under the
- * terms of the GNU General Public License Version 3 as published by the Free
- * Software Foundation, either version 3 of the License, or any later version.
- * 
- * JANN is distributed in the hope that it will be useful, but WITHOUT ANY
- * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
- * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License along with
- * JANN. If not, see http://www.gnu.org/licenses/.
- * 
- * For More Information Please Visit http://jann.marmoush.com
+ * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * software: you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License Version 3 as published by the Free Software
+ * Foundation, either version 3 of the License, or any later version. JANN is
+ * distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU General Public License for more details. You
+ * should have received a copy of the GNU General Public License along with
+ * JANN. If not, see http://www.gnu.org/licenses/. For More Information Please
+ * Visit http://jann.marmoush.com
  */
 package com.marmoush.jann.train;
 
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO: Auto-generated Javadoc
 /**
  * 
  */
@@ -95,10 +88,10 @@ public abstract class Train {
 
     /**
      * 
-     * 
-     * @param maxEpochs
-     * @param performanceGoal
-     * @param timeLimit
+     *
+     * @param maxEpochs 
+     * @param performanceGoal 
+     * @param timeLimit 
      */
     public Train(int maxEpochs, double performanceGoal, long timeLimit) {
 	super();
@@ -109,8 +102,8 @@ public abstract class Train {
 
     /**
      * 
-     * 
-     * @param performance
+     *
+     * @param performance 
      */
     public void addPerformanceHistoryEntry(double performance) {
 	getPerformanceHistory().add(performance);
@@ -118,9 +111,9 @@ public abstract class Train {
 
     /**
      * 
-     * 
-     * @param cause
-     * @param atEpoch
+     *
+     * @param cause 
+     * @param atEpoch 
      */
     public void end(String cause, int atEpoch) {
 	this.end = System.currentTimeMillis();
@@ -131,8 +124,8 @@ public abstract class Train {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public int getMaxEpochs() {
 	return maxEpochs;
@@ -140,8 +133,8 @@ public abstract class Train {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public double getPerformanceGoal() {
 	return performanceGoal;
@@ -149,8 +142,8 @@ public abstract class Train {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public List<Double> getPerformanceHistory() {
 	return performanceHistory;
@@ -158,8 +151,8 @@ public abstract class Train {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public long getTimeLimit() {
 	return timeLimit;
@@ -183,8 +176,8 @@ public abstract class Train {
 
     /**
      * 
-     * 
-     * @param maxEpochs
+     *
+     * @param maxEpochs 
      */
     public void setMaxEpochs(int maxEpochs) {
 	this.maxEpochs = maxEpochs;
@@ -192,8 +185,8 @@ public abstract class Train {
 
     /**
      * 
-     * 
-     * @param performanceGoal
+     *
+     * @param performanceGoal 
      */
     public void setPerformanceGoal(double performanceGoal) {
 	this.performanceGoal = performanceGoal;
@@ -201,8 +194,8 @@ public abstract class Train {
 
     /**
      * 
-     * 
-     * @param performanceHistory
+     *
+     * @param performanceHistory 
      */
     public void setPerformanceHistory(List<Double> performanceHistory) {
 	this.performanceHistory = performanceHistory;
@@ -210,8 +203,8 @@ public abstract class Train {
 
     /**
      * 
-     * 
-     * @param timeLimit
+     *
+     * @param timeLimit 
      */
     public void setTimeLimit(long timeLimit) {
 	this.timeLimit = timeLimit;
@@ -226,8 +219,12 @@ public abstract class Train {
 
     /*
      * (non-Javadoc)
-     * 
      * @see java.lang.Object#toString()
+     */
+    /**
+     * 
+     *
+     * @return 
      */
     @Override
     public String toString() {
@@ -251,8 +248,8 @@ public abstract class Train {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public abstract double train();
 

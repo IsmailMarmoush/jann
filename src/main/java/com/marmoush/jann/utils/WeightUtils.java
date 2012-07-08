@@ -1,20 +1,14 @@
 /*
- * Copyright 2012 Ismail Marmoush
- * 
- * This file is part of JANN.
- * 
- * JANN is free software: you can redistribute it and/or modify it under the
- * terms of the GNU General Public License Version 3 as published by the Free
- * Software Foundation, either version 3 of the License, or any later version.
- * 
- * JANN is distributed in the hope that it will be useful, but WITHOUT ANY
- * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
- * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License along with
- * JANN. If not, see http://www.gnu.org/licenses/.
- * 
- * For More Information Please Visit http://jann.marmoush.com
+ * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * software: you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License Version 3 as published by the Free Software
+ * Foundation, either version 3 of the License, or any later version. JANN is
+ * distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU General Public License for more details. You
+ * should have received a copy of the GNU General Public License along with
+ * JANN. If not, see http://www.gnu.org/licenses/. For More Information Please
+ * Visit http://jann.marmoush.com
  */
 package com.marmoush.jann.utils;
 
@@ -28,10 +22,10 @@ public abstract class WeightUtils {
 
     /**
      * 
-     * 
-     * @param batchTrainingEx
-     * @param weight
-     * @return
+     *
+     * @param batchTrainingEx 
+     * @param weight 
+     * @return 
      */
     public static DoubleMatrix batchDotprod(DoubleMatrix batchTrainingEx,
 	    DoubleMatrix weight) {
@@ -41,11 +35,11 @@ public abstract class WeightUtils {
 
     /**
      * 
-     * 
-     * @param batchTrainingEx
-     * @param bias
-     * @param weight
-     * @return
+     *
+     * @param batchTrainingEx 
+     * @param bias 
+     * @param weight 
+     * @return 
      */
     public static DoubleMatrix batchDotprod(DoubleMatrix batchTrainingEx,
 	    DoubleMatrix bias, DoubleMatrix weight) {
@@ -54,10 +48,9 @@ public abstract class WeightUtils {
 	 * be added to each training example remember Batch calculation is
 	 * correct only when there is only one neuron, because batchTrainingEx
 	 * rows = m Training examples & columns = n features if there was
-	 * another neuron it will need another dimension.
-	 * 
-	 * But if we wanted to do batch calcs for K neurons we can have K layers
-	 * where each layer has one neuron
+	 * another neuron it will need another dimension. But if we wanted to do
+	 * batch calcs for K neurons we can have K layers where each layer has
+	 * one neuron
 	 */
 	// Based on the previous:
 	// assert (bias.length==1)
@@ -70,10 +63,10 @@ public abstract class WeightUtils {
 
     /**
      * 
-     * 
-     * @param input
-     * @param weight
-     * @return
+     *
+     * @param input 
+     * @param weight 
+     * @return 
      */
     public static DoubleMatrix dotprod(DoubleMatrix input, DoubleMatrix weight) {
 	return weight.mmul(input);
@@ -81,11 +74,11 @@ public abstract class WeightUtils {
 
     /**
      * 
-     * 
-     * @param input
-     * @param bias
-     * @param weight
-     * @return
+     *
+     * @param input 
+     * @param bias 
+     * @param weight 
+     * @return 
      */
     public static DoubleMatrix dotprod(DoubleMatrix input, DoubleMatrix bias,
 	    DoubleMatrix weight) {

@@ -1,20 +1,14 @@
 /*
- * Copyright 2012 Ismail Marmoush
- * 
- * This file is part of JANN.
- * 
- * JANN is free software: you can redistribute it and/or modify it under the
- * terms of the GNU General Public License Version 3 as published by the Free
- * Software Foundation, either version 3 of the License, or any later version.
- * 
- * JANN is distributed in the hope that it will be useful, but WITHOUT ANY
- * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
- * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License along with
- * JANN. If not, see http://www.gnu.org/licenses/.
- * 
- * For More Information Please Visit http://jann.marmoush.com
+ * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * software: you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License Version 3 as published by the Free Software
+ * Foundation, either version 3 of the License, or any later version. JANN is
+ * distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU General Public License for more details. You
+ * should have received a copy of the GNU General Public License along with
+ * JANN. If not, see http://www.gnu.org/licenses/. For More Information Please
+ * Visit http://jann.marmoush.com
  */
 package com.marmoush.jann.chart;
 
@@ -32,9 +26,9 @@ public class ChartUtils {
 
     /**
      * 
-     * 
-     * @param seriesList
-     * @return
+     *
+     * @param seriesList 
+     * @return 
      */
     public static XYSeriesCollection getXYSeriesCollection(
 	    XYSeries... seriesList) {
@@ -47,10 +41,10 @@ public class ChartUtils {
 
     /**
      * 
-     * 
-     * @param key
-     * @param data
-     * @return
+     *
+     * @param key 
+     * @param data 
+     * @return 
      */
     public static XYSeries xySeries(String key, double[][] data) {
 	XYSeries series = new XYSeries(key);
@@ -62,11 +56,11 @@ public class ChartUtils {
 
     /**
      * 
-     * 
-     * @param key
-     * @param x
-     * @param y
-     * @return
+     *
+     * @param key 
+     * @param x 
+     * @param y 
+     * @return 
      */
     public static XYSeries xySeries(String key, DoubleMatrix x, DoubleMatrix y) {
 	XYSeries series = new XYSeries(key);
@@ -78,12 +72,12 @@ public class ChartUtils {
 
     /**
      * 
-     * 
-     * @param key
-     * @param xyMtrx
-     * @param xColIdx
-     * @param yColdIdx
-     * @return
+     *
+     * @param key 
+     * @param xyMtrx 
+     * @param xColIdx 
+     * @param yColdIdx 
+     * @return 
      */
     public static XYSeries xySeries(String key, DoubleMatrix xyMtrx,
 	    int xColIdx, int yColdIdx) {
@@ -97,11 +91,11 @@ public class ChartUtils {
 
     /**
      * 
-     * 
-     * @param key
-     * @param x
-     * @param y
-     * @return
+     *
+     * @param key 
+     * @param x 
+     * @param y 
+     * @return 
      */
     public static XYSeries xySeries(String key, List<Double> x, List<Double> y) {
 	// assert (x.size()==y.size();

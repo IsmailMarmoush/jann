@@ -1,20 +1,14 @@
 /*
- * Copyright 2012 Ismail Marmoush
- * 
- * This file is part of JANN.
- * 
- * JANN is free software: you can redistribute it and/or modify it under the
- * terms of the GNU General Public License Version 3 as published by the Free
- * Software Foundation, either version 3 of the License, or any later version.
- * 
- * JANN is distributed in the hope that it will be useful, but WITHOUT ANY
- * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
- * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License along with
- * JANN. If not, see http://www.gnu.org/licenses/.
- * 
- * For More Information Please Visit http://jann.marmoush.com
+ * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * software: you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License Version 3 as published by the Free Software
+ * Foundation, either version 3 of the License, or any later version. JANN is
+ * distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU General Public License for more details. You
+ * should have received a copy of the GNU General Public License along with
+ * JANN. If not, see http://www.gnu.org/licenses/. For More Information Please
+ * Visit http://jann.marmoush.com
  */
 package com.marmoush.jann.neuralgraph;
 
@@ -52,8 +46,8 @@ public class NeuralDirectedGraph extends
 
     /**
      * 
-     * 
-     * @param nNeuronsPerLayer
+     *
+     * @param nNeuronsPerLayer 
      */
     public NeuralDirectedGraph(int... nNeuronsPerLayer) {
 	this();
@@ -65,8 +59,8 @@ public class NeuralDirectedGraph extends
 
     /**
      * 
-     * 
-     * @param nNeuronsPerLayer
+     *
+     * @param nNeuronsPerLayer 
      */
     public NeuralDirectedGraph(List<Integer> nNeuronsPerLayer) {
 	this();
@@ -99,10 +93,14 @@ public class NeuralDirectedGraph extends
 
     /*
      * (non-Javadoc)
-     * 
      * @see
      * com.marmoush.jann.neuralgraph.INeuralDirectedGraphable#getLayersNumOfNeurons
      * ()
+     */
+    /**
+     * 
+     *
+     * @return 
      */
     @Override
     public List<Integer> getAllLayersNumOfNeurons() {
@@ -111,9 +109,14 @@ public class NeuralDirectedGraph extends
 
     /*
      * (non-Javadoc)
-     * 
      * @see
      * com.marmoush.jann.NeuralGraph.NeuralDirectedGraphable#getInputLength(int)
+     */
+    /**
+     * 
+     *
+     * @param lyrIdx 
+     * @return 
      */
     @Override
     public int getInputLength(final int lyrIdx) {
@@ -127,10 +130,15 @@ public class NeuralDirectedGraph extends
 
     /*
      * (non-Javadoc)
-     * 
      * @see
      * com.marmoush.jann.NeuralGraph.NeuralDirectedGraphable#getNumOfNeuronsInLayer
      * (int)
+     */
+    /**
+     * 
+     *
+     * @param lyrIdx 
+     * @return 
      */
     @Override
     public int getLayerNumOfNeurons(final int lyrIdx) {
@@ -139,8 +147,8 @@ public class NeuralDirectedGraph extends
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public int getNumOfLayers() {
 	return this.layersNumOfNeurons.size();
@@ -148,10 +156,15 @@ public class NeuralDirectedGraph extends
 
     /*
      * (non-Javadoc)
-     * 
      * @see
      * com.marmoush.jann.NeuralGraph.NeuralDirectedGraphable#getPredecessorsOf
      * (int)
+     */
+    /**
+     * 
+     *
+     * @param lyrIdx 
+     * @return 
      */
     @Override
     public List<Integer> getPredecessorsOf(final int lyrIdx) {
@@ -160,10 +173,15 @@ public class NeuralDirectedGraph extends
 
     /*
      * (non-Javadoc)
-     * 
      * @see
      * com.marmoush.jann.NeuralGraph.NeuralDirectedGraphable#getSuccessorsOf
      * (int)
+     */
+    /**
+     * 
+     *
+     * @param lyrIdx 
+     * @return 
      */
     @Override
     public List<Integer> getSuccessorsOf(int lyrIdx) {
@@ -172,10 +190,14 @@ public class NeuralDirectedGraph extends
 
     /*
      * (non-Javadoc)
-     * 
      * @see
      * com.marmoush.jann.NeuralGraph.NeuralDirectedGraphable#setNumOfNeuronsInLayer
      * (java.util.List)
+     */
+    /**
+     * 
+     *
+     * @param nNeuronsPerLayer 
      */
     @Override
     public void setAllLayersNumOfNeurons(List<Integer> nNeuronsPerLayer) {

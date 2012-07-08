@@ -1,20 +1,14 @@
 /*
- * Copyright 2012 Ismail Marmoush
- * 
- * This file is part of JANN.
- * 
- * JANN is free software: you can redistribute it and/or modify it under the
- * terms of the GNU General Public License Version 3 as published by the Free
- * Software Foundation, either version 3 of the License, or any later version.
- * 
- * JANN is distributed in the hope that it will be useful, but WITHOUT ANY
- * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
- * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License along with
- * JANN. If not, see http://www.gnu.org/licenses/.
- * 
- * For More Information Please Visit http://jann.marmoush.com
+ * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * software: you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License Version 3 as published by the Free Software
+ * Foundation, either version 3 of the License, or any later version. JANN is
+ * distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU General Public License for more details. You
+ * should have received a copy of the GNU General Public License along with
+ * JANN. If not, see http://www.gnu.org/licenses/. For More Information Please
+ * Visit http://jann.marmoush.com
  */
 package com.marmoush.jann.sv;
 
@@ -31,78 +25,78 @@ public interface ISvLayer extends ILayer {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public abstract double getLearnRate();
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public abstract double getPerformance();
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public abstract IPerformance getPerformancefnctr();
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public abstract double getReguFctr();
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public abstract DoubleMatrix getTarget();
 
     /**
      * 
-     * 
-     * @param lrnRate
+     *
+     * @param lrnRate 
      */
     public abstract void setLearnRate(double lrnRate);
 
     /**
      * 
-     * 
-     * @param performance
+     *
+     * @param performance 
      */
     public abstract void setPerformance(double performance);
 
     /**
      * 
-     * 
-     * @param performancefnctr
+     *
+     * @param performancefnctr 
      */
     public abstract void setPerformancefnctr(IPerformance performancefnctr);
 
     /**
      * 
-     * 
-     * @param reg
+     *
+     * @param reg 
      */
     public abstract void setReguFctr(double reg);
 
     /**
      * 
-     * 
-     * @param target
+     *
+     * @param target 
      */
     public abstract void setTarget(DoubleMatrix target);
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public abstract double updatePerformance();
 

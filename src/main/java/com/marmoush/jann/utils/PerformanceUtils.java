@@ -1,20 +1,14 @@
 /*
- * Copyright 2012 Ismail Marmoush
- * 
- * This file is part of JANN.
- * 
- * JANN is free software: you can redistribute it and/or modify it under the
- * terms of the GNU General Public License Version 3 as published by the Free
- * Software Foundation, either version 3 of the License, or any later version.
- * 
- * JANN is distributed in the hope that it will be useful, but WITHOUT ANY
- * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
- * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License along with
- * JANN. If not, see http://www.gnu.org/licenses/.
- * 
- * For More Information Please Visit http://jann.marmoush.com
+ * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * software: you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License Version 3 as published by the Free Software
+ * Foundation, either version 3 of the License, or any later version. JANN is
+ * distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU General Public License for more details. You
+ * should have received a copy of the GNU General Public License along with
+ * JANN. If not, see http://www.gnu.org/licenses/. For More Information Please
+ * Visit http://jann.marmoush.com
  */
 package com.marmoush.jann.utils;
 
@@ -29,10 +23,10 @@ public class PerformanceUtils {
 
     /**
      * 
-     * 
-     * @param output
-     * @param target
-     * @return
+     *
+     * @param output 
+     * @param target 
+     * @return 
      */
     public static double linRgr(DoubleMatrix output, DoubleMatrix target) {
 	double m = target.length;
@@ -42,12 +36,12 @@ public class PerformanceUtils {
 
     /**
      * 
-     * 
-     * @param output
-     * @param target
-     * @param weight
-     * @param reguFctr
-     * @return
+     *
+     * @param output 
+     * @param target 
+     * @param weight 
+     * @param reguFctr 
+     * @return 
      */
     public static double linRgrRgu(DoubleMatrix output, DoubleMatrix target,
 	    DoubleMatrix weight, double reguFctr) {
@@ -59,10 +53,10 @@ public class PerformanceUtils {
 
     /**
      * 
-     * 
-     * @param output
-     * @param target
-     * @return
+     *
+     * @param output 
+     * @param target 
+     * @return 
      */
     public static double logRgr(DoubleMatrix output, DoubleMatrix target) {
 	// J = -1./m * ( y' * log( sigmoid(X * theta) ) + ( 1 - y' ) * log ( 1 -
@@ -82,12 +76,12 @@ public class PerformanceUtils {
 
     /**
      * 
-     * 
-     * @param output
-     * @param target
-     * @param weight
-     * @param reguFctr
-     * @return
+     *
+     * @param output 
+     * @param target 
+     * @param weight 
+     * @param reguFctr 
+     * @return 
      */
     public static double logRgrRgu(DoubleMatrix output, DoubleMatrix target,
 	    DoubleMatrix weight, double reguFctr) {
@@ -99,10 +93,10 @@ public class PerformanceUtils {
 
     /**
      * 
-     * 
-     * @param output
-     * @param target
-     * @return
+     *
+     * @param output 
+     * @param target 
+     * @return 
      */
     public static double mae(DoubleMatrix output, DoubleMatrix target) {
 	int m = target.length;
@@ -112,10 +106,10 @@ public class PerformanceUtils {
 
     /**
      * 
-     * 
-     * @param output
-     * @param target
-     * @return
+     *
+     * @param output 
+     * @param target 
+     * @return 
      */
     public static double mse(DoubleMatrix output, DoubleMatrix target) {
 	// As long as error.length is actually the length of the error matrix
@@ -127,10 +121,10 @@ public class PerformanceUtils {
 
     /**
      * 
-     * 
-     * @param output
-     * @param target
-     * @return
+     *
+     * @param output 
+     * @param target 
+     * @return 
      */
     public static double sse(DoubleMatrix output, DoubleMatrix target) {
 	DoubleMatrix error = output.sub(target);

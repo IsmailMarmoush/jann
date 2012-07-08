@@ -1,20 +1,14 @@
 /*
- * Copyright 2012 Ismail Marmoush
- * 
- * This file is part of JANN.
- * 
- * JANN is free software: you can redistribute it and/or modify it under the
- * terms of the GNU General Public License Version 3 as published by the Free
- * Software Foundation, either version 3 of the License, or any later version.
- * 
- * JANN is distributed in the hope that it will be useful, but WITHOUT ANY
- * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
- * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License along with
- * JANN. If not, see http://www.gnu.org/licenses/.
- * 
- * For More Information Please Visit http://jann.marmoush.com
+ * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * software: you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License Version 3 as published by the Free Software
+ * Foundation, either version 3 of the License, or any later version. JANN is
+ * distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU General Public License for more details. You
+ * should have received a copy of the GNU General Public License along with
+ * JANN. If not, see http://www.gnu.org/licenses/. For More Information Please
+ * Visit http://jann.marmoush.com
  */
 package com.marmoush.jann;
 
@@ -26,7 +20,7 @@ import com.marmoush.jann.neuralgraph.INeuralDirectedGraphable;
 import com.marmoush.jann.neuralgraph.NeuralDirectedGraph;
 import com.marmoush.jann.utils.NetworkUtils;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * 
  */
@@ -51,8 +45,8 @@ public class NeuralNetwork extends ArrayList<Layer> {
 
     /**
      * 
-     * 
-     * @param c
+     *
+     * @param c 
      */
     public NeuralNetwork(Collection<? extends Layer> c) {
 	super(c);
@@ -60,8 +54,8 @@ public class NeuralNetwork extends ArrayList<Layer> {
 
     /**
      * 
-     * 
-     * @param neuralGraph
+     *
+     * @param neuralGraph 
      */
     public NeuralNetwork(INeuralDirectedGraphable neuralGraph) {
 	init(neuralGraph);
@@ -69,8 +63,8 @@ public class NeuralNetwork extends ArrayList<Layer> {
 
     /**
      * 
-     * 
-     * @param initialCapacity
+     *
+     * @param initialCapacity 
      */
     public NeuralNetwork(int initialCapacity) {
 	super(initialCapacity);
@@ -78,8 +72,8 @@ public class NeuralNetwork extends ArrayList<Layer> {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public NeuralDirectedGraph getNeuralGraph() {
 	return neuralGraph;
@@ -87,8 +81,8 @@ public class NeuralNetwork extends ArrayList<Layer> {
 
     /**
      * 
-     * 
-     * @param neuralGraph
+     *
+     * @param neuralGraph 
      */
     public void init(INeuralDirectedGraphable neuralGraph) {
 	int lyrIdx = 0;
@@ -105,8 +99,8 @@ public class NeuralNetwork extends ArrayList<Layer> {
 
     /**
      * 
-     * 
-     * @param neuralGraph
+     *
+     * @param neuralGraph 
      */
     public void setNeuralGraph(NeuralDirectedGraph neuralGraph) {
 	this.neuralGraph = neuralGraph;
@@ -121,8 +115,12 @@ public class NeuralNetwork extends ArrayList<Layer> {
 
     /*
      * (non-Javadoc)
-     * 
      * @see java.util.AbstractCollection#toString()
+     */
+    /**
+     * 
+     *
+     * @return 
      */
     @Override
     public String toString() {

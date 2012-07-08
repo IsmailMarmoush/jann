@@ -1,20 +1,14 @@
 /*
- * Copyright 2012 Ismail Marmoush
- * 
- * This file is part of JANN.
- * 
- * JANN is free software: you can redistribute it and/or modify it under the
- * terms of the GNU General Public License Version 3 as published by the Free
- * Software Foundation, either version 3 of the License, or any later version.
- * 
- * JANN is distributed in the hope that it will be useful, but WITHOUT ANY
- * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
- * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License along with
- * JANN. If not, see http://www.gnu.org/licenses/.
- * 
- * For More Information Please Visit http://jann.marmoush.com
+ * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * software: you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License Version 3 as published by the Free Software
+ * Foundation, either version 3 of the License, or any later version. JANN is
+ * distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU General Public License for more details. You
+ * should have received a copy of the GNU General Public License along with
+ * JANN. If not, see http://www.gnu.org/licenses/. For More Information Please
+ * Visit http://jann.marmoush.com
  */
 package com.marmoush.jann.chart;
 
@@ -119,8 +113,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public JFreeChart getChart() {
 	return chart;
@@ -128,8 +122,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public int getHeight() {
 	return height;
@@ -137,8 +131,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public PlotOrientation getOrientation() {
 	return orientation;
@@ -146,8 +140,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public String getPath() {
 	return path;
@@ -155,8 +149,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public String getTitle() {
 	return title;
@@ -164,8 +158,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public int getWidth() {
 	return width;
@@ -173,8 +167,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public String getxAxisTitle() {
 	return xAxisTitle;
@@ -182,8 +176,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public XYSeriesCollection getXySeriesCollec() {
 	return xySeriesCollec;
@@ -191,8 +185,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public String getyAxisTitle() {
 	return yAxisTitle;
@@ -200,8 +194,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public boolean isLegend() {
 	return legend;
@@ -209,8 +203,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public boolean isTooltips() {
 	return tooltips;
@@ -218,8 +212,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @return
+     *
+     * @return 
      */
     public boolean isUrls() {
 	return urls;
@@ -227,8 +221,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @param chart
+     *
+     * @param chart 
      */
     public void setChart(JFreeChart chart) {
 	this.chart = chart;
@@ -236,8 +230,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @param height
+     *
+     * @param height 
      */
     public void setHeight(int height) {
 	this.height = height;
@@ -245,8 +239,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @param legend
+     *
+     * @param legend 
      */
     public void setLegend(boolean legend) {
 	this.legend = legend;
@@ -254,8 +248,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @param orientation
+     *
+     * @param orientation 
      */
     public void setOrientation(PlotOrientation orientation) {
 	this.orientation = orientation;
@@ -263,8 +257,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @param path
+     *
+     * @param path 
      */
     public void setPath(String path) {
 	this.path = path;
@@ -272,8 +266,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @param title
+     *
+     * @param title 
      */
     public void setTitle(String title) {
 	this.title = title;
@@ -281,8 +275,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @param tooltips
+     *
+     * @param tooltips 
      */
     public void setTooltips(boolean tooltips) {
 	this.tooltips = tooltips;
@@ -290,8 +284,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @param urls
+     *
+     * @param urls 
      */
     public void setUrls(boolean urls) {
 	this.urls = urls;
@@ -299,8 +293,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @param width
+     *
+     * @param width 
      */
     public void setWidth(int width) {
 	this.width = width;
@@ -308,8 +302,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @param xTitle
+     *
+     * @param xTitle 
      */
     public void setxAxisTitle(String xTitle) {
 	this.xAxisTitle = xTitle;
@@ -317,8 +311,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @param dataset
+     *
+     * @param dataset 
      */
     public void setXySeriesCollec(XYSeriesCollection dataset) {
 	this.xySeriesCollec = dataset;
@@ -326,8 +320,8 @@ public abstract class ChartImage {
 
     /**
      * 
-     * 
-     * @param yTitle
+     *
+     * @param yTitle 
      */
     public void setyAxisTitle(String yTitle) {
 	this.yAxisTitle = yTitle;

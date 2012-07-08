@@ -1,20 +1,14 @@
 /*
- * Copyright 2012 Ismail Marmoush
- * 
- * This file is part of JANN.
- * 
- * JANN is free software: you can redistribute it and/or modify it under the
- * terms of the GNU General Public License Version 3 as published by the Free
- * Software Foundation, either version 3 of the License, or any later version.
- * 
- * JANN is distributed in the hope that it will be useful, but WITHOUT ANY
- * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
- * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License along with
- * JANN. If not, see http://www.gnu.org/licenses/.
- * 
- * For More Information Please Visit http://jann.marmoush.com
+ * Copyright 2012 Ismail Marmoush This file is part of JANN. JANN is free
+ * software: you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License Version 3 as published by the Free Software
+ * Foundation, either version 3 of the License, or any later version. JANN is
+ * distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU General Public License for more details. You
+ * should have received a copy of the GNU General Public License along with
+ * JANN. If not, see http://www.gnu.org/licenses/. For More Information Please
+ * Visit http://jann.marmoush.com
  */
 package com.marmoush.jann.utils;
 
@@ -35,9 +29,9 @@ public class NetworkUtils {
 
     /**
      * 
-     * 
-     * @param net
-     * @param ngraph
+     *
+     * @param net 
+     * @param ngraph 
      */
     public static void bpff(List<? extends ILayer> net,
 	    NeuralDirectedGraph ngraph) {
@@ -46,11 +40,11 @@ public class NetworkUtils {
 
     /**
      * 
-     * 
-     * @param layerIdx
-     * @param net
-     * @param graph
-     * @return
+     *
+     * @param layerIdx 
+     * @param net 
+     * @param graph 
+     * @return 
      */
     public static DoubleMatrix getInputsConcat(int layerIdx,
 	    List<? extends ILayer> net, INeuralDirectedGraphable graph) {
@@ -60,11 +54,11 @@ public class NetworkUtils {
 
     /**
      * 
-     * 
-     * @param idx
-     * @param net
-     * @param graph
-     * @return
+     *
+     * @param idx 
+     * @param net 
+     * @param graph 
+     * @return 
      */
     public static ILayer[] getPredecessors(int idx, List<? extends ILayer> net,
 	    INeuralDirectedGraphable graph) {
@@ -79,9 +73,9 @@ public class NetworkUtils {
 
     /**
      * 
-     * 
-     * @param net
-     * @param value
+     *
+     * @param net 
+     * @param value 
      */
     public static void setFill(List<? extends ILayer> net, double value) {
 	for (ILayer layer : net) {
@@ -94,9 +88,9 @@ public class NetworkUtils {
 
     /**
      * 
-     * 
-     * @param net
-     * @param lrnRate
+     *
+     * @param net 
+     * @param lrnRate 
      */
     public static void setFillLearnRate(List<? extends ISvLayer> net,
 	    double lrnRate) {
@@ -107,8 +101,8 @@ public class NetworkUtils {
 
     /**
      * 
-     * 
-     * @param net
+     *
+     * @param net 
      */
     public static void setFillRandom(List<? extends ILayer> net) {
 	for (ILayer layer : net) {
@@ -119,8 +113,8 @@ public class NetworkUtils {
 
     /**
      * 
-     * 
-     * @param net
+     *
+     * @param net 
      */
     public static void setFillRandomFloor(List<? extends ILayer> net) {
 	for (ILayer layer : net) {
@@ -131,10 +125,10 @@ public class NetworkUtils {
 
     /**
      * 
-     * 
-     * @param net
-     * @param min
-     * @param max
+     *
+     * @param net 
+     * @param min 
+     * @param max 
      */
     public static void setFillRandomMinMax(List<? extends ILayer> net,
 	    double min, double max) {
@@ -146,10 +140,10 @@ public class NetworkUtils {
 
     /**
      * 
-     * 
-     * @param net
-     * @param min
-     * @param max
+     *
+     * @param net 
+     * @param min 
+     * @param max 
      */
     public static void setFillRandomMinMaxFloor(List<? extends ILayer> net,
 	    int min, int max) {
@@ -161,9 +155,9 @@ public class NetworkUtils {
 
     /**
      * 
-     * 
-     * @param net
-     * @param ngraph
+     *
+     * @param net 
+     * @param ngraph 
      */
     public static void simulate(List<? extends ILayer> net,
 	    NeuralDirectedGraph ngraph) {
@@ -179,9 +173,9 @@ public class NetworkUtils {
 
     /**
      * 
-     * 
-     * @param net
-     * @param ngraph
+     *
+     * @param net 
+     * @param ngraph 
      */
     public static void updateNetworkInput(List<? extends ILayer> net,
 	    NeuralDirectedGraph ngraph) {
@@ -197,8 +191,8 @@ public class NetworkUtils {
 
     /**
      * 
-     * 
-     * @param net
+     *
+     * @param net 
      */
     public static void updateNetworkNetsum(List<? extends ILayer> net) {
 	for (ILayer lyr : net) {
@@ -208,8 +202,8 @@ public class NetworkUtils {
 
     /**
      * 
-     * 
-     * @param net
+     *
+     * @param net 
      */
     public static void updateNetworkOutput(List<? extends ILayer> net) {
 	for (ILayer layer : net) {
