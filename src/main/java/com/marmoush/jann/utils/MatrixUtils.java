@@ -40,11 +40,15 @@ public class MatrixUtils {
 
     /**
      * Batch feature mapping.
-     *
-     * @param batchTrainingEx the batch training ex
-     * @param degree the degree
-     * @param f1ColIndex the f1 col index
-     * @param f2ColIndex the f2 col index
+     * 
+     * @param batchTrainingEx
+     *            the batch training ex
+     * @param degree
+     *            the degree
+     * @param f1ColIndex
+     *            the f1 col index
+     * @param f2ColIndex
+     *            the f2 col index
      * @return the double matrix
      */
     public static DoubleMatrix batchFeatureMapping(
@@ -64,10 +68,27 @@ public class MatrixUtils {
 	return mtrx;
     }
 
+    public static DoubleMatrix concatVert(DoubleMatrix... matrices) {
+	DoubleMatrix all = matrices[0];
+	for (int i = 1; i < matrices.length; i++) {
+	    all = DoubleMatrix.concatVertically(all, matrices[i]);
+	}
+	return all;
+    }
+
+    public static DoubleMatrix concatHori(DoubleMatrix... matrices) {
+	DoubleMatrix all = matrices[0];
+	for (int i = 1; i < matrices.length; i++) {
+	    all = DoubleMatrix.concatHorizontally(all, matrices[i]);
+	}
+	return all;
+    }
+
     /**
      * Batch mtrx to col vecs list.
-     *
-     * @param batch the batch
+     * 
+     * @param batch
+     *            the batch
      * @return the list
      */
     public static List<DoubleMatrix> batchMtrxToColVecsList(DoubleMatrix batch) {
@@ -82,8 +103,9 @@ public class MatrixUtils {
 
     /**
      * Col vecs list2 batch mtrx.
-     *
-     * @param listOfVectors the list of vectors
+     * 
+     * @param listOfVectors
+     *            the list of vectors
      * @return the double matrix
      */
     public static DoubleMatrix colVecsList2BatchMtrx(
@@ -100,9 +122,11 @@ public class MatrixUtils {
 
     /**
      * Equals.
-     *
-     * @param mtrx1 the mtrx1
-     * @param mtrx2 the mtrx2
+     * 
+     * @param mtrx1
+     *            the mtrx1
+     * @param mtrx2
+     *            the mtrx2
      * @return true, if successful
      */
     public static boolean equals(DoubleMatrix mtrx1, DoubleMatrix mtrx2) {
@@ -119,10 +143,13 @@ public class MatrixUtils {
 
     /**
      * Feature mapping.
-     *
-     * @param x1 the x1
-     * @param x2 the x2
-     * @param degree the degree
+     * 
+     * @param x1
+     *            the x1
+     * @param x2
+     *            the x2
+     * @param degree
+     *            the degree
      * @return the double matrix
      */
     public static DoubleMatrix featureMapping(double x1, double x2, int degree) {
@@ -142,11 +169,15 @@ public class MatrixUtils {
 
     /**
      * Feature mapping.
-     *
-     * @param input the input
-     * @param degree the degree
-     * @param f1Index the f1 index
-     * @param f2Index the f2 index
+     * 
+     * @param input
+     *            the input
+     * @param degree
+     *            the degree
+     * @param f1Index
+     *            the f1 index
+     * @param f2Index
+     *            the f2 index
      * @return the double matrix
      */
     public static DoubleMatrix featureMapping(DoubleMatrix input, int degree,
@@ -163,8 +194,9 @@ public class MatrixUtils {
 
     /**
      * Feature scaling by avrg.
-     *
-     * @param input the input
+     * 
+     * @param input
+     *            the input
      * @return the double matrix
      */
     public static DoubleMatrix featureScalingByAvrg(DoubleMatrix input) {
@@ -176,8 +208,9 @@ public class MatrixUtils {
 
     /**
      * Feature scaling by std.
-     *
-     * @param input the input
+     * 
+     * @param input
+     *            the input
      * @return the double matrix
      */
     public static DoubleMatrix featureScalingBySTD(DoubleMatrix input) {
@@ -188,8 +221,9 @@ public class MatrixUtils {
 
     /**
      * Gets the num features mapped.
-     *
-     * @param degree the degree
+     * 
+     * @param degree
+     *            the degree
      * @return the num features mapped
      */
     public static int getNumFeaturesMapped(int degree) {
@@ -198,8 +232,9 @@ public class MatrixUtils {
 
     /**
      * Gets the size.
-     *
-     * @param mtrx the mtrx
+     * 
+     * @param mtrx
+     *            the mtrx
      * @return the size
      */
     public static String getSize(DoubleMatrix mtrx) {
@@ -208,8 +243,9 @@ public class MatrixUtils {
 
     /**
      * Inv.
-     *
-     * @param mtrx the mtrx
+     * 
+     * @param mtrx
+     *            the mtrx
      * @return the double matrix
      */
     public static DoubleMatrix inv(DoubleMatrix mtrx) {
@@ -220,15 +256,16 @@ public class MatrixUtils {
      * Computes the Moore–Penrose pseudoinverse using the SVD method.
      * 
      * Modified version of the original implementation by Kim van der Linde.
-     *
-     * @param x the x
+     * 
+     * @param x
+     *            the x
      * @return the double matrix
      */
     public static DoubleMatrix pinv(DoubleMatrix x) {
 	// SingularValueDecomposition svdX = new SingularValueDecomposition(x);
 	DoubleMatrix[] fullSVD = Singular.fullSVD(x);
 	DoubleMatrix singularValuesDM = fullSVD[1];
-	double rank = rankEff(x, singularValuesDM);
+	double rank = rank(x, singularValuesDM);
 	if (rank < 1)
 	    return null;
 	if (x.columns > x.rows)
@@ -253,9 +290,11 @@ public class MatrixUtils {
 
     /**
      * Prints the.
-     *
-     * @param withSize the with size
-     * @param mtrxList the mtrx list
+     * 
+     * @param withSize
+     *            the with size
+     * @param mtrxList
+     *            the mtrx list
      */
     public static void print(boolean withSize, DoubleMatrix... mtrxList) {
 	for (DoubleMatrix mtrx : mtrxList) {
@@ -267,9 +306,11 @@ public class MatrixUtils {
 
     /**
      * Prints the.
-     *
-     * @param withSize the with size
-     * @param mtrxList the mtrx list
+     * 
+     * @param withSize
+     *            the with size
+     * @param mtrxList
+     *            the mtrx list
      */
     public static void print(boolean withSize, List<DoubleMatrix> mtrxList) {
 	for (DoubleMatrix mtrx : mtrxList) {
@@ -281,10 +322,13 @@ public class MatrixUtils {
 
     /**
      * Prints the.
-     *
-     * @param names the names
-     * @param withSize the with size
-     * @param mtrxList the mtrx list
+     * 
+     * @param names
+     *            the names
+     * @param withSize
+     *            the with size
+     * @param mtrxList
+     *            the mtrx list
      */
     public static void print(String[] names, boolean withSize,
 	    DoubleMatrix... mtrxList) {
@@ -298,8 +342,9 @@ public class MatrixUtils {
 
     /**
      * Prints the size.
-     *
-     * @param mtrx the mtrx
+     * 
+     * @param mtrx
+     *            the mtrx
      */
     public static void printSize(DoubleMatrix mtrx) {
 	System.out.print(MatrixUtils.getSize(mtrx));
@@ -307,8 +352,9 @@ public class MatrixUtils {
 
     /**
      * Prints the size.
-     *
-     * @param mtrxArray the mtrx array
+     * 
+     * @param mtrxArray
+     *            the mtrx array
      */
     public static void printSize(DoubleMatrix... mtrxArray) {
 	for (DoubleMatrix m : mtrxArray) {
@@ -357,10 +403,13 @@ public class MatrixUtils {
 
     /**
      * Range.
-     *
-     * @param start the start
-     * @param incrOrDecrValue the incr or decr value
-     * @param end the end
+     * 
+     * @param start
+     *            the start
+     * @param incrOrDecrValue
+     *            the incr or decr value
+     * @param end
+     *            the end
      * @return the list
      */
     public static List<Double> range(double start, double incrOrDecrValue,
@@ -383,39 +432,44 @@ public class MatrixUtils {
 
     /**
      * Rank.
-     *
-     * @param A the a
+     * 
+     * @param A
+     *            the a
      * @return the double
      */
     public static double rank(DoubleMatrix A) {
-	return rankEff(A, Singular.SVDValues(A));
+	return rank(A, Singular.SVDValues(A));
     }
 
     /**
      * Rank eff.
-     *
-     * @param A the a
-     * @param s the s
+     * 
+     * @param A
+     *            the a
+     * @param svdOfA
+     *            the s
      * @return the double
      */
-    public static double rankEff(DoubleMatrix A, DoubleMatrix s) {
+    public static double rank(DoubleMatrix A, DoubleMatrix svdOfA) {
 	// Where s = svd(A); ==> DoubleMatrix s = Singular.SVDValues(A);
 
 	// tol = max(size(A))*eps(max(s));
 	double maxSizeA = Math.max(A.rows, A.columns);
 	double eps = Math.pow(2.0, -52.0);
-	double maxS = s.max();
+	double maxS = svdOfA.max();
 	double tol = maxSizeA * eps * maxS;
 	// r = sum(s > tol);
-	double r = s.gt(tol).sum();
+	double r = svdOfA.gt(tol).sum();
 	return r;
     }
 
     /**
      * Round.
-     *
-     * @param mtrx the mtrx
-     * @param decPoints the dec points
+     * 
+     * @param mtrx
+     *            the mtrx
+     * @param decPoints
+     *            the dec points
      * @return the double matrix
      */
     public static DoubleMatrix round(DoubleMatrix mtrx, int decPoints) {
@@ -501,8 +555,9 @@ public class MatrixUtils {
 
     /**
      * Standard deviation.
-     *
-     * @param input the input
+     * 
+     * @param input
+     *            the input
      * @return the double
      */
     public static double standardDeviation(DoubleMatrix input) {
@@ -514,8 +569,9 @@ public class MatrixUtils {
 
     /**
      * Standard deviation mat.
-     *
-     * @param input the input
+     * 
+     * @param input
+     *            the input
      * @return the double
      */
     public static double standardDeviationMat(DoubleMatrix input) {

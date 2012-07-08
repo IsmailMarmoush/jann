@@ -27,7 +27,6 @@ import org.jblas.DoubleMatrix;
 import com.marmoush.jann.neuralgraph.NeuralDirectedGraph;
 import com.marmoush.jann.utils.NetworkUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class SvNeuralNetwork.
  */
@@ -46,12 +45,6 @@ public class SvNeuralNetwork extends ArrayList<SvLayer> {
 	super();
     }
 
-    /**
-     * Instantiates a new sv neural network.
-     * 
-     * @param c
-     *            the c
-     */
     public SvNeuralNetwork(Collection<? extends SvLayer> c) {
 	super(c);
     }
@@ -83,9 +76,8 @@ public class SvNeuralNetwork extends ArrayList<SvLayer> {
      *            the layer idx
      * @return the inputs concatenated for layer
      */
-    public DoubleMatrix getInputsConcatenatedForLayer(int layerIdx) {
-	return NetworkUtils.getInputsConcatenatedForLayer(layerIdx, this,
-		this.neuralGraph);
+    public DoubleMatrix getInputsConcat(int layerIdx) {
+	return NetworkUtils.getInputsConcat(layerIdx, this, this.neuralGraph);
     }
 
     /**

@@ -22,5 +22,5 @@ package com.marmoush.jann.test.unit.chart;
  * The Class ChartUtilsTest.
  */
 public class ChartUtilsTest {
-
+    
 }

@@ -23,9 +23,9 @@ import java.util.List;
 import org.jblas.DoubleMatrix;
 
 import com.marmoush.jann.ILayer;
-import com.marmoush.jann.Layer;
+import com.marmoush.jann.neuralgraph.INeuralDirectedGraphable;
 import com.marmoush.jann.neuralgraph.NeuralDirectedGraph;
-import com.marmoush.jann.sv.SvLayer;
+import com.marmoush.jann.sv.ISvLayer;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -41,7 +41,7 @@ public class NetworkUtils {
      * @param ngraph
      *            the ngraph
      */
-    public static void bpff(List<? extends Layer> net,
+    public static void bpff(List<? extends ILayer> net,
 	    NeuralDirectedGraph ngraph) {
 
     }
@@ -57,30 +57,21 @@ public class NetworkUtils {
      *            the ngraph
      * @return the inputs concatenated for layer
      */
-    public static DoubleMatrix getInputsConcatenatedForLayer(int layerIdx,
-	    List<? extends Layer> net, NeuralDirectedGraph ngraph) {
-	List<Integer> predecessors = ngraph.getPredecessorsOf(layerIdx);
-	// If there is only one predecessor layer
-	if (predecessors.size() == 1) {
-	    int predIdx = predecessors.get(0);
-	    return net.get(predIdx).getOutput();
-	}
-	// If there is more than one Predecessor
-	if (predecessors.size() > 1) {
-	    // Get First predecessor output
-	    int predLyrIdx = predecessors.get(0);
-	    DoubleMatrix predLyrOutput = net.get(predLyrIdx).getOutput();
-	    DoubleMatrix inputsConc = predLyrOutput;
-	    // Concatenate the rest
-	    for (int i = 1; i < predecessors.size(); i++) {
-		predLyrIdx = predecessors.get(i);
-		predLyrOutput = net.get(predLyrIdx).getOutput();
-		inputsConc = DoubleMatrix.concatVertically(inputsConc,
-			predLyrOutput);
-	    }
-	    return inputsConc;
-	}
+    public static DoubleMatrix getInputsConcat(int layerIdx,
+	    List<? extends ILayer> net, INeuralDirectedGraphable graph) {
+	
 	return null;
+    }
+
+    public static ILayer[] getPredecessors(int idx, List<? extends ILayer> net,
+	    INeuralDirectedGraphable graph) {
+	List<Integer> predIndices = graph.getPredecessorsOf(idx);
+	int size = predIndices.size();
+	ILayer[] layers = new ILayer[size];
+	for (int i = 0; i < size; i++) {
+	    layers[i] = net.get(predIndices.get(i));
+	}
+	return layers;
     }
 
     /**
@@ -91,7 +82,7 @@ public class NetworkUtils {
      * @param value
      *            the value
      */
-    public static void setFill(List<? extends Layer> net, double value) {
+    public static void setFill(List<? extends ILayer> net, double value) {
 	for (ILayer layer : net) {
 	    // no need to checking the setfill doesn't fill a null matrix
 	    // if (!layer.isInputOnlyLayer())
@@ -108,10 +99,10 @@ public class NetworkUtils {
      * @param lrnRate
      *            the lrn rate
      */
-    public static void setFillLearnRate(List<? extends SvLayer> net,
+    public static void setFillLearnRate(List<? extends ISvLayer> net,
 	    double lrnRate) {
-	for (SvLayer svLayer : net) {
-	    svLayer.setLearnRate(lrnRate);
+	for (ISvLayer iSvLayer : net) {
+	    iSvLayer.setLearnRate(lrnRate);
 	}
     }
 
@@ -121,7 +112,7 @@ public class NetworkUtils {
      * @param net
      *            the new fill random
      */
-    public static void setFillRandom(List<? extends Layer> net) {
+    public static void setFillRandom(List<? extends ILayer> net) {
 	for (ILayer layer : net) {
 	    layer.setFillRandom(layer.getInput(), layer.getBias(),
 		    layer.getWeight());
@@ -134,7 +125,7 @@ public class NetworkUtils {
      * @param net
      *            the new fill random floor
      */
-    public static void setFillRandomFloor(List<? extends Layer> net) {
+    public static void setFillRandomFloor(List<? extends ILayer> net) {
 	for (ILayer layer : net) {
 	    layer.setFillRandomFloor(layer.getInput(), layer.getBias(),
 		    layer.getWeight());
@@ -151,7 +142,7 @@ public class NetworkUtils {
      * @param max
      *            the max
      */
-    public static void setFillRandomMinMax(List<? extends Layer> net,
+    public static void setFillRandomMinMax(List<? extends ILayer> net,
 	    double min, double max) {
 	for (ILayer layer : net) {
 	    layer.setFillRandomMinMax(min, max, layer.getInput(),
@@ -169,7 +160,7 @@ public class NetworkUtils {
      * @param max
      *            the max
      */
-    public static void setFillRandomMinMaxFloor(List<? extends Layer> net,
+    public static void setFillRandomMinMaxFloor(List<? extends ILayer> net,
 	    int min, int max) {
 	for (ILayer layer : net) {
 	    layer.setFillRandomMinMaxFloor(min, max, layer.getInput(),
@@ -185,7 +176,7 @@ public class NetworkUtils {
      * @param ngraph
      *            the ngraph
      */
-    public static void simulate(List<? extends Layer> net,
+    public static void simulate(List<? extends ILayer> net,
 	    NeuralDirectedGraph ngraph) {
 	updateNetworkInput(net, ngraph);
 	updateNetworkNetsum(net);
@@ -205,13 +196,13 @@ public class NetworkUtils {
      * @param ngraph
      *            the ngraph
      */
-    public static void updateNetworkInput(List<? extends Layer> net,
+    public static void updateNetworkInput(List<? extends ILayer> net,
 	    NeuralDirectedGraph ngraph) {
 	ILayer lyr = null;
 	DoubleMatrix input = null;
 	for (int i = 0; i < net.size(); i++) {
 	    lyr = net.get(i);
-	    input = NetworkUtils.getInputsConcatenatedForLayer(i, net, ngraph);
+	    input = NetworkUtils.getInputsConcat(i, net, ngraph);
 	    if (input != null)
 		lyr.setInput(input);
 	}
@@ -223,7 +214,7 @@ public class NetworkUtils {
      * @param net
      *            the net
      */
-    public static void updateNetworkNetsum(List<? extends Layer> net) {
+    public static void updateNetworkNetsum(List<? extends ILayer> net) {
 	for (ILayer lyr : net) {
 	    lyr.updateNetSum();
 	}
@@ -235,7 +226,7 @@ public class NetworkUtils {
      * @param net
      *            the net
      */
-    public static void updateNetworkOutput(List<? extends Layer> net) {
+    public static void updateNetworkOutput(List<? extends ILayer> net) {
 	for (ILayer layer : net) {
 	    layer.updateOutput();
 	}
