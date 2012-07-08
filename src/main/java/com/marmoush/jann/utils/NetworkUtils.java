@@ -23,10 +23,6 @@ import com.marmoush.jann.sv.ISvLayer;
 
 public class NetworkUtils {
 
-    /**
-     * @param net
-     * @param ngraph
-     */
     public static void bpff(List<? extends ILayer> net,
 	    NeuralDirectedGraph ngraph) {
 
@@ -61,10 +57,6 @@ public class NetworkUtils {
 	return layers;
     }
 
-    /**
-     * @param net
-     * @param value
-     */
     public static void setFill(List<? extends ILayer> net, double value) {
 	for (ILayer layer : net) {
 	    // no need to checking the setfill doesn't fill a null matrix
@@ -74,10 +66,6 @@ public class NetworkUtils {
 	}
     }
 
-    /**
-     * @param net
-     * @param lrnRate
-     */
     public static void setFillLearnRate(List<? extends ISvLayer> net,
 	    double lrnRate) {
 	for (ISvLayer iSvLayer : net) {
@@ -85,7 +73,6 @@ public class NetworkUtils {
 	}
     }
 
-    
     public static void setFillRandom(List<? extends ILayer> net) {
 	for (ILayer layer : net) {
 	    layer.setFillRandom(layer.getInput(), layer.getBias(),
@@ -93,7 +80,6 @@ public class NetworkUtils {
 	}
     }
 
-    
     public static void setFillRandomFloor(List<? extends ILayer> net) {
 	for (ILayer layer : net) {
 	    layer.setFillRandomFloor(layer.getInput(), layer.getBias(),
@@ -127,10 +113,6 @@ public class NetworkUtils {
 	}
     }
 
-    /**
-     * @param net
-     * @param ngraph
-     */
     public static void simulate(List<? extends ILayer> net,
 	    NeuralDirectedGraph ngraph) {
 	updateNetworkInput(net, ngraph);
@@ -143,10 +125,6 @@ public class NetworkUtils {
 	updateNetworkOutput(net);
     }
 
-    /**
-     * @param net
-     * @param ngraph
-     */
     public static void updateNetworkInput(List<? extends ILayer> net,
 	    NeuralDirectedGraph ngraph) {
 	ILayer lyr = null;
@@ -159,14 +137,12 @@ public class NetworkUtils {
 	}
     }
 
-    
     public static void updateNetworkNetsum(List<? extends ILayer> net) {
 	for (ILayer lyr : net) {
 	    lyr.updateNetSum();
 	}
     }
 
-    
     public static void updateNetworkOutput(List<? extends ILayer> net) {
 	for (ILayer layer : net) {
 	    layer.updateOutput();

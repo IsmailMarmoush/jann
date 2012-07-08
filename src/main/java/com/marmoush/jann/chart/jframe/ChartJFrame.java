@@ -55,8 +55,6 @@ public abstract class ChartJFrame extends JFrame {
 	return chart;
     }
 
-    
-
     @Override
     public int getHeight() {
 	return height;
@@ -65,8 +63,6 @@ public abstract class ChartJFrame extends JFrame {
     public PlotOrientation getOrientation() {
 	return orientation;
     }
-
-    
 
     @Override
     public int getWidth() {
@@ -108,57 +104,46 @@ public abstract class ChartJFrame extends JFrame {
 	setVisible(true);
     }
 
-    
     public void setApptitle(String apptitle) {
 	this.apptitle = apptitle;
     }
 
-    
     public void setChart(JFreeChart chart) {
 	this.chart = chart;
     }
 
-    
     public void setHeight(int height) {
 	this.height = height;
     }
 
-    
     public void setLegend(boolean legend) {
 	this.legend = legend;
     }
 
-    
     public void setOrientation(PlotOrientation orientation) {
 	this.orientation = orientation;
     }
 
-    
     public void setTooltips(boolean tooltips) {
 	this.tooltips = tooltips;
     }
 
-    
     public void setUrls(boolean urls) {
 	this.urls = urls;
     }
 
-    
     public void setWidth(int width) {
 	this.width = width;
     }
 
-    
     public void setxAxisTitle(String xTitle) {
 	this.xAxisTitle = xTitle;
     }
 
-    
     public void setXySeriesCollection(XYSeriesCollection xySeriesCollection) {
 	this.xySeriesCollection = xySeriesCollection;
     }
 
-    
     public void setyAxisTitle(String yTitle) {
 	this.yAxisTitle = yTitle;
     }

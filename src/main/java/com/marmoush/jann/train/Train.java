@@ -56,15 +56,10 @@ public abstract class Train {
 	this.timeLimit = timeLimit;
     }
 
-    
     public void addPerformanceHistoryEntry(double performance) {
 	getPerformanceHistory().add(performance);
     }
 
-    /**
-     * @param cause
-     * @param atEpoch
-     */
     public void end(String cause, int atEpoch) {
 	this.end = System.currentTimeMillis();
 	this.timeElapsed = end - start;
@@ -101,22 +96,18 @@ public abstract class Train {
 	end(EPOCHS_REACHED, getMaxEpochs());
     }
 
-    
     public void setMaxEpochs(int maxEpochs) {
 	this.maxEpochs = maxEpochs;
     }
 
-    
     public void setPerformanceGoal(double performanceGoal) {
 	this.performanceGoal = performanceGoal;
     }
 
-    
     public void setPerformanceHistory(List<Double> performanceHistory) {
 	this.performanceHistory = performanceHistory;
     }
 
-    
     public void setTimeLimit(long timeLimit) {
 	this.timeLimit = timeLimit;
     }
@@ -124,8 +115,6 @@ public abstract class Train {
     public void start() {
 	this.start = System.currentTimeMillis();
     }
-
-    
 
     @Override
     public String toString() {

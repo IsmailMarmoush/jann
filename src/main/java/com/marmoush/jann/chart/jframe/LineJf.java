@@ -25,13 +25,10 @@ public class LineJf extends ChartJFrame {
     public LineJf() {
     }
 
-    
     public LineJf(XYSeries... seriesList) {
 	setXySeriesCollection(ChartUtils.getXYSeriesCollection(seriesList));
 
     }
-
-    
 
     @Override
     public void run() {

@@ -113,62 +113,50 @@ public abstract class ChartImage {
 	return urls;
     }
 
-    
     public void setChart(JFreeChart chart) {
 	this.chart = chart;
     }
 
-    
     public void setHeight(int height) {
 	this.height = height;
     }
 
-    
     public void setLegend(boolean legend) {
 	this.legend = legend;
     }
 
-    
     public void setOrientation(PlotOrientation orientation) {
 	this.orientation = orientation;
     }
 
-    
     public void setPath(String path) {
 	this.path = path;
     }
 
-    
     public void setTitle(String title) {
 	this.title = title;
     }
 
-    
     public void setTooltips(boolean tooltips) {
 	this.tooltips = tooltips;
     }
 
-    
     public void setUrls(boolean urls) {
 	this.urls = urls;
     }
 
-    
     public void setWidth(int width) {
 	this.width = width;
     }
 
-    
     public void setxAxisTitle(String xTitle) {
 	this.xAxisTitle = xTitle;
     }
 
-    
     public void setXySeriesCollec(XYSeriesCollection dataset) {
 	this.xySeriesCollec = dataset;
     }
 
-    
     public void setyAxisTitle(String yTitle) {
 	this.yAxisTitle = yTitle;
     }

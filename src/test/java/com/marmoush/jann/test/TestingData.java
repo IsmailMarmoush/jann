@@ -27,7 +27,6 @@ public class TestingData {
 	return toRelativePath(DATA_FOLDER + "." + folder, fileName);
     }
 
-    
     public static void main(String[] args) {
 	String path = toRelativePath(DATA_FOLDER + ".ex1", "ex1data1.txt");
 	System.out.println(path);

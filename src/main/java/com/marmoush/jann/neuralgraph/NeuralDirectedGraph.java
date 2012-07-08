@@ -31,7 +31,6 @@ public class NeuralDirectedGraph extends
 	super(DefaultEdge.class);
     }
 
-    
     public NeuralDirectedGraph(int... nNeuronsPerLayer) {
 	this();
 	for (int i = 0; i < nNeuronsPerLayer.length; i++) {
@@ -40,7 +39,6 @@ public class NeuralDirectedGraph extends
 	}
     }
 
-    
     public NeuralDirectedGraph(List<Integer> nNeuronsPerLayer) {
 	this();
 	this.layersNumOfNeurons = nNeuronsPerLayer;
@@ -81,10 +79,7 @@ public class NeuralDirectedGraph extends
      * @see
      * com.marmoush.jann.NeuralGraph.NeuralDirectedGraphable#getInputLength(int)
      */
-    /**
-     * @param lyrIdx
-     * @return
-     */
+
     @Override
     public int getInputLength(final int lyrIdx) {
 	int inputLengthSum = 0;
@@ -101,10 +96,7 @@ public class NeuralDirectedGraph extends
      * com.marmoush.jann.NeuralGraph.NeuralDirectedGraphable#getNumOfNeuronsInLayer
      * (int)
      */
-    /**
-     * @param lyrIdx
-     * @return
-     */
+
     @Override
     public int getLayerNumOfNeurons(final int lyrIdx) {
 	return layersNumOfNeurons.get(lyrIdx);
@@ -120,10 +112,7 @@ public class NeuralDirectedGraph extends
      * com.marmoush.jann.NeuralGraph.NeuralDirectedGraphable#getPredecessorsOf
      * (int)
      */
-    /**
-     * @param lyrIdx
-     * @return
-     */
+
     @Override
     public List<Integer> getPredecessorsOf(final int lyrIdx) {
 	return Graphs.predecessorListOf(this, lyrIdx);
@@ -135,10 +124,7 @@ public class NeuralDirectedGraph extends
      * com.marmoush.jann.NeuralGraph.NeuralDirectedGraphable#getSuccessorsOf
      * (int)
      */
-    /**
-     * @param lyrIdx
-     * @return
-     */
+
     @Override
     public List<Integer> getSuccessorsOf(int lyrIdx) {
 	return Graphs.successorListOf(this, lyrIdx);
@@ -150,7 +136,7 @@ public class NeuralDirectedGraph extends
      * com.marmoush.jann.NeuralGraph.NeuralDirectedGraphable#setNumOfNeuronsInLayer
      * (java.util.List)
      */
-    
+
     @Override
     public void setAllLayersNumOfNeurons(List<Integer> nNeuronsPerLayer) {
 	this.layersNumOfNeurons = nNeuronsPerLayer;

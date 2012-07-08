@@ -18,7 +18,6 @@ import java.util.List;
 
 import org.jblas.DoubleMatrix;
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import com.marmoush.jann.utils.MatrixUtils;
@@ -27,18 +26,6 @@ public class MatrixUtilsTest {
 
     private DoubleMatrix mtrx;
 
-    /**
-     * @throws Exception
-     */
-    @Before
-    public void setUp() throws Exception {
-	mtrx = DoubleMatrix
-		.valueOf("1.23456 12.3456 123.45678 1234.5678 12345.678");
-    }
-
-    /**
-     * @throws Exception
-     */
     @After
     public void tearDown() throws Exception {
 	System.out.println("----------------------------------");

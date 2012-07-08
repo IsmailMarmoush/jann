@@ -18,13 +18,11 @@ import java.util.List;
 import org.jblas.DoubleMatrix;
 import org.jfree.data.xy.XYSeries;
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import com.marmoush.jann.chart.ChartUtils;
 import com.marmoush.jann.chart.LineImg;
 import com.marmoush.jann.model.regression.LinearRegression;
-import com.marmoush.jann.test.TestingData;
 import com.marmoush.jann.train.Train;
 import com.marmoush.jann.utils.MatrixUtils;
 import com.marmoush.jann.utils.TrainUtils;
@@ -54,23 +52,6 @@ public class LingRgrTrainTest {
 	img.createPNG();
     }
 
-    /**
-     * @throws Exception
-     */
-    @Before
-    public void setUp() throws Exception {
-	String path = TestingData.getPath("ex1", "ex1data1.txt");
-	DoubleMatrix data = DoubleMatrix.loadAsciiFile(path);
-
-	inputs = data.getColumn(0);
-	targets = data.getColumn(1);
-	inputList = MatrixUtils.batchMtrxToColVecsList(inputs.transpose());
-	targetList = MatrixUtils.batchMtrxToColVecsList(targets.transpose());
-    }
-
-    /**
-     * @throws Exception
-     */
     @After
     public void tearDown() throws Exception {
 

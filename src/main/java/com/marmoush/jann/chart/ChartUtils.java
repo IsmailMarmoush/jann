@@ -20,10 +20,6 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 public class ChartUtils {
 
-    /**
-     * @param seriesList
-     * @return
-     */
     public static XYSeriesCollection getXYSeriesCollection(
 	    XYSeries... seriesList) {
 	XYSeriesCollection dataset = new XYSeriesCollection();

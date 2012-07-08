@@ -32,9 +32,6 @@ public class NormalEqTest {
 
     }
 
-    /**
-     * @throws Exception
-     */
     @Before
     public void setUp() throws Exception {
 	String path = TestingData.getPath("ex2", "ex2data1Bias.txt");

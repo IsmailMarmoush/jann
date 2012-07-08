@@ -25,12 +25,9 @@ public class ScatterDataJf extends ChartJFrame {
     public ScatterDataJf() {
     }
 
-    
     public ScatterDataJf(XYSeries... seriesList) {
 	setXySeriesCollection(ChartUtils.getXYSeriesCollection(seriesList));
     }
-
-    
 
     @Override
     public void run() {

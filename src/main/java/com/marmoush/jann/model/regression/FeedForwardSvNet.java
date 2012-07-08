@@ -65,12 +65,10 @@ public class FeedForwardSvNet extends SvNeuralNetwork {
 		new DoubleMatrix(nNeuronsPerLayer[0], inputSize));
     }
 
-    
     public void setInput(DoubleMatrix input) {
 	this.getInputLayer().setInput(input);
     }
 
-    
     public void setTarget(DoubleMatrix target) {
 	this.getOutputLayer().setTarget(target);
     }

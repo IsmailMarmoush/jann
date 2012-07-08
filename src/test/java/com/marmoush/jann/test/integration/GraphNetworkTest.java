@@ -20,7 +20,6 @@ import com.marmoush.jann.utils.NetworkUtils;
 
 public class GraphNetworkTest {
 
-    
     public static void main(String[] args) {
 	NeuralDirectedGraph ngraph = new NeuralDirectedGraph(3, 4, 2);
 	ngraph.addEdge(0, 1);

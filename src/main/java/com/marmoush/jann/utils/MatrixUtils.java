@@ -48,10 +48,6 @@ public class MatrixUtils {
 	return mtrx;
     }
 
-    /**
-     * @param batch
-     * @return
-     */
     public static List<DoubleMatrix> batchMtrxToColVecsList(DoubleMatrix batch) {
 	// assert vectors with same size
 	int cols = batch.columns;
@@ -62,10 +58,6 @@ public class MatrixUtils {
 	return colVecList;
     }
 
-    /**
-     * @param listOfVectors
-     * @return
-     */
     public static DoubleMatrix colVecsList2BatchMtrx(
 	    List<DoubleMatrix> listOfVectors) {
 	// assert vectors with same size
@@ -78,10 +70,6 @@ public class MatrixUtils {
 	return batch;
     }
 
-    /**
-     * @param matrices
-     * @return
-     */
     public static DoubleMatrix concatHori(DoubleMatrix... matrices) {
 	DoubleMatrix all = matrices[0];
 	for (int i = 1; i < matrices.length; i++) {
@@ -90,10 +78,6 @@ public class MatrixUtils {
 	return all;
     }
 
-    /**
-     * @param matrices
-     * @return
-     */
     public static DoubleMatrix concatVert(DoubleMatrix... matrices) {
 	DoubleMatrix all = matrices[0];
 	for (int i = 1; i < matrices.length; i++) {
@@ -159,10 +143,6 @@ public class MatrixUtils {
 	    return null;
     }
 
-    /**
-     * @param input
-     * @return
-     */
     public static DoubleMatrix featureScalingByAvrg(DoubleMatrix input) {
 	double mean = input.mean();
 	double max = input.max();
@@ -170,44 +150,24 @@ public class MatrixUtils {
 	return input.sub(mean).div(max - min);
     }
 
-    /**
-     * @param input
-     * @return
-     */
     public static DoubleMatrix featureScalingBySTD(DoubleMatrix input) {
 	double mean = input.mean();
 	double std = standardDeviation(input);
 	return input.sub(mean).div(std);
     }
 
-    /**
-     * @param degree
-     * @return
-     */
     public static int getNumFeaturesMapped(int degree) {
 	return (int) (1.5 * degree + 0.5 * Math.pow(degree, 2));
     }
 
-    /**
-     * @param mtrx
-     * @return
-     */
     public static String getSize(DoubleMatrix mtrx) {
 	return mtrx.rows + "*" + mtrx.columns;
     }
 
-    /**
-     * @param mtrx
-     * @return
-     */
     public static DoubleMatrix inv(DoubleMatrix mtrx) {
 	return Solve.solvePositive(mtrx, DoubleMatrix.eye(mtrx.rows));
     }
 
-    /**
-     * @param x
-     * @return
-     */
     public static DoubleMatrix pinv(DoubleMatrix x) {
 	// SingularValueDecomposition svdX = new SingularValueDecomposition(x);
 	DoubleMatrix[] fullSVD = Singular.fullSVD(x);
@@ -235,10 +195,6 @@ public class MatrixUtils {
 	return new DoubleMatrix(inverse);
     }
 
-    /**
-     * @param withSize
-     * @param mtrxList
-     */
     public static void print(boolean withSize, DoubleMatrix... mtrxList) {
 	for (DoubleMatrix mtrx : mtrxList) {
 	    if (withSize)
@@ -247,10 +203,6 @@ public class MatrixUtils {
 	}
     }
 
-    /**
-     * @param withSize
-     * @param mtrxList
-     */
     public static void print(boolean withSize, List<DoubleMatrix> mtrxList) {
 	for (DoubleMatrix mtrx : mtrxList) {
 	    if (withSize)
@@ -274,12 +226,10 @@ public class MatrixUtils {
 	}
     }
 
-    
     public static void printSize(DoubleMatrix mtrx) {
 	System.out.print(MatrixUtils.getSize(mtrx));
     }
 
-    
     public static void printSize(DoubleMatrix... mtrxArray) {
 	for (DoubleMatrix m : mtrxArray) {
 	    MatrixUtils.printSize(m);
@@ -337,10 +287,6 @@ public class MatrixUtils {
 	return list;
     }
 
-    /**
-     * @param A
-     * @return
-     */
     public static double rank(DoubleMatrix A) {
 	return rank(A, Singular.SVDValues(A));
     }
@@ -378,7 +324,6 @@ public class MatrixUtils {
 	return mtrx;
     }
 
-    
     public static void setFillRandom(DoubleMatrix... matrices) {
 	for (DoubleMatrix mtrx : matrices) {
 	    if (mtrx != null) {
@@ -387,7 +332,6 @@ public class MatrixUtils {
 	}
     }
 
-    
     public static void setFillRandomFloor(DoubleMatrix... matrices) {
 	for (DoubleMatrix mtrx : matrices) {
 	    if (mtrx != null) {
@@ -429,10 +373,6 @@ public class MatrixUtils {
 	}
     }
 
-    /**
-     * @param input
-     * @return
-     */
     public static double standardDeviation(DoubleMatrix input) {
 	double mean = input.mean();
 	DoubleMatrix dummy = MatrixFunctions.pow(input.sub(mean), 2);
@@ -440,10 +380,6 @@ public class MatrixUtils {
 	return Math.sqrt(sd);
     }
 
-    /**
-     * @param input
-     * @return
-     */
     public static double standardDeviationMat(DoubleMatrix input) {
 	double mean = input.mean();
 	// TODO m-1 or m

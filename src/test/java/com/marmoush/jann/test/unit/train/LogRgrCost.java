@@ -26,10 +26,6 @@ import com.marmoush.jann.utils.functors.IWeight;
 
 public class LogRgrCost {
 
-    /**
-     * @param args
-     * @throws IOException
-     */
     public static void main(String[] args) throws IOException {
 	String path = TestingData.getPath("ex2", "ex2data1Bias.txt");
 	DoubleMatrix data = DoubleMatrix.loadAsciiFile(path);

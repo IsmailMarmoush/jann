@@ -16,16 +16,10 @@ import org.jblas.DoubleMatrix;
 
 public interface IFillableLayer {
 
-    /**
-     * @param value
-     * @param matrices
-     */
     public abstract void setFill(double value, DoubleMatrix... matrices);
 
-    
     public abstract void setFillRandom(DoubleMatrix... matrices);
 
-    
     public abstract void setFillRandomFloor(DoubleMatrix... matrices);
 
     /**

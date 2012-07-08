@@ -27,9 +27,6 @@ public class PerformanceUtilsTest {
 
     private DoubleMatrix target;
 
-    /**
-     * @throws Exception
-     */
     @Before
     public void setUp() throws Exception {
 	output = DoubleMatrix.valueOf("1; 2; 3");

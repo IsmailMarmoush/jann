@@ -44,11 +44,6 @@ public class SvLayer extends Layer implements ISvLayer {
 	super(nInputs, nNeurons, biased);
     }
 
-    
-    /**
-     * @param obj
-     * @return
-     */
     @Override
     public boolean equals(Object obj) {
 	if (this == obj)
@@ -77,42 +72,30 @@ public class SvLayer extends Layer implements ISvLayer {
 	return true;
     }
 
-    
-
     @Override
     public double getLearnRate() {
 	return learnRate;
     }
-
-    
 
     @Override
     public double getPerformance() {
 	return performance;
     }
 
-    
-
     @Override
     public IPerformance getPerformancefnctr() {
 	return performancefnctr;
     }
-
-    
 
     @Override
     public double getReguFctr() {
 	return this.regularizationFctr;
     }
 
-    
-
     @Override
     public DoubleMatrix getTarget() {
 	return target;
     }
-
-    
 
     @Override
     public int hashCode() {
@@ -130,15 +113,11 @@ public class SvLayer extends Layer implements ISvLayer {
 	return result;
     }
 
-    
-    
     @Override
     public void setLearnRate(double lrnRate) {
 	this.learnRate = lrnRate;
     }
 
-    
-    
     @Override
     public void setPerformance(double performance) {
 	this.performance = performance;
@@ -150,35 +129,27 @@ public class SvLayer extends Layer implements ISvLayer {
      * com.marmoush.jann.sv.ISvLayer#setPerformancefnctr(com.marmoush.jann.utils
      * .functors.IPerformance)
      */
-    
+
     @Override
     public void setPerformancefnctr(IPerformance performancefnctr) {
 	this.performancefnctr = performancefnctr;
     }
 
-    
-    
     @Override
     public void setReguFctr(double reg) {
 	this.regularizationFctr = reg;
     }
 
-    
-    
     @Override
     public void setTarget(DoubleMatrix target) {
 	this.target = target;
     }
-
-    
 
     @Override
     public void simulate() {
 	super.simulate();
 	updatePerformance();
     }
-
-    
 
     @Override
     public String toString() {
@@ -194,8 +165,6 @@ public class SvLayer extends Layer implements ISvLayer {
 	builder.append(target);
 	return builder.toString();
     }
-
-    
 
     @Override
     public double updatePerformance() {

@@ -105,9 +105,5 @@ public interface IPerformance extends IFunctionable {
 	}
     };
 
-    /**
-     * @param layer
-     * @return
-     */
     public double measurePerformance(ISvLayer layer);
 }

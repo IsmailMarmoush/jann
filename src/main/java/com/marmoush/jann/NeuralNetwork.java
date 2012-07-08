@@ -30,17 +30,14 @@ public class NeuralNetwork extends ArrayList<Layer> {
 	super();
     }
 
-    
     public NeuralNetwork(Collection<? extends Layer> c) {
 	super(c);
     }
 
-    
     public NeuralNetwork(INeuralDirectedGraphable neuralGraph) {
 	init(neuralGraph);
     }
 
-    
     public NeuralNetwork(int initialCapacity) {
 	super(initialCapacity);
     }
@@ -49,7 +46,6 @@ public class NeuralNetwork extends ArrayList<Layer> {
 	return neuralGraph;
     }
 
-    
     public void init(INeuralDirectedGraphable neuralGraph) {
 	int lyrIdx = 0;
 	int nNeurons = 0;
@@ -63,7 +59,6 @@ public class NeuralNetwork extends ArrayList<Layer> {
 	}
     }
 
-    
     public void setNeuralGraph(NeuralDirectedGraph neuralGraph) {
 	this.neuralGraph = neuralGraph;
     }
@@ -71,8 +66,6 @@ public class NeuralNetwork extends ArrayList<Layer> {
     public void simulate() {
 	NetworkUtils.simulate(this, this.neuralGraph);
     }
-
-    
 
     @Override
     public String toString() {

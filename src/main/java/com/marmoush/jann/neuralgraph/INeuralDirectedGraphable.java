@@ -22,31 +22,14 @@ public interface INeuralDirectedGraphable extends
 
     public List<Integer> getAllLayersNumOfNeurons();
 
-    /**
-     * @param layerIndex
-     * @return
-     */
     public int getInputLength(final int layerIndex);
 
-    /**
-     * @param layerIndex
-     * @return
-     */
     public int getLayerNumOfNeurons(final int layerIndex);
 
-    /**
-     * @param layerIndex
-     * @return
-     */
     public List<Integer> getPredecessorsOf(final int layerIndex);
 
-    /**
-     * @param layerIndex
-     * @return
-     */
     public List<Integer> getSuccessorsOf(final int layerIndex);
 
-    
     public void setAllLayersNumOfNeurons(List<Integer> nNeuronsPerLayer);
 
 }

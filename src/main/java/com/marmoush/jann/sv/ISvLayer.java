@@ -29,19 +29,14 @@ public interface ISvLayer extends ILayer {
 
     public abstract DoubleMatrix getTarget();
 
-    
     public abstract void setLearnRate(double lrnRate);
 
-    
     public abstract void setPerformance(double performance);
 
-    
     public abstract void setPerformancefnctr(IPerformance performancefnctr);
 
-    
     public abstract void setReguFctr(double reg);
 
-    
     public abstract void setTarget(DoubleMatrix target);
 
     public abstract double updatePerformance();

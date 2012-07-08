@@ -14,7 +14,6 @@ package com.marmoush.jann.test.unit.utils;
 
 import org.jblas.DoubleMatrix;
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import com.marmoush.jann.utils.TrainUtils;
@@ -25,24 +24,6 @@ public class TrainUtilsTest {
 
     private DoubleMatrix batchTargets = null;
 
-    /**
-     * @throws Exception
-     */
-    @Before
-    public void setUp() throws Exception {
-	batchInputs = DoubleMatrix.valueOf("8 1 6 ; 3 5 7 ; 4 9 2 ; 3 2 1");
-	batchTargets = DoubleMatrix.valueOf("1;1; 0;0");
-	DoubleMatrix data = DoubleMatrix
-		.loadAsciiFile("src\\test\\java\\ex1data2.txt");
-	batchInputs = data.getColumns(new int[] { 0, 1 });
-	batchInputs = DoubleMatrix.concatHorizontally(
-		DoubleMatrix.ones(batchInputs.rows), batchInputs);
-	batchTargets = data.getColumn(2);
-    }
-
-    /**
-     * @throws Exception
-     */
     @After
     public void tearDown() throws Exception {
 	System.out.println("-----------------------------------------------");

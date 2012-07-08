@@ -31,25 +31,18 @@ public class SvNeuralNetwork extends ArrayList<SvLayer> {
 	super();
     }
 
-    
     public SvNeuralNetwork(Collection<? extends SvLayer> c) {
 	super(c);
     }
 
-    
     public SvNeuralNetwork(int initialCapacity) {
 	super(initialCapacity);
     }
 
-    
     public SvNeuralNetwork(NeuralDirectedGraph neuralGraph) {
 	init(neuralGraph);
     }
 
-    /**
-     * @param layerIdx
-     * @return
-     */
     public DoubleMatrix getInputsConcat(int layerIdx) {
 	return NetworkUtils.getInputsConcat(layerIdx, this, this.neuralGraph);
     }
@@ -58,7 +51,6 @@ public class SvNeuralNetwork extends ArrayList<SvLayer> {
 	return neuralGraph;
     }
 
-    
     public void init(NeuralDirectedGraph neuralGraph) {
 	this.neuralGraph = neuralGraph;
 	int lyrIdx = 0;
@@ -74,7 +66,6 @@ public class SvNeuralNetwork extends ArrayList<SvLayer> {
 	}
     }
 
-    
     public void setNeuralGraph(NeuralDirectedGraph neuralGraph) {
 	this.neuralGraph = neuralGraph;
     }
@@ -82,8 +73,6 @@ public class SvNeuralNetwork extends ArrayList<SvLayer> {
     public void simulate() {
 	NetworkUtils.simulate(this, this.neuralGraph);
     }
-
-    
 
     @Override
     public String toString() {

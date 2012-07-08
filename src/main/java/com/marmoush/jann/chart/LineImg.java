@@ -18,17 +18,11 @@ import org.jfree.data.xy.XYSeries;
 
 public class LineImg extends ChartImage {
 
-    /**
-     * @param path
-     * @param series
-     */
     public LineImg(String path, XYSeries... series) {
 	setPath(path);
 	setXySeriesCollec(ChartUtils.getXYSeriesCollection(series));
 
     }
-
-    
 
     @Override
     public void createJPEG() {
@@ -38,8 +32,6 @@ public class LineImg extends ChartImage {
 	setChart(chart);
 	super.createJPEG();
     }
-
-    
 
     @Override
     public void createPNG() {

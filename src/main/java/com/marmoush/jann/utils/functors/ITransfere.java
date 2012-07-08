@@ -151,9 +151,5 @@ public interface ITransfere extends IFunctionable {
 	}
     };
 
-    /**
-     * @param layer
-     * @return
-     */
     public DoubleMatrix transfere(ILayer layer);
 }

@@ -1,0 +1,10 @@
+All block comments:
+/\*(?>(?:(?>[^*]+)|\*(?!/))*)\*/
+
+Empty block Comment 
+/\*[\*\s]+[\s\*]+/
+
+Non java doc
+/\*[\*\s]+[^*]+\(non-Javadoc\)[\*\s]+[^*]+[\s\*]/
+
+/\*[\*\s]+[^*]+@param[\*\s]+[^*]+[\s\*]/

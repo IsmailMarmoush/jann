@@ -18,16 +18,10 @@ import org.jfree.data.xy.XYSeries;
 
 public class ScatterDataImg extends ChartImage {
 
-    /**
-     * @param path
-     * @param series
-     */
     public ScatterDataImg(String path, XYSeries... series) {
 	setPath(path);
 	setXySeriesCollec(ChartUtils.getXYSeriesCollection(series));
     }
-
-    
 
     @Override
     public void createJPEG() {
@@ -37,8 +31,6 @@ public class ScatterDataImg extends ChartImage {
 	setChart(chart);
 	super.createJPEG();
     }
-
-    
 
     @Override
     public void createPNG() {

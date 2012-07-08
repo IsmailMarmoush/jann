@@ -19,10 +19,6 @@ import com.marmoush.jann.utils.functors.IWeight;
 
 public interface ILayer extends IFillableLayer {
 
-    /**
-     * @param obj
-     * @return
-     */
     @Override
     public abstract boolean equals(Object obj);
 
@@ -49,7 +45,6 @@ public interface ILayer extends IFillableLayer {
 
     public abstract boolean isInputOnlyLayer();
 
-    
     public abstract void setBias(DoubleMatrix bias);
 
     /*
@@ -57,10 +52,7 @@ public interface ILayer extends IFillableLayer {
      * @see com.marmoush.jann.IFillableLayer#setFill(double,
      * org.jblas.DoubleMatrix[])
      */
-    /**
-     * @param value
-     * @param matrices
-     */
+
     @Override
     public abstract void setFill(double value, DoubleMatrix... matrices);
 
@@ -69,29 +61,22 @@ public interface ILayer extends IFillableLayer {
      * @see
      * com.marmoush.jann.IFillableLayer#setFillRandom(org.jblas.DoubleMatrix[])
      */
-    
+
     @Override
     public abstract void setFillRandom(DoubleMatrix... matrices);
 
-    
     public abstract void setInput(DoubleMatrix input);
 
-    
     public abstract void setNetSum(DoubleMatrix netsum);
 
-    
     public abstract void setOutput(DoubleMatrix output);
 
-    
     public abstract void setTheta(double theta);
 
-    
     public abstract void setTransfereFnctr(ITransfere transfereFnctr);
 
-    
     public abstract void setWeight(DoubleMatrix weight);
 
-    
     public abstract void setWeightFnctr(IWeight weightFnctr);
 
     public abstract void simulate();

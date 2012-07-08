@@ -52,9 +52,5 @@ public interface IWeight extends IFunctionable {
 	}
     };
 
-    /**
-     * @param layer
-     * @return
-     */
     public DoubleMatrix weightFn(ILayer layer);
 }
