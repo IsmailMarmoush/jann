@@ -17,7 +17,7 @@ import org.jblas.DoubleMatrix;
 import com.marmoush.jann.ILayer;
 import com.marmoush.jann.utils.WeightUtils;
 
-// TODO: Auto-generated Javadoc
+//
 /**
  * 
  */
@@ -63,10 +63,8 @@ public interface IWeight extends IFunctionable {
     };
 
     /**
-     * 
-     *
-     * @param layer 
-     * @return 
+     * @param layer
+     * @return
      */
     public DoubleMatrix weightFn(ILayer layer);
 }

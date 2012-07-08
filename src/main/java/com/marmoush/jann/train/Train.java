@@ -87,11 +87,9 @@ public abstract class Train {
     }
 
     /**
-     * 
-     *
-     * @param maxEpochs 
-     * @param performanceGoal 
-     * @param timeLimit 
+     * @param maxEpochs
+     * @param performanceGoal
+     * @param timeLimit
      */
     public Train(int maxEpochs, double performanceGoal, long timeLimit) {
 	super();
@@ -101,19 +99,15 @@ public abstract class Train {
     }
 
     /**
-     * 
-     *
-     * @param performance 
+     * @param performance
      */
     public void addPerformanceHistoryEntry(double performance) {
 	getPerformanceHistory().add(performance);
     }
 
     /**
-     * 
-     *
-     * @param cause 
-     * @param atEpoch 
+     * @param cause
+     * @param atEpoch
      */
     public void end(String cause, int atEpoch) {
 	this.end = System.currentTimeMillis();
@@ -123,36 +117,28 @@ public abstract class Train {
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public int getMaxEpochs() {
 	return maxEpochs;
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public double getPerformanceGoal() {
 	return performanceGoal;
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public List<Double> getPerformanceHistory() {
 	return performanceHistory;
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public long getTimeLimit() {
 	return timeLimit;
@@ -175,36 +161,28 @@ public abstract class Train {
     }
 
     /**
-     * 
-     *
-     * @param maxEpochs 
+     * @param maxEpochs
      */
     public void setMaxEpochs(int maxEpochs) {
 	this.maxEpochs = maxEpochs;
     }
 
     /**
-     * 
-     *
-     * @param performanceGoal 
+     * @param performanceGoal
      */
     public void setPerformanceGoal(double performanceGoal) {
 	this.performanceGoal = performanceGoal;
     }
 
     /**
-     * 
-     *
-     * @param performanceHistory 
+     * @param performanceHistory
      */
     public void setPerformanceHistory(List<Double> performanceHistory) {
 	this.performanceHistory = performanceHistory;
     }
 
     /**
-     * 
-     *
-     * @param timeLimit 
+     * @param timeLimit
      */
     public void setTimeLimit(long timeLimit) {
 	this.timeLimit = timeLimit;
@@ -222,9 +200,7 @@ public abstract class Train {
      * @see java.lang.Object#toString()
      */
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     @Override
     public String toString() {
@@ -247,9 +223,7 @@ public abstract class Train {
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public abstract double train();
 

@@ -18,18 +18,16 @@ import org.jblas.DoubleMatrix;
 
 import com.marmoush.jann.sv.SvLayer;
 
-// TODO: Auto-generated Javadoc
+//
 /**
  * 
  */
 public class TrainUtils {
 
     /**
-     * 
-     *
-     * @param lyr 
-     * @param inputs 
-     * @param targets 
+     * @param lyr
+     * @param inputs
+     * @param targets
      */
     public static void batchGd(SvLayer lyr, DoubleMatrix inputs,
 	    DoubleMatrix targets) {
@@ -49,11 +47,9 @@ public class TrainUtils {
     }
 
     /**
-     * 
-     *
-     * @param x 
-     * @param targets 
-     * @return 
+     * @param x
+     * @param targets
+     * @return
      */
     public static DoubleMatrix normalEqInv(DoubleMatrix x, DoubleMatrix targets) {
 	// ((X'*X)^-1) * (X' * y)
@@ -63,11 +59,9 @@ public class TrainUtils {
     }
 
     /**
-     * 
-     *
-     * @param x 
-     * @param targets 
-     * @return 
+     * @param x
+     * @param targets
+     * @return
      */
     public static DoubleMatrix normalEqPinv(DoubleMatrix x, DoubleMatrix targets) {
 	DoubleMatrix inverse = MatrixUtils.pinv(x.transpose().mmul(x));
@@ -76,13 +70,11 @@ public class TrainUtils {
     }
 
     /**
-     * 
-     *
-     * @param x 
-     * @param targets 
-     * @param rguFctr 
-     * @param biased 
-     * @return 
+     * @param x
+     * @param targets
+     * @param rguFctr
+     * @param biased
+     * @return
      */
     public static DoubleMatrix normalEqPinvRgu(DoubleMatrix x,
 	    DoubleMatrix targets, double rguFctr, boolean biased) {
@@ -96,11 +88,9 @@ public class TrainUtils {
     }
 
     /**
-     * 
-     *
-     * @param lyr 
-     * @param inputs 
-     * @param targets 
+     * @param lyr
+     * @param inputs
+     * @param targets
      */
     public static void stochasticGd(SvLayer lyr, List<DoubleMatrix> inputs,
 	    List<DoubleMatrix> targets) {

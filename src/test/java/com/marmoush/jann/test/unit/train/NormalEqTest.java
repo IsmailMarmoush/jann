@@ -19,7 +19,7 @@ import org.junit.Test;
 import com.marmoush.jann.test.TestingData;
 import com.marmoush.jann.utils.TrainUtils;
 
-// TODO: Auto-generated Javadoc
+//
 /**
  * 
  */
@@ -46,9 +46,7 @@ public class NormalEqTest {
     }
 
     /**
-     * 
-     *
-     * @throws Exception 
+     * @throws Exception
      */
     @Before
     public void setUp() throws Exception {

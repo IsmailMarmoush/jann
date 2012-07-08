@@ -17,86 +17,64 @@ import org.jblas.DoubleMatrix;
 import com.marmoush.jann.ILayer;
 import com.marmoush.jann.utils.functors.IPerformance;
 
-// TODO: Auto-generated Javadoc
+//
 /**
  * 
  */
 public interface ISvLayer extends ILayer {
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public abstract double getLearnRate();
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public abstract double getPerformance();
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public abstract IPerformance getPerformancefnctr();
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public abstract double getReguFctr();
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public abstract DoubleMatrix getTarget();
 
     /**
-     * 
-     *
-     * @param lrnRate 
+     * @param lrnRate
      */
     public abstract void setLearnRate(double lrnRate);
 
     /**
-     * 
-     *
-     * @param performance 
+     * @param performance
      */
     public abstract void setPerformance(double performance);
 
     /**
-     * 
-     *
-     * @param performancefnctr 
+     * @param performancefnctr
      */
     public abstract void setPerformancefnctr(IPerformance performancefnctr);
 
     /**
-     * 
-     *
-     * @param reg 
+     * @param reg
      */
     public abstract void setReguFctr(double reg);
 
     /**
-     * 
-     *
-     * @param target 
+     * @param target
      */
     public abstract void setTarget(DoubleMatrix target);
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public abstract double updatePerformance();
 

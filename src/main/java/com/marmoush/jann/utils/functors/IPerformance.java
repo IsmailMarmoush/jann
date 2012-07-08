@@ -15,7 +15,7 @@ package com.marmoush.jann.utils.functors;
 import com.marmoush.jann.sv.ISvLayer;
 import com.marmoush.jann.utils.PerformanceUtils;
 
-// TODO: Auto-generated Javadoc
+//
 /**
  * 
  */
@@ -131,10 +131,8 @@ public interface IPerformance extends IFunctionable {
     };
 
     /**
-     * 
-     *
-     * @param layer 
-     * @return 
+     * @param layer
+     * @return
      */
     public double measurePerformance(ISvLayer layer);
 }

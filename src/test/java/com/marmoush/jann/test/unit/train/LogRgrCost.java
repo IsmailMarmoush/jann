@@ -24,17 +24,15 @@ import com.marmoush.jann.utils.functors.IPerformance;
 import com.marmoush.jann.utils.functors.ITransfere;
 import com.marmoush.jann.utils.functors.IWeight;
 
-// TODO: Auto-generated Javadoc
+//
 /**
  * 
  */
 public class LogRgrCost {
 
     /**
-     * 
-     *
-     * @param args 
-     * @throws IOException 
+     * @param args
+     * @throws IOException
      */
     public static void main(String[] args) throws IOException {
 	String path = TestingData.getPath("ex2", "ex2data1Bias.txt");
