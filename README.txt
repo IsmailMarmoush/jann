@@ -1,3 +1,5 @@
+Java Artificial Neural Network Native Library, as it's built over JBlas (Linear Algebra native java library)
+
 Please Visit http://jann.marmoush.com
 
 Current release is Jann-0.4 and it's in preAlpha phase of production so many changes will sure happen.

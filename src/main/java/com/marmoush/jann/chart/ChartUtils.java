@@ -13,7 +13,6 @@
 package com.marmoush.jann.chart;
 
 import java.util.List;
-
 import org.jblas.DoubleMatrix;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
