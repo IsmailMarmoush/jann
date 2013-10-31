@@ -1,8 +1,5 @@
-Jann project has been closed; I've learned that "More knowledge will always shape my decisions, and will make the most unlikely one feels right".
-
-I started Jann when I had very much basic knowledge of Artificial Neural Networks, and I thought building a Java library ground up is good for learning both Java and ANN, but as I move forward it gets harder every day to apply science I gain more knowledge I get to know there is still much more to be written, and one day After I finished Machine Learning course at Coursera.com taught By Professor Andrew Ng. that there are so many good libraries which did really good job in applying Machine learning techniques in java or any other language. My efforts were good, and I believe my code was good too, But  Features and Functionality wise it's like drilling with a knife while others are using fancy Drills. I don't regret 2 years of carving, Jann has added value to me and taught me about Java, neural networks and even my self more than I could have ever imagined, but it's time to move on for the greater good of my time and life.
-
------------------------------------------------------------------------------------
+Jann project 
+------------
 
 JANN is an Artificial Neural Networks Library written in JAVA and licensed under GPL V3or later. The project is in preAlpha "Unstable versions 0.x" phase and lots of change is inevitable.
 
