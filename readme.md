@@ -1,4 +1,4 @@
-Jann project 
+Project Jann 
 ------------
 
 JANN is an Artificial Neural Networks Library written in JAVA and licensed under GPL V3or later. The project is in preAlpha "Unstable versions 0.x" phase and lots of change is inevitable.
