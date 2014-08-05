@@ -1,0 +1,35 @@
+apply plugin: 'java'
+
+logging.level = 'DEBUG'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+// http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:repositories
+repositories { mavenCentral(); }
+
+dependencies {
+  compile 'org.slf4j:slf4j-api:1.7.7'
+  runtime 'ch.qos.logback:logback-core:1.1.2'
+  runtime 'ch.qos.logback:logback-classic:1.1.2'
+  testCompile 'junit:junit:4.11'
+  testCompile 'org.slf4j:slf4j-api:1.7.7'
+  testRuntime 'ch.qos.logback:logback-core:1.1.2'
+  testRuntime 'ch.qos.logback:logback-classic:1.1.2'
+}
+
+
+/************** TASKS ******************/
+task sourcesJar(type: Jar, dependsOn: classes, description: 'Creates a jar from the source files.') {
+  classifier = 'sources'
+  from sourceSets.main.allSource
+}
+
+task customJar(type: Jar, description:'Creates a custom jar from source files') {
+  manifest {
+    attributes firstKey: 'firstValue', secondKey: 'secondValue'
+  }
+  archiveName = 'hello.jar'
+  destinationDir = file("${buildDir}/jars")
+  from sourceSets.main.output
+}

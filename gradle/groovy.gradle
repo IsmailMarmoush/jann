@@ -1,0 +1,11 @@
+apply plugin: 'groovy'
+
+repositories {
+  maven { url 'http://repo.gradle.org/gradle/libs' }
+}
+
+dependencies {
+  compile gradleApi()
+  // compile localGroovy() // not safe
+  compile 'org.codehaus.groovy:groovy-all:2.3.3'
+}

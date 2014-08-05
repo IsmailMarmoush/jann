@@ -1,0 +1,36 @@
+import org.gradle.api.artifacts.*
+
+// To add "clean" task to the root project.
+apply plugin: 'base'
+
+def scriptSrc='gradle'
+
+allprojects{
+  apply from: rootProject.file("${scriptSrc}/groovy.gradle")
+  apply from: rootProject.file("${scriptSrc}/eclipse.gradle")
+}
+
+subprojects {
+  apply from: rootProject.file("${scriptSrc}/info.gradle")
+  apply from: rootProject.file("${scriptSrc}/java.gradle")
+  apply from: rootProject.file("${scriptSrc}/maven.gradle")
+  apply from: rootProject.file("${scriptSrc}/structure.gradle")
+}
+
+
+/**** Tasks *****/
+
+task mergedJavadoc(type: Javadoc, description: 'Creates Javadoc from all the projects.') {
+  title = 'Algorithms'
+  destinationDir = new File(project.buildDir, 'merged-javadoc')
+
+  source {
+    subprojects*.sourceSets*.main*.allSource
+  }
+
+  classpath.from {
+    subprojects*.configurations*.compile*.copyRecursive({ !(it instanceof ProjectDependency); })*.resolve()
+  }
+}
+
+task wrapper(type: Wrapper, description: 'Creates and deploys the Gradle wrapper to the current directory.') {  gradleVersion = '2.0'  }
