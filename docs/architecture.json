@@ -1,25 +1,11 @@
 {
-    "Description": "Is a Set of small projects and code bits.",
-    "Modules": {
-        "shortcut-virus-fix": [
-            
-        ],
-        "copy-long-path-files": [
-            
-        ],
-        "java-samples-javase": [
-        	"OCJP",
-            "Annotations",
-            "Reflection"
-        ],
-        "java-samples-javase8": [
-            "Lambda Expressions examples"
-        ],
-        "java-samples-javasee": [
-            "OCEJWCD",
-        ],
-    },
-    "License": "Affero GPL",
-    "LicenseIcon": "http://www.gnu.org/graphics/agplv3-155x51.png",
-    "Repository": "https://github.com/IsmailMarmoush/java-samples"
+    "Stage":"GA",
+	
+	"Description":"A Java Artificial Neural Network Framework, currently under major changes.",
+	
+	"Modules":{},
+	
+	"License":"Affero GPL",
+	"LicenseIcon": "http://www.gnu.org/graphics/agplv3-155x51.png",
+	"Repository":"https://github.com/IsmailMarmoush/jann"
 }
