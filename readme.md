@@ -6,7 +6,7 @@ JANN is an Artificial Neural Networks Library written in JAVA and licensed under
 * JFreeChart
 
 ## Updates
-Currently moving to Spark engine and second thoughts on choosing JBlas or other library for Linear Algebra 
+Currently moving to Spark engine, Spark uses mllib which uses JBlas; the early versions of JANN JBlas was used directly now it will be used through spark. Stay tuned!
 
 ## Non-Functional Requirements
 ### High Performance
