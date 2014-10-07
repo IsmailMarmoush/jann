@@ -2,6 +2,13 @@
 
 JANN is an Artificial Neural Networks Interface/Wrapper/Runner around Spark engine and is written in JAVA, licensed under Affero GPL V3. The project is in preAlpha phase "Unstable versions 0.x" and lots of changes are inevitable.
 
+## Technologies
+* Java
+* Spark (scala), Hadoop
+* MLlib (scala)
+* JBlas (Java + Fortran)
+* Gradle (groovy)
+
 
 ## Updates
 Currently moving to Spark engine, Spark uses mllib which uses JBlas; in the early versions of JANN, JBlas was used directly, now it will be used through spark. Stay tuned!
