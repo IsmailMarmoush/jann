@@ -4,7 +4,7 @@ JANN is an Artificial Neural Networks Interface/Wrapper/Runner around Spark engi
 
 
 ## Updates
-Currently moving to Spark engine, Spark uses mllib which uses JBlas; the early versions of JANN JBlas was used directly now it will be used through spark. Stay tuned!
+Currently moving to Spark engine, Spark uses mllib which uses JBlas; in the early versions of JANN, JBlas was used directly, now it will be used through spark. Stay tuned!
 
 ## Non-Functional Requirements
 ### High Performance
