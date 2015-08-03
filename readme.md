@@ -1,4 +1,4 @@
-<span style="color: red"> Development has been stopped as JANN has been superseded by [Spark MLib](http://spark.apache.org/mllib/) </span>
+> <span style="color: red"> Development has been stopped as JANN has been superseded by [Spark MLib](http://spark.apache.org/mllib/) </span>
 
 
 
