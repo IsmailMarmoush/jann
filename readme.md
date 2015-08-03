@@ -1,3 +1,7 @@
+> Development has been stopped as JANN has been superseded by [Spark MLib](http://spark.apache.org/mllib/)
+
+
+
 ## Introduction
 
 JANN is an Artificial Neural Networks written in JAVA, licensed under Affero GPL V3. The project is in preAlpha phase "Unstable versions 0.x" and lots of changes are inevitable.
