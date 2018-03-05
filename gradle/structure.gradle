@@ -1,8 +1,0 @@
-task createFolders(description: 'Creates the source folders if they do not exist.') doLast {
-  sourceSets*.allSource*.srcDirs*.each { File srcDir ->
-    if (!srcDir.isDirectory()) {
-      println "Creating source folder: ${srcDir}"
-      srcDir.mkdirs()
-    }
-  }
-}
