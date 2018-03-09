@@ -9,7 +9,6 @@ JANN is an Artificial Neural Networks written in JAVA, licensed under Affero GPL
 ## Technologies
 * Java
 * JBlas (Java + Fortran)
-* Gradle (groovy)
 
 
 ## Updates
