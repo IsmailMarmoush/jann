@@ -1,13 +1,12 @@
 package io.memoria.jann.utils;
 
-import java.util.List;
-
+import io.memoria.jann.Layer;
+import io.memoria.jann.neuralgraph.NeuralDirectedGraph;
+import io.memoria.jann.neuralgraph.NeuralDirectedGraphable;
+import io.memoria.jann.sv.SvLayer;
 import org.jblas.DoubleMatrix;
 
-import io.memoria.jann.Layer;
-import io.memoria.jann.neuralgraph.NeuralDirectedGraphable;
-import io.memoria.jann.neuralgraph.NeuralDirectedGraph;
-import io.memoria.jann.sv.SvLayer;
+import java.util.List;
 
 public class NetworkUtils {
 

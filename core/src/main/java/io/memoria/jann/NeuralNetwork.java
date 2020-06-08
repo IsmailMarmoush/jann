@@ -1,12 +1,12 @@
 package io.memoria.jann;
 
+import io.memoria.jann.neuralgraph.NeuralDirectedGraph;
+import io.memoria.jann.neuralgraph.NeuralDirectedGraphable;
+import io.memoria.jann.utils.NetworkUtils;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-
-import io.memoria.jann.neuralgraph.NeuralDirectedGraphable;
-import io.memoria.jann.neuralgraph.NeuralDirectedGraph;
-import io.memoria.jann.utils.NetworkUtils;
 
 public class NeuralNetwork extends ArrayList<DefaultLayer> {
 

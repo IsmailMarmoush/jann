@@ -1,9 +1,9 @@
 package io.memoria.jann.utils;
 
-import java.util.List;
-
 import io.memoria.jann.sv.DefaultSvLayer;
 import org.jblas.DoubleMatrix;
+
+import java.util.List;
 
 public class TrainUtils {
 

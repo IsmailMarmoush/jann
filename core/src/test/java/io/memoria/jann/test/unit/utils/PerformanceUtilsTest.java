@@ -1,12 +1,11 @@
 package io.memoria.jann.test.unit.utils;
 
-import static org.junit.Assert.assertTrue;
-
 import io.memoria.jann.utils.PerformanceUtils;
 import io.memoria.jann.utils.TransfereUtils;
 import org.jblas.DoubleMatrix;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class PerformanceUtilsTest {
 
@@ -14,7 +13,7 @@ public class PerformanceUtilsTest {
 
   private DoubleMatrix target;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     output = DoubleMatrix.valueOf("1; 2; 3");
     target = DoubleMatrix.valueOf("2; 4 ;6");
@@ -31,20 +30,19 @@ public class PerformanceUtilsTest {
   @Test
   public void testMae() {
     double p = PerformanceUtils.mae(output, target);
-    assertTrue("Performance is:" + p, p == 2);
+    Assertions.assertEquals(p, 2);
   }
 
   @Test
   public void testMse() {
     double p = PerformanceUtils.mse(output, target);
     p = Math.round(p * 10000.0) / 10000.0;
-    assertTrue("Performance is:" + p, p == 4.6667);
+    Assertions.assertEquals(p, 4.6667);
   }
 
   @Test
   public void testSse() {
     double p = PerformanceUtils.sse(output, target);
-    assertTrue("Performance is:" + p, p == 14);
+    Assertions.assertEquals(p, 14);
   }
-
 }

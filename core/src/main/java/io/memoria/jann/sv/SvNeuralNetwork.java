@@ -1,12 +1,12 @@
 package io.memoria.jann.sv;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-
 import io.memoria.jann.neuralgraph.NeuralDirectedGraph;
 import io.memoria.jann.utils.NetworkUtils;
 import org.jblas.DoubleMatrix;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 
 public class SvNeuralNetwork extends ArrayList<DefaultSvLayer> {
 

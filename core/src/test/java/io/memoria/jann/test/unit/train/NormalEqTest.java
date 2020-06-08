@@ -3,8 +3,8 @@ package io.memoria.jann.test.unit.train;
 import io.memoria.jann.test.TestingData;
 import io.memoria.jann.utils.TrainUtils;
 import org.jblas.DoubleMatrix;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class NormalEqTest {
 
@@ -19,7 +19,7 @@ public class NormalEqTest {
 
   }
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     String path = TestingData.getPath("ex2", "ex2data1Bias.txt");
     DoubleMatrix data = DoubleMatrix.loadAsciiFile(path);

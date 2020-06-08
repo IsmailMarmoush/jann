@@ -1,12 +1,12 @@
 package io.memoria.jann.utils;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.jblas.DoubleMatrix;
 import org.jblas.MatrixFunctions;
 import org.jblas.Singular;
 import org.jblas.Solve;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MatrixUtils {
 

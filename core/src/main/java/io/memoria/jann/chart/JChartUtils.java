@@ -1,10 +1,10 @@
 package io.memoria.jann.chart;
 
-import java.util.List;
-
 import org.jblas.DoubleMatrix;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+
+import java.util.List;
 
 public class JChartUtils {
 

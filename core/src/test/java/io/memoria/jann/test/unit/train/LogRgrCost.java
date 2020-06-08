@@ -1,7 +1,5 @@
 package io.memoria.jann.test.unit.train;
 
-import java.io.IOException;
-
 import io.memoria.jann.sv.DefaultSvLayer;
 import io.memoria.jann.test.TestingData;
 import io.memoria.jann.utils.PerformanceUtils;
@@ -10,6 +8,8 @@ import io.memoria.jann.utils.functors.IPerformance;
 import io.memoria.jann.utils.functors.ITransfere;
 import io.memoria.jann.utils.functors.IWeight;
 import org.jblas.DoubleMatrix;
+
+import java.io.IOException;
 
 public class LogRgrCost {
 

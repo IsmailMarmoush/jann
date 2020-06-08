@@ -1,11 +1,11 @@
 package io.memoria.jann;
 
-import java.io.Serializable;
-
 import io.memoria.jann.utils.MatrixUtils;
 import io.memoria.jann.utils.functors.ITransfere;
 import io.memoria.jann.utils.functors.IWeight;
 import org.jblas.DoubleMatrix;
+
+import java.io.Serializable;
 
 public class DefaultLayer implements Serializable, Layer, FillableLayer {
 

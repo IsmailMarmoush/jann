@@ -1,20 +1,19 @@
 package io.memoria.jann.test.unit.train;
 
-import java.io.File;
-import java.util.List;
-
+import io.memoria.jann.chart.LineImg;
+import io.memoria.jann.chart.ScatterDataImg;
 import io.memoria.jann.model.regression.LogisticRegression;
 import io.memoria.jann.train.Train;
 import io.memoria.jann.utils.MatrixUtils;
 import io.memoria.jann.utils.TrainUtils;
 import org.jblas.DoubleMatrix;
 import org.jfree.data.xy.XYSeries;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import chart.ChartUtils;
-import chart.LineImg;
-import chart.ScatterDataImg;
+import java.io.File;
+import java.util.List;
+
+import static io.memoria.jann.chart.JChartUtils.xySeries;
 
 public class LogRgrTrainTest {
 
@@ -43,8 +42,8 @@ public class LogRgrTrainTest {
       }
 
     }
-    XYSeries xys = ChartUtils.xySeries("Admitted", d1, 0, 1);
-    XYSeries xys2 = ChartUtils.xySeries("Not Admitted", d2, 0, 1);
+    XYSeries xys = xySeries("Admitted", d1, 0, 1);
+    XYSeries xys2 = xySeries("Not Admitted", d2, 0, 1);
     ScatterDataImg img = new ScatterDataImg(path, xys, xys2);
     img.setLegend(true);
     img.setxAxisTitle("exam1 score");
@@ -57,8 +56,8 @@ public class LogRgrTrainTest {
     List<Double> range = MatrixUtils.range(0, 1, 400);
     List<Double> stochErr = trainStochasticLinRgr();
     List<Double> batchErr = trainBatchLogRgr();
-    XYSeries xyStoch = ChartUtils.xySeries("Stochastic", range, stochErr);
-    XYSeries xyBatch = ChartUtils.xySeries("Batch", range, batchErr);
+    XYSeries xyStoch = xySeries("Stochastic", range, stochErr);
+    XYSeries xyBatch = xySeries("Batch", range, batchErr);
     String path = "ChartsOutput" + File.separator + "chart2.png";
     LineImg img = new LineImg(path, xyBatch, xyStoch);
     img.setxAxisTitle("Iterations");
@@ -101,11 +100,5 @@ public class LogRgrTrainTest {
     blr.getWeight().print();
 
     return batchTrain.getPerformanceHistory();
-  }
-
-  @After
-  public void tearDown() throws Exception {
-
-    System.out.println("-----------------------------------------------");
   }
 }

@@ -1,13 +1,12 @@
 package io.memoria.jann.model.regression;
 
-import java.util.List;
-
-import org.jblas.DoubleMatrix;
-
 import io.memoria.jann.sv.DefaultSvLayer;
 import io.memoria.jann.utils.functors.IPerformance;
 import io.memoria.jann.utils.functors.ITransfere;
 import io.memoria.jann.utils.functors.IWeight;
+import org.jblas.DoubleMatrix;
+
+import java.util.List;
 
 public class LogisticRegression extends DefaultSvLayer {
 

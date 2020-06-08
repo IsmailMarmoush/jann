@@ -1,11 +1,11 @@
 package io.memoria.jann.chart;
 
-import java.io.File;
-import java.io.IOException;
-
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeriesCollection;
+
+import java.io.File;
+import java.io.IOException;
 
 import static org.jfree.chart.ChartUtils.saveChartAsJPEG;
 import static org.jfree.chart.ChartUtils.saveChartAsPNG;

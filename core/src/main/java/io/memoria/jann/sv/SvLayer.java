@@ -1,9 +1,8 @@
 package io.memoria.jann.sv;
 
+import io.memoria.jann.Layer;
 import io.memoria.jann.utils.functors.IPerformance;
 import org.jblas.DoubleMatrix;
-
-import io.memoria.jann.Layer;
 
 public interface SvLayer extends Layer {
 

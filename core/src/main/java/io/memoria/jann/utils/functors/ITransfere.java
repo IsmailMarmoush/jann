@@ -1,9 +1,8 @@
 package io.memoria.jann.utils.functors;
 
+import io.memoria.jann.Layer;
 import io.memoria.jann.utils.TransfereUtils;
 import org.jblas.DoubleMatrix;
-
-import io.memoria.jann.Layer;
 
 public interface ITransfere extends IFunctionable {
 

@@ -2,19 +2,13 @@ package io.memoria.jann.test.unit.utils;
 
 import io.memoria.jann.utils.TrainUtils;
 import org.jblas.DoubleMatrix;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class TrainUtilsTest {
 
   private DoubleMatrix batchInputs = null;
 
   private DoubleMatrix batchTargets = null;
-
-  @After
-  public void tearDown() throws Exception {
-    System.out.println("-----------------------------------------------");
-  }
 
   @Test
   public void testNormalEqInv() {

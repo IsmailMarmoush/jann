@@ -1,11 +1,11 @@
 package io.memoria.jann.neuralgraph;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.jgrapht.Graphs;
 import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NeuralDirectedGraph extends DefaultDirectedGraph<Integer, DefaultEdge> implements NeuralDirectedGraphable {
 
