@@ -1,15 +1,3 @@
-/*
- * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
- * software: you can redistribute it and/or modify it under the terms of the GNU
- * General Public License Version 3 as published by the Free Software
- * Foundation, either version 3 of the License, or any later version. JANN is
- * distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
- * PARTICULAR PURPOSE. See the GNU General Public License for more details. You
- * should have received a copy of the GNU General Public License along with
- * JANN. If not, see http://www.gnu.org/licenses/. For More Information Please
- * Visit http://jann.marmoush.com
- */
 package io.memoria.jann;
 
 import java.io.Serializable;
@@ -65,8 +53,19 @@ public class DefaultLayer implements Serializable, Layer, FillableLayer {
   }
 
   @Override
+  public void setBias(DoubleMatrix bias) {
+    if (biased)
+      this.bias = bias;
+  }
+
+  @Override
   public DoubleMatrix getInput() {
     return input;
+  }
+
+  @Override
+  public void setInput(DoubleMatrix input) {
+    this.input = input;
   }
 
   @Override
@@ -75,8 +74,18 @@ public class DefaultLayer implements Serializable, Layer, FillableLayer {
   }
 
   @Override
+  public void setNetSum(DoubleMatrix netsum) {
+    this.netSum = netsum;
+  }
+
+  @Override
   public DoubleMatrix getOutput() {
     return output;
+  }
+
+  @Override
+  public void setOutput(DoubleMatrix output) {
+    this.output = output;
   }
 
   @Override
@@ -85,8 +94,18 @@ public class DefaultLayer implements Serializable, Layer, FillableLayer {
   }
 
   @Override
+  public void setTheta(double theta) {
+    this.theta = theta;
+  }
+
+  @Override
   public ITransfere getTransfereFnctr() {
     return transfereFnctr;
+  }
+
+  @Override
+  public void setTransfereFnctr(ITransfere transfereFnctr) {
+    this.transfereFnctr = transfereFnctr;
   }
 
   @Override
@@ -95,38 +114,8 @@ public class DefaultLayer implements Serializable, Layer, FillableLayer {
   }
 
   @Override
-  public IWeight getWeightFnctr() {
-    return weightFnctr;
-  }
-
-  @Override
-  public boolean isBiased() {
-    return biased;
-  }
-
-  @Override
-  public boolean isInputOnlyLayer() {
-    return this.inputOnlyLayer;
-
-  }
-
-  public void setInputOnlyLayer(boolean inputOnlyLayer) {
-    this.inputOnlyLayer = inputOnlyLayer;
-  }
-
-  public void setBiased(boolean biased) {
-    this.biased = biased;
-  }
-
-  @Override
-  public void setWeightFnctr(IWeight weightFnctr) {
-    this.weightFnctr = weightFnctr;
-  }
-
-  @Override
-  public void simulate() {
-    updateNetSum();
-    updateOutput();
+  public void setWeight(DoubleMatrix weight) {
+    this.weight = weight;
   }
 
   /*
@@ -136,10 +125,8 @@ public class DefaultLayer implements Serializable, Layer, FillableLayer {
    */
 
   @Override
-  public DoubleMatrix updateNetSum() {
-    if (!isInputOnlyLayer())
-      setNetSum(weightFnctr.weightFn(this));
-    return netSum;
+  public IWeight getWeightFnctr() {
+    return weightFnctr;
   }
 
   /*
@@ -147,6 +134,72 @@ public class DefaultLayer implements Serializable, Layer, FillableLayer {
    * @see
    * com.marmoush.jann.IFillableLayer#setFillRandom(org.jblas.DoubleMatrix)
    */
+
+  @Override
+  public void setWeightFnctr(IWeight weightFnctr) {
+    this.weightFnctr = weightFnctr;
+  }
+
+  /*
+   * (non-Javadoc)
+   * @see
+   * com.marmoush.jann.IFillableLayer#setFillRandomFloor(org.jblas.DoubleMatrix
+   * [])
+   */
+
+  @Override
+  public boolean isBiased() {
+    return biased;
+  }
+
+  /*
+   * (non-Javadoc)
+   * @see com.marmoush.jann.IFillableLayer#setFillRandom(int, int,
+   * org.jblas.DoubleMatrix)
+   */
+
+  @Override
+  public boolean isInputOnlyLayer() {
+    return this.inputOnlyLayer;
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * @see com.marmoush.jann.IFillableLayer#setFillRandomMinMaxFloor(int, int,
+   * org.jblas.DoubleMatrix[])
+   */
+
+  public void setInputOnlyLayer(boolean inputOnlyLayer) {
+    this.inputOnlyLayer = inputOnlyLayer;
+  }
+
+  @Override
+  public void setFill(double value, DoubleMatrix... matrices) {
+    for (DoubleMatrix mtrx : matrices) {
+      mtrx.fill(value);
+    }
+  }
+
+  @Override
+  public void setFillRandom(DoubleMatrix... matrices) {
+    MatrixUtils.setFillRandom(matrices);
+  }
+
+  @Override
+  public void simulate() {
+    updateNetSum();
+    updateOutput();
+  }
+
+  ;
+
+  @Override
+  public DoubleMatrix updateNetSum() {
+    if (!isInputOnlyLayer())
+      setNetSum(weightFnctr.weightFn(this));
+    return netSum;
+  }
 
   @Override
   public DoubleMatrix updateOutput() {
@@ -158,77 +211,12 @@ public class DefaultLayer implements Serializable, Layer, FillableLayer {
   /*
    * (non-Javadoc)
    * @see
-   * com.marmoush.jann.IFillableLayer#setFillRandomFloor(org.jblas.DoubleMatrix
-   * [])
-   */
-
-  @Override
-  public void setWeight(DoubleMatrix weight) {
-    this.weight = weight;
-  }
-
-  /*
-   * (non-Javadoc)
-   * @see com.marmoush.jann.IFillableLayer#setFillRandom(int, int,
-   * org.jblas.DoubleMatrix)
-   */
-
-  @Override
-  public void setTransfereFnctr(ITransfere transfereFnctr) {
-    this.transfereFnctr = transfereFnctr;
-  }
-
-  /*
-   * (non-Javadoc)
-   * @see com.marmoush.jann.IFillableLayer#setFillRandomMinMaxFloor(int, int,
-   * org.jblas.DoubleMatrix[])
-   */
-
-  @Override
-  public void setTheta(double theta) {
-    this.theta = theta;
-  }
-
-  @Override
-  public void setOutput(DoubleMatrix output) {
-    this.output = output;
-  }
-
-  @Override
-  public void setNetSum(DoubleMatrix netsum) {
-    this.netSum = netsum;
-  }
-
-  @Override
-  public void setInput(DoubleMatrix input) {
-    this.input = input;
-  }
-
-  ;
-
-  @Override
-  public void setBias(DoubleMatrix bias) {
-    if (biased)
-      this.bias = bias;
-  }
-
-  @Override
-  public void setFill(double value, DoubleMatrix... matrices) {
-    for (DoubleMatrix mtrx : matrices) {
-      mtrx.fill(value);
-    }
-  }
-
-  /*
-   * (non-Javadoc)
-   * @see
    * com.marmoush.jann.ILayer#setTransfereFnctr(com.marmoush.jann.utils.functors
    * .ITransfere)
    */
 
-  @Override
-  public void setFillRandom(DoubleMatrix... matrices) {
-    MatrixUtils.setFillRandom(matrices);
+  public void setBiased(boolean biased) {
+    this.biased = biased;
   }
 
   @Override

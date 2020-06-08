@@ -1,15 +1,3 @@
-/*
- * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
- * software: you can redistribute it and/or modify it under the terms of the GNU
- * General Public License Version 3 as published by the Free Software
- * Foundation, either version 3 of the License, or any later version. JANN is
- * distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
- * PARTICULAR PURPOSE. See the GNU General Public License for more details. You
- * should have received a copy of the GNU General Public License along with
- * JANN. If not, see http://www.gnu.org/licenses/. For More Information Please
- * Visit http://jann.marmoush.com
- */
 package io.memoria.jann.neuralgraph;
 
 import java.util.ArrayList;
@@ -19,8 +7,7 @@ import org.jgrapht.Graphs;
 import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 
-public class NeuralDirectedGraph extends DefaultDirectedGraph<Integer, DefaultEdge>
-        implements NeuralDirectedGraphable {
+public class NeuralDirectedGraph extends DefaultDirectedGraph<Integer, DefaultEdge> implements NeuralDirectedGraphable {
 
   private static final long serialVersionUID = 8695054227504317702L;
 
@@ -91,6 +78,11 @@ public class NeuralDirectedGraph extends DefaultDirectedGraph<Integer, DefaultEd
    */
 
   @Override
+  public void setAllLayersNumOfNeurons(List<Integer> nNeuronsPerLayer) {
+    this.layersNumOfNeurons = nNeuronsPerLayer;
+  }
+
+  @Override
   public int getInputLength(final int lyrIdx) {
     int inputLengthSum = 0;
     List<Integer> predecessors = getPredecessorsOf(lyrIdx);
@@ -100,6 +92,13 @@ public class NeuralDirectedGraph extends DefaultDirectedGraph<Integer, DefaultEd
     return inputLengthSum;
   }
 
+  /*
+   * (non-Javadoc)
+   * @see
+   * com.marmoush.jann.NeuralGraph.NeuralDirectedGraphable#getPredecessorsOf
+   * (int)
+   */
+
   @Override
   public int getLayerNumOfNeurons(final int lyrIdx) {
     return layersNumOfNeurons.get(lyrIdx);
@@ -108,7 +107,7 @@ public class NeuralDirectedGraph extends DefaultDirectedGraph<Integer, DefaultEd
   /*
    * (non-Javadoc)
    * @see
-   * com.marmoush.jann.NeuralGraph.NeuralDirectedGraphable#getPredecessorsOf
+   * com.marmoush.jann.NeuralGraph.NeuralDirectedGraphable#getSuccessorsOf
    * (int)
    */
 
@@ -120,24 +119,12 @@ public class NeuralDirectedGraph extends DefaultDirectedGraph<Integer, DefaultEd
   /*
    * (non-Javadoc)
    * @see
-   * com.marmoush.jann.NeuralGraph.NeuralDirectedGraphable#getSuccessorsOf
-   * (int)
-   */
-
-  @Override
-  public List<Integer> getSuccessorsOf(int lyrIdx) {
-    return Graphs.successorListOf(this, lyrIdx);
-  }
-
-  /*
-   * (non-Javadoc)
-   * @see
    * com.marmoush.jann.NeuralGraph.NeuralDirectedGraphable#setNumOfNeuronsInLayer
    * (java.util.List)
    */
 
   @Override
-  public void setAllLayersNumOfNeurons(List<Integer> nNeuronsPerLayer) {
-    this.layersNumOfNeurons = nNeuronsPerLayer;
+  public List<Integer> getSuccessorsOf(int lyrIdx) {
+    return Graphs.successorListOf(this, lyrIdx);
   }
 }

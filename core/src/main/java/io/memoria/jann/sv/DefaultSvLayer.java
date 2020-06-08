@@ -1,15 +1,3 @@
-/*
- * Copyright 2011 Ismail Marmoush This file is part of JANN. JANN is free
- * software: you can redistribute it and/or modify it under the terms of the GNU
- * General Public License Version 3 as published by the Free Software
- * Foundation, either version 3 of the License, or any later version. JANN is
- * distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
- * PARTICULAR PURPOSE. See the GNU General Public License for more details. You
- * should have received a copy of the GNU General Public License along with
- * JANN. If not, see http://www.gnu.org/licenses/. For More Information Please
- * Visit http://jann.marmoush.com
- */
 package io.memoria.jann.sv;
 
 import io.memoria.jann.DefaultLayer;
@@ -36,6 +24,26 @@ public class DefaultSvLayer extends DefaultLayer implements SvLayer {
 
   public DefaultSvLayer(int nInputs, int nNeurons, boolean biased) {
     super(nInputs, nNeurons, biased);
+  }
+
+  @Override
+  public void simulate() {
+    super.simulate();
+    updatePerformance();
+  }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = super.hashCode();
+    long temp;
+    temp = Double.doubleToLongBits(learnRate);
+    result = prime * result + (int) (temp ^ (temp >>> 32));
+    temp = Double.doubleToLongBits(performance);
+    result = prime * result + (int) (temp ^ (temp >>> 32));
+    result = prime * result + ((performancefnctr == null) ? 0 : performancefnctr.hashCode());
+    result = prime * result + ((target == null) ? 0 : target.hashCode());
+    return result;
   }
 
   @Override
@@ -67,26 +75,6 @@ public class DefaultSvLayer extends DefaultLayer implements SvLayer {
   }
 
   @Override
-  public int hashCode() {
-    final int prime = 31;
-    int result = super.hashCode();
-    long temp;
-    temp = Double.doubleToLongBits(learnRate);
-    result = prime * result + (int) (temp ^ (temp >>> 32));
-    temp = Double.doubleToLongBits(performance);
-    result = prime * result + (int) (temp ^ (temp >>> 32));
-    result = prime * result + ((performancefnctr == null) ? 0 : performancefnctr.hashCode());
-    result = prime * result + ((target == null) ? 0 : target.hashCode());
-    return result;
-  }
-
-  @Override
-  public void simulate() {
-    super.simulate();
-    updatePerformance();
-  }
-
-  @Override
   public String toString() {
     StringBuilder builder = new StringBuilder();
     builder.append(super.toString());
@@ -107,23 +95,23 @@ public class DefaultSvLayer extends DefaultLayer implements SvLayer {
   }
 
   @Override
+  public void setLearnRate(double lrnRate) {
+    this.learnRate = lrnRate;
+  }
+
+  @Override
   public double getPerformance() {
     return performance;
   }
 
   @Override
+  public void setPerformance(double performance) {
+    this.performance = performance;
+  }
+
+  @Override
   public IPerformance getPerformancefnctr() {
     return performancefnctr;
-  }
-
-  @Override
-  public double getReguFctr() {
-    return this.regularizationFctr;
-  }
-
-  @Override
-  public DoubleMatrix getTarget() {
-    return target;
   }
 
   /*
@@ -134,14 +122,13 @@ public class DefaultSvLayer extends DefaultLayer implements SvLayer {
    */
 
   @Override
-  public void setTarget(DoubleMatrix target) {
-    this.target = target;
+  public void setPerformancefnctr(IPerformance performancefnctr) {
+    this.performancefnctr = performancefnctr;
   }
 
   @Override
-  public double updatePerformance() {
-    performance = performancefnctr.measurePerformance(this);
-    return performance;
+  public double getReguFctr() {
+    return this.regularizationFctr;
   }
 
   @Override
@@ -150,18 +137,19 @@ public class DefaultSvLayer extends DefaultLayer implements SvLayer {
   }
 
   @Override
-  public void setPerformancefnctr(IPerformance performancefnctr) {
-    this.performancefnctr = performancefnctr;
+  public DoubleMatrix getTarget() {
+    return target;
   }
 
   @Override
-  public void setPerformance(double performance) {
-    this.performance = performance;
+  public void setTarget(DoubleMatrix target) {
+    this.target = target;
   }
 
   @Override
-  public void setLearnRate(double lrnRate) {
-    this.learnRate = lrnRate;
+  public double updatePerformance() {
+    performance = performancefnctr.measurePerformance(this);
+    return performance;
   }
 
 }
