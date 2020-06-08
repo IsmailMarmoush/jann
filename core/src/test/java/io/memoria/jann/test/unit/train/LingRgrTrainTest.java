@@ -16,13 +16,13 @@ import static io.memoria.jann.chart.JChartUtils.xySeries;
 
 public class LingRgrTrainTest {
 
-  private List<DoubleMatrix> inputList = null;
+  private final List<DoubleMatrix> inputList = null;
 
-  private DoubleMatrix inputs = null;
+  private final DoubleMatrix inputs = null;
 
-  private List<DoubleMatrix> targetList = null;
+  private final List<DoubleMatrix> targetList = null;
 
-  private DoubleMatrix targets = null;
+  private final DoubleMatrix targets = null;
 
   public void createImage() {
     List<Double> range = MatrixUtils.range(0, 1, 10);

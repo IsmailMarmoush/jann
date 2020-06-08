@@ -16,11 +16,11 @@ import static io.memoria.jann.chart.JChartUtils.xySeries;
 
 public class LogRgrTrainTest {
 
-  private DoubleMatrix data = null;
-  private List<DoubleMatrix> inputList = null;
-  private DoubleMatrix inputs = null;
-  private List<DoubleMatrix> targetList = null;
-  private DoubleMatrix targets = null;
+  private final DoubleMatrix data = null;
+  private final List<DoubleMatrix> inputList = null;
+  private final DoubleMatrix inputs = null;
+  private final List<DoubleMatrix> targetList = null;
+  private final DoubleMatrix targets = null;
 
   public void createDataImg() {
     String path = "ChartsOutput" + File.separator + "data.txt.png";
