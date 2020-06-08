@@ -4,7 +4,7 @@ import java.io.File;
 
 public class TestingData {
 
-  public static final String DATA_FOLDER = "src.test.java.data";
+  public static final String DATA_FOLDER = "src.test.java";
 
   public static String getPath(String folder, String fileName) {
     return toRelativePath(DATA_FOLDER + "." + folder, fileName);

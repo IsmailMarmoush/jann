@@ -18,18 +18,13 @@ import static io.memoria.jann.chart.JChartUtils.xySeries;
 public class LogRgrTrainTest {
 
   private DoubleMatrix data = null;
-
   private List<DoubleMatrix> inputList = null;
-
   private DoubleMatrix inputs = null;
-
   private List<DoubleMatrix> targetList = null;
-
   private DoubleMatrix targets = null;
 
-  @Test
   public void createDataImg() {
-    String path = "ChartsOutput" + File.separator + "data.png";
+    String path = "ChartsOutput" + File.separator + "data.txt.png";
     DoubleMatrix d1 = DoubleMatrix.zeros(data.rows, 2);
     DoubleMatrix d2 = DoubleMatrix.zeros(data.rows, 2);
     for (int i = 0; i < data.rows; i++) {
@@ -51,7 +46,6 @@ public class LogRgrTrainTest {
     img.createPNG();
   }
 
-  @Test
   public void createErrorIterImage() {
     List<Double> range = MatrixUtils.range(0, 1, 400);
     List<Double> stochErr = trainStochasticLinRgr();

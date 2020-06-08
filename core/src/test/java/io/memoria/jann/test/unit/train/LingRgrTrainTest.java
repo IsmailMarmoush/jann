@@ -26,7 +26,6 @@ public class LingRgrTrainTest {
 
   private DoubleMatrix targets = null;
 
-  @Test
   public void createImage() {
     List<Double> range = MatrixUtils.range(0, 1, 10);
     List<Double> batchErr = trainBatchLinRgr();
