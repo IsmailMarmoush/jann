@@ -23,7 +23,7 @@ import java.util.Collection;
 
 import org.jblas.DoubleMatrix;
 
-import com.marmoush.jann.sv.SvLayer;
+import io.memoria.jann.sv.SvLayer;
 
 /**
  * The Class NNFeedForwardBPNet.
