@@ -8,7 +8,6 @@ import io.memoria.jann.utils.MatrixUtils;
 import io.memoria.jann.utils.TrainUtils;
 import org.jblas.DoubleMatrix;
 import org.jfree.data.xy.XYSeries;
-import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.util.List;

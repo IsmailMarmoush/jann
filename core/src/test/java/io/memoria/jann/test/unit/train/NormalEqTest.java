@@ -3,7 +3,6 @@ package io.memoria.jann.test.unit.train;
 import io.memoria.jann.test.TestingData;
 import io.memoria.jann.utils.TrainUtils;
 import org.jblas.DoubleMatrix;
-import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
