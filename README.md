@@ -1,17 +1,16 @@
 ## Introduction
-JANN is a Java Artificial Neural Network library.
+Jann is a Java Artificial Neural Network library. 
 
-## History
-* I wrote Jann a year after my graduation, first commit was in 2011.
-* Due to work and travel, also finding about Apache Spark, the project was abandoned.
-* Today in 2020 almost 9 years, I decided to revisit, with no expectations. 
+### Background
+* Started in 2011, around year later development stopped due to work and travel.
+* 9 years later, a revisit was decided, but no high expectations, only learning motivation as was in its start. 
 
 ## Technologies used
 * Java 14 with preview features enabled
 * [jbom](https://github.com/memoria-io/jbom) based
 * [jutils](https://github.com/memoria-io/jutils) based
 
-## Release notes
+## 2020 Release notes
 ### Jann v0.1.0
 * Using maven
 * Code clean up
