@@ -2,7 +2,7 @@
 Jann is a Java Artificial Neural Network library. 
 
 ### Background
-* Started in 2011, around year later development stopped due to work and travel.
+* Started in 2011, around a year later development stopped due to work and travel.
 * 9 years later, a revisit was decided, but no high expectations, only learning motivation as was in its start. 
 
 ## Technologies used
