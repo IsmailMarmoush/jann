@@ -1,4 +1,4 @@
-package io.memoria.legacyjann.test.unit.utils;
+package io.memoria.jann;
 
 public class TrainUtilsTest {
 

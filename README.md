@@ -11,10 +11,7 @@ Jann is a Java Artificial Neural Network library.
 * [jutils](https://github.com/memoria-io/jutils) based
 
 ## 2020 Release notes
-### Jann v0.1.0
-* Using maven
-* Code clean up
-* Using Java 14, Jbom, and Jutils
+### ... TBD 
 
 ## Legacy Release notes
 ### JANN-0.4:

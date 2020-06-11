@@ -1,4 +1,4 @@
-package io.memoria.legacyjann.test.unit.utils;
+package io.memoria.jann;
 
 import io.memoria.jann.PerformanceUtils;
 import io.memoria.jann.TransfereUtils;

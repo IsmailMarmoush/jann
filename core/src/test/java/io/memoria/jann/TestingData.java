@@ -1,4 +1,4 @@
-package io.memoria.legacyjann.test;
+package io.memoria.jann;
 
 import java.io.File;
 
