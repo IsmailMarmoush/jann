@@ -1,7 +1,7 @@
 package io.memoria.legacyjann.test.unit.train;
 
 import io.memoria.legacyjann.test.TestingData;
-import io.memoria.legacyjann.utils.TrainUtils;
+import io.memoria.jann.TrainUtils;
 import org.jblas.DoubleMatrix;
 
 import java.io.IOException;

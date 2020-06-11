@@ -1,11 +1,10 @@
-package io.memoria.legacyjann.model.regression;
+package io.memoria.jann;
 
-import io.memoria.legacyjann.neuralgraph.NeuralDirectedGraph;
 import io.memoria.legacyjann.sv.DefaultSvLayer;
 import io.memoria.legacyjann.sv.SvNeuralNetwork;
-import io.memoria.legacyjann.utils.functors.IPerformance;
-import io.memoria.legacyjann.utils.functors.ITransfere;
-import io.memoria.legacyjann.utils.functors.IWeight;
+import io.memoria.jann.IPerformance;
+import io.memoria.jann.ITransfere;
+import io.memoria.jann.IWeight;
 import org.jblas.DoubleMatrix;
 
 public class FeedForwardSvNet extends SvNeuralNetwork {

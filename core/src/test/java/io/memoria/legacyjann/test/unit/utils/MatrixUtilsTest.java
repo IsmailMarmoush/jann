@@ -1,6 +1,6 @@
 package io.memoria.legacyjann.test.unit.utils;
 
-import io.memoria.legacyjann.utils.MatrixUtils;
+import io.memoria.jann.MatrixUtils;
 import org.jblas.DoubleMatrix;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package io.memoria.legacyjann.utils;
+package io.memoria.jann;
 
 import org.jblas.DoubleMatrix;
 

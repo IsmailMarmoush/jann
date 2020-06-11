@@ -1,7 +1,7 @@
-package io.memoria.legacyjann.utils.functors;
+package io.memoria.jann;
 
 import io.memoria.legacyjann.Layer;
-import io.memoria.legacyjann.utils.WeightUtils;
+import io.memoria.legacyjann.utils.functors.IFunctionable;
 import org.jblas.DoubleMatrix;
 
 public interface IWeight extends IFunctionable {

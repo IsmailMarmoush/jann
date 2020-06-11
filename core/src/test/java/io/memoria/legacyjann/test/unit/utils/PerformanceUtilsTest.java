@@ -1,7 +1,7 @@
 package io.memoria.legacyjann.test.unit.utils;
 
-import io.memoria.legacyjann.utils.PerformanceUtils;
-import io.memoria.legacyjann.utils.TransfereUtils;
+import io.memoria.jann.PerformanceUtils;
+import io.memoria.jann.TransfereUtils;
 import org.jblas.DoubleMatrix;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

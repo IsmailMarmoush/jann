@@ -1,8 +1,7 @@
 package io.memoria.legacyjann.test.integration;
 
 import io.memoria.legacyjann.NeuralNetwork;
-import io.memoria.legacyjann.neuralgraph.NeuralDirectedGraph;
-import io.memoria.legacyjann.utils.NetworkUtils;
+import io.memoria.jann.NetworkUtils;
 import org.jblas.DoubleMatrix;
 
 public class GraphNetworkTest {

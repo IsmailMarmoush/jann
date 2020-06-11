@@ -1,7 +1,7 @@
 package io.memoria.legacyjann.test.unit.chart.jframe;
 
 import io.memoria.legacyjann.chart.LineJf;
-import io.memoria.legacyjann.utils.MatrixUtils;
+import io.memoria.jann.MatrixUtils;
 import org.jfree.data.xy.XYSeries;
 
 import static io.memoria.legacyjann.chart.JChartUtils.xySeries;

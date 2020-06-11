@@ -1,5 +1,6 @@
-package io.memoria.legacyjann.utils;
+package io.memoria.jann;
 
+import io.memoria.jann.MatrixUtils;
 import io.memoria.legacyjann.sv.DefaultSvLayer;
 import org.jblas.DoubleMatrix;
 

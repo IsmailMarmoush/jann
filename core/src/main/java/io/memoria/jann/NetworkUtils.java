@@ -1,7 +1,6 @@
-package io.memoria.legacyjann.utils;
+package io.memoria.jann;
 
 import io.memoria.legacyjann.Layer;
-import io.memoria.legacyjann.neuralgraph.NeuralDirectedGraph;
 import io.memoria.legacyjann.neuralgraph.NeuralDirectedGraphable;
 import io.memoria.legacyjann.sv.SvLayer;
 import org.jblas.DoubleMatrix;

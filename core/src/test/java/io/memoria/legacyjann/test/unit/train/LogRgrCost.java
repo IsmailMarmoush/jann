@@ -2,11 +2,11 @@ package io.memoria.legacyjann.test.unit.train;
 
 import io.memoria.legacyjann.sv.DefaultSvLayer;
 import io.memoria.legacyjann.test.TestingData;
-import io.memoria.legacyjann.utils.PerformanceUtils;
-import io.memoria.legacyjann.utils.TransfereUtils;
-import io.memoria.legacyjann.utils.functors.IPerformance;
-import io.memoria.legacyjann.utils.functors.ITransfere;
-import io.memoria.legacyjann.utils.functors.IWeight;
+import io.memoria.jann.PerformanceUtils;
+import io.memoria.jann.TransfereUtils;
+import io.memoria.jann.IPerformance;
+import io.memoria.jann.ITransfere;
+import io.memoria.jann.IWeight;
 import org.jblas.DoubleMatrix;
 
 import java.io.IOException;

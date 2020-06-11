@@ -1,11 +1,11 @@
 package io.memoria.legacyjann.test.unit.train;
 
 import io.memoria.legacyjann.chart.LineImg;
-import io.memoria.legacyjann.model.regression.LinearRegression;
+import io.memoria.jann.LinearRegression;
 import io.memoria.legacyjann.train.Train;
-import io.memoria.legacyjann.utils.MatrixUtils;
-import io.memoria.legacyjann.utils.TrainUtils;
-import io.memoria.legacyjann.utils.functors.IPerformance;
+import io.memoria.jann.MatrixUtils;
+import io.memoria.jann.TrainUtils;
+import io.memoria.jann.IPerformance;
 import org.jblas.DoubleMatrix;
 import org.jfree.data.xy.XYSeries;
 

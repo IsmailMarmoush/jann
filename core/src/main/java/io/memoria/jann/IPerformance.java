@@ -1,7 +1,7 @@
-package io.memoria.legacyjann.utils.functors;
+package io.memoria.jann;
 
 import io.memoria.legacyjann.sv.SvLayer;
-import io.memoria.legacyjann.utils.PerformanceUtils;
+import io.memoria.legacyjann.utils.functors.IFunctionable;
 
 public interface IPerformance extends IFunctionable {
 
